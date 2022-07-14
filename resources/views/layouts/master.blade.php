@@ -23,7 +23,7 @@
 
 <body class="g-sidenav-show bg-white">
   <div class="min-height-300 bg-primary position-absolute w-100">
-    <img src= "{{asset('template/assets/img/sensus2.png')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 2000px;">
+    <img src= "{{asset('template/assets/img/sensus3.png')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
     <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)"></div>
   </div>
   <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
@@ -57,18 +57,26 @@
         
         <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p class="dropdown-toogle" data-bs-toogle="dropdown">
+              <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"></div>
+              <span class="dropdown-toogle" data-bs-toogle="dropdown">
                 Kemitraan
                 <i class="fas fa-angle-left right dropd"></i>
-                <span class="badge badge-info right">6</span>
-              </p>
+                
+              </span>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Mitra</p>
+                <a href="/kegiatan" class="nav-link">
+                  <i class="icon icon-shape icon-sm border-radius-md text-center me-4 d-flex align-items-center justify-content-center"></i>
+                  <span>Kegiatan</span>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/mitra" class="nav-link">
+                  <i class="icon icon-shape icon-sm border-radius-md text-center me-4 d-flex align-items-center justify-content-center"></i>
+                  <span>Mitra</span>
                 </a>
               </li>
             </ul>

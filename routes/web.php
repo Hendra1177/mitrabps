@@ -18,6 +18,10 @@ Route::get('/dashboard', function () {
 });
 
 
-Route::get('/tambahkegiatan', function () {
-    return view('Kemitraan.tambahKegiatan');
+Route::get('/kegiatan', function () {
+    return view('Kemitraan.kegiatan');
+});
+
+Route::get('/mitra', function () {
+    return view('Kemitraan.mitra');
 });
