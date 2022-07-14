@@ -55,6 +55,25 @@
         </li>
         
         
+        <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p class="dropdown-toogle" data-bs-toogle="dropdown">
+                Kemitraan
+                <i class="fas fa-angle-left right dropd"></i>
+                <span class="badge badge-info right">6</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mitra</p>
+                </a>
+              </li>
+            </ul>
+        </li>
+        
         
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
