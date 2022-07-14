@@ -27,7 +27,7 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #2d95c9;
+  --bs-primary: #3AB4F2;
   --bs-secondary: #8392ab;
   --bs-success: #2dce89;
   --bs-info: #11cdef;
@@ -97,6 +97,7 @@ body {
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
   background-color: var(--bs-body-bg);
+  background-image: var(--bs-gradient);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -10581,7 +10582,7 @@ fieldset:disabled .btn {
 }
 
 .bg-primary {
-  background-color: #2d95c9 !important;
+  background-color: #3AB4F2 !important;
 }
 
 .bg-secondary {
@@ -20238,7 +20239,7 @@ fieldset:disabled .btn {
 }
 
 .badge.bg-primary {
-  background: #2d95c9;
+  background: #3AB4F2;
 }
 
 .badge.bg-secondary {

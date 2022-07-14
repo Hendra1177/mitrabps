@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/dashboard', function () {
     return view('Dashboard.dashboard');
 });
+
+
+Route::get('/tambahkegiatan', function () {
+    return view('Kemitraan.tambahKegiatan');
+});
