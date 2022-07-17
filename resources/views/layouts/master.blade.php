@@ -46,72 +46,27 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link " href="/kegiatan">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Kegiatan</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link " href="./pages/tables.html">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Tables</span>
+            <span class="nav-link-text ms-1">Mitra</span>
           </a>
+        </li>
+            
         </li>
         
         
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-              <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center"></div>
-              <span class="dropdown-toogle" data-bs-toogle="dropdown">
-                Kemitraan
-                <i class="fas fa-angle-left right dropd"></i>
-                
-              </span>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/kegiatan" class="nav-link">
-                  <i class="icon icon-shape icon-sm border-radius-md text-center me-4 d-flex align-items-center justify-content-center"></i>
-                  <span>Kegiatan</span>
-                </a>
-              </li>
-            </ul>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/mitra" class="nav-link">
-                  <i class="icon icon-shape icon-sm border-radius-md text-center me-4 d-flex align-items-center justify-content-center"></i>
-                  <span>Mitra</span>
-                </a>
-              </li>
-            </ul>
-        </li>
         
-        
-        <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="./pages/profile.html">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Profile</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="./pages/sign-in.html">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Sign In</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="./pages/sign-up.html">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-collection text-info text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Sign Up</span>
-          </a>
-        </li>
-      </ul>
-    </div>
     
   </aside>
   <main class="main-content position-relative border-radius-lg ">

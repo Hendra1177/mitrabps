@@ -14,8 +14,10 @@
 <main class="main-content position-relative border-radius-lg ps">
   <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
     <main class="container"style="padding-top:10px; align-left">
+     <div>
+     </div>
       <center>
-               <h4>Form Kegiatan</h4>
+        <h4>Form Kegiatan</h4>
       </center>
         <div class="form-group">
           <label for="email">Nama Kegiatan</label>
