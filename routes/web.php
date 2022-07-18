@@ -20,12 +20,12 @@ Route::get('/dashboard', function () {
 
 Auth::routes();
 
-Route::get('/kegiatan', function () {
-    return view('Kemitraan.kegiatan');
+Route::get('/tambahkegiatan', function () {
+    return view('Kemitraan.tambahkegiatan');
 });
 
-Route::get('/mitra', function () {
-    return view('Kemitraan.mitra');
+Route::get('/tambahmitra', function () {
+    return view('Kemitraan.tambahmitra');
 });
 
 
