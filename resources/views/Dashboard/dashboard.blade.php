@@ -1,23 +1,23 @@
 @extends ('layouts.master')
 @section('content')
 <main class="main-content position-relative border-radius-lg ps">
-  <div class="container-fluid py-4">
+  <!-- <div class="container-fluid py-4"> -->
     <h1 class="my-6 text-6x5 font-bold text-white text-center">
       SELAMAT DATANG DI KEMITRAAN BPS JOMBANG
     </h1>
-  </div>
-
+  <!-- </div> -->
+  <br><br>
   <div class="container-fluid py-3">
     <div class="card-deck ">
       <div class="row">
-        <div class="col ">
+        <div class="col">
           <div class="card">
-            <div class="card-body  p-3 bg-yellow">
+            <div class="card-body rounded-3 p-3 bg-primary">
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah Mitra Terupdate</p>
-                    <h5 class="font-weight-bolder font-color-white">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold text-white">Jumlah Mitra Terupdate</p>
+                    <h5 class="font-weight-bolder text-white">
                       30 orang
                     </h5>
 
@@ -32,12 +32,12 @@
         </div>
         <div class="col">
           <div class="card">
-            <div class="card-body rounded-3 p-3 bg-info">
+            <div class="card-body rounded-3 p-3 bg-primary">
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah Kegiatan Terbaru</p>
-                    <h5 class="font-weight-bolder">
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold text-white">Jumlah Kegiatan Terbaru</p>
+                    <h5 class="font-weight-bolder text-white">
                       30 Kegiatan
                     </h5>
 
@@ -51,55 +51,61 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
+      <br>
+      <div class="row">
+        <div class="col-sm-9">
+          <div class="card">
+            <div class="card bg-white">
+              <div class="card-body" style="margin-left:18px">
+                <h4 class="my-2 text-6x5 font-bold text-gray text-sm-left">VISI</h4>
+                <p class="text-gray">"Penyedia Data Statistik Berkualitas untuk Indonesia Maju"<br class="text-white">(Provider of Qualified Statistical Data for Advanced Indonesia)</br></p>
+                <h4 class="my-2 text-6x5 font-bold text-gray text-left">MISI</h4>
+                <p class="text-gray">
+                  1. Menyediakan statistik berkualitas yang berstandar nasional dan internasional<br>
+                  2. Membina K/L/D/I melalui Sistem Statistik Nasional yang berkesinambungan<br>
+                  3. Mewujudkan pelayanan prima di bidang statistik untuk terwujudnya Sistem Statistik Nasional<br>
+                  4. Membangun SDM yang unggul dan adaptif berlandaskan nilai profesionalisme, integritas dan amanah
+                </p>
+              </div>
+            </div>
+          </div>
 
-    </div>
-    <div class="col">
-    </div>
+        </div>
+        <div class="col">
+          <div class="col-sm-14 ">
+            <div class="card">
+              <div class="card bg-primary">
+                <div class="card-header border-0">
 
-    <div class="col">
-      <div class="card">
-        <div class="card bg-gradient-success">
-          <div class="card-header border-0">
-
-            <h3 class="card-title">
-              <i class="far fa-calendar-alt"></i>
-              Calendar
-            </h3>
-            <!-- tools card -->
-            <div class="card-tools">
-              <!-- button with a dropdown -->
-              <div class="btn-group">
-                <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"
-                  data-offset="-52">
-                  <i class="fas fa-bars"></i>
-                </button>
-                <div class="dropdown-menu" role="menu">
-                  <a href="#" class="dropdown-item">Add new event</a>
-                  <a href="#" class="dropdown-item">Clear events</a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">View calendar</a>
+                  <h3 class="card-title">
+                    <i class="far fa-calendar-alt"></i>
+                    Calendar
+                  </h3>
+                  <!-- tools card -->
+                  <div class="card-tools">
+                    <!-- button with a dropdown -->
+                    
+                  </div>
+                  <!-- /. tools -->
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body pt-0">
+                  <!--The calendar -->
+                  <div id="calendar" style="width: 100%"></div>
                 </div>
               </div>
-              <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
-                <i class="fas fa-minus"></i>
-              </button>
-              <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
-                <i class="fas fa-times"></i>
-              </button>
             </div>
-            <!-- /. tools -->
-          </div>
-          <!-- /.card-header -->
-          <div class="card-body pt-0">
-            <!--The calendar -->
-            <div id="calendar" style="width: 100%"></div>
           </div>
         </div>
-        </ </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
 </main>
 
 @endsection
