@@ -22,23 +22,32 @@
                         });
                     });
                 </script>
-                <label for="pwd">Pilih Kegiatan</label>
+                <label for="pwd">Nama Mitra</label>
                 <input type="form" class="form-control" id="nama_kegiatan" placeholder="Enter nama kegiatan" name="email">
             </div>
             <div class="form-group">
-                <label for="pwd">Nama Mitra</label>
+                <label for="pwd">Target</label>
                 <input type="form" class="form-control" id="nama_mitra" placeholder="Enter nama mitra" name="pwd">
             </div>
             <div class="form-group">
-                <label for="pwd">Target</label>
+                <label for="pwd">Alamat</label>
                 <input type="form" class="form-control" id="target" placeholder="Enter target" name="pwd">
             </div>
             <div class="form-group">
-                <label for="pwd">Bertugas Sebagai</label>
+                <label for="pwd">Nomor HP</label>
                 <input type="form" class="form-control" id="tugas" placeholder="Enter bertugas sebagai" name="pwd">
             </div>
+            <div class="form-group">
+                <label for="pwd">Bekerja Sebagai</label>
+                <input type="form" class="form-control" id="tugas" placeholder="Enter bertugas sebagai" name="pwd">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Rekening Bank BRI</label>
+                <input type="form" class="form-control" id="tugas" placeholder="Enter bertugas sebagai" name="pwd">
+            </div>
+            <br>
 
-            <button type="submit" class="btn btn-default">Submit</button>
+            <button type="submit" class="btn btn-primary" >Submit</button>
 
 
         </main>

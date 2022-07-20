@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,13 +25,17 @@ Route::get('/tambahkegiatan', function () {
     return view('Kemitraan.tambahkegiatan');
 });
 
+Route::get('/mitra', function () {
+    return view('Kemitraan.mitra');
+});
+
 Route::get('/tambahmitra', function () {
     return view('Kemitraan.tambahmitra');
 });
 
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
+    Route::get('admin/home', [HomeController::class, 'admin.Home'])->name('admin.home');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {

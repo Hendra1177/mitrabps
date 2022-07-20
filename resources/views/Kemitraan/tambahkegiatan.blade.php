@@ -1,4 +1,4 @@
-@extends ('layouts.master')
+@extends ('Kemitraan.layoutkegiatan')
 @section('content')
 
 <main class="main-content position-relative border-radius-lg ps">
@@ -57,7 +57,7 @@
         <label for="text">Harga Satuan</label>
         <input type="text" class="form-control" id="harga_satuan" placeholder="Enter harga satuan" name="pwd">
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
         
 
     </main>
