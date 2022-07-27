@@ -52,15 +52,13 @@
         </div>
       </div>
       <br>
-      <div class="row">
-        <div class="col-sm-9">
           <div class="card">
             <div class="card bg-white">
-              <div class="card-body" style="margin-left:18px">
-                <h4 class="my-2 text-6x5 font-bold text-gray text-sm-left">VISI</h4>
-                <p class="text-gray">"Penyedia Data Statistik Berkualitas untuk Indonesia Maju"<br class="text-white">(Provider of Qualified Statistical Data for Advanced Indonesia)</br></p>
-                <h4 class="my-2 text-6x5 font-bold text-gray text-left">MISI</h4>
-                <p class="text-gray">
+              <div class="card-body" >
+                <h4 class="my-2 text-6x5 font-bold text-gray text-sm-center">VISI</h4>
+                <p class="text-gray text-center">"Penyedia Data Statistik Berkualitas untuk Indonesia Maju"<br class="text-white">(Provider of Qualified Statistical Data for Advanced Indonesia)</br></p>
+                <h4 class="my-2 text-6x5 font-bold text-gray text-center">MISI</h4>
+                <p class="text-gray text-center">
                   1. Menyediakan statistik berkualitas yang berstandar nasional dan internasional<br>
                   2. Membina K/L/D/I melalui Sistem Statistik Nasional yang berkesinambungan<br>
                   3. Mewujudkan pelayanan prima di bidang statistik untuk terwujudnya Sistem Statistik Nasional<br>
@@ -70,33 +68,7 @@
             </div>
           </div>
 
-        </div>
-        <div class="col">
-          <div class="col-sm-14 ">
-            <div class="card">
-              <div class="card bg-primary">
-                <div class="card-header border-0">
-
-                  <h3 class="card-title">
-                    <i class="far fa-calendar-alt"></i>
-                    Calendar
-                  </h3>
-                  <!-- tools card -->
-                  <div class="card-tools">
-                    <!-- button with a dropdown -->
-                    
-                  </div>
-                  <!-- /. tools -->
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body pt-0">
-                  <!--The calendar -->
-                  <div id="calendar" style="width: 100%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   </div>

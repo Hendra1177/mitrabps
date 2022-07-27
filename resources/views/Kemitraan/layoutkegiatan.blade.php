@@ -16,12 +16,13 @@
   <link href="{{asset('template/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="{{asset('template/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="{{asset('template/assets/css/argon-dashboard.css')}}" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  
 </head>
 
 <body class="g-sidenav-show bg-white">
@@ -38,19 +39,19 @@
       <!-- The slideshow -->
       <div class="carousel-inner">
         <div class="carousel-item active">
-        <img src= "{{asset('template/assets/img/sp2.jpg')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
+          <img src="{{asset('template/assets/img/sp2.jpg')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
         </div>
         <div class="carousel-item">
-        <img src= "{{asset('template/assets/img/sensus3.png')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
+          <img src="{{asset('template/assets/img/sensus3.png')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
         </div>
         <div class="carousel-item">
-        <img src= "{{asset('template/assets/img/bps people.jpg')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
+          <img src="{{asset('template/assets/img/bps people.jpg')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
         </div>
         <div class="carousel-item">
-        <img src= "{{asset('template/assets/img/sp3.jpg')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
+          <img src="{{asset('template/assets/img/sp3.jpg')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
         </div>
       </div>
-      
+
 
       <!-- Left and right controls -->
       <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -75,7 +76,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="/dashboard">
+          <a class="nav-link active" href="/">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
             </div>
@@ -101,10 +102,6 @@
         </li>
 
         </li>
-
-
-
-
   </aside>
   <main class="main-content position-relative border-radius-lg ">
     <!-- Navbar -->
@@ -117,75 +114,55 @@
           </ol>
           <h6 class="font-weight-bolder text-white mb-0">Tambah Kegiatan</h6>
         </nav>
+        <ul class="navbar-nav  justify-content-end">
+        <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white font-weight-bold " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('login') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+        <!-- <li class="nav-item ">
+              <a href="/login" class="nav-link text-white font-weight-bold px-7 ">
+                Logout
+              </a>
+            </li> -->
+
+          </li>
+          <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+            <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
+              <div class="sidenav-toggler-inner">
+                <i class="sidenav-toggler-line bg-white"></i>
+                <i class="sidenav-toggler-line bg-white"></i>
+                <i class="sidenav-toggler-line bg-white"></i>
+              </div>
+            </a>
+          </li>
+        </ul>
       </div>
       </div>
     </nav>
     <!-- End Navbar -->
     @yield('content')
-    <div class="fixed-plugin">
-      <div class="card shadow-lg">
-        <div class="card-header pb-0 pt-3 ">
-          <div class="float-start">
-            <h5 class="mt-3 mb-0">Argon Configurator</h5>
-            <p>See our dashboard options.</p>
-          </div>
-          <div class="float-end mt-4">
-            <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-              <i class="fa fa-close"></i>
-            </button>
-          </div>
-          <!-- End Toggle Button -->
-        </div>
-        <hr class="horizontal dark my-1">
-        <div class="card-body pt-sm-3 pt-0 overflow-auto">
-          <!-- Sidebar Backgrounds -->
-          <div>
-            <h6 class="mb-0">Sidebar Colors</h6>
-          </div>
-          <a href="javascript:void(0)" class="switch-trigger background-color">
-            <div class="badge-colors my-2 text-start">
-              <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
-              <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
-              <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
-              <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
-              <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
-              <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
-            </div>
-          </a>
-          <!-- Sidenav Type -->
-          <div class="mt-3">
-            <h6 class="mb-0">Sidenav Type</h6>
-            <p class="text-sm">Choose between 2 different sidenav types.</p>
-          </div>
-          <div class="d-flex">
-            <button class="btn bg-gradient-primary w-100 px-3 mb-2 active me-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
-            <button class="btn bg-gradient-primary w-100 px-3 mb-2" data-class="bg-default" onclick="sidebarType(this)">Dark</button>
-          </div>
-          <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-          <!-- Navbar Fixed -->
-          <div class="d-flex my-3">
-            <h6 class="mb-0">Navbar Fixed</h6>
-            <div class="form-check form-switch ps-0 ms-auto my-auto">
-              <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
-            </div>
-          </div>
-          <hr class="horizontal dark my-sm-4">
-          <div class="mt-2 mb-5 d-flex">
-            <h6 class="mb-0">Light / Dark</h6>
-            <div class="form-check form-switch ps-0 ms-auto my-auto">
-              <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
+    
     <!--   Core JS Files   -->
     <script src="{{asset('template/assets/js/core/popper.min.js')}}"></script>
     <script src="{{asset('template/assets/js/core/bootstrap.min.js')}}"></script>
     <script src="{{asset('template/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
     <script src="{{asset('template/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
     <script src="{{asset('template/assets/js/plugins/chartjs.min.js')}}"></script>
+   
+
     <script>
       var ctx1 = document.getElementById("chart-line").getContext("2d");
 

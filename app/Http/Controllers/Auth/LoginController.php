@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Auth;
    
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\Models\User;
+
    
 class LoginController extends Controller
 {
@@ -26,19 +29,19 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
-    protected function redirectTo()
-    {
-        if (auth()->user()->role == 'admin')
-        {
-            return '/admin/home';
-        } 
-        elseif (auth()->user()->role == 'user') 
-        {
-            return '/home';
-        }
-        return '/';
-    }
+    protected $redirectTo = '/home';
+    // protected function redirectTo()
+    // {
+    //     if (auth()->user()->role == 'admin')
+    //     {
+    //         return '/admin/home';
+    //     } 
+    //     elseif (auth()->user()->role == 'user') 
+    //     {
+    //         return '/home';
+    //     }
+    //     return '/login';
+    // }
    
     /**
      * Create a new controller instance.
@@ -48,6 +51,25 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    public function login(Request $request)
+    {
+        $input = $request->all();
+        $this->validate($request,[
+            'email'=> 'required|email',
+            'password'=> 'required',
+        ]);
+
+        if (auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
+        {
+            if(auth()->user()->is_admin == 1){
+                return redirect()->route('adminHome');
+            }else{
+                return redirect()->route('/');
+            }
+        }else{
+            return redirect()->route('login')->with('error',"Maaf Anda Mengalami Error");
+        }
     }
    
     
