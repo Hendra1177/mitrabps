@@ -1,6 +1,8 @@
 @extends('admin.layoutadmin')
 @section('content')
 
+    <div class="container"
+    <br><br><br><br><br><br><br><br><br><br><br>
         @if (session('sukses'))
         <div class="alert alert-success" role="alert">
             {{session('sukses')}}
@@ -20,7 +22,7 @@
                 </div>
             </div>
             <br>
-            <form class="example" action="/kegiatan" method="GET">
+            <form class="example" action="/admin/kegiatan" method="GET">
                 <input type="search" placeholder="Cari berdasarkan nama kegiatan.." name="cari">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
@@ -50,8 +52,8 @@
                     <td>{{$kegiatan->satuan}}</td>
                     <td>{{$kegiatan->harga_satuan}}</td>
                     <td>
-                        <a href="/kegiatan/{{$kegiatan->id}}/edit" class= "btn btn-warning btn-sm">edit</a>
-                        <a href="/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a>
+                        <a href="/admin/kegiatan/{{$kegiatan->id}}/edit" class= "btn btn-warning btn-sm">edit</a>
+                        <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a>
                         {{-- <a href="/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a> --}}
                     </td>
                 </tr>
@@ -69,7 +71,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="/kegiatan/create" method="POST">
+                    <form action="/admin/kegiatan/create" method="POST">
                         {{csrf_field()}}
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="form-label">Nama Kegiatan</label>

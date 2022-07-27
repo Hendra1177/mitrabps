@@ -12,16 +12,16 @@ class KegiatanController extends Controller
         if($request->has('cari')){
             $data_kegiatan = \App\Models\Kegiatan::where('nama_kegiatan', 'LIKE', '%'.$request->cari. '%')->get();
         }else{
-            $data_kegiatan = \App\Models\kegiatan::all();
+            $data_kegiatan = \App\Models\Kegiatan::all();
         }
         
-        return view('admin/kegiatanindex', ['data_kegiatan' => $data_kegiatan]);
+        return view('admin.kegiatanindex', ['data_kegiatan' => $data_kegiatan]);
     }
 
     public function create(Request $request)
     {
         \App\Models\Kegiatan::create($request->all());
-        return redirect('admin/kegiatanindex')->with('sukses', 'Data berhasil ditambahkan');
+        return redirect('/admin/kegiatan')->with('sukses', 'Data berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -34,13 +34,13 @@ class KegiatanController extends Controller
     {
         $kegiatan = \App\Models\Kegiatan::find($id);
         $kegiatan->update($request->all());
-        return redirect('admin/kegiatanindex')->with('sukses', 'Data berhasil diupdate');
+        return redirect('/admin/kegiatan')->with('sukses', 'Data berhasil diupdate');
     }  
 
     public function delete($id)
     {
         $kegiatan = \App\Models\Kegiatan::find($id);
         $kegiatan->delete($kegiatan);
-        return redirect('admin/kegiatanindex')->with('sukses', 'Data berhasil dihapus');
+        return redirect('/admin/kegiatan')->with('sukses', 'Data berhasil dihapus');
     }
 }

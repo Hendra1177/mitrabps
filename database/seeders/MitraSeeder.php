@@ -16,7 +16,8 @@ class MitraSeeder extends Seeder
     {
         $mitra = [
             [
-                'nama' => 'Agus wahyudi',
+                'nama_mitra' => 'Agus wahyudi',
+                'target' => '68',
                 'pekerjaan' => 'wiraswasta',
                 'alamat' => 'Dusun yyy, Desa xxx, Kecamatan zzz',
                 'kecamatan' => 'Kabuh',
@@ -24,7 +25,8 @@ class MitraSeeder extends Seeder
                 'rekening_bri' => '341485185815818'
             ],
             [
-                'nama' => 'Agus sumarso',
+                'nama_mitra' => 'Agus sumarso',
+                'target' => '68',
                 'pekerjaan' => 'petani',
                 'alamat' => 'Dusun yyy, Desa xxx, Kecamatan zzz',
                 'kecamatan' => 'ploso',
@@ -32,7 +34,8 @@ class MitraSeeder extends Seeder
                 'rekening_bri' => '342385185815818'
             ],
             [
-                'nama' => 'Karso',
+                'nama_mitra' => 'Karso',
+                'target' => '68',
                 'pekerjaan' => 'wiraswasta',
                 'alamat' => 'Dusun yyy, Desa xxx, Kecamatan zzz',
                 'kecamatan' => 'peterongan',
@@ -40,7 +43,8 @@ class MitraSeeder extends Seeder
                 'rekening_bri' => '542485185815818'
             ],
             [
-                'nama' => 'Sumarni',
+                'nama_mitra' => 'Sumarni',
+                'target' => '68',
                 'pekerjaan' => 'wirausaha',
                 'alamat' => 'Dusun yyy, Desa xxx, Kecamatan zzz',
                 'kecamatan' => 'ploso',
@@ -48,7 +52,8 @@ class MitraSeeder extends Seeder
                 'rekening_bri' => '341485185815818'
             ],
             [
-                'nama' => 'Burhan',
+                'nama_mitra' => 'Burhan',
+                'target' => '80',
                 'pekerjaan' => 'dukun',
                 'alamat' => 'Dusun yyy, Desa xxx, Kecamatan zzz',
                 'kecamatan' => 'Kabuh',

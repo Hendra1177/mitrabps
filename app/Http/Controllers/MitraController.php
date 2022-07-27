@@ -15,32 +15,32 @@ class MitraController extends Controller
             $data_mitra = \App\Models\Mitra::all();
         }
         
-        return view('mitra.index', ['data_mitra' => $data_mitra]);
+        return view('admin.mitraindex', ['data_mitra' => $data_mitra]);
     }
 
     public function create(Request $request)
     {
         \App\Models\Mitra::create($request->all());
-        return redirect('/mitra')->with('sukses', 'Data berhasil ditambahkan');
+        return redirect('/admin/mitra')->with('sukses', 'Data berhasil ditambahkan');
     }
 
     public function edit($id)
     {
         $mitra = \App\Models\Mitra::find($id);
-        return view('mitra/edit', ['mitra' => $mitra]);
+        return view('admin/mitraedit', ['mitra' => $mitra]);
     }
 
     public function update(Request $request, $id)
     {
         $mitra = \App\Models\Mitra::find($id);
         $mitra->update($request->all());
-        return redirect('/mitra')->with('sukses', 'Data berhasil diupdate');
+        return redirect('/admin/mitra')->with('sukses', 'Data berhasil diupdate');
     }  
 
     public function delete($id)
     {
         $mitra = \App\Models\Mitra::find($id);
         $mitra->delete($mitra);
-        return redirect('/mitra')->with('sukses', 'Data berhasil dihapus');
+        return redirect('/admin/mitra')->with('sukses', 'Data berhasil dihapus');
     }
 }

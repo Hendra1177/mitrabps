@@ -15,12 +15,13 @@ class CreateKegiatanTable extends Migration
     {
         Schema::create('kegiatan', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kegiatan', 50);
+            $table->string('nama_kegiatan');
+            $table->string('bulan');
             $table->date('tanggal_pelaksana');
-            $table->string('beban_anggaran', 50);
-            $table->string('volume_total', 50);
-            $table->string('satuan', 50);
-            $table->string('harga_satuan', 50);
+            $table->string('beban_anggaran');
+            $table->string('volume_total');
+            $table->string('satuan');
+            $table->string('harga_satuan');
             $table->timestamps();
         });
     }

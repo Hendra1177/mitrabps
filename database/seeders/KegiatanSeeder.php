@@ -17,6 +17,7 @@ class KegiatanSeeder extends Seeder
         $kegiatan = [
             [
                 'nama_kegiatan' => 'Pendataan',
+                'bulan' => 'September',
                 'tanggal_pelaksana' => '2022-09-17',
                 'beban_anggaran' => '2905.QMA.006',
                 'volume_total' => '1 tahun',
@@ -25,6 +26,7 @@ class KegiatanSeeder extends Seeder
             ],
             [
                 'nama_kegiatan' => 'Pendataan wilayah',
+                'bulan' => 'September',
                 'tanggal_pelaksana' => '2022-02-12',
                 'beban_anggaran' => '2705.QMA.006',
                 'volume_total' => '1 tahun',
@@ -33,6 +35,7 @@ class KegiatanSeeder extends Seeder
             ],
             [
                 'nama_kegiatan' => 'Belanja Barang',
+                'bulan' => 'September',
                 'tanggal_pelaksana' => '2022-03-23',
                 'beban_anggaran' => '0405.QMA.006',
                 'volume_total' => '1.0 paket',
@@ -41,6 +44,7 @@ class KegiatanSeeder extends Seeder
             ],
             [
                 'nama_kegiatan' => 'Belanja Langganan Listrik',
+                'bulan' => 'September',
                 'tanggal_pelaksana' => '2022-01-12',
                 'beban_anggaran' => '0205.QMA.006',
                 'volume_total' => '6.0 O-B',
@@ -49,6 +53,7 @@ class KegiatanSeeder extends Seeder
             ],
             [
                 'nama_kegiatan' => 'Belanja Langganan Telepon',
+                'bulan' => 'September',
                 'tanggal_pelaksana' => '2022-09-19',
                 'beban_anggaran' => '2905.QMA.006',
                 'volume_total' => '1 tahun',

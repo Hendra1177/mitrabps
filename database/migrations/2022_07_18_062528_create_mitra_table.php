@@ -15,12 +15,13 @@ class CreateMitraTable extends Migration
     {
         Schema::create('mitra', function (Blueprint $table) {
             $table->id();
-            $table->string('nama', 50);
-            $table->string('pekerjaan', 50);
-            $table->string('alamat', 100);
-            $table->string('kecamatan', 50);
-            $table->string('no_hp', 15);
-            $table->string('rekening_bri', 50);
+            $table->string('nama_mitra');
+            $table->string('target');
+            $table->string('pekerjaan');
+            $table->string('alamat');
+            $table->string('kecamatan');
+            $table->string('no_hp');
+            $table->string('rekening_bri');
             $table->timestamps();
         });
     }

@@ -34,8 +34,48 @@ Route::get('/tambahmitra', function () {
     return view('Kemitraan.tambahmitra');
 });
 
-Route::get('admin/home',[App\Http\Controllers\HomeController::class, 'adminHome'])->name('adminHome');
+Route::get('admin/dashboard',[App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin/dashboard');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('/');
+
+//crud
+Route::get('/admin/kegiatan', 'App\Http\Controllers\KegiatanController@index');
+
+Route::post('/admin/kegiatan/create', 'App\Http\Controllers\KegiatanController@create');
+
+Route::get('/admin/kegiatan/{id}/edit', 'App\Http\Controllers\KegiatanController@edit');
+
+Route::post('/admin/kegiatan/{id}/update', 'App\Http\Controllers\KegiatanController@update');
+
+Route::get('/admin/kegiatan/{id}/delete', 'App\Http\Controllers\KegiatanController@delete');
+
+//
+
+Route::get('/admin/mitra', 'App\Http\Controllers\MitraController@index');
+
+Route::post('/admin/mitra/create', 'App\Http\Controllers\MitraController@create');
+
+Route::get('/admin/mitra/{id}/edit', 'App\Http\Controllers\MitraController@edit');
+
+Route::post('/admin/mitra/{id}/update', 'App\Http\Controllers\MitraController@update');
+
+Route::get('/admin/mitra/{id}/delete', 'App\Http\Controllers\MitraController@delete');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Route::get('/register', [App\Http\Controllers\HomeController::class, 'register'])->name('register');
 // Route::prefix('admin')->group(function() {
 //     Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');

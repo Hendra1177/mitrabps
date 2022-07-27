@@ -1,6 +1,8 @@
 @extends('admin.layoutadmin')
 @section('content')
     
+<div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
+    <main class="container" style="padding-top:10px; align-left">
         @if (session('sukses'))
         <div class="alert alert-success" role="alert">
             {{session('sukses')}}
@@ -10,7 +12,7 @@
         <h1>Edit Data Kegiatan</h1>
         <div class="row">
             <div class="col-lg-12">
-                <form action="/kegiatan/{{$kegiatan->id}}/update" method="POST">
+                <form action="/admin/kegiatan/{{$kegiatan->id}}/update" method="POST">
                     {{csrf_field()}}
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="form-label">Nama Kegiatan</label>
@@ -70,4 +72,6 @@
                 </form>
             </div>
         </div>
+    </main>
+</div>
 @endsection
