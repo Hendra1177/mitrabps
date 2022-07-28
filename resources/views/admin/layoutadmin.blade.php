@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+@can('isAdmin')
+    
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -98,6 +99,15 @@
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Mitra</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " href="/admin/mitra">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Perjanjian</span>
           </a>
         </li>
 
@@ -256,5 +266,5 @@
     </script>
 
 </body>
-
+@endcan
 </html>

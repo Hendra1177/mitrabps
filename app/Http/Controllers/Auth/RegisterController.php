@@ -41,7 +41,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
+    /**              2v.
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -68,6 +68,12 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            
         ]);
+        
     }
+    // public function register()
+    // {
+    //     return request('auth.login');
+    // }
 }

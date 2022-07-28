@@ -84,11 +84,11 @@ Route::get('/admin/mitra/{id}/delete', 'App\Http\Controllers\MitraController@del
 //     Route::get('/', 'Auth\AdminController@index')->name('admin.dashboard');
 //    }) ;
 // Route::middleware(['auth', 'role:admin'])->group(function () {
-//     Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.Home');
+//     Route::get('admin', [HomeController::class, 'adminHome'])->name('admin.Home');
 // });
 
 // Route::middleware(['auth', 'role:user'])->group(function () {
-//     Route::get('/home', [HomeController::class, 'index'])->name('home');    
+//     Route::get('', [HomeController::class, 'index'])->name('home');    
 // });
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

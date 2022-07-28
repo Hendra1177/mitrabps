@@ -67,8 +67,10 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+                                <small class="d-block text-center mt-3">Sudah punya akun? <a href="/login">Login</a></small> 
                             </div>
                         </div>
+                        
                     </form>
                 </div>
             </div>

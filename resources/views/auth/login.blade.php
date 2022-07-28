@@ -47,15 +47,14 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-8 offset-md-6 ">
+                            <div class="col-md-8 offset-md-5 ">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                     
-                                </button>
-
-                                
+                                </button> 
                             </div>
                         </div>
+                        <small class="d-block text-center mt-3">Belum punya akun? <a href="/register">Register</a></small>
                     </form>
                 </div>
             </div>

@@ -5,6 +5,8 @@
     <h1 class="my-6 text-6x5 font-bold text-white text-center">
       SELAMAT DATANG DI KEMITRAAN BPS JOMBANG
     </h1>
+    @can('isAdmin')
+    @endcan
   <!-- </div> -->
   <br><br>
   <div class="container-fluid py-3">

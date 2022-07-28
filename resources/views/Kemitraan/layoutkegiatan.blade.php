@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+@can('isUser')
 
 <head>
   <meta charset="utf-8" />
@@ -257,5 +258,5 @@
     </script>
 
 </body>
-
+@endcan
 </html>
