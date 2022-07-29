@@ -4,12 +4,12 @@
 <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
     <main class="container" style="padding-top:10px; align-left">
         @if (session('sukses'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success fw-bold" role="alert">
             {{session('sukses')}}
         </div>
         @endif
         
-        <h1>Edit Data Kegiatan</h1>
+        <h2 class="text-center">Edit Data Kegiatan</h1>
         <div class="row">
             <div class="col-lg-12">
                 <form action="/admin/kegiatan/{{$kegiatan->id}}/update" method="POST">

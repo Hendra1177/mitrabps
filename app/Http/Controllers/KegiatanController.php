@@ -43,4 +43,11 @@ class KegiatanController extends Controller
         $kegiatan->delete($kegiatan);
         return redirect('/admin/kegiatan')->with('sukses', 'Data berhasil dihapus');
     }
+
+    // Method User
+    public function createKegiatan(Request $request)
+    {
+        \App\Models\Kegiatan::create($request->all());
+        return redirect('/tambahkegiatan')->with('sukses', 'Data berhasil ditambahkan');
+    }
 }

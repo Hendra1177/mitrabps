@@ -1,49 +1,63 @@
 @extends ('layouts.master')
 @section('content')
 
-<head>
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    </head>
-
 <main class="main-content position-relative border-radius-lg ps">
     <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
         <main class="container" style="padding-top:10px; align-left">
-            <center>
-                <h4>Form Tambah Mitra</h4>
-            </center>
+            @if (session('sukses'))
+                <div class="alert alert-success fw-bold" role="alert">
+                    {{session('sukses')}}
+                </div>
+            @endif
+            <h4 class="text-center">Form Tambah Mitra</h4>
+            <form action="/tambahmitra/create" method="POST">
+                {{csrf_field()}}
             <div class="form-group">
                 <script>
                     $(function() {
-                        $("#nama_kegiatan").autocomplete({
+                        $("#nama").autocomplete({
                             source: 'autocomplete.php'
                         });
                     });
                 </script>
                 <label for="pwd">Nama Mitra</label>
-                <input type="form" class="form-control" id="nama_kegiatan" placeholder="Enter nama kegiatan" name="email">
+                <input name="nama_mitra" type="text" class="form-control" id="nama" placeholder="Enter nama mitra">
             </div>
+
             <div class="form-group">
                 <label for="pwd">Target</label>
-                <input type="form" class="form-control" id="nama_mitra" placeholder="Enter nama mitra" name="pwd">
+                <input name="target" type="text" class="form-control" id="trgt"
+                    placeholder="Enter target" name="pwd">
             </div>
+
             <div class="form-group">
-                <label for="pwd">Alamat</label>
-                <input type="form" class="form-control" id="target" placeholder="Enter target" name="pwd">
+                <label for="pwd">Pekerjaan</label>
+                <input name="pekerjaan" type="text" class="form-control" id="tgl"
+                    placeholder="Enter pekerjaan" name="pwd">
             </div>
+
             <div class="form-group">
-                <label for="pwd">Nomor HP</label>
-                <input type="form" class="form-control" id="tugas" placeholder="Enter bertugas sebagai" name="pwd">
+                <label for="exampleInputEmail1" class="form-label">Alamat</label>
+                <input name="alamat" type="text" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="Enter alamat">
             </div>
+
             <div class="form-group">
-                <label for="pwd">Bekerja Sebagai</label>
-                <input type="form" class="form-control" id="tugas" placeholder="Enter bertugas sebagai" name="pwd">
+                <label for="exampleInputEmail1" class="form-label">Kecamatan</label>
+                <input name="kecamatan" type="text" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="Enter kecamatan">
             </div>
+
             <div class="form-group">
-                <label for="pwd">Rekening Bank BRI</label>
-                <input type="form" class="form-control" id="tugas" placeholder="Enter bertugas sebagai" name="pwd">
+                <label for="exampleInputEmail1" class="form-label">Nomor HP</label>
+                <input name="no_hp" type="text" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="Enter nomor hp">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="form-label">Rekening BRI</label>
+                <input name="rekening_bri" type="text" class="form-control" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="Enter rekening BRI">
             </div>
             <br>
 

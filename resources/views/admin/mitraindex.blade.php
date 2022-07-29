@@ -1,18 +1,22 @@
 @extends('admin.layoutadmin')
 @section('content')
 
-    <div class="container"
-    <br><br><br><br><br><br><br><br><br><br><br>
+<main class="main-content position-relative border-radius-lg ps">
+    <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
+        <main class="container">
         @if (session('sukses'))
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success fw-bold" role="alert">
             {{session('sukses')}}
         </div>
         @endif
 
-        <h1>Data Mitra</h1>
+        <h2 class="text-center">Data Mitra</h1>
         <div class="row">
             <div class="col-6">
-
+                <form class="example" action="/admin/mitra" method="GET">
+                    <input class="px-5" type="search" placeholder="Cari berdasarkan nama mitra.." name="cari">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
             </div>
             <div class="col-6">
                 <!-- Button trigger modal -->
@@ -21,15 +25,9 @@
                     data-bs-target="#exampleModal">Tambah Mitra</button>
                 </div>
             </div>
-            <br>
-            <form class="example" action="/admin/mitra" method="GET">
-                <input type="search" placeholder="Cari berdasarkan nama mitra.." name="cari">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
             
             <table class="table table-hover table-bordered">
-                <br>
-                <tr>
+                <tr class="text-center">
                     <th>ID</th>
                     <th>Nama Mitra</th>
                     <th>Target</th>
@@ -43,14 +41,14 @@
 
                 @foreach ($data_mitra as $mitra)
                 <tr>
-                    <td>{{$mitra->id}}</td>
+                    <td class="text-center">{{$mitra->id}}</td>
                     <td>{{$mitra->nama_mitra}}</td>
-                    <td>{{$mitra->target}}</td>
-                    <td>{{$mitra->pekerjaan}}</td>
+                    <td class="text-center">{{$mitra->target}}</td>
+                    <td class="text-center">{{$mitra->pekerjaan}}</td>
                     <td>{{$mitra->alamat}}</td>
-                    <td>{{$mitra->kecamatan}}</td>
-                    <td>{{$mitra->no_hp}}</td>
-                    <td>{{$mitra->rekening_bri}}</td>
+                    <td class="text-center">{{$mitra->kecamatan}}</td>
+                    <td class="text-center">{{$mitra->no_hp}}</td>
+                    <td class="text-center">{{$mitra->rekening_bri}}</td>
                     <td>
                         <a href="/admin/mitra/{{$mitra->id}}/edit" class= "btn btn-warning btn-sm">edit</a>
                         <a href="/admin/mitra/{{$mitra->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a>
@@ -67,7 +65,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Data Mitra</h5>
+                    <h5 class="modal-title text-center" id="exampleModalLabel">Data Mitra</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -121,5 +119,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </main>
+    </div>
+</main>
 @endsection

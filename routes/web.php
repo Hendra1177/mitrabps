@@ -37,7 +37,7 @@ Route::get('/tambahmitra', function () {
 Route::get('admin/dashboard',[App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin/dashboard');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('/');
 
-//crud
+//CRUD Admin Kegiatan
 Route::get('/admin/kegiatan', 'App\Http\Controllers\KegiatanController@index');
 
 Route::post('/admin/kegiatan/create', 'App\Http\Controllers\KegiatanController@create');
@@ -48,7 +48,7 @@ Route::post('/admin/kegiatan/{id}/update', 'App\Http\Controllers\KegiatanControl
 
 Route::get('/admin/kegiatan/{id}/delete', 'App\Http\Controllers\KegiatanController@delete');
 
-//
+//CRUD Admin Mitra
 
 Route::get('/admin/mitra', 'App\Http\Controllers\MitraController@index');
 
@@ -60,6 +60,11 @@ Route::post('/admin/mitra/{id}/update', 'App\Http\Controllers\MitraController@up
 
 Route::get('/admin/mitra/{id}/delete', 'App\Http\Controllers\MitraController@delete');
 
+//Form User Kegiatan 
+Route::post('/tambahkegiatan/create', 'App\Http\Controllers\KegiatanController@createKegiatan');
+
+//Form User Mitra
+Route::post('/tambahmitra/create', 'App\Http\Controllers\MitraController@createMitra');
 
 
 

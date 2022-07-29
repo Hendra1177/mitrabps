@@ -43,4 +43,10 @@ class MitraController extends Controller
         $mitra->delete($mitra);
         return redirect('/admin/mitra')->with('sukses', 'Data berhasil dihapus');
     }
+
+    public function createMitra(Request $request)
+    {
+        \App\Models\Mitra::create($request->all());
+        return redirect('/tambahmitra')->with('sukses', 'Data berhasil ditambahkan');
+    }
 }
