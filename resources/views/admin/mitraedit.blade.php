@@ -1,6 +1,14 @@
 @extends('admin.layoutadmin')
 @section('content')
 
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+
     <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
         <main class="container" style="padding-top:10px; align-left">
         @if (session('sukses'))
