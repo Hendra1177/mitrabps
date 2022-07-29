@@ -66,8 +66,31 @@
                         <td class="text-center">{{$mitra->rekening_bri}}</td>
                         <td>
                             <a href="/admin/mitra/{{$mitra->id}}/edit" class= "btn btn-warning btn-sm">edit</a>
-                            <a href="/admin/mitra/{{$mitra->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a>
-                            {{-- <a href="/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a> --}}
+                            <!-- <a href="/admin/mitra/{{$mitra->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a> -->
+                            <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#ModalDelete">
+                                        Delete
+                                    </button>
+                                    <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <form action="/admin/mitra/create" method="POST">
+                                            {{csrf_field()}}
+
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">PERINGATAN</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Apakah yakin ingin dihapus?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
+                                                            <a href="/admin/mitra/{{$mitra->id}}/delete" class="btn btn-danger btn-sm" >Hapus</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </form>
+                                    </div>
                         </td>
                     </tr>
                     @endforeach
