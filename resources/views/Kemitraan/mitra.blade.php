@@ -1,4 +1,4 @@
-@extends ('layouts.master')
+@extends ('Kemitraan.layoutmitra')
 @section('content')
 
 <head>

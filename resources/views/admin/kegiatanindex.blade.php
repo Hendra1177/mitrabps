@@ -1,4 +1,4 @@
-@extends('admin.layoutadmin')
+@extends('admin.layoutkegiatanadmin')
 @section('content')
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
 </head>
 
 <main class="main-content position-relative border-radius-lg ps">
-    <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
+    <div class="card mx-auto" style="margin-left:30px; margin-right:30px; margin-top:255px">
         <main class="container">
             @if (session('sukses'))
             <div class="alert alert-success fw-bold" role="alert">
@@ -85,7 +85,7 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
-                                                            <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" >Hapus</a>
+                                                            <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" >delete</a>
                                                         </div>
                                                     </div>
                                                 </div>

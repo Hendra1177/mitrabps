@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @can('isUser')
-    
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,7 +23,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
+  
 </head>
 
 <body class="g-sidenav-show bg-white">
@@ -77,7 +77,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="/">
+          <a class="nav-link " href="/">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
             </div>
@@ -94,7 +94,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link " href="/mitra">
+          <a class="nav-link active " href="/mitra">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
@@ -111,28 +111,29 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Mitra</li>
           </ol>
-          <h6 class="font-weight-bolder text-white mb-0">Dashboard</h6>
+          <h6 class="font-weight-bolder text-white mb-0">Tambah Mitra</h6>
         </nav>
         <ul class="navbar-nav  justify-content-end">
-          <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white font-weight-bold " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{ Auth::user()->name }}
-            </a>
+        <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white font-weight-bold " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
 
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ route('login') }}" onclick="event.preventDefault();
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('login') }}"
+                                       onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
-              </a>
+                                        {{ __('Logout') }}
+                                    </a>
 
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-              </form>
-            </div>
-          </li>
-          <!-- <li class="nav-item ">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+        <!-- <li class="nav-item ">
               <a href="/login" class="nav-link text-white font-weight-bold px-7 ">
                 Logout
               </a>
@@ -154,14 +155,14 @@
     </nav>
     <!-- End Navbar -->
     @yield('content')
-
+    
     <!--   Core JS Files   -->
     <script src="{{asset('template/assets/js/core/popper.min.js')}}"></script>
     <script src="{{asset('template/assets/js/core/bootstrap.min.js')}}"></script>
     <script src="{{asset('template/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
     <script src="{{asset('template/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
     <script src="{{asset('template/assets/js/plugins/chartjs.min.js')}}"></script>
-
+   
 
     <script>
       var ctx1 = document.getElementById("chart-line").getContext("2d");

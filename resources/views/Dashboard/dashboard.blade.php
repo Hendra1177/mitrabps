@@ -1,5 +1,6 @@
 @extends ('layouts.master')
 @section('content')
+@section('Dashboard', 'active')
 <main class="main-content position-relative border-radius-lg ps">
   <!-- <div class="container-fluid py-4"> -->
     <h1 class="my-6 text-6x5 font-bold text-white text-center">

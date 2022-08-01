@@ -1,6 +1,6 @@
 @extends ('Kemitraan.layoutkegiatan')
 @section('content')
-
+@section('Kegiatan', 'active')
 <main class="main-content position-relative border-radius-lg ps">
   <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
     <form action="/tambahkegiatan/create" method="POST">

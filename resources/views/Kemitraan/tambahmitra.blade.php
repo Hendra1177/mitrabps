@@ -1,4 +1,4 @@
-@extends ('layouts.master')
+@extends ('layouts.layoutmitra')
 @section('content')
 
 <main class="main-content position-relative border-radius-lg ps">

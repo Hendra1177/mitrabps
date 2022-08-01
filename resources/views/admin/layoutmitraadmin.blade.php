@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@can('isUser')
+@can('isAdmin')
     
 <head>
   <meta charset="utf-8" />
@@ -77,7 +77,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="/">
+          <a class="nav-link " href="/admin/dashboard">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
             </div>
@@ -85,7 +85,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  " href="/tambahkegiatan">
+          <a class="nav-link " href="/admin/kegiatan">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
@@ -94,11 +94,20 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link " href="/mitra">
+          <a class="nav-link active " href="/admin/mitra">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
             <span class="nav-link-text ms-1">Mitra</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link " href="/admin/mitra">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Perjanjian</span>
           </a>
         </li>
 
@@ -111,9 +120,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Mitra</li>
           </ol>
-          <h6 class="font-weight-bolder text-white mb-0">Dashboard</h6>
+          <h6 class="font-weight-bolder text-white mb-0">Tambah Mitra</h6>
         </nav>
         <ul class="navbar-nav  justify-content-end">
           <li class="nav-item dropdown">

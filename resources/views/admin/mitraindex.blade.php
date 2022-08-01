@@ -1,4 +1,4 @@
-@extends('admin.layoutadmin')
+@extends('admin.layoutmitraadmin')
 @section('content')
 
 <!DOCTYPE html>
@@ -70,14 +70,14 @@
                             <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#ModalDelete">
                                         Delete
                                     </button>
-                                    <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabelDelete" aria-hidden="true">
                                         <form action="/admin/mitra/create" method="POST">
                                             {{csrf_field()}}
 
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">PERINGATAN</h5>
+                                                            <h5 class="modal-title" id="exampleModalLabelDelete">PERINGATAN</h5>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
@@ -89,7 +89,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                        
                                         </form>
+                                    
                                     </div>
                         </td>
                     </tr>
