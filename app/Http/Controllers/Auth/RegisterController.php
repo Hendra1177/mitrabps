@@ -72,8 +72,4 @@ class RegisterController extends Controller
         ]);
         
     }
-    // public function register()
-    // {
-    //     return request('auth.login');
-    // }
 }

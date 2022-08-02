@@ -1,4 +1,4 @@
-@extends ('layouts.layoutmitra')
+@extends ('Kemitraan.layoutmitra')
 @section('content')
 
 <main class="main-content position-relative border-radius-lg ps">

@@ -10,7 +10,7 @@
   <!-- </div> -->
   <br><br>
   <div class="container-fluid py-3">
-    <div class="card-deck ">
+    <!-- <div class="card-deck ">
       <div class="row">
         <div class="col">
           <div class="card">
@@ -31,8 +31,8 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="col">
+        </div> -->
+        <!-- <div class="col">
           <div class="card">
             <div class="card-body rounded-3 p-3 bg-primary">
               <div class="row">
@@ -52,7 +52,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <br>
           <div class="card">
             <div class="card bg-white">

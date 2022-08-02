@@ -37,6 +37,15 @@ class HomeController extends Controller
         return view('Dashboard.dashboardadmin');
     }
      
+    // /**
+    //  * Show the application dashboard.
+    //  *
+    //  * @return \Illuminate\Contracts\Support\Renderable
+    //  */
+    // public function register()
+    // {
+    //     return view('auth.register');
+    // }
     // public function register()
     // {
     //     return view('auth.register');

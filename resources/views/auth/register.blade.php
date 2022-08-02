@@ -63,8 +63,8 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-6 offset-md-4 ">                              
+                                <button type="submit" class="btn btn-primary ">
                                     {{ __('Register') }}
                                 </button>
                                 <small class="d-block text-center mt-3">Sudah punya akun? <a href="/login">Login</a></small> 
