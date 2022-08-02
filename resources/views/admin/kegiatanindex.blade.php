@@ -11,10 +11,19 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <style>
+        #over {
+          /* background-color: #eee; */
+          width: auto;
+          height: auto;
+          /* border: 900px ; */
+          overflow: scroll;
+        }
+    </style>
 </head>
 
 <main class="main-content position-relative border-radius-lg ps">
-    <div class="card mx-auto" style="margin-left:30px; margin-right:30px; margin-top:255px">
+    <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
         <main class="container">
             @if (session('sukses'))
             <div class="alert alert-success fw-bold" role="alert">
@@ -40,8 +49,9 @@
                             <button class="btn btn-primary me-sm btn-sm " type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Kegiatan</button>
                         </div>
                     </div>
-                    <div>
-                        <table class="table table-hover table-bordered ">
+                    <div id="over">
+                        <table class="table table-hover table-bordered" id="coba">
+                            <thead>
                             <tr class="text-center">
                                 <th>ID</th>
                                 <th>Nama Kegiatan</th>
@@ -53,7 +63,9 @@
                                 <th>Harga Satuan</th>
                                 <th>Aksi</th>
                             </tr>
+                            </thead>
 
+                            <tbody>
                             @foreach ($data_kegiatan as $kegiatan)
                             <tr>
                                 <td class="text-center">{{$kegiatan->id}}</td>
@@ -95,6 +107,7 @@
                                 </td>
                             </tr>
                             @endforeach
+                        </tbody>
                         </table>
                     </div>
                     <nav aria-label="Page navigation example">

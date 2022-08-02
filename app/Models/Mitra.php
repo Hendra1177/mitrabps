@@ -18,4 +18,8 @@ class Mitra extends Model
         'no_hp',
         'rekening_bri' 
     ];
+
+    public function kegiatan(){
+        return $this->belongsToMany(Kegiatan::class)->withPivot('nilai_perjanjian');
+    }
 }
