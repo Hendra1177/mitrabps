@@ -18,4 +18,8 @@ class Kegiatan extends Model
         'satuan',
         'harga_satuan' 
     ];
+
+    public function mitra(){
+        return $this->belongsToMany(Mitra::class)->withPivot('nilai_perjanjian');
+    }
 }

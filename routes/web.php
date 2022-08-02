@@ -60,6 +60,9 @@ Route::post('/admin/mitra/{id}/update', 'App\Http\Controllers\MitraController@up
 
 Route::get('/admin/mitra/{id}/delete', 'App\Http\Controllers\MitraController@delete');
 
+//CRUD Admin Perjanjian
+Route::get('/admin/perjanjian', 'App\Http\Controllers\KegiatanMitraController@index');
+
 //Form User Kegiatan 
 Route::post('/tambahkegiatan/create', 'App\Http\Controllers\KegiatanController@createKegiatan');
 
