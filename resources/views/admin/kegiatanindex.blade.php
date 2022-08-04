@@ -47,7 +47,7 @@
                     <div class="col-6">
                         <!-- Button trigger modal -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button class="btn btn-primary me-sm btn-sm " type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Kegiatan</button>
+                            <button class="btn btn-primary me-sm btn-sm " type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Tambah Kegiatan</button>
                         </div>
                     </div>
                     <div id="over">
@@ -74,7 +74,8 @@
                                 <td class="text-center">{{$kegiatan->id}}</td>
                                 <td>{{$kegiatan->nama_kegiatan}}</td>
                                 <td>{{$kegiatan->bulan}}</td>
-                                <td class="text-center">{{$kegiatan->tanggal_pelaksana}}</td>
+                                {{-- <td>{{$kegiatan->tanggal_mulai}}{{' - '}}{{$kegiatan->tanggal_akhir}}</td> --}}
+                                <td class="text-center">{{$kegiatan->tanggal_mulai}}</td>
                                 <td class="text-center">{{$kegiatan->beban_anggaran}}</td>
                                 <td class="text-center">{{$kegiatan->volume_total}}</td>
                                 <td class="text-center">{{$kegiatan->satuan}}</td>

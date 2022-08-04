@@ -18,7 +18,8 @@ class KegiatanSeeder extends Seeder
             [
                 'nama_kegiatan' => 'Pendataan',
                 'bulan' => 'September',
-                'tanggal_pelaksana' => '2022-09-17',
+                'tanggal_mulai' => '2022-09-17',
+                'tanggal_akhir' => '2022-09-19',
                 'beban_anggaran' => '2905.QMA.006',
                 'volume_total' => '1 tahun',
                 'satuan' => 'RM',
@@ -27,7 +28,8 @@ class KegiatanSeeder extends Seeder
             [
                 'nama_kegiatan' => 'Pendataan wilayah',
                 'bulan' => 'September',
-                'tanggal_pelaksana' => '2022-02-12',
+                'tanggal_mulai' => '2022-02-12',
+                'tanggal_akhir' => '2022-02-24',
                 'beban_anggaran' => '2705.QMA.006',
                 'volume_total' => '1 tahun',
                 'satuan' => 'RM',
@@ -36,7 +38,8 @@ class KegiatanSeeder extends Seeder
             [
                 'nama_kegiatan' => 'Belanja Barang',
                 'bulan' => 'September',
-                'tanggal_pelaksana' => '2022-03-23',
+                'tanggal_mulai' => '2022-03-23',
+                'tanggal_akhir' => '2022-03-30',
                 'beban_anggaran' => '0405.QMA.006',
                 'volume_total' => '1.0 paket',
                 'satuan' => 'RM',
@@ -45,7 +48,8 @@ class KegiatanSeeder extends Seeder
             [
                 'nama_kegiatan' => 'Belanja Langganan Listrik',
                 'bulan' => 'September',
-                'tanggal_pelaksana' => '2022-01-12',
+                'tanggal_mulai' => '2022-01-12',
+                'tanggal_akhir' => '2022-01-19',
                 'beban_anggaran' => '0205.QMA.006',
                 'volume_total' => '6.0 O-B',
                 'satuan' => 'RM',
@@ -54,7 +58,8 @@ class KegiatanSeeder extends Seeder
             [
                 'nama_kegiatan' => 'Belanja Langganan Telepon',
                 'bulan' => 'September',
-                'tanggal_pelaksana' => '2022-09-19',
+                'tanggal_mulai' => '2022-09-19',
+                'tanggal_akhir' => '2022-09-28',
                 'beban_anggaran' => '2905.QMA.006',
                 'volume_total' => '1 tahun',
                 'satuan' => 'RM',

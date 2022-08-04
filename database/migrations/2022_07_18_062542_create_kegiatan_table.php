@@ -17,7 +17,8 @@ class CreateKegiatanTable extends Migration
             $table->id();
             $table->string('nama_kegiatan');
             $table->string('bulan');
-            $table->date('tanggal_pelaksana');
+            $table->date('tanggal_mulai');
+            $table->date('tanggal_akhir');
             $table->string('beban_anggaran');
             $table->string('volume_total');
             $table->string('satuan');

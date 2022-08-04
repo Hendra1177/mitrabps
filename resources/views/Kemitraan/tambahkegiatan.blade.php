@@ -15,7 +15,10 @@
       <h4 class="text-center">Form Kegiatan</h4>
       <div class="form-group">
         <label for="exampleDataList" class="form-label">Nama Kegiatan</label>
-        <input name="nama_kegiatan" class="form-control" list="datalistOptions" id="kegiatan" placeholder="Enter Nama Kegiatan">
+        <input name="nama_kegiatan" class="form-control" list="datalistOptions" id="nama_kegiatan" placeholder="Enter Nama Kegiatan">
+        
+        
+        
         {{-- <datalist id="datalistOptions">
           <option value="San Francisco">
           <option value="New York">
@@ -46,8 +49,13 @@
       </div>
 
       <div class="form-group">
-        <label for="pwd">Tanggal Pelaksana</label>
-        <input name="tanggal_pelaksana" type="date" class="form-control" id="tgl" placeholder="Enter tanggal pelaksana">
+        <label for="pwd">Tanggal Mulai Pelaksana</label>
+        <input name="tanggal_mulai" type="date" class="form-control" id="tgl" placeholder="Enter tanggal pelaksana">
+      </div>
+
+      <div class="form-group">
+        <label for="pwd">Tanggal Akhir Pelaksana</label>
+        <input name="tanggal_akhir" type="date" class="form-control" id="tgl" placeholder="Enter tanggal pelaksana">
       </div>
 
       <div class="form-group">
@@ -70,9 +78,9 @@
         <input name="harga_satuan" type="text" class="form-control" id="harga_satuan" placeholder="Enter harga satuan">
       </div>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
-
+      <button type="submit" class="btn btn-primary" actio>Submit</button>
     </main>
+    </form>
   </div>
 </main>
 

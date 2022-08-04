@@ -49,7 +49,6 @@
                                 <tr class="text-center">
                                     <th>ID</th>
                                     <th>Nama Mitra</th>
-                                    <th>Target</th>
                                     <th>Pekerjaan</th>
                                     <th>Alamat</th>
                                     <th>Desa</th>
@@ -65,7 +64,6 @@
                                 <tr>
                                     <td class="text-center">{{$mitra->id}}</td>
                                     <td>{{$mitra->nama_mitra}}</td>
-                                    <td class="text-center">{{$mitra->target}}</td>
                                     <td class="text-center">{{$mitra->pekerjaan}}</td>
                                     <td>{{$mitra->alamat}}</td>
                                     <td class="text-center">{{$mitra->desa}}</td>
@@ -127,11 +125,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="pwd">Target</label>
-                            <input name="target" type="text" class="form-control" id="trgt" placeholder="Enter target" name="pwd">
-                        </div>
-
-                        <div class="form-group">
                             <label for="pwd">Pekerjaan</label>
                             <input name="pekerjaan" type="text" class="form-control" id="tgl" placeholder="Enter pekerjaan" name="pwd">
                         </div>
@@ -139,6 +132,11 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="form-label">Alamat</label>
                             <input name="alamat" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter alamat">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="form-label">Desa</label>
+                            <input name="desa" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter alamat">
                         </div>
 
                         <div class="form-group">

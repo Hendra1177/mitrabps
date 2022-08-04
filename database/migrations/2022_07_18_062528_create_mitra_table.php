@@ -16,7 +16,6 @@ class CreateMitraTable extends Migration
         Schema::create('mitra', function (Blueprint $table) {
             $table->id();
             $table->string('nama_mitra');
-            $table->string('target');
             $table->string('pekerjaan');
             $table->string('alamat');
             $table->string('desa');

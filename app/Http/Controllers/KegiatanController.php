@@ -49,6 +49,8 @@ class KegiatanController extends Controller
     public function createKegiatan(Request $request)
     {
         \App\Models\Kegiatan::create($request->all());
-        return redirect('/tambahkegiatan')->with('sukses', 'Data berhasil ditambahkan');
+        return redirect('/mitra')->with('sukses', 'Data berhasil ditambahkan');
     }
+
+    
 }

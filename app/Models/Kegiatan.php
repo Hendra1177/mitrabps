@@ -12,7 +12,8 @@ class Kegiatan extends Model
     protected $fillable = [
         'nama_kegiatan',
         'bulan',
-        'tanggal_pelaksana',
+        'tanggal_mulai',
+        'tanggal_akhir',
         'beban_anggaran',
         'volume_total',
         'satuan',
