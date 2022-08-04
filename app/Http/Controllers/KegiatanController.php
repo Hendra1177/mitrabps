@@ -45,6 +45,7 @@ class KegiatanController extends Controller
     }
 
     // Method User
+    
     public function createKegiatan(Request $request)
     {
         \App\Models\Kegiatan::create($request->all());

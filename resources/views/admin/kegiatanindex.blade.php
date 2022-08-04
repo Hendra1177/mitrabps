@@ -13,11 +13,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <style>
         #over {
-          /* background-color: #eee; */
-          width: auto;
-          height: auto;
-          /* border: 900px ; */
-          overflow: scroll;
+            /* background-color: #eee; */
+            width: auto;
+            height: auto;
+            /* border: 900px ; */
+            overflow-y: hidden;
+            overflow-x: scroll;
         }
     </style>
 </head>
@@ -49,13 +50,8 @@
                             <button class="btn btn-primary me-sm btn-sm " type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Kegiatan</button>
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <div>
-                        <table class="table table-hover table-bordered " id="datatables">
-=======
                     <div id="over">
-                        <table class="table table-hover table-bordered" id="coba">
->>>>>>> 7fc29719b0f464b4b49733cb7a22789fcb722235
+                        <table class="table table-hover table-bordered " id="datatables">
                             <thead>
                             <tr class="text-center">
                                 <th>ID</th>
@@ -116,11 +112,7 @@
                                 </td>
                             </tr>
                             @endforeach
-<<<<<<< HEAD
-                            </tbody>
-=======
                         </tbody>
->>>>>>> 7fc29719b0f464b4b49733cb7a22789fcb722235
                         </table>
                     </div>
                     <!-- <nav aria-label="Page navigation example">

@@ -19,6 +19,7 @@ class CreateMitraTable extends Migration
             $table->string('target');
             $table->string('pekerjaan');
             $table->string('alamat');
+            $table->string('desa');
             $table->string('kecamatan');
             $table->string('no_hp');
             $table->string('rekening_bri');

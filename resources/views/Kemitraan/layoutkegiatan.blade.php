@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 @can('isUser')
 
 <head>
@@ -15,6 +16,12 @@
   <!-- Nucleo Icons -->
   <link href="{{asset('template/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
   <link href="{{asset('template/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+
+  {{-- Auto Complete --}}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.4.7/jquery.autocomplete.min.js"></script>
+
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="{{asset('template/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
@@ -257,6 +264,42 @@
       }
     </script>
 
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $( "#kegiatan" ).autocomplete({
+          serviceUrl: "search.php",   // Kode php untuk prosesing data
+          dataType: "JSON",           // Tipe data JSON
+          onSelect: function (suggestion) {
+              $( "#kegiatan" ).val(suggestion.nama_kegiatan);
+          }
+        });
+      })
+    </script>
+
+    <script>
+          
+      
+      if(isset($_GET["query"])){
+        $key = "%".$_GET["query"]."%";
+        $query = "SELECT * FROM kegiatan WHERE nama_kegiatan LIKE ? LIMIT 10";
+        $dewan1 = $db1->prepare($query);
+        $dewan1->bind_param('s', $key);
+        $dewan1->execute();
+        $res1 = $dewan1->get_result();
+
+        while ($row = $res1->fetch_assoc()) {
+            $output['suggestions'][] = [
+                'value' => $row['nama_kegiatan'],
+                'nama_kegiatan'  => $row['nama_kegiatan']
+            ];
+        }
+
+        if (! empty($output)) {
+            echo json_encode($output);
+        }
+      }
+    
+    </script>
 </body>
 @endcan
 </html>

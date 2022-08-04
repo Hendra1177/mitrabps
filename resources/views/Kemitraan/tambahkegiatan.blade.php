@@ -15,20 +15,21 @@
       <h4 class="text-center">Form Kegiatan</h4>
       <div class="form-group">
         <label for="exampleDataList" class="form-label">Nama Kegiatan</label>
-        <input name="nama_kegiatan" class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Enter Nama Kegiatan">
-        <datalist id="datalistOptions">
+        <input name="nama_kegiatan" class="form-control" list="datalistOptions" id="kegiatan" placeholder="Enter Nama Kegiatan">
+        {{-- <datalist id="datalistOptions">
           <option value="San Francisco">
           <option value="New York">
           <option value="Seattle">
           <option value="Los Angeles">
           <option value="Chicago">
-        </datalist>
+        </datalist> --}}
       </div>
 
       <div class="form-group">
         <label for="exampleFormControlSelect1">Bulan</label>
         <select name="bulan" class="form-select" aria-label="Default select example">
             {{-- <option selected></option> --}}
+            <option value="">-Pilih-</option>
             <option value="Januari">Januari</option>
             <option value="Februari">Februari</option>
             <option value="Maret">Maret</option>
@@ -38,7 +39,7 @@
             <option value="Juli">Juli</option>
             <option value="Agustus">Agustus</option>
             <option value="September">September</option>
-            <option value="1Oktober">Oktober</option>
+            <option value="Oktober">Oktober</option>
             <option value="November">November</option>
             <option value="Desember">Desember</option>
         </select>

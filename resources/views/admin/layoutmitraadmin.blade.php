@@ -24,6 +24,10 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
+  <link id="pagestyle" href="{{asset('template/assets/css/argon-dashboard.css')}}" rel="stylesheet" />
+  <link id="pagestyle" href="{{asset('template/assets/dataTables/datatables.min.css')}}" rel="stylesheet" />
+
+  <link id="pagestyle" href="{{asset('template/assets/dataTables/Button-2.2.3/css/buttons.bootstrap5.min.css')}}" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show bg-white">
@@ -170,7 +174,21 @@
     <script src="{{asset('template/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
     <script src="{{asset('template/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
     <script src="{{asset('template/assets/js/plugins/chartjs.min.js')}}"></script>
-
+    <script src="{{asset('template/assets/dataTables/datatables.min.js')}}" ></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#datatable').DataTable();
+      });
+      
+      // $(document).ready(function() {
+      //   $('#datatables').DataTable({
+      //     dom: 'Bfrtip',
+      //     buttons: [
+      //       'print'
+      //     ]
+      //   });
+      // });
+    </script>
 
     <script>
       var ctx1 = document.getElementById("chart-line").getContext("2d");

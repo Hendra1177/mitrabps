@@ -8,15 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class KegiatanMitra extends Model
 {
     use HasFactory;
-    protected $table = 'kegiatan';
+    protected $table = 'kegiatan_mitra';
     protected $fillable = [
-        'nama_kegiatan',
-        'bulan',
-        'tanggal_pelaksana',
-        'beban_anggaran',
-        'volume_total',
-        'satuan',
-        'harga_satuan' 
+        'kegiatan_id',
+        'mitra_id',
+        'nilai_perjanjian',
     ];
 
     public function mitra(){

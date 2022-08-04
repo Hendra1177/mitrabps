@@ -20,34 +20,34 @@ class KegiatanMitraController extends Controller
 
     public function create(Request $request)
     {
-        \App\Models\Kegiatan::create($request->all());
-        return redirect('/admin/kegiatan')->with('sukses', 'Data berhasil ditambahkan');
+        \App\Models\KegiatanMitra::create($request->all());
+        return redirect('/admin/kegiatanmitra')->with('sukses', 'Data berhasil ditambahkan');
     }
 
     public function edit($id)
     {
-        $kegiatan = \App\Models\Kegiatan::find($id);
-        return view('admin/kegiatanedit', ['kegiatan' => $kegiatan]);
+        $kegiatan = \App\Models\KegiatanMitra::find($id);
+        return view('admin/kegiatanmitraedit', ['kegiatan' => $kegiatan]);
     }
 
     public function update(Request $request, $id)
     {
-        $kegiatan = \App\Models\Kegiatan::find($id);
+        $kegiatan = \App\Models\KegiatanMitra::find($id);
         $kegiatan->update($request->all());
-        return redirect('/admin/kegiatan')->with('sukses', 'Data berhasil diupdate');
+        return redirect('/admin/kegiatanmitra')->with('sukses', 'Data berhasil diupdate');
     }  
 
     public function delete($id)
     {
         $kegiatan = \App\Models\KegiatanMitra::find($id);
         $kegiatan->delete($kegiatan);
-        return redirect('/admin/perjanjian')->with('sukses', 'Data berhasil dihapus');
+        return redirect('/admin/kegiatanmitra')->with('sukses', 'Data berhasil dihapus');
     }
 
     // Method User
-    public function createKegiatan(Request $request)
+    public function createKegiatanMitra(Request $request)
     {
-        \App\Models\Kegiatan::create($request->all());
-        return redirect('/tambahkegiatan')->with('sukses', 'Data berhasil ditambahkan');
+        \App\Models\KegiatanMitra::create($request->all());
+        return redirect('/mitra')->with('sukses', 'Data berhasil ditambahkan');
     }
 }

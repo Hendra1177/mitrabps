@@ -15,9 +15,10 @@
         #over {
           /* background-color: #eee; */
           width: auto;
-          height: 700px;
+          height: auto;
           /* border: 900px ; */
-          overflow: scroll;
+          overflow-y: hidden;
+            overflow-x: scroll;
         }
     </style>
 </head>
@@ -25,64 +26,16 @@
 <main class="main-content position-relative border-radius-lg ps">
     <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
         <main class="container">
-<<<<<<< HEAD
             @if (session('sukses'))
             <div class="alert alert-success fw-bold" role="alert">
                 {{session('sukses')}}
             </div>
             @endif
-=======
-        @if (session('sukses'))
-            <div class="alert alert-success fw-bold" role="alert">
-                {{session('sukses')}}
-        </div>
-        @endif
-
-        <h2 class="text-center">Data Mitra</h1>
-        <div class="row">
-            <div class="col-6">
-                <form class="example" action="/admin/kegiatan" method="GET">
-                    <input class="px-5 rounded-2" type="search" placeholder="Cari berdasarkan nama kegiatan.." name="cari">
-                    <button type="submit" class="bi bi-search rounded-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                        </svg>
-                    </button>
-                </form>
-            </div>
-            <div class="col-6">
-                <!-- Button trigger modal -->
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button class="btn btn-primary me-sm btn-sm " type="button"data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">Tambah Mitra</button>
-                </div>
-            </div>
-            <div id="over">
-                <table class="table table-hover table-bordered ">
-                    <tr class="text-center">
-                        <th>ID</th>
-                        <th>Nama Mitra</th>
-                        <th>Target</th>
-                        <th>Pekerjaan</th>
-                        <th>Alamat</th>
-                        <th>Kecamatan</th>
-                        <th>Nomor HP</th>
-                        <th>Rekening BRI</th>
-                        <th>Aksi</th>
-                    </tr>
->>>>>>> 7fc29719b0f464b4b49733cb7a22789fcb722235
 
             <h2 class="text-center">Data Mitra</h1>
                 <div class="row">
                     <div class="col-6">
-                        <form class="example" action="/admin/kegiatan" method="GET">
-                            <input class="px-6 rounded-2" type="search" placeholder="Cari berdasarkan nama kegiatan.." name="cari">
-                            <button type="submit" class="bi bi-search rounded-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                </svg>
-                            </button>
-                        </form>
+                       
                     </div>
                     <div class="col-6">
                         <!-- Button trigger modal -->
@@ -90,62 +43,68 @@
                             <button class="btn btn-primary me-sm btn-sm " type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Mitra</button>
                         </div>
                     </div>
-                    <div>
-                        <table class="table table-hover table-bordered ">
-                            <tr class="text-center">
-                                <th>ID</th>
-                                <th>Nama Mitra</th>
-                                <th>Target</th>
-                                <th>Pekerjaan</th>
-                                <th>Alamat</th>
-                                <th>Kecamatan</th>
-                                <th>Nomor HP</th>
-                                <th>Rekening BRI</th>
-                                <th>Aksi</th>
-                            </tr>
+                    <div id="over">
+                        <table class="table table-hover table-bordered" id="datatable">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>ID</th>
+                                    <th>Nama Mitra</th>
+                                    <th>Target</th>
+                                    <th>Pekerjaan</th>
+                                    <th>Alamat</th>
+                                    <th>Desa</th>
+                                    <th>Kecamatan</th>
+                                    <th>Nomor HP</th>
+                                    <th>Rekening BRI</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
 
-                            @foreach ($data_mitra as $mitra)
-                            <tr>
-                                <td class="text-center">{{$mitra->id}}</td>
-                                <td>{{$mitra->nama_mitra}}</td>
-                                <td class="text-center">{{$mitra->target}}</td>
-                                <td class="text-center">{{$mitra->pekerjaan}}</td>
-                                <td>{{$mitra->alamat}}</td>
-                                <td class="text-center">{{$mitra->kecamatan}}</td>
-                                <td class="text-center">{{$mitra->no_hp}}</td>
-                                <td class="text-center">{{$mitra->rekening_bri}}</td>
-                                <td>
-                                    <a href="/admin/mitra/{{$mitra->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="/admin/mitra/{{$mitra->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">Hapus</a>
-                                    <!-- <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#ModalDelete">
-                                        Delete
-                                    </button>
-                                    <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabelDelete" aria-hidden="true">
-                                        <form action="/admin/mitra/create" method="POST">
-                                            {{csrf_field()}}
+                            <tbody>
+                                @foreach ($data_mitra as $mitra)
+                                <tr>
+                                    <td class="text-center">{{$mitra->id}}</td>
+                                    <td>{{$mitra->nama_mitra}}</td>
+                                    <td class="text-center">{{$mitra->target}}</td>
+                                    <td class="text-center">{{$mitra->pekerjaan}}</td>
+                                    <td>{{$mitra->alamat}}</td>
+                                    <td class="text-center">{{$mitra->desa}}</td>
+                                    <td class="text-center">{{$mitra->kecamatan}}</td>
+                                    <td class="text-center">{{$mitra->no_hp}}</td>
+                                    <td class="text-center">{{$mitra->rekening_bri}}</td>
+                                    <td>
+                                        <a href="/admin/mitra/{{$mitra->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="/admin/mitra/{{$mitra->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">Hapus</a>
+                                        <!-- <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#ModalDelete">
+                                            Delete
+                                        </button>
+                                        <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabelDelete" aria-hidden="true">
+                                            <form action="/admin/mitra/create" method="POST">
+                                                {{-- {{csrf_field()}} --}}
 
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabelDelete">PERINGATAN</h5>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Apakah yakin ingin dihapus?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
-                                                        <a href="/admin/mitra/{{$mitra->id}}/delete" class="btn btn-danger btn-sm">Hapus</a>
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabelDelete">PERINGATAN</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Apakah yakin ingin dihapus?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
+                                                            {{-- <a href="/admin/mitra/{{$mitra->id}}/delete" class="btn btn-danger btn-sm">Hapus</a> --}}
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                        </form> -->
+                                            </form> -->
 
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
+                                        {{-- </div> --}}
+                                    </td>
+                                </tr>
+                                @endforeach
+                        </tbody>
                         </table>
                     </div>
                 </div>

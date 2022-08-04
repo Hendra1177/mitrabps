@@ -69,6 +69,8 @@ Route::post('/tambahkegiatan/create', 'App\Http\Controllers\KegiatanController@c
 //Form User Mitra
 Route::post('/tambahmitra/create', 'App\Http\Controllers\MitraController@createMitra');
 
+//Form User Kegiatan Mitra
+Route::post('/tambahkegiatanmitra/create', 'App\Http\Controllers\KegiatanMitraController@createKegiatanMitra');
 
 
 
