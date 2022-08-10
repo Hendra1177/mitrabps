@@ -44,9 +44,15 @@ class MitraController extends Controller
         return redirect('/admin/mitra')->with('sukses', 'Data berhasil dihapus');
     }
 
+    //User
     public function createMitra(Request $request)
     {
         \App\Models\Mitra::create($request->all());
         return redirect('/tambahmitra')->with('sukses', 'Data berhasil ditambahkan');
+    }
+
+    public function detail()
+    {
+        return view('Admin.detailmitra');
     }
 }

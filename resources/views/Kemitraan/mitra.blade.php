@@ -10,29 +10,47 @@
 
 <main class="main-content position-relative border-radius-lg ps">
     <div class="card" style="margin-left:30px; margin-right:30; margin-top:255px; margin-bottom:17px;" >
-        <form action="/tambahkegiatanmitra/create" method="POST">
-
+        <form action="/pelaksana/create" method="POST">
+            {{csrf_field()}}
+            @if (session('sukses'))
+                <div class="alert alert-success fw-bold" role="alert">
+                {{session('sukses')}}
+                </div>
+            @endif
         <main class="container" style="padding-top:10px; align-left">
             <center>
-                <h4>Form Mitra</h4>
+                <h4>Form Pelaksana</h4>
             </center>
-            <div class="form-group">
-                {{-- <script>
-                    $(function() {
-                        $("#nama_kegiatan").autocomplete({
-                            source: 'autocomplete.php'
-                        });
-                    });
-                </script> --}}
+            
+            {{-- <div class="form-group">
                 <label for="pwd">Pilih Kegiatan</label>
-                <input type="form" class="form-control" id="kegiatan_id" placeholder="Enter nama kegiatan" name="email">
+                <input type="form" class="form-control" id="kegiatan_id" placeholder="Enter nama kegiatan" name="nama_kegiatan" value="{{old('nama_kegiatan')}}">
+            </div> --}}
+
+            <div class="form-group">
+                <label for="pwd">Pilih Kegiatan</label>
+                <select class="form-control" >
+                    @foreach ($kegiatan as $kg)
+                        <option value="{{$kg->id}}" name="kegiatan_id">{{$kg->nama_kegiatan}}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="row">
-                <div class="col-11">
+                {{-- <div class="col-11">
                     <div class="control-group after-add-more" id="after-add-more">
                         <label for="pwd">Nama Mitra</label>
-                        <input type="form" class="form-control" id="mitra_id" placeholder="Enter nama mitra" name="pwd">
+                        <input type="form" class="form-control" id="mitra_id" placeholder="Enter nama mitra" name="nama_mitra" value="{{old('nama_mitra')}}">
+                    </div>
+                </div> --}}
+                <div class="col-11">
+                    <div class="control-group after-add-more" id="after-add-more">
+                        <label for="pwd">Pilih Mitra</label>
+                        <select class="form-control" >
+                            @foreach ($mitra as $mt)
+                            <option value="{{$mt->id}}" name="kegiatan_id">{{$mt->nama_mitra}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 
@@ -47,8 +65,13 @@
             </div>
             
             <div class="form-group">
+                <label for="pwd">Nilai Perjanjian</label>
+                <input type="form" class="form-control" id="nilai_perjanjian" placeholder="Enter nilai perjanjian" name="nilai_perjanjian" value="{{old('nilai_perjanjian')}}">
+            </div>
+
+            <div class="form-group">
                 <label for="pwd">Target</label>
-                <input type="form" class="form-control" id="nilai_perjanjian" placeholder="Enter target" name="pwd">
+                <input type="form" class="form-control" id="target" placeholder="Enter target" name="target" >
             </div>
             {{-- <div class="form-group">
                 <label for="pwd">Bertugas Sebagai</label>
@@ -63,14 +86,20 @@
 
         <div class="copy invisible">
             <div class="control-group">
-              <label>Nama Mitra</label>
-              <input type="text" name="nama_mitra" class="form-control">
+              <label>Pilih Mitra</label>
+              <select class="form-control" >
+                @foreach ($mitra as $mt)
+                <option value="{{$mt->id}}">{{$mt->nama_mitra}}</option>
+                @endforeach
+            </select>
               
               <br>
-              <button class="btn btn-danger me-sm btn-md remove" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+              <button class="btn btn-danger me-sm btn-md remove" type="button"><i class="glyphicon glyphicon-remove"></i> -</button>
               <hr>
             </div>
         </div>
+
+        
 
         {{-- <div class="copy invisible">
             <div class="row">

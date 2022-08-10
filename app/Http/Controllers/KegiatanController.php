@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Kegiatan;
 
 use Illuminate\Http\Request;
@@ -9,12 +10,12 @@ class KegiatanController extends Controller
 {
     public function index(Request $request)
     {
-        if($request->has('cari')){
-            $data_kegiatan = \App\Models\Kegiatan::where('nama_kegiatan', 'LIKE', '%'.$request->cari. '%')->get();
-        }else{
+        if ($request->has('cari')) {
+            $data_kegiatan = \App\Models\Kegiatan::where('nama_kegiatan', 'LIKE', '%' . $request->cari . '%')->get();
+        } else {
             $data_kegiatan = \App\Models\Kegiatan::all();
         }
-        
+
         return view('admin.kegiatanindex', ['data_kegiatan' => $data_kegiatan]);
     }
 
@@ -35,7 +36,7 @@ class KegiatanController extends Controller
         $kegiatan = \App\Models\Kegiatan::find($id);
         $kegiatan->update($request->all());
         return redirect('/admin/kegiatan')->with('sukses', 'Data berhasil diupdate');
-    }  
+    }
 
     public function delete($id)
     {
@@ -45,12 +46,24 @@ class KegiatanController extends Controller
     }
 
     // Method User
-    
+
     public function createKegiatan(Request $request)
     {
         \App\Models\Kegiatan::create($request->all());
-        return redirect('/mitra')->with('sukses', 'Data berhasil ditambahkan');
+        return redirect('/pelaksana')->with('sukses', 'Data berhasil ditambahkan');
     }
 
-    
+    public function search()
+    {
+        return view('Kemitraan.tambahkegiatan');
+    }
+
+    public function autocomplete(Request $request)
+    {
+        $data = Kegiatan::select("kegiatan")
+            ->where("nama_kegiatan", "LIKE", "%{$request->query}%")
+            ->get();
+        
+            return response()->json($data);
+    }
 }

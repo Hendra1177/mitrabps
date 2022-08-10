@@ -26,7 +26,7 @@ Route::get('/tambahkegiatan', function () {
     return view('Kemitraan.tambahkegiatan');
 });
 
-Route::get('/mitra', function () {
+Route::get('/pelaksana', function () {
     return view('Kemitraan.mitra');
 });
 
@@ -60,17 +60,29 @@ Route::post('/admin/mitra/{id}/update', 'App\Http\Controllers\MitraController@up
 
 Route::get('/admin/mitra/{id}/delete', 'App\Http\Controllers\MitraController@delete');
 
+Route::get('/admin/mitra/{id}/detail', 'App\Http\Controllers\MitraController@detail');
+
 //CRUD Admin Perjanjian
-Route::get('/admin/perjanjian', 'App\Http\Controllers\KegiatanMitraController@index');
+Route::get('/admin/perjanjian', 'App\Http\Controllers\KegiatanMitraController@joinKegiatan');
 
 //Form User Kegiatan 
 Route::post('/tambahkegiatan/create', 'App\Http\Controllers\KegiatanController@createKegiatan');
 
-//Form User Mitra
-Route::post('/tambahmitra/create', 'App\Http\Controllers\MitraController@createMitra');
+Route::get('/pelaksana', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksana');
 
-//Form User Kegiatan Mitra
-Route::post('/tambahkegiatanmitra/create', 'App\Http\Controllers\KegiatanMitraController@createKegiatanMitra');
+Route::post('/pelaksana/create', 'App\Http\Controllers\KegiatanMitraController@createKegiatan');
+
+
+// Route::get('/search', 'App\Http\Controllers\KegiatanController@index')->name('search');
+// Route::get('/tambahkegiatan/search', 'App\Http\Controllers\KegiatanController@autocomplete')->name('autocomplete');
+
+// //Form User Mitra
+// Route::post('/tambahmitra/create', 'App\Http\Controllers\MitraController@createMitra');
+
+// //Form User Kegiatan Mitra
+// Route::post('/tambahkegiatanmitra/create', 'App\Http\Controllers\KegiatanMitraController@createKegiatanMitra');
+
+Route::get('/perjanjiankerja', 'App\Http\Controllers\KegiatanMitraController@index')->name('userjoinKegiatan');
 
 
 

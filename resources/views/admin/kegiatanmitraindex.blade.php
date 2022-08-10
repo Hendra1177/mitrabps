@@ -11,6 +11,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <style>
+        #over {
+            /* background-color: #eee; */
+            width: auto;
+            height: auto;
+            /* border: 900px ; */
+            overflow-y: hidden;
+            overflow-x: scroll;
+        }
+    </style>
 </head>
 
 <main class="main-content position-relative border-radius-lg ps">
@@ -40,16 +50,18 @@
                             <button class="btn btn-primary me-sm btn-sm " type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Kegiatan</button>
                         </div>
                     </div>
-                    <div>
-                        <table class="table table-hover table-bordered" id="coba">
+                    <div id="over">
+                        <table class="table table-hover table-bordered" >
                             <thead>
                             <tr class="text-center">
-                                <th>No</th>
+                                {{-- <th>No</th> --}}
                                 <th>Uraian Kegiatan</th>
+                                <th>Bulan</th>
                                 <th>Jangka Waktu</th>
-                                <th>Target Pekerjaan</th>
+                                
                                 <th class="align-text-bottom">Volume</th>
                                 
+                                <th>Satuan</th>
                                 <th>Harga Satuan</th>
                                 <th>Nilai Perjanjian</th>
                                 <th>Beban Anggaran</th>
@@ -58,18 +70,22 @@
                             <tr></tr>
                             </thead>
 
-                            {{-- <tbody>
+                            <tbody>
                             @foreach ($data_kegiatan as $kegiatan)
                             <tr>
-                                <td class="text-center">{{$kegiatan->id}}</td>
+                                {{-- <td class="text-center">{{$kegiatan->id}}</td> --}}
                                 <td>{{$kegiatan->nama_kegiatan}}</td>
                                 <td>{{$kegiatan->bulan}}</td>
-                                <td class="text-center">{{$kegiatan->tanggal_pelaksana}}</td>
-                                <td class="text-center">{{$kegiatan->beban_anggaran}}</td>
+                                <td class="text-center">{{$kegiatan->tanggal_mulai}} - {{$kegiatan->tanggal_akhir}}</td>
+                                
                                 <td class="text-center">{{$kegiatan->volume_total}}</td>
                                 <td class="text-center">{{$kegiatan->satuan}}</td>
                                 <td class="text-center">{{$kegiatan->harga_satuan}}</td>
+                                <td class="text-center">{{$kegiatan->nama_mitra}}</td>
+                                <td class="text-center">{{$kegiatan->nilai_perjanjian}}</td>
+                                
                                 <td>
+                                    <a href="#" class="btn btn-info">view</a>
                                     <a href="/admin/kegiatan/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm">edit</a>
                                     <!-- <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a> -->
                                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#ModalDelete">
@@ -100,7 +116,7 @@
                                 </td>
                             </tr>
                             @endforeach
-                        </tbody> --}}
+                        </tbody>
                         </table>
                     </div>
                     <nav aria-label="Page navigation example">

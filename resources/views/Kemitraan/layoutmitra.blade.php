@@ -98,11 +98,11 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active " href="/mitra">
+          <a class="nav-link active " href="/pelaksana">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Mitra</span>
+            <span class="nav-link-text ms-1">Pelaksana</span>
           </a>
         </li>
 
@@ -129,22 +129,22 @@
         </nav>
         <ul class="navbar-nav  justify-content-end">
         <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white font-weight-bold " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white font-weight-bold " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }}
+            </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('login') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('login') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+        </li>
         <!-- <li class="nav-item ">
               <a href="/login" class="nav-link text-white font-weight-bold px-7 ">
                 Logout

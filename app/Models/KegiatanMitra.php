@@ -13,9 +13,17 @@ class KegiatanMitra extends Model
         'kegiatan_id',
         'mitra_id',
         'nilai_perjanjian',
+        'target',
     ];
 
     public function mitra(){
-        return $this->belongsToMany(Mitra::class)->withPivot('nilai_perjanjian');
+        return $this->belongsToMany(Mitra::class, 'mitra_id');
     }
+
+    public function kegiatan(){
+        return $this->belongsToMany(Kegiatan::class, 'kegiatan_id');
+    }
+    // public function getKegiatanMitra(){
+        
+    // }
 }

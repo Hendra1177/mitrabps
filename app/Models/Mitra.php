@@ -20,6 +20,6 @@ class Mitra extends Model
     ];
 
     public function kegiatan(){
-        return $this->belongsToMany(Kegiatan::class)->withPivot('nilai_perjanjian');
+        return $this->belongsToMany(Kegiatan::class, 'kegiatan_mitra', 'kegiatan.id', 'mitra.id')->withPivot('nilai_perjanjian', 'target');
     }
 }
