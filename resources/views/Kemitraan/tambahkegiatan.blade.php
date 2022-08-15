@@ -14,19 +14,18 @@
         @endif
         <h4 class="text-center">Form Kegiatan</h4>
         <div class="form-group">
-          <label for="exampleDataList" class="form-label">Nama Kegiatan</label>
+          <label for="validationServer04" class="form-label">Nama Kegiatan</label>
           <input name="nama_kegiatan" class="typeahead form-control " type="text" id="nama_kegiatan"
             placeholder="Enter Nama Kegiatan">
+            
 
-
-
-          {{-- <datalist id="datalistOptions">
+          <!-- {{-- <datalist id="datalistOptions">
             <option value="San Francisco">
             <option value="New York">
             <option value="Seattle">
             <option value="Los Angeles">
             <option value="Chicago">
-          </datalist> --}}
+          </datalist> --}} -->
         </div>
 
         <div class="form-group">

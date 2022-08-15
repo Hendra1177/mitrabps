@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @can('isAdmin')
-    
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,7 +27,7 @@
   <link id="pagestyle" href="{{asset('template/assets/css/argon-dashboard.css')}}" rel="stylesheet" />
   <link id="pagestyle" href="{{asset('template/assets/dataTables/datatables.min.css')}}" rel="stylesheet" />
 
-  <link id="pagestyle" href="{{asset('template/assets/dataTables/Button-2.2.3/css/buttons.bootstrap5.min.css')}}" rel="stylesheet" />
+  <link id="pagestyle" href="{{asset('template/assets/dataTables/Button-2.2.3/css/buttons.dataTables.min.css')}}" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show bg-white">
@@ -174,20 +174,41 @@
     <script src="{{asset('template/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
     <script src="{{asset('template/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
     <script src="{{asset('template/assets/js/plugins/chartjs.min.js')}}"></script>
-    <script src="{{asset('template/assets/dataTables/datatables.min.js')}}" ></script>
+    <script src="{{asset('template/assets/dataTables/datatables.min.js')}}"></script>
+    <!-- <script src="{{asset('template/assets/DataTables/Buttons-2.2.3/js/buttons.dataTables.min.js')}}"></script> -->
+    <script src="{{asset('template/assets/DataTables/Buttons-2.2.3/js/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('template/assets/DataTables/pdfmake-0.1.36/js/pdfmake.min.js')}}"></script>
+    <!-- <script src="{{asset('template/assets/DataTables/Button-2.2.3/js/buttons.jqueryui.min.js')}}"></script> -->
+
     <script type="text/javascript">
       $(document).ready(function() {
         $('#datatable').DataTable();
       });
-      
-      // $(document).ready(function() {
-      //   $('#datatables').DataTable({
-      //     dom: 'Bfrtip',
-      //     buttons: [
-      //       'print'
-      //     ]
-      //   });
-      // });
+    </script>
+
+    <!-- <script type="text/javascript">
+      $(document).ready(function() {
+        $('#tablemitra').DataTable({
+          dom: 'Bfrtip',
+          buttons: [
+            'print'
+          ]
+        });
+      });
+    </script> -->
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+    $('#tablemitra').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+        ]
+    } );
+} );
     </script>
 
     <script>
@@ -285,4 +306,5 @@
 
 </body>
 @endcan
+
 </html>

@@ -18,6 +18,7 @@
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="{{asset('template/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+  <link id="pagestyle" href="{{asset('template/assets/dataTables/datatables.min.css')}}" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="{{asset('template/assets/css/argon-dashboard.css')}}" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -103,7 +104,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active " href="/admin/perjanjian">
+          <a class="nav-link active" href="/admin/perjanjian">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
             </div>
@@ -170,6 +171,13 @@
     <script src="{{asset('template/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
     <script src="{{asset('template/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
     <script src="{{asset('template/assets/js/plugins/chartjs.min.js')}}"></script>
+    <script src="{{asset('template/assets/dataTables/datatables.min.js')}}" ></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#tableperjanjian').DataTable();
+      });
+    </script>
 
 
     <script>

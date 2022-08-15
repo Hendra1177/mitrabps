@@ -1,4 +1,4 @@
-@extends('admin.layoutkegiatanadmin')
+@extends('admin.layoutperjanjian')
 @section('content')
 
 <!DOCTYPE html>
@@ -34,104 +34,54 @@
 
             <h2 class="text-center">Data Kegiatan</h1>
                 <div class="row">
-                    <div class="col-6">
-                        <form class="example" action="/admin/kegiatan" method="GET">
-                            <input class="px-5 rounded-2" type="search" placeholder="Cari berdasarkan nama kegiatan.." name="cari">
-                            <button type="submit" class="bi bi-search rounded-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                </svg>
-                            </button>
-                        </form>
-                    </div>
-                    <div class="col-6">
-                        <!-- Button trigger modal -->
+                    
+                    <!-- <div class="col-6">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <button class="btn btn-primary me-sm btn-sm " type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Kegiatan</button>
                         </div>
-                    </div>
+                    </div> -->
                     <div id="over">
-                        <table class="table table-hover table-bordered" >
+                        <table class="table table-hover table-bordered" id="tableperjanjian">
                             <thead>
-                            <tr class="text-center">
-                                {{-- <th>No</th> --}}
-                                <th>Uraian Kegiatan</th>
-                                <th>Bulan</th>
-                                <th>Jangka Waktu</th>
-                                
-                                <th class="align-text-bottom">Volume</th>
-                                
-                                <th>Satuan</th>
-                                <th>Harga Satuan</th>
-                                <th>Nilai Perjanjian</th>
-                                <th>Beban Anggaran</th>
-                                <th>Aksi</th>
-                            </tr>
-                            <tr></tr>
+                                <tr class="text-center">
+                                    <th>No</th>
+                                    <th>Uraian Kegiatan</th>
+                                    <th>Bulan</th>
+                                    <th>Jangka Waktu</th>
+                                    <th>Volume</th>
+                                    <th>Satuan</th>
+                                    <th>Harga Satuan</th>
+                                    <th>Nilai Perjanjian</th>
+                                    <th>Beban Anggaran</th>
+                                    <!-- <th>Aksi</th> -->
+                                </tr>
                             </thead>
-
                             <tbody>
                             @foreach ($data_kegiatan as $kegiatan)
-                            <tr>
-                                {{-- <td class="text-center">{{$kegiatan->id}}</td> --}}
-                                <td>{{$kegiatan->nama_kegiatan}}</td>
-                                <td>{{$kegiatan->bulan}}</td>
-                                <td class="text-center">{{$kegiatan->tanggal_mulai}} - {{$kegiatan->tanggal_akhir}}</td>
-                                
-                                <td class="text-center">{{$kegiatan->volume_total}}</td>
-                                <td class="text-center">{{$kegiatan->satuan}}</td>
-                                <td class="text-center">{{$kegiatan->harga_satuan}}</td>
-                                <td class="text-center">{{$kegiatan->nama_mitra}}</td>
-                                <td class="text-center">{{$kegiatan->nilai_perjanjian}}</td>
-                                
-                                <td>
-                                    <a href="#" class="btn btn-info">view</a>
-                                    <a href="/admin/kegiatan/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm">edit</a>
-                                    <!-- <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a> -->
-                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#ModalDelete">
-                                        Delete
-                                    </button>
-                                    <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <form action="/admin/kegiatan/create" method="POST">
-                                            {{csrf_field()}}
-
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">PERINGATAN</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            Apakah yakin ingin dihapus?
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
-                                                            <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" >delete</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                        </form>
-                                    </div>
-
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td class="text-center">{{$kegiatan->id}}</td>
+                                    <td>{{$kegiatan->nama_kegiatan}}</td>
+                                    <td>{{$kegiatan->bulan}}</td>
+                                    <td class="text-center">{{$kegiatan->tanggal_mulai}} - {{$kegiatan->tanggal_akhir}}</td>
+                                    
+                                    <td class="text-center">{{$kegiatan->volume_total}}</td>
+                                    <td class="text-center">{{$kegiatan->satuan}}</td>
+                                    <td class="text-center">{{$kegiatan->harga_satuan}}</td>
+                                    <td class="text-center">{{$kegiatan->nama_mitra}}</td>
+                                    <td class="text-center">{{$kegiatan->nilai_perjanjian}}</td>
+                                    
+                                    <!-- <td>
+                                        <a href="#" class="btn btn-info">view</a>
+                                        <a href="/admin/kegiatan/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm">edit</a>
+                                        <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a>
+                                        
+                                    </td> -->
+                                </tr>
                             @endforeach
-                        </tbody>
+                            </tbody>
                         </table>
                     </div>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    
                 </div>
     </div>
 

@@ -1,4 +1,4 @@
-@extends('admin.layoutkegiatanadmin')
+@extends('admin.layoutmitraadmin')
 @section('content')
 
 <!DOCTYPE html>
@@ -35,28 +35,112 @@
             <br>
             <h3 class="text-center">Data Mitra</h3>
             <br>
-            <div class="row">
-                <div class="col-6">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-person-square mx-auto d-block" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
-                    </svg>
-                </div>
-                <div class="col-6">
-                    <p>Nama :</p>
-                    <p>Pekerjaan :</p>
-                    <p>Alamat :</p>
-                    <p>Kecamatan :</p>
-                    <p>Desa :</p>
-                    <p>Nomor HP :</p>
-                    <p>Rekening BRI :</p>
+        </main>
+    </div>
+</main>
+<div class="container-fluid py-4 ">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card card-profile mx-3">
+                <img src="{{asset('template/assets/img/Gedung.jpg')}}" alt="Image placeholder" class="card-img-top">
+                <div class="row justify-content-center">
+                    <div class="col-4 col-lg-4 order-lg-2">
+                        <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
+                                <img src="{{asset('template/assets/img/user.png')}}" class="rounded-circle img-fluid border border-2 border-white">
+                        </div>
+                        <p class="text-center">Hendra Tri Ardiansyah</p>
+                        <div class="card-body pt-0 py-6">
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="d-grid text-center mx-4">
+                                            <span class="text-sm font-weight-bolder">ID</span>
+                                            <span class="text-sm opacity-8">08</span>
+                                        </div>
+
+                                        <div class="d-grid text-center mx-4">
+                                            <span class="text-sm font-weight-bolder">Target</span>
+                                            <span class="text-sm opacity-8">89</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
-            
+        </div>
+
+        <div class="col-md-8">
+            <div class="card " style="margin-right:15px">
+                <div class="card-header pb-0">
+                    <div class="d-flex align-items-center">
+                        <p class=" text-center" >Detail Profil Mitra</p>
+                    </div>
+                </div>
+                <div class="card-body ">
+                    <dl class="row">
+                        <dl class="row">
+                            <dt class="col-sm-3">Nama </dt>
+                            <dd class="col-sm-6">: Hendra Tri Ardiansyah</dd>
+                        </dl>
+                        <dl class="row">
+                            <dt class="col-sm-3">Pekerjaan </dt>
+                            <dd class="col-sm-6">: Deadwood</dd>
+                        </dl>
+                        <dl class="row">
+                            <dt class="col-sm-3">Alamat </dt>
+                            <dd class="col-sm-6">: ascav</dd>
+                        </dl>
+                        <dl class="row">
+                            <dt class="col-sm-3">Kecamatan </dt>
+                            <dd class="col-sm-6">: asfdas</dd>
+                        </dl>
+                        <dl class="row">
+                            <dt class="col-sm-3">Desa </dt>
+                            <dd class="col-sm-6">: sssgesf</dd>
+                        </dl>
+                        <dl class="row">
+                            <dt class="col-sm-3">Nomor HP </dt>
+                            <dd class="col-sm-6">: 32532656324</dd>
+                        </dl>
+                        <dl class="row">
+                            <dt class="col-sm-3">Rekening BRI </dt>
+                            <dd class="col-sm-6">: 12-1242142-51</dd>
+                        </dl>
+                    </dl>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    
-</main>
+<div class="card-body" style="margin-right:15px; margin-left:15px;">
+    <table class="table table-hover table-bordered" id="tablemitra">
+        <thead>
+            <th>Nama Kegiatan</th>
+            <th>Bulan</th>
+            <th>Jangka Waktu</th>
+            <th>Volume</th>
+            <th>Satuan</th>
+            <th>Harga Satuan</th>
+            <th>Nilai Perjanjian</th>
+            <th>Beban Anggaran</th>
+        </thead>
+        <tbody>
+            <td>ad</td>
+            <td>ad</td>
+            <td>ad</td>
+            <td>ad</td>
+            <td>ad</td>
+            <td>ad</td>
+            <td>ad</td>
+            <td>ad</td>
+        </tbody>
+    </table>
+</div>
 
-    
 @endsection

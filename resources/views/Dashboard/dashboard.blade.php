@@ -12,50 +12,7 @@
   <!-- </div> -->
   <br><br>
   <div class="container-fluid py-3">
-    <div class="card-deck ">
-      <div class="row">
-        <div class="col">
-          <div class="card">
-            <div class="card-body rounded-3 p-3 bg-primary">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold text-white">Jumlah Mitra Terupdate</p>
-                    <h5 class="font-weight-bolder text-white">
-                      30 orang
-                    </h5>
 
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <div class="card-body rounded-3 p-3 bg-primary">
-              <div class="row">
-                <div class="col-8">
-                  <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold text-white">Jumlah Kegiatan Terbaru</p>
-                    <h5 class="font-weight-bolder text-white">
-                      30 Kegiatan
-                    </h5>
-
-                  </div>
-                </div>
-                <div class="col-4 text-end">
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
           <div class="card">
             <div class="card bg-white">
               <div class="card-body" >
@@ -75,7 +32,6 @@
         
       </div>
     </div>
-  </div>
   </div>
   </div>
   </div>

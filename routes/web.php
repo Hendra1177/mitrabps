@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -34,7 +35,7 @@ Route::get('/tambahmitra', function () {
     return view('Kemitraan.tambahmitra');
 });
 
-Route::get('admin/dashboard',[App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin/dashboard');
+Route::get('admin/dashboard', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin/dashboard');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('/');
 
 //CRUD Admin Kegiatan
@@ -68,16 +69,17 @@ Route::get('/admin/perjanjian', 'App\Http\Controllers\KegiatanMitraController@jo
 //Form User Kegiatan 
 Route::post('/tambahkegiatan/create', 'App\Http\Controllers\KegiatanController@createKegiatan');
 
+Route::get('datalistPelaksana', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksana')->name('mitra.datalistPelaksana');
 Route::get('/pelaksana', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksana');
 
-Route::post('/pelaksana/create', 'App\Http\Controllers\KegiatanMitraController@createKegiatan');
+Route::post('createKegiatan', 'App\Http\Controllers\KegiatanMitraController@createKegiatan')->name('pelaksana.create');
 
 
 // Route::get('/search', 'App\Http\Controllers\KegiatanController@index')->name('search');
 // Route::get('/tambahkegiatan/search', 'App\Http\Controllers\KegiatanController@autocomplete')->name('autocomplete');
 
 // //Form User Mitra
-// Route::post('/tambahmitra/create', 'App\Http\Controllers\MitraController@createMitra');
+Route::post('/tambahmitra/create', 'App\Http\Controllers\MitraController@createMitra');
 
 // //Form User Kegiatan Mitra
 // Route::post('/tambahkegiatanmitra/create', 'App\Http\Controllers\KegiatanMitraController@createKegiatanMitra');

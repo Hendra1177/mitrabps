@@ -7,6 +7,8 @@ use App\Models\Kegiatan;
 use App\Models\Mitra;
 use Illuminate\Support\Facades\DB;
 
+// use\App\Models\KegiatanMitra;
+
 use Illuminate\Http\Request;
 
 class KegiatanMitraController extends Controller
@@ -26,7 +28,7 @@ class KegiatanMitraController extends Controller
 
     public function create(Request $request)
     {
-        \App\Models\KegiatanMitra::create($request->all());
+        KegiatanMitra::create($request->all());
         return redirect('/admin/kegiatanmitra')->with('sukses', 'Data berhasil ditambahkan');
     }
 
@@ -103,7 +105,6 @@ class KegiatanMitraController extends Controller
         //     'satuan' => $request->satuan,
         //     'harga_satuan' => $request->harga_satuan,
         // ]);
-
         // $mitra = Mitra::create([
         //     'nama_mitra' => $request->nama_mitra,
         //     'pekerjaan' => $request->pekerjaan,
@@ -116,6 +117,9 @@ class KegiatanMitraController extends Controller
 
 
 
+        $kegiatan_nama = Kegiatan::where('nama_kegiatan', $request->kegiatan_id)->value('id');
+        $mitra_nama = Mitra::where('nama_mitra', $request->mitra_id)->value('id');
+        
         $request->validate([
             'kegiatan_id' => 'required',
             'mitra_id' => 'required',
@@ -124,8 +128,8 @@ class KegiatanMitraController extends Controller
         ]);
 
         $kegiatanmitra = new KegiatanMitra;
-        $kegiatanmitra->kegiatan_id = $request->kegiatan_id;
-        $kegiatanmitra->mitra_id = $request->mitra_id;
+        $kegiatanmitra->kegiatan_id = $kegiatan_nama;
+        $kegiatanmitra->mitra_id = $mitra_nama;
         $kegiatanmitra->nilai_perjanjian = $request->nilai_perjanjian;
         $kegiatanmitra->target = $request->target;
         $kegiatanmitra->save();
@@ -138,6 +142,6 @@ class KegiatanMitraController extends Controller
         //     $request->save()
         // ]);
 
-        return view('Kemitraan.mitra', ['kegiatan_mitra' => $kegiatanmitra])->with('sukses', 'Data berhasil ditambahkan');
+        return  redirect()->route('mitra.datalistPelaksana')->with('sukses', 'Data berhasil ditambahkan');
     }
 }

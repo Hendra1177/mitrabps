@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Mitra;
+use App\Models\Kegiatan;
+use App\Models\KegiatanMitra;
 
 use Illuminate\Http\Request;
 
@@ -51,8 +53,16 @@ class MitraController extends Controller
         return redirect('/tambahmitra')->with('sukses', 'Data berhasil ditambahkan');
     }
 
-    public function detail()
+    
+
+    public function detail(Request $request)
     {
-        return view('Admin.detailmitra');
+        $data_kegiatan = KegiatanMitra::join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
+            ->join('mitra', 'mitra.id', '=', 'kegiatan_mitra.mitra_id')
+            ->get(['kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 'mitra.nama_mitra', 'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id']);
+
+
+        return view('admin.detailmitra', ['data_kegiatan' => $data_kegiatan]);
+        // dd($data_kegiatan);
     }
 }
