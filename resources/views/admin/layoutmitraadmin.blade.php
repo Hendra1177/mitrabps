@@ -26,49 +26,12 @@
 
   <link id="pagestyle" href="{{asset('template/assets/css/argon-dashboard.css')}}" rel="stylesheet" />
   <link id="pagestyle" href="{{asset('template/assets/dataTables/datatables.min.css')}}" rel="stylesheet" />
+  
 
-  <link id="pagestyle" href="{{asset('template/assets/dataTables/Button-2.2.3/css/buttons.dataTables.min.css')}}" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show bg-white">
-  <div class="min-height-300 bg-white position-absolute w-100">
-    <div id="demo" class="carousel slide" data-ride="carousel">
 
-      <!-- Indicators -->
-      <ul class="carousel-indicators">
-        <li data-target="#demo" data-slide-to="0" class="active"></li>
-        <li data-target="#demo" data-slide-to="1"></li>
-        <li data-target="#demo" data-slide-to="2"></li>
-      </ul>
-
-      <!-- The slideshow -->
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="{{asset('template/assets/img/sp2.jpg')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
-        </div>
-        <div class="carousel-item">
-          <img src="{{asset('template/assets/img/sensus3.png')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
-        </div>
-        <div class="carousel-item">
-          <img src="{{asset('template/assets/img/bps people.jpg')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
-        </div>
-        <div class="carousel-item">
-          <img src="{{asset('template/assets/img/sp3.jpg')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
-        </div>
-      </div>
-
-
-      <!-- Left and right controls -->
-      <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </a>
-      <a class="carousel-control-next" href="#demo" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </a> -->
-
-    </div>
-    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)"></div>
-  </div>
   <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
@@ -119,10 +82,10 @@
   </aside>
   <main class="main-content position-relative border-radius-lg ">
     <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
+    <nav class="navbar navbar-main navbar-expand-lg  shadow  navbar-dark bg-primary " id="navbarBlur" data-scroll="false">
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-0 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
             <li class="breadcrumb-item text-sm text-white active" aria-current="page">Mitra</li>
           </ol>
@@ -176,9 +139,22 @@
     <script src="{{asset('template/assets/js/plugins/chartjs.min.js')}}"></script>
     <script src="{{asset('template/assets/dataTables/datatables.min.js')}}"></script>
     <!-- <script src="{{asset('template/assets/DataTables/Buttons-2.2.3/js/buttons.dataTables.min.js')}}"></script> -->
-    <script src="{{asset('template/assets/DataTables/Buttons-2.2.3/js/buttons.html5.min.js')}}"></script>
+    <!-- <script src="{{asset('template/assets/DataTables/Buttons-2.2.3/js/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('template/assets/DataTables/Buttons-2.2.3/js/dataTables.button.min.js')}}"></script>
     <script src="{{asset('template/assets/DataTables/pdfmake-0.1.36/js/pdfmake.min.js')}}"></script>
+    <script src="{{asset('template/assets/DataTables/JSZip-2.5.0/jszip.min.js')}}"></script> -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
     <!-- <script src="{{asset('template/assets/DataTables/Button-2.2.3/js/buttons.jqueryui.min.js')}}"></script> -->
+    
+
 
     <script type="text/javascript">
       $(document).ready(function() {
@@ -186,29 +162,15 @@
       });
     </script>
 
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
       $(document).ready(function() {
         $('#tablemitra').DataTable({
           dom: 'Bfrtip',
           buttons: [
-            'print'
+            'copy', 'csv', 'excel', 'pdf', 'print'
           ]
         });
       });
-    </script> -->
-
-    <script type="text/javascript">
-      $(document).ready(function() {
-    $('#tablemitra').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdfHtml5'
-        ]
-    } );
-} );
     </script>
 
     <script>

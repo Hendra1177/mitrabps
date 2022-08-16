@@ -24,7 +24,7 @@
 </head>
 
 <main class="main-content position-relative border-radius-lg ps">
-    <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
+    <div class="card" style="margin-left:30px; margin-right:30px; margin-top:30px">
         <main class="container">
             @if (session('sukses'))
             <div class="alert alert-success fw-bold" role="alert">
@@ -139,6 +139,7 @@
             <td>ad</td>
             <td>ad</td>
             <td>ad</td>
+
         </tbody>
     </table>
 </div>

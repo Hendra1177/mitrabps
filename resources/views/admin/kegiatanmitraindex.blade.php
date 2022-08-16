@@ -24,7 +24,7 @@
 </head>
 
 <main class="main-content position-relative border-radius-lg ps">
-    <div class="card mx-auto" style="margin-left:30px; margin-right:30px; margin-top:255px">
+    <div class="card " style="margin-left:30px; margin-right:30px; margin-top:30px">
         <main class="container">
             @if (session('sukses'))
             <div class="alert alert-success fw-bold" role="alert">
@@ -32,7 +32,7 @@
             </div>
             @endif
 
-            <h2 class="text-center">Data Kegiatan</h1>
+            <h2 class="text-center " style="margin-top:20px">Data Perjanjian</h1>
                 <div class="row">
                     
                     <!-- <div class="col-6">
@@ -67,8 +67,9 @@
                                     <td class="text-center">{{$kegiatan->volume_total}}</td>
                                     <td class="text-center">{{$kegiatan->satuan}}</td>
                                     <td class="text-center">{{$kegiatan->harga_satuan}}</td>
-                                    <td class="text-center">{{$kegiatan->nama_mitra}}</td>
                                     <td class="text-center">{{$kegiatan->nilai_perjanjian}}</td>
+                                    <td class="text-center">{{$kegiatan->beban_anggaran}}</td>
+                                    
                                     
                                     <!-- <td>
                                         <a href="#" class="btn btn-info">view</a>

@@ -24,7 +24,7 @@
 </head>
 
 <main class="main-content position-relative border-radius-lg ps">
-    <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
+    <div class="card" style="margin-left:30px; margin-right:30px; margin-top:30px">
         <main class="container">
             @if (session('sukses'))
             <div class="alert alert-success fw-bold" role="alert">
@@ -110,7 +110,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

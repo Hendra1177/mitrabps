@@ -47,26 +47,27 @@
             <datalist id="datalistOptions1">
                 <option value="">
                     @foreach ($mitra as $mt)
-                <option value="{{$mt->id}}">{{$mt->nama_mitra}}</option>
+                <option value="{{$mt->nama_mitra}}">{{$mt->nama_mitra}}</option>
                 @endforeach
             </datalist>
-            {{-- <div class="control-group after-add-more" id="after-add-more">
+            <!-- <div class="control-group after-add-more" id="after-add-more">
                         <label for="pwd">Pilih Mitra</label>
                         <select class="form-control" id="mitra_id" name="mitra_id">
                             @foreach ($mitra as $mt)
                             <option value="{{$mt->nama_mitra}}">{{$mt->nama_mitra}}</option>
             @endforeach
             </select>
-        </div> --}}
+            </div> -->
+        </div>
     </div>
 
     <div class="col-1">
         <hr>
-        {{-- <div class="d-grid gap-2 d-md-flex justify-content-md-end"> --}}
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end"> 
         <button class="btn btn-success me-sm btn-md add-more" type="button" id="add-more">
             <i class="glyphicon glyphicon-plus"></i> +
         </button>
-        {{-- </div> --}}
+         </div> 
     </div>
     </div>
 
@@ -92,11 +93,13 @@
 <div class="copy invisible">
     <div class="control-group">
         <label>Pilih Mitra</label>
-        <select class="form-control">
-            @foreach ($mitra as $mt)
-            <option value="{{$mt->id}}">{{$mt->nama_mitra}}</option>
-            @endforeach
-        </select>
+        <input class="form-control" list="datalistOptions1" id="exampleDataList1" placeholder="Enter mitra.." name="mitra_id">
+            <datalist id="datalistOptions1">
+                <option value=" ">
+                    @foreach ($mitra as $mt)
+                <option value="{{$mt->nama_mitra}}">{{$mt->nama_mitra}}</option>
+                @endforeach
+            </datalist>
 
         <br>
         <button class="btn btn-danger me-sm btn-md remove" type="button"><i class="glyphicon glyphicon-remove"></i> -</button>

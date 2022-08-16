@@ -24,7 +24,7 @@
 </head>
 
 <main class="main-content position-relative border-radius-lg ps">
-    <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
+    <div class="card" style="margin-left:30px; margin-right:30px; margin-top:30px">
         <main class="container">
             @if (session('sukses'))
             <div class="alert alert-success fw-bold" role="alert">
@@ -32,7 +32,7 @@
             </div>
             @endif
 
-            <h2 class="text-center">Data Kegiatan</h1>
+            <h2 class="text-center" style="margin-top:20px" >Data Kegiatan</h1>
                 <div class="row">
                     <div class="col-6">
                         <!-- <form class="example" action="/admin/kegiatan" method="GET">
@@ -57,7 +57,8 @@
                                 <th>ID</th>
                                 <th>Nama Kegiatan</th>
                                 <th>Bulan</th>
-                                <th>Tanggal Pelaksana</th>
+                                <th>Tanggal Mulai</th>
+                                <th>Tanggal Selesai</th>
                                 <th>Beban Anggaran</th>
                                 <th>Volume Total</th>
                                 <th>Satuan</th>
@@ -74,8 +75,8 @@
                                 <td class="text-center">{{$kegiatan->id}}</td>
                                 <td>{{$kegiatan->nama_kegiatan}}</td>
                                 <td>{{$kegiatan->bulan}}</td>
-                                {{-- <td>{{$kegiatan->tanggal_mulai}}{{' - '}}{{$kegiatan->tanggal_akhir}}</td> --}}
                                 <td class="text-center">{{$kegiatan->tanggal_mulai}}</td>
+                                <td class="text-center">{{$kegiatan->tanggal_akhir}}</td>
                                 <td class="text-center">{{$kegiatan->beban_anggaran}}</td>
                                 <td class="text-center">{{$kegiatan->volume_total}}</td>
                                 <td class="text-center">{{$kegiatan->satuan}}</td>
@@ -116,23 +117,10 @@
                         </tbody>
                         </table>
                     </div>
-                    <!-- <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav> -->
                 </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">

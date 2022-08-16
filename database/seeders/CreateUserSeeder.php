@@ -15,7 +15,7 @@ class CreateUserSeeder extends Seeder
     public function run()
     {
         $admin = new User;
-        $admin->name = 'Administrator';
+        $admin->name = 'Admin';
         $admin->email = 'admin@a.com';
         $admin->email_verified_at = date('Y-m-d H:i:s');
         
