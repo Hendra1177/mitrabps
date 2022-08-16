@@ -43,6 +43,8 @@ Route::get('/admin/kegiatan', 'App\Http\Controllers\KegiatanController@index');
 
 Route::post('/admin/kegiatan/create', 'App\Http\Controllers\KegiatanController@create');
 
+Route::get('/admin/kegiatan/formkegiatan', 'App\Http\Controllers\KegiatanController@toCreate');
+
 Route::get('/admin/kegiatan/{id}/edit', 'App\Http\Controllers\KegiatanController@edit');
 
 Route::post('/admin/kegiatan/{id}/update', 'App\Http\Controllers\KegiatanController@update');
@@ -54,6 +56,8 @@ Route::get('/admin/kegiatan/{id}/delete', 'App\Http\Controllers\KegiatanControll
 Route::get('/admin/mitra', 'App\Http\Controllers\MitraController@index');
 
 Route::post('/admin/mitra/create', 'App\Http\Controllers\MitraController@create');
+
+Route::get('/admin/mitra/formmitra', 'App\Http\Controllers\MitraController@toCreate');
 
 Route::get('/admin/mitra/{id}/edit', 'App\Http\Controllers\MitraController@edit');
 

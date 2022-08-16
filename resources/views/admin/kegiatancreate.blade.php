@@ -1,10 +1,10 @@
-@extends ('Kemitraan.layoutkegiatan')
+@extends ('admin.layoutkegiatanadmin')
 @section('content')
-@section('Kegiatan', 'active')
+
 
 <main class="main-content position-relative border-radius-lg ps">
-  <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
-    <form action="/tambahkegiatan/create" method="POST">
+  <div class="card" style="margin-left:30px; margin-right:30px; margin-top:30px">
+    <form action="/admin/kegiatan/create" method="POST">
       {{csrf_field()}}
       <main class="container" style="padding-top:10px; align-left">
         @if (session('sukses'))
@@ -12,7 +12,7 @@
             {{session('sukses')}}
           </div>
         @endif
-        <h4 class="text-center">Form Kegiatan</h4>
+        <h3 class="text-center">Form Kegiatan</h3>
         <div class="form-group">
           <label for="validationServer04" class="form-label">Nama Kegiatan</label>
           <input name="nama_kegiatan" class="typeahead form-control " type="text" id="nama_kegiatan"
@@ -78,10 +78,7 @@
   </div>
 </main>
 
-{{-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> --}}
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+
 
 
 

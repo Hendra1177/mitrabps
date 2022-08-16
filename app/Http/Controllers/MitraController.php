@@ -26,6 +26,11 @@ class MitraController extends Controller
         return redirect('/admin/mitra')->with('sukses', 'Data berhasil ditambahkan');
     }
 
+    public function toCreate()
+    {
+        return view('admin.mitracreate');
+    }
+
     public function edit($id)
     {
         $mitra = \App\Models\Mitra::find($id);

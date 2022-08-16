@@ -58,12 +58,13 @@ class KegiatanController extends Controller
         return view('Kemitraan.tambahkegiatan');
     }
 
-    public function autocomplete(Request $request)
+    public function toCreate()
     {
-        $data = Kegiatan::select("kegiatan")
-            ->where("nama_kegiatan", "LIKE", "%{$request->query}%")
-            ->get();
+        return view('admin.kegiatancreate');
+    }
+
+    public function store(Request $request)
+    {
         
-            return response()->json($data);
     }
 }
