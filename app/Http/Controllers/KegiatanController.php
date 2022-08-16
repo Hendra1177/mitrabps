@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kegiatan;
+use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
 
@@ -21,8 +22,24 @@ class KegiatanController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request,[
+            'nama_kegiatan' => 'required|unique:kegiatan,nama_kegiatan',
+            'bulan' => 'required',
+            'tanggal_mulai' => 'required',
+            'tanggal_akhir' => 'required',
+            'beban_anggaran' => 'required',
+            'volume_total' => 'required',
+            'satuan'=> 'required',
+            'harga_satuan' => 'required',
+        ]);
+
         \App\Models\Kegiatan::create($request->all());
-        return redirect('/admin/kegiatan')->with('sukses', 'Data berhasil ditambahkan');
+        if($this){
+            return redirect('/admin/kegiatan')->with('sukses', 'Data berhasil ditambahkan');
+            
+        }else{
+            return redirect('/admin/kegiatan/formkegiatan')->with('sukses', 'Data gagal ditambahkan');
+        }
     }
 
     public function edit($id)
@@ -61,10 +78,5 @@ class KegiatanController extends Controller
     public function toCreate()
     {
         return view('admin.kegiatancreate');
-    }
-
-    public function store(Request $request)
-    {
-        
     }
 }

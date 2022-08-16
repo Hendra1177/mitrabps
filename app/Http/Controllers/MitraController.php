@@ -22,8 +22,23 @@ class MitraController extends Controller
 
     public function create(Request $request)
     {
+        $this->validate($request,[
+            'nama_mitra' => 'required|unique:mitra,nama_mitra',
+            'pekerjaan' => 'required',
+            'alamat' => 'required',
+            'desa' => 'required',
+            'kecamatan' => 'required',
+            'no_hp' => 'required|unique:mitra,no_hp',
+            'rekening_bri' => 'required|unique:mitra,rekening_bri',
+        ]);
+
         \App\Models\Mitra::create($request->all());
-        return redirect('/admin/mitra')->with('sukses', 'Data berhasil ditambahkan');
+        if($this){
+            return redirect('/admin/mitra')->with('sukses', 'Data berhasil ditambahkan');
+            
+        }else{
+            return redirect('/admin/mitra/formmitra')->with('sukses', 'Data gagal ditambahkan');
+        }
     }
 
     public function toCreate()
