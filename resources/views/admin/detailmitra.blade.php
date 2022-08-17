@@ -48,7 +48,7 @@
                         <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
                                 <img src="{{asset('template/assets/img/user.png')}}" class="rounded-circle img-fluid border border-2 border-white">
                         </div>
-                        <p class="text-center">Hendra Tri Ardiansyah</p>
+                        <p class="text-center">{{$mitra->nama_mitra}}</p>
                         <div class="card-body pt-0 py-6">
 
                             <div class="row">
@@ -56,12 +56,12 @@
                                     <div class="d-flex justify-content-center">
                                         <div class="d-grid text-center mx-4">
                                             <span class="text-sm font-weight-bolder">ID</span>
-                                            <span class="text-sm opacity-8">08</span>
+                                            <span class="text-sm opacity-8">{{$mitra->id }}</span>
                                         </div>
 
                                         <div class="d-grid text-center mx-4">
                                             <span class="text-sm font-weight-bolder">Target</span>
-                                            <span class="text-sm opacity-8">89</span>
+                                            <span class="text-sm opacity-8">-</span>
                                         </div>
 
                                     </div>
@@ -82,36 +82,38 @@
                     </div>
                 </div>
                 <div class="card-body ">
+                
                     <dl class="row">
                         <dl class="row">
                             <dt class="col-sm-3">Nama </dt>
-                            <dd class="col-sm-6">: Hendra Tri Ardiansyah</dd>
+                            <dd class="col-sm-6">: {{$mitra->nama_mitra}}</dd>
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Pekerjaan </dt>
-                            <dd class="col-sm-6">: Deadwood</dd>
+                            <dd class="col-sm-6">: {{$mitra->pekerjaan}}</dd>
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Alamat </dt>
-                            <dd class="col-sm-6">: ascav</dd>
+                            <dd class="col-sm-6">: {{$mitra->alamat}}</dd>
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Kecamatan </dt>
-                            <dd class="col-sm-6">: asfdas</dd>
+                            <dd class="col-sm-6">: {{$mitra->kecamatan}}</dd>
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Desa </dt>
-                            <dd class="col-sm-6">: sssgesf</dd>
+                            <dd class="col-sm-6">: {{$mitra->desa}}</dd>
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Nomor HP </dt>
-                            <dd class="col-sm-6">: 32532656324</dd>
+                            <dd class="col-sm-6">: {{$mitra->no_hp}}</dd>
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Rekening BRI </dt>
-                            <dd class="col-sm-6">: 12-1242142-51</dd>
+                            <dd class="col-sm-6">: {{$mitra->rekening_bri}}</dd>
                         </dl>
                     </dl>
+                    
                 </div>
             </div>
         </div>

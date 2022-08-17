@@ -75,11 +75,15 @@ class MitraController extends Controller
 
     
 
-    public function detail(Request $request)
+    public function detail(Request $request, $id)
     {
         $data_kegiatan = KegiatanMitra::join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
             ->join('mitra', 'mitra.id', '=', 'kegiatan_mitra.mitra_id')
             ->get(['kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 'mitra.nama_mitra', 'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id']);
+            $mitra = \App\Models\Mitra::find($id);
+            return view('admin.detailmitra', ['mitra' => $mitra]);
+            $kegiatan_mitra = \App\Models\KegiatanMitra::find($id);
+            return view('admin.detailmitra', ['kegiatan_mitra' => $kegiatan_mitra]);
 
 
         return view('admin.detailmitra', ['data_kegiatan' => $data_kegiatan]);

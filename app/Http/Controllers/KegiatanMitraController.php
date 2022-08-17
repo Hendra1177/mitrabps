@@ -144,4 +144,5 @@ class KegiatanMitraController extends Controller
 
         return  redirect()->route('mitra.datalistPelaksana')->with('sukses', 'Data berhasil ditambahkan');
     }
+
 }

@@ -67,6 +67,7 @@ Route::get('/admin/mitra/{id}/delete', 'App\Http\Controllers\MitraController@del
 
 Route::get('/admin/mitra/{id}/detail', 'App\Http\Controllers\MitraController@detail');
 
+
 //CRUD Admin Perjanjian
 Route::get('/admin/perjanjian', 'App\Http\Controllers\KegiatanMitraController@joinKegiatan');
 
