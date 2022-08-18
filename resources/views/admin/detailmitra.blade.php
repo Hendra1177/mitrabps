@@ -61,7 +61,7 @@
 
                                         <div class="d-grid text-center mx-4">
                                             <span class="text-sm font-weight-bolder">Target</span>
-                                            <span class="text-sm opacity-8">-</span>
+                                        <span class="text-sm opacity-8"></span>
                                         </div>
 
                                     </div>
@@ -123,7 +123,8 @@
 <div class="card-body" style="margin-right:15px; margin-left:15px;">
     <table class="table table-hover table-bordered" id="tablemitra">
         <thead>
-            <th>Nama Kegiatan</th>
+            <th>No</th>
+            <th>Uraian Kegiatan</th>
             <th>Bulan</th>
             <th>Jangka Waktu</th>
             <th>Volume</th>
@@ -133,14 +134,15 @@
             <th>Beban Anggaran</th>
         </thead>
         <tbody>
-            <td>ad</td>
-            <td>ad</td>
-            <td>ad</td>
-            <td>ad</td>
-            <td>ad</td>
-            <td>ad</td>
-            <td>ad</td>
-            <td>ad</td>
+            <td>{{$mitra->id}}</td>
+            <td>{{$kegiatan->nama_kegiatan}}</td>
+            <td>{{$kegiatan->bulan}}</td>
+            <td>{{$kegiatan->tanggal_mulai}} - {{$kegiatan->tanggal_akhir}}</td>
+            <td>{{$kegiatan->volume_total}}</td>
+            <td>{{$kegiatan->satuan}}</td>
+            <td>{{$kegiatan->harga_satuan}}</td>
+            <td>{{$kegiatan_mitra->nilai_perjanjian}}</td>
+            <td>{{$kegiatan->beban_anggaran}}</td>
 
         </tbody>
     </table>

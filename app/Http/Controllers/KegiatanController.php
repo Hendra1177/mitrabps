@@ -66,8 +66,24 @@ class KegiatanController extends Controller
 
     public function createKegiatan(Request $request)
     {
+        $this->validate($request,[
+            'nama_kegiatan' => 'required|unique:kegiatan,nama_kegiatan',
+            'bulan' => 'required',
+            'tanggal_mulai' => 'required',
+            'tanggal_akhir' => 'required',
+            'beban_anggaran' => 'required',
+            'volume_total' => 'required',
+            'satuan'=> 'required',
+            'harga_satuan' => 'required',
+        ]);
+
         \App\Models\Kegiatan::create($request->all());
-        return redirect('/pelaksana')->with('sukses', 'Data berhasil ditambahkan');
+        if($this){
+            return redirect('/pelaksana')->with('sukses', 'Data berhasil ditambahkan');
+            
+        }else{
+            return redirect('/tambahkegiatan')->with('sukses', 'Data gagal ditambahkan');
+        }
     }
 
     public function search()

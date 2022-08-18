@@ -91,7 +91,7 @@
                                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#ModalDelete">
                                         Delete
                                     </button>
-                                    <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    {{-- <div class="modal fade" id="ModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <form action="/kegiatan/create" method="POST">
                                             {{csrf_field()}}
 
@@ -111,7 +111,7 @@
                                                     </div>
                                                 </div>
                                         </form>
-                                    </div>
+                                    </div> --}}
 
                                 </td>
                             </tr>

@@ -32,6 +32,7 @@
             </div>
             @endif
 
+            <br>
             <h2 class="text-center">Data Mitra</h1>
                 <div class="row">
                     <div class="col-6">

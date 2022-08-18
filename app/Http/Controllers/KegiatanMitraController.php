@@ -95,37 +95,15 @@ class KegiatanMitraController extends Controller
 
     public function createKegiatan(Request $request)
     {
-        // $kegiatan = Kegiatan::create([
-        //     'nama_kegiatan' => $request->nama_kegiatan,
-        //     'bulan' => $request->bulan,
-        //     'tanggal_mulai' => $request->tanggal_mulai,
-        //     'tanggal_akhir' => $request->tanggal_akhir,
-        //     'beban_anggaran' => $request->beban_anggaran,
-        //     'volume_total' => $request->volume_total,
-        //     'satuan' => $request->satuan,
-        //     'harga_satuan' => $request->harga_satuan,
-        // ]);
-        // $mitra = Mitra::create([
-        //     'nama_mitra' => $request->nama_mitra,
-        //     'pekerjaan' => $request->pekerjaan,
-        //     'alamat' => $request->alamat,
-        //     'desa' => $request->desa,
-        //     'kecamatan' => $request->kecamatan,
-        //     'no_hp' => $request->no_hp,
-        //     'rekening_bri' => $request->rekening_bri,
-        // ]);
-
-
-
-        $kegiatan_nama = Kegiatan::where('nama_kegiatan', $request->kegiatan_id)->value('id');
-        $mitra_nama = Mitra::where('nama_mitra', $request->mitra_id)->value('id');
-        
-        $request->validate([
+        $this->validate($request,[
             'kegiatan_id' => 'required',
             'mitra_id' => 'required',
             'nilai_perjanjian' => 'required',
             'target' => 'required',
         ]);
+
+        $kegiatan_nama = Kegiatan::where('nama_kegiatan', $request->kegiatan_id)->value('id');
+        $mitra_nama = Mitra::where('nama_mitra', $request->mitra_id)->value('id');
 
         $kegiatanmitra = new KegiatanMitra;
         $kegiatanmitra->kegiatan_id = $kegiatan_nama;
@@ -133,16 +111,7 @@ class KegiatanMitraController extends Controller
         $kegiatanmitra->nilai_perjanjian = $request->nilai_perjanjian;
         $kegiatanmitra->target = $request->target;
         $kegiatanmitra->save();
-
-        // $kegiatanmitra = KegiatanMitra::create([
-        //     'kegiatan_id' => $request->kegiatan()->id,
-        //     'mitra_id' => $request->mitra()->id,
-        //     'nilai_perjanjian' => $request->nilai_perjanjian,
-        //     'target' => $request->target,
-        //     $request->save()
-        // ]);
-
+            
         return  redirect()->route('mitra.datalistPelaksana')->with('sukses', 'Data berhasil ditambahkan');
     }
-
 }
