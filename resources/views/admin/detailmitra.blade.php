@@ -61,7 +61,7 @@
 
                                         <div class="d-grid text-center mx-4">
                                             <span class="text-sm font-weight-bolder">Target</span>
-                                        <span class="text-sm opacity-8"></span>
+                                        <span class="text-sm opacity-8">{{$kegiatan_mitra->target}}</span>
                                         </div>
 
                                     </div>
