@@ -46,7 +46,7 @@
                 <div class="row justify-content-center">
                     <div class="col-4 col-lg-4 order-lg-2">
                         <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
-                                <img src="{{asset('template/assets/img/user.png')}}" class="rounded-circle img-fluid border border-2 border-white">
+                            <img src="{{asset('template/assets/img/user.png')}}" class="rounded-circle img-fluid border border-2 border-white">
                         </div>
                         <p class="text-center">{{$mitra->nama_mitra}}</p>
                         <div class="card-body pt-0 py-6">
@@ -61,13 +61,13 @@
 
                                         <div class="d-grid text-center mx-4">
                                             <span class="text-sm font-weight-bolder">Target</span>
-                                        <span class="text-sm opacity-8">{{$kegiatan_mitra->target}}</span>
+                                            <span class="text-sm opacity-8">{{$kegiatan_mitra->target}}</span>
                                         </div>
 
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -78,11 +78,11 @@
             <div class="card " style="margin-right:15px">
                 <div class="card-header pb-0">
                     <div class="d-flex align-items-center">
-                        <p class=" text-center" >Detail Profil Mitra</p>
+                        <p class=" text-center">Detail Profil Mitra</p>
                     </div>
                 </div>
                 <div class="card-body ">
-                
+
                     <dl class="row">
                         <dl class="row">
                             <dt class="col-sm-3">Nama </dt>
@@ -113,39 +113,44 @@
                             <dd class="col-sm-6">: {{$mitra->rekening_bri}}</dd>
                         </dl>
                     </dl>
-                    
+
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="card-body" style="margin-right:15px; margin-left:15px;">
-    <table class="table table-hover table-bordered" id="tablemitra">
-        <thead>
-            <th>No</th>
-            <th>Uraian Kegiatan</th>
-            <th>Bulan</th>
-            <th>Jangka Waktu</th>
-            <th>Volume</th>
-            <th>Satuan</th>
-            <th>Harga Satuan</th>
-            <th>Nilai Perjanjian</th>
-            <th>Beban Anggaran</th>
-        </thead>
-        <tbody>
-            <td>{{$mitra->id}}</td>
-            <td>{{$kegiatan->nama_kegiatan}}</td>
-            <td>{{$kegiatan->bulan}}</td>
-            <td>{{$kegiatan->tanggal_mulai}} - {{$kegiatan->tanggal_akhir}}</td>
-            <td>{{$kegiatan->volume_total}}</td>
-            <td>{{$kegiatan->satuan}}</td>
-            <td>{{$kegiatan->harga_satuan}}</td>
-            <td>{{$kegiatan_mitra->nilai_perjanjian}}</td>
-            <td>{{$kegiatan->beban_anggaran}}</td>
-
-        </tbody>
-    </table>
+<div class="card" style="margin-right:30px; margin-left:30px;">
+    <div class="card-body" style="margin-right:15px; margin-left:15px;">
+        <div id="over">
+            <table class="table table-hover table-bordered" id="tablemitra">
+                <thead>
+                    <th>No</th>
+                    <th>Uraian Kegiatan</th>
+                    <th>Bulan</th>
+                    <th>Jangka Waktu</th>
+                    <th>Volume</th>
+                    <th>Satuan</th>
+                    <th>Harga Satuan</th>
+                    <th>Nilai Perjanjian</th>
+                    <th>Beban Anggaran</th>
+                </thead>
+                <tbody>
+                    @foreach($data_kegiatan as $kegiatan)
+                    <td>{{$kegiatan_mitra->id}}</td>
+                    <td>{{$kegiatan->nama_kegiatan}}</td>
+                    <td>{{$kegiatan->bulan}}</td>
+                    <td>{{$kegiatan->tanggal_mulai}} - {{$kegiatan->tanggal_akhir}}</td>
+                    <td>{{$kegiatan->volume_total}}</td>
+                    <td>{{$kegiatan->satuan}}</td>
+                    <td>{{$kegiatan->harga_satuan}}</td>
+                    <td>{{$kegiatan_mitra->nilai_perjanjian}}</td>
+                    <td>{{$kegiatan->beban_anggaran}}</td>
+@endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 @endsection

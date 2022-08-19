@@ -302,6 +302,8 @@
   </script>
 
 <script src="{{asset('template/assets/js/argon-dashboard.min.js?v=2.0.4')}}"></script>
+
+
 </body>
 @endcan
 </html>

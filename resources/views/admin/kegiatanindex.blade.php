@@ -84,32 +84,7 @@
                                 <td>
                                     <a href="/admin/kegiatan/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
                                     <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">Hapus</a>
-                                    <!-- <form action="/admin/mitra/{{$kegiatan->id}}/edit" method="POST" class="d-inline">
-                                        @csrf
-                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                        Hapus
-                                    </button>
-                                    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
-
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">PERINGATAN</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Apakah yakin ingin dihapus?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
-                                                    <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm">Hapus</a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    </form> -->
+                                    
 
                                 </td>
                             </tr>

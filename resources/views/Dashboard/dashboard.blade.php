@@ -4,7 +4,7 @@
 <main class="main-content position-relative border-radius-lg ps">
   <!-- <div class="container-fluid py-4"> -->
     <h1 class="my-6 text-6x5 font-bold text-white text-center">
-      SELAMAT DATANG DI KEMITRAAN BPS JOMBANG
+      SELAMAT DATANG DI BPS JOMBANG
     </h1>
     @can('isUser')
     
