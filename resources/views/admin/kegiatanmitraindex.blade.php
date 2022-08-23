@@ -34,12 +34,9 @@
 
             <h2 class="text-center " style="margin-top:20px">Data Perjanjian</h1>
                 <div class="row">
-                    
-                    <!-- <div class="col-6">
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button class="btn btn-primary me-sm btn-sm " type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Tambah Kegiatan</button>
-                        </div>
-                    </div> -->
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="/admin/perjanjian/formperjanjian" class="btn btn-primary btn-sm" role="button">Tambah Pelaksana</a>
+                    </div>
                     <div id="over">
                         <table class="table table-hover table-bordered" id="tableperjanjian">
                             <thead>
@@ -86,7 +83,7 @@
                 </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -151,7 +148,8 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
-            </div>
+            </div>-->
+            
 </main>
 </div>
 </main>

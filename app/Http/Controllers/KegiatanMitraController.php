@@ -52,6 +52,38 @@ class KegiatanMitraController extends Controller
         return redirect('/admin/kegiatanmitra')->with('sukses', 'Data berhasil dihapus');
     }
 
+    public function datalistPelaksanaAdmin()
+    {
+        $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'asc')->get();
+        $mitra = Mitra::orderBy('nama_mitra', 'asc')->get();
+
+        $kegiatan_mitra = KegiatanMitra::all();
+        return view('admin.kegiatanmitracreate', ['kegiatan' => $kegiatan, 'mitra' => $mitra, 'kegiatan_mitra' => $kegiatan_mitra]);
+    }
+
+    public function createKegiatanAdmin(Request $request)
+    {
+        $this->validate($request,[
+            'kegiatan_id' => 'required|exists:kegiatan,nama_kegiatan',
+            'mitra_id' => 'required|exists:mitra,nama_mitra',
+            'nilai_perjanjian' => 'required',
+            'target' => 'required',
+        ]);
+
+        $kegiatan_nama = Kegiatan::where('nama_kegiatan', $request->kegiatan_id)->value('id');
+        $mitra_nama = Mitra::where('nama_mitra', $request->mitra_id)->value('id');
+
+        $kegiatanmitra = new KegiatanMitra;
+        $kegiatanmitra->kegiatan_id = $kegiatan_nama;
+        $kegiatanmitra->mitra_id = $mitra_nama;
+        $kegiatanmitra->nilai_perjanjian = $request->nilai_perjanjian;
+        $kegiatanmitra->target = $request->target;
+        $kegiatanmitra->save();
+            
+        return  redirect()->route('kegiatanmitracreate.datalistPelaksanaAdmin')->with('sukses', 'Data berhasil ditambahkan');
+    }
+
+    
     // Method User
     public function createKegiatanMitra(Request $request)
     {

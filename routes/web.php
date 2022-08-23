@@ -69,9 +69,11 @@ Route::get('/admin/mitra/{id}/detail', 'App\Http\Controllers\MitraController@det
 //CRUD Admin Perjanjian
 Route::get('/admin/perjanjian', 'App\Http\Controllers\KegiatanMitraController@joinKegiatan');
 
+Route::get('/admin/perjanjian/formperjanjian', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksanaAdmin');
+Route::get('/admin/perjanjian/formperjanjian/create', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksanaAdmin')->name('kegiatanmitracreate.datalistPelaksanaAdmin');
+Route::post('createKegiatanAdmin', 'App\Http\Controllers\KegiatanMitraController@createKegiatanAdmin')->name('pelaksanaAdmin.create');
+
 //Form User Kegiatan 
-
-
 Route::get('datalistPelaksana', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksana')->name('mitra.datalistPelaksana');
 Route::get('/pelaksana', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksana');
 Route::post('createKegiatan', 'App\Http\Controllers\KegiatanMitraController@createKegiatan')->name('pelaksana.create');
