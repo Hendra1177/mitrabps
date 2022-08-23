@@ -125,7 +125,7 @@
         <div id="over">
             <table class="table table-hover table-bordered" id="tablemitra">
                 <thead>
-                    <th>No</th>
+                    <th>ID</th>
                     <th>Uraian Kegiatan</th>
                     <th>Bulan</th>
                     <th>Jangka Waktu</th>
@@ -136,17 +136,21 @@
                     <th>Beban Anggaran</th>
                 </thead>
                 <tbody>
-                    @foreach($data_kegiatan as $kegiatan)
-                    <td>{{$kegiatan_mitra->id}}</td>
-                    <td>{{$kegiatan->nama_kegiatan}}</td>
-                    <td>{{$kegiatan->bulan}}</td>
-                    <td>{{$kegiatan->tanggal_mulai}} - {{$kegiatan->tanggal_akhir}}</td>
-                    <td>{{$kegiatan->volume_total}}</td>
-                    <td>{{$kegiatan->satuan}}</td>
-                    <td>{{$kegiatan->harga_satuan}}</td>
-                    <td>{{$kegiatan_mitra->nilai_perjanjian}}</td>
-                    <td>{{$kegiatan->beban_anggaran}}</td>
-@endforeach
+                    
+                    <tr>
+
+                        <td>{{$kegiatan_mitra->id}}</td>
+                        <td>{{$kegiatan_mitra->kegiatan_id}}</td>
+                        <td>{{$kegiatan->bulan}}</td>
+                        <td>{{$kegiatan->tanggal_mulai}} - {{$kegiatan->tanggal_akhir}}</td>
+                        <td>{{$kegiatan->volume_total}}</td>
+                        <td>{{$kegiatan->satuan}}</td>
+                        <td>{{$kegiatan->harga_satuan}}</td>
+                        <td>{{$kegiatan_mitra->nilai_perjanjian}}</td>
+                        <td>{{$kegiatan->beban_anggaran}}</td>
+
+                    </tr>
+                    
                 </tbody>
             </table>
         </div>

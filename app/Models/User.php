@@ -39,8 +39,8 @@ class User extends Authenticatable
     ];
 
     // Syarat kalau migration harus dinyalakan function create() 
-    public function create(){
+    // public function create(){
         
-    }
+    // }
 
 }

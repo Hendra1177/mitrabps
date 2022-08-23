@@ -98,8 +98,9 @@ class KegiatanMitraController extends Controller
         $this->validate($request,[
             'kegiatan_id' => 'required',
             'mitra_id' => 'required',
-            'nilai_perjanjian' => 'required',
+            // 'nilai_perjanjian' => 'required',
             'target' => 'required',
+            'bertugas_sebagai' => 'required',
         ]);
 
         $kegiatan_nama = Kegiatan::where('nama_kegiatan', $request->kegiatan_id)->value('id');

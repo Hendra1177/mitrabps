@@ -23,9 +23,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/tambahkegiatan', function () {
-    return view('Kemitraan.tambahkegiatan');
-});
+Route::get('/kegiatan', 'App\Http\Controllers\KegiatanController@indexUser');
 
 Route::get('/pelaksana', function () {
     return view('Kemitraan.mitra');
@@ -72,12 +70,16 @@ Route::get('/admin/mitra/{id}/detail', 'App\Http\Controllers\MitraController@det
 Route::get('/admin/perjanjian', 'App\Http\Controllers\KegiatanMitraController@joinKegiatan');
 
 //Form User Kegiatan 
-Route::post('/tambahkegiatan/create', 'App\Http\Controllers\KegiatanController@createKegiatan');
+
 
 Route::get('datalistPelaksana', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksana')->name('mitra.datalistPelaksana');
 Route::get('/pelaksana', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksana');
-
 Route::post('createKegiatan', 'App\Http\Controllers\KegiatanMitraController@createKegiatan')->name('pelaksana.create');
+
+Route::post('/kegiatan/formkegiatan/create', 'App\Http\Controllers\KegiatanController@createKegiatan');
+Route::get('/kegiatan/formkegiatan', 'App\Http\Controllers\KegiatanController@toCreateUser');
+Route::get('/kegiatan/{id}/edit', 'App\Http\Controllers\KegiatanController@editUser');
+Route::get('/kegiatan/{id}/detail', 'App\Http\Controllers\KegiatanController@detail');
 
 
 // Route::get('/search', 'App\Http\Controllers\KegiatanController@index')->name('search');
