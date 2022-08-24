@@ -31,7 +31,7 @@ class MitraController extends Controller
             'desa' => 'required',
             'kecamatan' => 'required',
             'no_hp' => 'required|unique:mitra,no_hp',
-            'rekening_bri' => 'required|unique:mitra,rekening_bri',
+            'rekening_bri' => 'unique:mitra,rekening_bri',
         ]);
 
         \App\Models\Mitra::create($request->all());

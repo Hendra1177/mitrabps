@@ -49,6 +49,8 @@ Route::post('/admin/kegiatan/{id}/update', 'App\Http\Controllers\KegiatanControl
 
 Route::get('/admin/kegiatan/{id}/delete', 'App\Http\Controllers\KegiatanController@delete');
 
+Route::get('/admin/kegiatan/{id}/detail', 'App\Http\Controllers\KegiatanController@detailAdmin');
+
 //CRUD Admin Mitra
 
 Route::get('/admin/mitra', 'App\Http\Controllers\MitraController@index');
