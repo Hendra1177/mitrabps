@@ -24,16 +24,19 @@
 </head>
 
 <main class="main-content position-relative border-radius-lg ps">
-    <div class="card" style="margin-left:30px; margin-right:30px; margin-top:30px">
-        <main class="container">
-            @if (session('sukses'))
+        @if (session('sukses'))
             <div class="alert alert-success fw-bold" role="alert">
                 {{session('sukses')}}
             </div>
-            @endif
+        @endif
+            <div class="card" style="margin-left:30px; margin-right:30px; margin-top:30px">
+                <div class="card-header pb-0 py-2">
+                    <div class="align-items-center">
+                        <h2 class="text-center">Data Mitra</h3>
+                    </div>
+                </div>
 
-            <br>
-            <h2 class="text-center">Data Mitra</h1>
+                <div class="card-body">
                 <div class="row">
                     <div class="col-6">
                        
@@ -50,11 +53,14 @@
                                 <tr class="text-center">
                                     <th>ID</th>
                                     <th>Nama Mitra</th>
-                                    <th>Pekerjaan</th>
-                                    <th>Alamat</th>
-                                    <th>Desa</th>
+                                    <th>Email</th>
                                     <th>Kecamatan</th>
+                                    <th>Desa</th>
+                                    <th>Alamat</th>
+                                    <th>Tanggal Lahir</th>
+                                    <th>Jenis Kelamin</th>
                                     <th>Nomor HP</th>
+                                    <th>Pekerjaan</th>
                                     <th>Rekening BRI</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -63,14 +69,17 @@
                             <tbody>
                                 @foreach ($data_mitra as $mitra)
                                 <tr>
-                                    <td class="text-center">{{$mitra->id}}</td>
+                                    <td>{{$mitra->id}}</td>
                                     <td>{{$mitra->nama_mitra}}</td>
-                                    <td class="text-center">{{$mitra->pekerjaan}}</td>
+                                    <td>{{$mitra->email}}</td>
+                                    <td>{{$mitra->kecamatan_id}}</td>
+                                    <td>{{$mitra->desa_id}}</td>
                                     <td>{{$mitra->alamat}}</td>
-                                    <td class="text-center">{{$mitra->desa}}</td>
-                                    <td class="text-center">{{$mitra->kecamatan}}</td>
-                                    <td class="text-center">{{$mitra->no_hp}}</td>
-                                    <td class="text-center">{{$mitra->rekening_bri}}</td>
+                                    <td>{{$mitra->tanggal_lahir}}</td>
+                                    <td>{{$mitra->jenis_kelamin_id}}</td>
+                                    <td>{{$mitra->no_hp}}</td>
+                                    <td>{{$mitra->pekerjaan}}</td>
+                                    <td>{{$mitra->rekening_bri}}</td>
                                     <td>
                                         <a href="/admin/mitra/{{$mitra->id}}/detail" class="btn btn-info btn-sm">View</a>
                                         <a href="/admin/mitra/{{$mitra->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
@@ -108,7 +117,8 @@
                         </table>
                     </div>
                 </div>
-    </div>
+                </div>
+            </div>  
 
     <!-- Modal -->
     {{-- <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

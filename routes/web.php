@@ -53,11 +53,15 @@ Route::get('/admin/kegiatan/{id}/detail', 'App\Http\Controllers\KegiatanControll
 
 //CRUD Admin Mitra
 
+Route::get('/admin/mitra/formmitra', 'App\Http\Controllers\MitraController@datalistMitraAdmin');
+Route::get('/admin/mitra/formmitra/create', 'App\Http\Controllers\MitraController@datalistMitraAdmin')->name('mitracreate.datalistMitraAdmin');
+Route::post('/admin/mitra/formmitra/created', 'App\Http\Controllers\MitraController@createMitraAdmin')->name('mitraAdmin.create');
+
 Route::get('/admin/mitra', 'App\Http\Controllers\MitraController@index');
 
-Route::post('/admin/mitra/formmitra/create', 'App\Http\Controllers\MitraController@create');
+// Route::post('/admin/mitra/formmitra/create', 'App\Http\Controllers\MitraController@create');
 
-Route::get('/admin/mitra/formmitra', 'App\Http\Controllers\MitraController@toCreate');
+// Route::get('/admin/mitra/formmitra', 'App\Http\Controllers\MitraController@toCreate');
 
 Route::get('/admin/mitra/{id}/edit', 'App\Http\Controllers\MitraController@edit');
 

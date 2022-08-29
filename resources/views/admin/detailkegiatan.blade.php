@@ -24,22 +24,18 @@
 </head>
 
 <main class="main-content position-relative border-radius-lg ps">
-    
-        
             @if (session('sukses'))
             <div class="alert alert-success fw-bold" role="alert">
                 {{session('sukses')}}
             </div>
             @endif
    <div class="card" style="margin-left:30px; margin-right:30px; margin-top:30px">
-    
         <div class="card-header pb-0">
             <div class="d-flex align-items-center">
                 <p class=" text-center">Detail Kegiatan</p>
             </div>
         </div>
         <div class="card-body ">
-
             <dl class="row">
                 <dl class="row">
                     <dt class="col-sm-3">Nama Kegiatan : </dt>
@@ -70,10 +66,7 @@
                     <input class="col-sm-4 form-control" type="text" value="{{$kegiatan->beban_anggaran}}" aria-label="Disabled input example" disabled readonly>
                 </dl>
             </dl>
-
         </div>
-    
-</div>
 </main>
 
 <br> 

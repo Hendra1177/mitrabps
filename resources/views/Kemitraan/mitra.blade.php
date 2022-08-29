@@ -17,10 +17,11 @@
                 {{session('sukses')}}
             </div>
             @endif
-            <main class="container" style="padding-top:10px; align-left">
+            <main class="container" style="padding-top:20px; align-left">
                 <center>
-                    <h4>Form Pelaksana</h4>
+                    <h3>Form Pelaksana</h3>
                 </center>
+                <hr>
                 <div class="form-group {{$errors->has('kegiatan_id') ? ' has-error' : ''}}">
                     <label for="exampleDataList" class="form-label">Pilih Kegiatan</label>
                     <input class="form-control" value="{{old('kegiatan_id')}}" list="datalistOptions" id="exampleDataList" placeholder="Enter kegiatan.." name="kegiatan_id">

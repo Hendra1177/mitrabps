@@ -24,15 +24,20 @@
 </head>
 
 <main class="main-content position-relative border-radius-lg ps">
-    <div class="card" style="margin-left:30px; margin-right:30px; margin-top:30px">
-        <main class="container">
             @if (session('sukses'))
             <div class="alert alert-success fw-bold" role="alert">
                 {{session('sukses')}}
             </div>
             @endif
 
-            <h2 class="text-center" style="margin-top:20px" >Data Kegiatan</h1>
+        <div class="card" style="margin-left:30px; margin-right:30px; margin-top:30px">
+            <div class="card-header pb-0 py-2">
+                <div class="align-items-center">
+                    <h2 class="text-center">Data Kegiatan</h3>
+                </div>
+            </div>
+
+            <div class="card-body">
                 <div class="row">
                     <div class="col-6">
                         <!-- <form class="example" action="/admin/kegiatan" method="GET">
@@ -68,10 +73,8 @@
                             </thead>
 
                             <tbody>
-                            @foreach ($data_kegiatan as $kegiatan)
-                            
+                                @foreach ($data_kegiatan as $kegiatan)
                             <tr>
-                            
                                 <td class="text-center">{{$kegiatan->id}}</td>
                                 <td>{{$kegiatan->nama_kegiatan}}</td>
                                 <td>{{$kegiatan->bulan}}</td>
@@ -85,19 +88,15 @@
                                     <a href="/admin/kegiatan/{{$kegiatan->id}}/detail" class="btn btn-primary btn-sm">View</a>
                                     <a href="/admin/kegiatan/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
                                     <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">Hapus</a>
-                                    
-
                                 </td>
                             </tr>
-                            @endforeach
-                        </tbody>
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>
-    </div>
-    <!-- Modal -->
-    
+            </div>
+        </div>    
 </main>
-</div>
-</main>
+
 @endsection

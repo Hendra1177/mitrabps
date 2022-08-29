@@ -27,13 +27,14 @@
   <div class="card" style="margin-left:30px; margin-right:30px; margin-top:30px">
     <form action="/admin/kegiatan/formkegiatan/create" method="POST">
       {{csrf_field()}}
-      <main class="container" style="padding-top:10px; align-left">
+      <main class="container" style="padding-top:30px; align-left">
         @if (session('sukses'))
           <div class="alert alert-success fw-bold" role="alert">
             {{session('sukses')}}
           </div>
         @endif
         <h3 class="text-center">Form Kegiatan</h3>
+        <hr>
         
         <div class="form-group {{$errors->has('nama_kegiatan') ? ' has-error' : ''}}">
           <label for="validationServer04" class="form-label">Nama Kegiatan</label>

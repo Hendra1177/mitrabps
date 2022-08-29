@@ -12,7 +12,8 @@ class KegiatanMitra extends Model
     protected $fillable = [
         'kegiatan_id',
         'mitra_id',
-        'nilai_perjanjian',
+        'mitrabaru_id',
+        'bertugas_sebagai',
         'target',
     ];
 
@@ -23,6 +24,11 @@ class KegiatanMitra extends Model
     public function kegiatan(){
         return $this->belongsToMany(Kegiatan::class, 'kegiatan_id');
     }
+
+    public function mitra_baru(){
+        return $this->belongsToMany(MitraBaru::class, 'mitra_id');
+    }
+
     // public function getKegiatanMitra(){
         
     // }
