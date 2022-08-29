@@ -25,15 +25,15 @@
 </head>
 
 <main class="main-content position-relative border-radius-lg ps">
-    
-        
-            @if (session('sukses'))
-            <div class="alert alert-success fw-bold" role="alert">
-                {{session('sukses')}}
-            </div>
-            @endif
-   <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
-    
+
+
+    @if (session('sukses'))
+    <div class="alert alert-success fw-bold" role="alert">
+        {{session('sukses')}}
+    </div>
+    @endif
+    <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
+
         <div class="card-header pb-0">
             <div class="d-flex align-items-center">
                 <p class=" text-center">Detail Kegiatan</p>
@@ -73,44 +73,49 @@
             </dl>
 
         </div>
-    
-</div>
+
+    </div>
 </main>
 
-<br> 
+<br>
 <div class="card" style="margin-right:30px; margin-left:30px;">
     <div class="card-header pb-0">
         <div class="d-flex align-items-center">
             <p class=" text-center">Detail Pelaksana</p>
         </div>
     </div>
-    <div class="card-body" >
+    <div class="card-body">
         <div id="over">
             <table class="table table-hover table-bordered" id="datatables">
                 <thead>
                     <th>ID</th>
-                    <th>Uraian Kegiatan</th>
-                    <th>Bulan</th>
-                    <th>Jangka Waktu</th>
-                    <th>Volume</th>
-                    <th>Satuan</th>
-                    <th>Harga Satuan</th>
-                    <th>Nilai Perjanjian</th>
-                    <th>Beban Anggaran</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Kecamatan</th>
+                    <th>Desa</th>
+                    <th>Alamat</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Nomor HP</th>
+                    <th>Pekerjaan</th>
+                    <th>Rekening Bri</th>
                 </thead>
                 <tbody>
 
                     <tr>
 
-                        <td>{{$kegiatan_mitra->id}}</td>
-                        <td>{{$kegiatan_mitra->kegiatan_id}}</td>
-                        <td>{{$kegiatan->bulan}}</td>
-                        <td>{{$kegiatan->tanggal_mulai}} - {{$kegiatan->tanggal_akhir}}</td>
-                        <td>{{$kegiatan->volume_total}}</td>
-                        <td>{{$kegiatan->satuan}}</td>
-                        <td>{{$kegiatan->harga_satuan}}</td>
-                        <td>{{$kegiatan_mitra->nilai_perjanjian}}</td>
-                        <td>{{$kegiatan->beban_anggaran}}</td>
+                        <td>{{$mitra_baru->id}}</td>
+                        <td>{{$mitra_baru->nama }}</td>
+                        <td>{{$mitra_baru->email}}</td>
+                        <td>{{$mitra_baru->kecamatan_id}}</td>
+                        <td>{{$mitra_baru->desa_id}}</td>
+                        <td>{{$mitra_baru->alamat}}</td>
+                        <td>{{$mitra_baru->tanggal_lahir}}</td>
+                        <td>{{$mitra_baru->jenis_kelamin_id}}</td>
+                        <td>{{$mitra_baru->no_hp}}</td>
+                        <td>{{$mitra_baru->pekerjaan}}</td>
+                        <td>{{$mitra_baru->rekening_bri}}</td>
+
 
                     </tr>
 

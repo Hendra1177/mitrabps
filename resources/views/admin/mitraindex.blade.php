@@ -67,16 +67,16 @@
                             </thead>
 
                             <tbody>
-                                @foreach ($data_mitra as $mitra)
+                                @foreach ($data as $mitra)
                                 <tr>
                                     <td>{{$mitra->id}}</td>
                                     <td>{{$mitra->nama_mitra}}</td>
                                     <td>{{$mitra->email}}</td>
-                                    <td>{{$mitra->kecamatan_id}}</td>
-                                    <td>{{$mitra->desa_id}}</td>
+                                    <td>{{$mitra->nama_kecamatan}}</td>
+                                    <td>{{$mitra->nama_desa}}</td>
                                     <td>{{$mitra->alamat}}</td>
                                     <td>{{$mitra->tanggal_lahir}}</td>
-                                    <td>{{$mitra->jenis_kelamin_id}}</td>
+                                    <td>{{$mitra->kelamin}}</td>
                                     <td>{{$mitra->no_hp}}</td>
                                     <td>{{$mitra->pekerjaan}}</td>
                                     <td>{{$mitra->rekening_bri}}</td>

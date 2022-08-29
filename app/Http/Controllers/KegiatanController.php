@@ -64,11 +64,13 @@ class KegiatanController extends Controller
     public function detailAdmin(Request $request, $id)
     {
         $data_kegiatan = KegiatanMitra::join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
-            ->join('mitra', 'mitra.id', '=', 'kegiatan_mitra.mitra_id')
-            ->get(['kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 'mitra.nama_mitra', 'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id', 'kegiatan.beban_anggaran']);
+            ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
+            ->get(['kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
+                    'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id', 'kegiatan.beban_anggaran', 
+                    'mitrabaru.nama_mitra', 'mitrabaru.email', 'mitrabaru.kecamatan_id', 'mitrabaru.desa_id', 'mitrabaru.alamat', 'mitrabaru.tanggal_lahir', 'mitrabaru.jeniskelamin_id', 'mitrabaru.no_hp', 'mitrabaru.pekerjaan', 'mitrabaru.rekening_bri']);
             // $kegiatan_nama = Kegiatan::where('id')->value('nama_kegiatan');
             
-        $mitra = \App\Models\Mitra::find($id);
+        $mitra_baru = \App\Models\MitraBaru::find($id);
         // return view('admin.detailmitra', ['mitra' => $mitra]);
         
         $kegiatan_mitra = \App\Models\KegiatanMitra::find($id);
@@ -76,7 +78,7 @@ class KegiatanController extends Controller
 
         $kegiatan = \App\Models\Kegiatan::find($id);
 
-        return view('admin.detailkegiatan', [ 'mitra' => $mitra, 'kegiatan' => $kegiatan, 'kegiatan_mitra' => $kegiatan_mitra, ]);
+        return view('admin.detailkegiatan', [ 'mitra_baru' => $mitra_baru, 'kegiatan' => $kegiatan, 'kegiatan_mitra' => $kegiatan_mitra, 'data_kegiatan' => $data_kegiatan ]);
         // dd($data_kegiatan);
     }
 
@@ -134,11 +136,13 @@ class KegiatanController extends Controller
     public function detail(Request $request, $id)
     {
         $data_kegiatan = KegiatanMitra::join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
-            ->join('mitra', 'mitra.id', '=', 'kegiatan_mitra.mitra_id')
-            ->get(['kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 'mitra.nama_mitra', 'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id', 'kegiatan.beban_anggaran']);
+        ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
+        ->get(['kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
+                'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id', 'kegiatan.beban_anggaran', 
+                'mitrabaru.nama_mitra', 'mitrabaru.email', 'mitrabaru.kecamatan_id', 'mitrabaru.desa_id', 'mitrabaru.alamat', 'mitrabaru.tanggal_lahir', 'mitrabaru.jeniskelamin_id', 'mitrabaru.no_hp', 'mitrabaru.pekerjaan', 'mitrabaru.rekening_bri']);
             // $kegiatan_nama = Kegiatan::where('id')->value('nama_kegiatan');
             
-        $mitra = \App\Models\Mitra::find($id);
+        $mitra_baru = \App\Models\MitraBaru::find($id);
         // return view('admin.detailmitra', ['mitra' => $mitra]);
         
         $kegiatan_mitra = \App\Models\KegiatanMitra::find($id);
@@ -146,7 +150,7 @@ class KegiatanController extends Controller
 
         $kegiatan = \App\Models\Kegiatan::find($id);
 
-        return view('Kemitraan.detailkegiatan', [ 'mitra' => $mitra, 'kegiatan' => $kegiatan, 'kegiatan_mitra' => $kegiatan_mitra, ]);
+        return view('Kemitraan.detailkegiatan', [ 'mitra_baru' => $mitra_baru, 'kegiatan' => $kegiatan, 'kegiatan_mitra' => $kegiatan_mitra, 'data_kegiatan' => $data_kegiatan ]);
         // dd($data_kegiatan);
     }
 }

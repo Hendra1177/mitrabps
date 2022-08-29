@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class JenisKelamin extends Model
 {
     use HasFactory;
-    protected $table = 'jenis_kelamin';
+    protected $table = 'jeniskelamin';
     protected $fillable = [
         'kelamin',
     ];
 
-    public function mitra_baru(){
-        return $this->hasOne(MitraBaru::class, 'mitra_baru_id');
+    public function mitrabaru(){
+        return $this->hasOne(MitraBaru::class, 'mitrabaru_id');
     }
 }

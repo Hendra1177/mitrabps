@@ -48,7 +48,7 @@
                         <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
                             <img src="{{asset('template/assets/img/user.png')}}" class="rounded-circle img-fluid border border-2 border-white">
                         </div>
-                        <p class="text-center">{{$mitra->nama_mitra}}</p>
+                        <p class="text-center">{{$mitra_baru->nama_mitra}}</p>
                         <div class="card-body pt-0 py-6">
 
                             <div class="row">
@@ -56,7 +56,7 @@
                                     <div class="d-flex justify-content-center">
                                         <div class="d-grid text-center mx-4">
                                             <span class="text-sm font-weight-bolder">ID</span>
-                                            <span class="text-sm opacity-8">{{$mitra->id }}</span>
+                                            <span class="text-sm opacity-8">{{$mitra_baru->id }}</span>
                                         </div>
 
                                         <div class="d-grid text-center mx-4">
@@ -86,31 +86,35 @@
                     <dl class="row">
                         <dl class="row">
                             <dt class="col-sm-3">Nama </dt>
-                            <dd class="col-sm-6">: {{$mitra->nama_mitra}}</dd>
+                            <dd class="col-sm-6">: {{$mitra_baru->nama_mitra}}</dd>
+                        </dl>
+                        <dl class="row">
+                            <dt class="col-sm-3">Email </dt>
+                            <dd class="col-sm-6">: {{$mitra_baru->email}}</dd>
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Pekerjaan </dt>
-                            <dd class="col-sm-6">: {{$mitra->pekerjaan}}</dd>
+                            <dd class="col-sm-6">: {{$mitra_baru->pekerjaan}}</dd>
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Alamat </dt>
-                            <dd class="col-sm-6">: {{$mitra->alamat}}</dd>
+                            <dd class="col-sm-6">: {{$mitra_baru->alamat}}</dd>
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Kecamatan </dt>
-                            <dd class="col-sm-6">: {{$mitra->kecamatan}}</dd>
+                            <dd class="col-sm-6">: {{$mitra_baru->kecamatan_id}}</dd>
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Desa </dt>
-                            <dd class="col-sm-6">: {{$mitra->desa}}</dd>
+                            <dd class="col-sm-6">: {{$mitra_baru->desa_id}}</dd>
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Nomor HP </dt>
-                            <dd class="col-sm-6">: {{$mitra->no_hp}}</dd>
+                            <dd class="col-sm-6">: {{$mitra_baru->no_hp}}</dd>
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Rekening BRI </dt>
-                            <dd class="col-sm-6">: {{$mitra->rekening_bri}}</dd>
+                            <dd class="col-sm-6">: {{$mitra_baru->rekening_bri}}</dd>
                         </dl>
                     </dl>
 

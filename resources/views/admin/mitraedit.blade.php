@@ -30,33 +30,51 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="pwd">Target</label>
-                        <input name="target" type="text" class="form-control" id="tgl"
-                            placeholder="Enter target" name="pwd" value="{{$mitra->target}}">
+                        <label for="pwd">Email</label>
+                        <input name="email" type="text" class="form-control" id="tgl"
+                            placeholder="Enter target" name="pwd" value="{{$mitra->email}}">
                     </div>
 
                     <div class="form-group">
-                        <label for="pwd">Pekerjaan</label>
-                        <input name="pekerjaan" type="text" class="form-control" id="tgl"
-                            placeholder="Enter pekerjaan" name="pwd" value="{{$mitra->pekerjaan}}">
+                        <label for="pwd">Kecamatan</label>
+                        <input name="kecamatan" type="text" class="form-control" id="tgl"
+                            placeholder="Enter target" name="pwd" value="{{$mitra->kecamatan_id}}">
                     </div>
 
+                    <div class="form-group">
+                        <label for="pwd">Desa</label>
+                        <input name="desa" type="text" class="form-control" id="tgl"
+                            placeholder="Enter target" name="pwd" value="{{$mitra->desa_id}}">
+                    </div>
+                    
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="form-label">Alamat</label>
                         <input name="alamat" type="text" class="form-control" id="exampleInputEmail1"
                             aria-describedby="emailHelp" placeholder="Enter alamat" value="{{$mitra->alamat}}">
                     </div>
-
+                    
                     <div class="form-group">
-                        <label for="exampleInputEmail1" class="form-label">Kecamatan</label>
+                        <label for="exampleInputEmail1" class="form-label">Tanggal Lahir</label>
                         <input name="kecamatan" type="text" class="form-control" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" placeholder="Enter kecamatan" value="{{$mitra->kecamatan}}">
+                            aria-describedby="emailHelp" placeholder="Enter kecamatan" value="{{$mitra->tanggal_lahir}}">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
+                        <input name="kecamatan" type="text" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="Enter kecamatan" value="{{$mitra->jenis_kelamin_id}}">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="form-label">Nomor HP</label>
                         <input name="no_hp" type="text" class="form-control" id="exampleInputEmail1"
                             aria-describedby="emailHelp" placeholder="Enter nomor hp" value="{{$mitra->no_hp}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pwd">Pekerjaan</label>
+                        <input name="pekerjaan" type="text" class="form-control" id="tgl"
+                            placeholder="Enter pekerjaan" name="pwd" value="{{$mitra->pekerjaan}}">
                     </div>
 
                     <div class="form-group">

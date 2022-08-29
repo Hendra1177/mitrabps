@@ -13,7 +13,7 @@ class Kecamatan extends Model
         'nama_kecamatan',
     ];
 
-    public function mitra_baru(){
-        return $this->hasMany(mitra_baru::class, 'mitra_baru_id');
+    public function mitrabaru(){
+        return $this->hasMany(MitraBaru::class, 'mitrabaru_id');
     }
 }

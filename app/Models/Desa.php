@@ -12,7 +12,7 @@ class Desa extends Model
     protected $fillable = [
         'nama_desa',
     ];
-    public function mitra_baru(){
-        return $this->hasMany(MitraBaru::class, 'mitra_baru_id');
+    public function mitrabaru(){
+        return $this->hasMany(MitraBaru::class, 'mitrabaru_id');
     }
 }
