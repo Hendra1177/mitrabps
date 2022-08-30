@@ -130,6 +130,9 @@ class MitraController extends Controller
                 'kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id', 'kegiatan.beban_anggaran',
                 'mitrabaru.nama_mitra', 'mitrabaru.email', 'mitrabaru.kecamatan_id', 'mitrabaru.desa_id', 'mitrabaru.alamat', 'mitrabaru.tanggal_lahir', 'mitrabaru.jeniskelamin_id', 'mitrabaru.no_hp', 'mitrabaru.pekerjaan', 'mitrabaru.rekening_bri'
             ]);
+        
+
+        
         // $kegiatan_nama = Kegiatan::where('id')->value('nama_kegiatan');
 
         $mitra_baru = \App\Models\MitraBaru::find($id);
@@ -140,7 +143,7 @@ class MitraController extends Controller
 
         $kegiatan = \App\Models\Kegiatan::find($id);
 
-        return view('admin.detailmitra', ['mitra_baru' => $mitra_baru, 'kegiatan' => $kegiatan, 'kegiatan_mitra' => $kegiatan_mitra,]);
+        return view('admin.detailmitra', ['mitra_baru' => $mitra_baru, 'kegiatan' => $kegiatan, 'kegiatan_mitra' => $kegiatan_mitra, ]);
         // dd($data_kegiatan);
     }
 }

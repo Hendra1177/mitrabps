@@ -25,8 +25,8 @@ class KegiatanMitra extends Model
         return $this->belongsToMany(Kegiatan::class, 'kegiatan_id');
     }
 
-    public function mitra_baru(){
-        return $this->belongsToMany(MitraBaru::class, 'mitra_id');
+    public function mitrabaru(){
+        return $this->belongsToMany(MitraBaru::class, 'mitrabaru_id');
     }
 
     // public function getKegiatanMitra(){

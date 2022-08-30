@@ -142,9 +142,9 @@
                 <tbody>
                     
                     <tr>
-
-                        <td>{{$kegiatan_mitra->id}}</td>
-                        <td>{{$kegiatan_mitra->kegiatan_id}}</td>
+                    
+                        <td>{{$kegiatan->id}}</td>
+                        <td>{{$kegiatan->nama_kegiatan}}</td>
                         <td>{{$kegiatan->bulan}}</td>
                         <td>{{$kegiatan->tanggal_mulai}} - {{$kegiatan->tanggal_akhir}}</td>
                         <td>{{$kegiatan->volume_total}}</td>
@@ -152,7 +152,7 @@
                         <td>{{$kegiatan->harga_satuan}}</td>
                         <td>{{$kegiatan_mitra->nilai_perjanjian}}</td>
                         <td>{{$kegiatan->beban_anggaran}}</td>
-
+                        
                     </tr>
                     
                 </tbody>
