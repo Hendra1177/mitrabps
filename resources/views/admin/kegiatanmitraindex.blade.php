@@ -70,14 +70,12 @@
                                     <td class="text-center">{{$kegiatan->harga_satuan}}</td>
                                     <td class="text-center">{{$kegiatan->nilai_perjanjian}}</td>
                                     <td class="text-center">{{$kegiatan->beban_anggaran}}</td>
-                                    
-                                    
-                                    <!-- <td>
-                                        <a href="#" class="btn btn-info">view</a>
+
+                                    <td>
+                                        <a href="#" class="btn btn-info btn-sm">view</a>
                                         <a href="/admin/kegiatan/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm">edit</a>
-                                        <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a>
-                                        
-                                    </td> -->
+                                        <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a>     
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

@@ -36,9 +36,9 @@
                     @endif
                 </div>
 
-                <div class="form-group {{$errors->has('mitra_id') ? ' has-error' : ''}}">
+                <div class="form-group {{$errors->has('mitrabaru_id') ? ' has-error' : ''}}">
                     <label for="exampleDataList1" class="form-label">Pilih Mitra</label>
-                    <input class="form-control" value="{{old('mitra_id')}}" list="datalistOptions1" id="exampleDataList1" placeholder="Enter mitra.." name="mitra_id">
+                    <input class="form-control" value="{{old('mitrabaru_id')}}" list="datalistOptions1" id="exampleDataList1" placeholder="Enter mitra.." name="mitrabaru_id">
                     <datalist id="datalistOptions1">
                         <option value="">
                             @foreach ($mitra as $mt)
@@ -60,11 +60,11 @@
                     </div>
                 </div> --}}
 
-                <div class="form-group {{$errors->has('nilai_perjanjian') ? ' has-error' : ''}}">
-                    <label for="pwd">Nilai Perjanjian</label>
-                    <input type="form" value="{{old('nilai_perjanjian')}}" class="form-control" id="nilai_perjanjian" placeholder="Enter nilai perjanjian" name="nilai_perjanjian" value="{{old('nilai_perjanjian')}}">
-                    @if ($errors->has('nilai_perjanjian'))
-                        <span class="help-block text-danger fs-9">*{{$errors->first('nilai_perjanjian')}}</span>
+                <div class="form-group {{$errors->has('bertugas_sebagai') ? ' has-error' : ''}}">
+                    <label for="pwd">Bertugas sebagai</label>
+                    <input type="form" value="{{old('bertugas_sebagai')}}" class="form-control" id="bertugas_sebagai" placeholder="Enter bertugas sebagai.." name="bertugas_sebagai" value="{{old('bertugas_sebagai')}}">
+                    @if ($errors->has('bertugas_sebagai'))
+                        <span class="help-block text-danger fs-9">*{{$errors->first('bertugas_sebagai')}}</span>
                     @endif
                 </div>
 

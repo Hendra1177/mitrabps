@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\KegiatanMitra;
 use App\Models\Kegiatan;
 use App\Models\Mitra;
+use App\Models\MitraBaru;
 use Illuminate\Support\Facades\DB;
 
 // use\App\Models\KegiatanMitra;
@@ -55,7 +56,7 @@ class KegiatanMitraController extends Controller
     public function datalistPelaksanaAdmin()
     {
         $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'asc')->get();
-        $mitra = Mitra::orderBy('nama_mitra', 'asc')->get();
+        $mitra = MitraBaru::orderBy('nama_mitra', 'asc')->get();
 
         $kegiatan_mitra = KegiatanMitra::all();
         return view('admin.kegiatanmitracreate', ['kegiatan' => $kegiatan, 'mitra' => $mitra, 'kegiatan_mitra' => $kegiatan_mitra]);
@@ -65,18 +66,19 @@ class KegiatanMitraController extends Controller
     {
         $this->validate($request,[
             'kegiatan_id' => 'required|exists:kegiatan,nama_kegiatan',
-            'mitra_id' => 'required|exists:mitra,nama_mitra',
-            'nilai_perjanjian' => 'required',
+            'mitrabaru_id' => 'required|exists:mitrabaru,nama_mitra',
+            'bertugas_sebagai' => 'required',
             'target' => 'required',
         ]);
 
         $kegiatan_nama = Kegiatan::where('nama_kegiatan', $request->kegiatan_id)->value('id');
-        $mitra_nama = Mitra::where('nama_mitra', $request->mitra_id)->value('id');
+        $mitra_nama = MitraBaru::where('nama_mitra', $request->mitrabaru_id)->value('id');
 
         $kegiatanmitra = new KegiatanMitra;
         $kegiatanmitra->kegiatan_id = $kegiatan_nama;
-        $kegiatanmitra->mitra_id = $mitra_nama;
-        $kegiatanmitra->nilai_perjanjian = $request->nilai_perjanjian;
+        $kegiatanmitra->mitrabaru_id = $mitra_nama;
+        // $kegiatanmitra->nilai_perjanjian = $request->nilai_perjanjian;
+        $kegiatanmitra->bertugas_sebagai = $request->bertugas_sebagai;
         $kegiatanmitra->target = $request->target;
         $kegiatanmitra->save();
             
@@ -96,7 +98,7 @@ class KegiatanMitraController extends Controller
     public function joinKegiatan(Request $request)
     {
         $data_kegiatan = KegiatanMitra::join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
-            ->join('mitra', 'mitra.id', '=', 'kegiatan_mitra.mitra_id')
+            ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
             ->get(['kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id', 'kegiatan.beban_anggaran']);
 
 
@@ -128,7 +130,7 @@ class KegiatanMitraController extends Controller
     {
         $this->validate($request,[
             'kegiatan_id' => 'required',
-            'mitra_id' => 'required',
+            'mitrabaru_id' => 'required',
             // 'nilai_perjanjian' => 'required',
             'target' => 'required',
             'bertugas_sebagai' => 'required',

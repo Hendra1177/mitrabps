@@ -11,10 +11,10 @@ class KegiatanMitra extends Model
     protected $table = 'kegiatan_mitra';
     protected $fillable = [
         'kegiatan_id',
-        'mitra_id',
         'mitrabaru_id',
-        'bertugas_sebagai',
+        'nilai_pernjanjian',
         'target',
+        'bertugas_sebagai',
     ];
 
     public function mitra(){
