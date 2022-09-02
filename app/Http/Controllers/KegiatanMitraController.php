@@ -35,22 +35,40 @@ class KegiatanMitraController extends Controller
 
     public function edit($id)
     {
-        $kegiatan = \App\Models\KegiatanMitra::find($id);
-        return view('admin/kegiatanmitraedit', ['kegiatan' => $kegiatan]);
+        $kegiatan1 = \App\Models\KegiatanMitra::find($id);
+        $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'asc')->get();
+        $mitra = MitraBaru::orderBy('nama_mitra', 'asc')->get();
+
+        $kegiatan_mitra = KegiatanMitra::all();
+        return view('admin.kegiatanmitraedit', ['kegiatan' => $kegiatan, 'mitra' => $mitra, 'kegiatan_mitra' => $kegiatan_mitra,'kegiatan1' => $kegiatan1]);
     }
 
     public function update(Request $request, $id)
     {
         $kegiatan = \App\Models\KegiatanMitra::find($id);
-        $kegiatan->update($request->all());
-        return redirect('/admin/kegiatanmitra')->with('sukses', 'Data berhasil diupdate');
+        // $kegiatan->update($request->all());
+        // return redirect('/admin/kegiatanmitraindex')->with('sukses', 'Data berhasil diupdate');
+
+        $kegiatan_nama = Kegiatan::where('nama_kegiatan', $request->kegiatan_id)->value('id');
+        $mitra_nama = MitraBaru::where('nama_mitra', $request->mitrabaru_id)->value('id');
+
+        $kegiatanmitra = new KegiatanMitra;
+        $kegiatanmitra->kegiatan_id = $kegiatan_nama;
+        $kegiatanmitra->mitrabaru_id = $mitra_nama;
+        // $kegiatra->nilai_perjanjian = $request->nilai_perjanjian;
+        $kegiatanmitra->bertugas_sebagai = $request->bertugas_sebagai;
+        $kegiatanmitra->target = $request->target;
+        $kegiatanmitra->save();
+            
+        return  view('admin.kegiatanmitraedit')->with('sukses', 'Data berhasil ditambahkan');
+    
     }
 
     public function delete($id)
     {
         $kegiatan = \App\Models\KegiatanMitra::find($id);
         $kegiatan->delete($kegiatan);
-        return redirect('/admin/kegiatanmitra')->with('sukses', 'Data berhasil dihapus');
+        return redirect('/admin/perjanjian')->with('sukses', 'Data berhasil dihapus');
     }
 
     public function datalistPelaksanaAdmin()

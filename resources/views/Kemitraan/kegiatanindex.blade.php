@@ -25,11 +25,7 @@
 </head>
 
 <main class="main-content position-relative border-radius-lg ps">
-    @if (session('sukses'))
-    <div class="alert alert-success fw-bold" role="alert">
-        {{session('sukses')}}
-    </div>
-    @endif
+    
 
     <div class="card" style="margin-left:30px; margin-right:30px; margin-top:255px">
         <div class="card-header pb-0 py-2">
@@ -39,6 +35,11 @@
         </div>
 
         <div class="card-body">
+            @if (session('sukses'))
+                <div class="alert alert-success fw-bold" role="alert">
+                    {{session('sukses')}}
+                </div>
+            @endif
                 <div class="row">
                     <div class="col-6">
                         <!-- <form class="example" action="/admin/kegiatan" method="GET">
@@ -69,7 +70,7 @@
                                     <th>Volume Total</th>
                                     <th>Satuan</th>
                                     <th>Harga Satuan</th>
-                                    <th>Aksi</th>
+                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
 

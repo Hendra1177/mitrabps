@@ -82,6 +82,7 @@ class KegiatanController extends Controller
         // dd($data_kegiatan);
     }
 
+
     // Method User
 
     public function createKegiatan(Request $request)
@@ -99,7 +100,7 @@ class KegiatanController extends Controller
 
         \App\Models\Kegiatan::create($request->all());
         if ($this) {
-            return redirect('/pelaksana')->with('sukses', 'Data berhasil ditambahkan');
+            return redirect('/kegiatan')->with('sukses', 'Data berhasil ditambahkan');
         } else {
             return redirect('/kegiatan/formkegiatan')->with('sukses', 'Data gagal ditambahkan');
         }
@@ -132,6 +133,12 @@ class KegiatanController extends Controller
     {
         $kegiatan = \App\Models\Kegiatan::find($id);
         return view('Kemitraan/kegiatanedit', ['kegiatan' => $kegiatan]);
+    }
+    public function updateUser(Request $request, $id)
+    {
+        $kegiatan = \App\Models\Kegiatan::find($id);
+        $kegiatan->update($request->all());
+        return redirect('/kegiatan')->with('sukses', 'Data berhasil diupdate');
     }
     public function detail(Request $request, $id)
     {

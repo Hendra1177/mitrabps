@@ -24,25 +24,25 @@
 </head>
 
 <main class="main-content position-relative border-radius-lg ps">
-    @if (session('sukses'))
-        <div class="alert alert-success fw-bold" role="alert">
-            {{session('sukses')}}
-        </div>
-    @endif
+    
         <div class="card" style="margin-left:30px; margin-right:30px; margin-top:30px">
             <div class="card-header pb-0 py-2">
                 <div class="align-items-center">
                     <h2 class="text-center">Data Perjanjian</h3>
                 </div>
             </div>
-
             <div class="card-body">
+                @if (session('sukses'))
+                    <div class="alert alert-success fw-bold" role="alert">
+                        {{session('sukses')}}
+                    </div>
+                @endif
                 <div class="row">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a href="/admin/perjanjian/formperjanjian" class="btn btn-primary btn-sm" role="button">Tambah Pelaksana</a>
+                        <a href="/admin/perjanjian/formperjanjian" class="btn btn-primary" role="button">Tambah Pelaksana</a>
                     </div>
                     <div id="over">
-                        <table class="table table-hover table-bordered" id="tableperjanjian">
+                        <table class="table table-hover table-bordered" id="datatables">
                             <thead>
                                 <tr class="text-center">
                                     <th>No</th>
@@ -54,7 +54,7 @@
                                     <th>Harga Satuan</th>
                                     <th>Nilai Perjanjian</th>
                                     <th>Beban Anggaran</th>
-                                    <!-- <th>Aksi</th> -->
+                                    <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -73,8 +73,8 @@
 
                                     <td>
                                         <a href="#" class="btn btn-info btn-sm">view</a>
-                                        <a href="/admin/kegiatan/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm">edit</a>
-                                        <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a>     
+                                        <a href="/admin/perjanjian/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm">edit</a>
+                                        <a href="/admin/perjanjian/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a>     
                                     </td>
                                 </tr>
                             @endforeach

@@ -10,7 +10,7 @@
 
 <main class="main-content position-relative border-radius-lg ps">
     <div class="card" style="margin-left:30px; margin-right:30px; margin-top:30px; margin-bottom:17px;">
-        <form action="{{route('pelaksanaAdmin.create')}}" method="POST">
+        <form action="/admin/perjanjian/{{$kegiatan1->id}}/update" method="POST">
             {{csrf_field()}}
             @if (session('sukses'))
             <div class="alert alert-success fw-bold" role="alert">
@@ -45,7 +45,7 @@
                         <option value="{{$mt->nama_mitra}}">{{$mt->nama_mitra}}</option>
                         @endforeach
                     </datalist>
-                    @if ($errors->has('mitra_id'))
+                    @if ($errors->has('mitrabaru_id'))
                         <span class="help-block text-danger fs-9">*The mitra field is required.</span>
                     @endif
                 </div>
@@ -86,21 +86,6 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </main>
         </form>
-    </div>
 </main>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(".add-more").click(function() {
-            var html = $(".copy").html();
-            $(".after-add-more").after(html);
-        });
-
-        // saat tombol remove dklik control group akan dihapus 
-        $("body").on("click", ".remove", function() {
-            $(this).parents(".control-group").remove();
-        });
-    });
-</script>
 
 @endsection

@@ -135,15 +135,6 @@
       $(document).ready(function() {
         $('#datatables').DataTable();
       });
-      
-      // $(document).ready(function() {
-      //   $('#datatables').DataTable({
-      //     dom: 'Bfrtip',
-      //     buttons: [
-      //       'print'
-      //     ]
-      //   });
-      // });
     </script>
 
 

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Controller;
+use App\Models\Desa;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,7 @@ Route::get('/admin/kegiatan/{id}/detail', 'App\Http\Controllers\KegiatanControll
 //CRUD Admin Mitra
 
 Route::get('/admin/mitra/formmitra', 'App\Http\Controllers\MitraController@datalistMitraAdmin');
+Route::get('/getdesa', 'App\Http\Controllers\MitraController@getDesa');
 Route::get('/admin/mitra/formmitra/create', 'App\Http\Controllers\MitraController@datalistMitraAdmin')->name('mitracreate.datalistMitraAdmin');
 Route::post('/admin/mitra/formmitra/created', 'App\Http\Controllers\MitraController@createMitraAdmin')->name('mitraAdmin.create');
 
@@ -65,7 +67,7 @@ Route::get('/admin/mitra', 'App\Http\Controllers\MitraController@index');
 
 Route::get('/admin/mitra/{id}/edit', 'App\Http\Controllers\MitraController@edit');
 
-Route::post('/admin/mitra/{id}/update', 'App\Http\Controllers\MitraController@update');
+Route::put('/admin/mitra/{id}/update', 'App\Http\Controllers\MitraController@update');
 
 Route::get('/admin/mitra/{id}/delete', 'App\Http\Controllers\MitraController@delete');
 
@@ -79,6 +81,12 @@ Route::get('/admin/perjanjian/formperjanjian', 'App\Http\Controllers\KegiatanMit
 Route::get('/admin/perjanjian/formperjanjian/create', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksanaAdmin')->name('kegiatanmitracreate.datalistPelaksanaAdmin');
 Route::post('createKegiatanAdmin', 'App\Http\Controllers\KegiatanMitraController@createKegiatanAdmin')->name('pelaksanaAdmin.create');
 
+Route::get('/admin/perjanjian/{id}/delete', 'App\Http\Controllers\KegiatanMitraController@delete');
+
+Route::get('/admin/perjanjian/{id}/edit', 'App\Http\Controllers\KegiatanMitraController@edit');
+
+Route::post('/admin/perjanjian/{id}/update', 'App\Http\Controllers\KegiatanMitraController@update');
+
 //Form User Kegiatan 
 Route::get('datalistPelaksana', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksana')->name('mitra.datalistPelaksana');
 Route::get('/pelaksana', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksana');
@@ -87,6 +95,7 @@ Route::post('createKegiatan', 'App\Http\Controllers\KegiatanMitraController@crea
 Route::post('/kegiatan/formkegiatan/create', 'App\Http\Controllers\KegiatanController@createKegiatan');
 Route::get('/kegiatan/formkegiatan', 'App\Http\Controllers\KegiatanController@toCreateUser');
 Route::get('/kegiatan/{id}/edit', 'App\Http\Controllers\KegiatanController@editUser');
+Route::post('/kegiatan/{id}/update', 'App\Http\Controllers\KegiatanController@updateUser');
 Route::get('/kegiatan/{id}/detail', 'App\Http\Controllers\KegiatanController@detail');
 
 
@@ -101,7 +110,25 @@ Route::post('/tambahmitra/create', 'App\Http\Controllers\MitraController@createM
 
 Route::get('/perjanjiankerja', 'App\Http\Controllers\KegiatanMitraController@index')->name('userjoinKegiatan');
 
+// route api
+Route::get('/getDataDesa/{id}',[getDesa::class, 'post']);
 
+class getDesa extends Controller
+{
+    /**
+     * Update the specified user.
+     *
+     * 
+     * @param  string  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function post( $id)
+    {
+        $desa = Desa::where('kecamatan_id', '=', $id)->get();
+
+        return \Illuminate\Routing\ResponseFactory::json( $desa);
+    }
+}
 
 
 

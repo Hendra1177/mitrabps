@@ -29,14 +29,20 @@ class MitraController extends Controller
         return view('admin.mitraindex', [ 'data' => $data]);
     }
 
-    public function datalistMitraAdmin()
+    public function datalistMitraAdmin(Request $request)
     {
         $kecamatan = Kecamatan::orderBy('nama_kecamatan', 'asc')->get();
         $desa = Desa::orderBy('nama_desa', 'asc')->get();
         $jenis_kelamin = JenisKelamin::orderBy('kelamin', 'asc')->get();
 
+        $datakecamatan = Kecamatan::all();
+        $ds = Desa::all();
+
+        
+
         $mitra_baru = MitraBaru::all();
-        return view('admin.mitracreate', ['kecamatan' => $kecamatan, 'desa' => $desa, 'mitra_baru' => $mitra_baru, 'jenis_kelamin' => $jenis_kelamin]);
+        return view('admin.mitracreate', ['datakecamatan' => $datakecamatan, 'ds' => $ds, 'kecamatan' => $kecamatan, 'desa' => $desa, 'mitra_baru' => $mitra_baru, 'jenis_kelamin' => $jenis_kelamin]);
+        
     }
 
     public function create(Request $request)
@@ -54,38 +60,30 @@ class MitraController extends Controller
             'desa_id' => 'required',
             'alamat' => 'required',
             'tanggal_lahir' => 'required',
-            'jenis_kelamin_id' => 'required',
+            'jeniskelamin_id' => 'required',
             'no_hp' => 'required|unique:mitrabaru,no_hp',
             'pekerjaan' => 'required',
             'rekening_bri' => 'unique:mitrabaru,rekening_bri',
         ]);
 
-        $kecamatan_nama = Kecamatan::where('nama_kecamatan', $request->kecamatan_id)->value('id');
-        $desa_nama = Desa::where('nama_desa', $request->desa_id)->value('id');
-        $jeniskelamin_nama = JenisKelamin::Where('kelamin', $request->jenis_kelamin_id)->value('id');
+        
+        
+        $jeniskelamin_nama = JenisKelamin::Where('kelamin', $request->jeniskelamin_id)->value('id');
 
         $mitrabaru = new MitraBaru;
         $mitrabaru->nama_mitra = $request->nama_mitra;
         $mitrabaru->email = $request->email;
-        $mitrabaru->kecamatan_id = $kecamatan_nama;
-        $mitrabaru->desa_id = $desa_nama;
+        $mitrabaru->kecamatan_id = $request->kecamatan_id;
+        $mitrabaru->desa_id = $request->desa_id;
         $mitrabaru->alamat = $request->alamat;
         $mitrabaru->tanggal_lahir = $request->tanggal_lahir;
-        $mitrabaru->jenis_kelamin_id = $jeniskelamin_nama;
+        $mitrabaru->jeniskelamin_id = $jeniskelamin_nama;
         $mitrabaru->no_hp = $request->no_hp;
         $mitrabaru->pekerjaan = $request->pekerjaan;
         $mitrabaru->rekening_bri = $request->rekening_bri;
         $mitrabaru->save();
 
         return  redirect()->route('mitracreate.datalistMitraAdmin')->with('sukses', 'Data berhasil ditambahkan');
-
-        // \App\Models\MitraBaru::create($request->all());
-        // if($this){
-        //     return redirect('/admin/mitra')->with('sukses', 'Data berhasil ditambahkan');
-
-        // }else{
-        //     return redirect('/admin/mitra/formmitra')->with('sukses', 'Data gagal ditambahkan');
-        // }
     }
 
     public function toCreate()
@@ -93,14 +91,19 @@ class MitraController extends Controller
         return view('admin.mitracreate');
     }
 
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        $mitra = \App\Models\MitraBaru::find($id);
-        return view('admin/mitraedit', ['mitra' => $mitra]);
+        $mitra = \App\Models\MitraBaru::with('jeniskelamin')->find($id);
+        $kecamatan = Kecamatan::orderBy('nama_kecamatan', 'asc')->get();
+        $desa = Desa::orderBy('nama_desa', 'asc')->get();
+
+        $jeniskelamin = JenisKelamin::where('id', '!=', $mitra->jeniskelamin_id)->get(['id', 'kelamin']);
+        return view('admin/mitraedit', ['mitra' => $mitra, 'kecamatan' => $kecamatan, 'desa' => $desa,'jeniskelamin' => $jeniskelamin]);
     }
 
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $mitra = \App\Models\MitraBaru::find($id);
         $mitra->update($request->all());
         return redirect('/admin/mitra')->with('sukses', 'Data berhasil diupdate');

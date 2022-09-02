@@ -24,11 +24,7 @@
 </head>
 
 <main class="main-content position-relative border-radius-lg ps">
-        @if (session('sukses'))
-            <div class="alert alert-success fw-bold" role="alert">
-                {{session('sukses')}}
-            </div>
-        @endif
+        
             <div class="card" style="margin-left:30px; margin-right:30px; margin-top:30px">
                 <div class="card-header pb-0 py-2">
                     <div class="align-items-center">
@@ -37,6 +33,11 @@
                 </div>
 
                 <div class="card-body">
+                    @if (session('sukses'))
+                        <div class="alert alert-success fw-bold" role="alert">
+                            {{session('sukses')}}
+                        </div>
+                    @endif
                 <div class="row">
                     <div class="col-6">
                        

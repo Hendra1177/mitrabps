@@ -16,7 +16,7 @@ class MitraBaru extends Model
         'desa_id',
         'alamat',
         'tanggal_lahir',
-        'jenis_kelamin_id',
+        'jeniskelamin_id',
         'no_hp',
         'pekerjaan',
         'rekening_bri' 

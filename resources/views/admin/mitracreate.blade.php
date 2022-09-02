@@ -53,17 +53,33 @@
                     @endif
                 </div>
 
-                {{-- <div class="form-group {{$errors->has('kecamatan_id') ? ' has-error' : ''}}">
-                    <label for="exampleInputEmail1" class="form-label">Kecamatan</label>
-                    <input name="kecamatan_id" value="{{old('kecamatan_id')}}" type="text" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp" placeholder="Enter kecamatan">
-                        @if ($errors->has('kecamatan_id'))
-                            <span class="help-block text-danger fs-9">*{{$errors->first('kecamatan_id')}}</span>
-                        @endif
-                </div> --}}
-
                 <div class="form-group {{$errors->has('kecamatan_id') ? ' has-error' : ''}}">
-                    <label for="exampleDataList" class="form-label">Pilih Kecamatan</label>
+                    <label for="kecamatan">Kecamatan</label>
+                    <select class="form-select " name="kecamatan_id" id="kecamatan_id" onselect="getData" value="{{old('kecamatan_id')}}">
+                        <option selected>Pilih Kecamatan</option>
+                        @foreach ($kecamatan as $kec)
+                            <option value="{{$kec->id}}">{{$kec->nama_kecamatan}}</option>
+                        @endforeach
+                    </select>
+                    @if ($errors->has('kecamatan_id'))
+                        <span class="help-block text-danger fs-9">*{{$errors->first('kecamatan_id')}}</span>
+                    @endif
+                </div>
+
+                <div class="form-group {{$errors->has('desa_id') ? ' has-error' : ''}}">
+                    <label for="desa">Desa</label>
+                    <select class="form-select" name="desa_id" id="desa_id" value="{{old('desa_id')}}">
+                        <option>Pilih Desa</option>
+                        {{-- @foreach ($desa as $ds)
+                            <option value="{{$ds->id}}">{{$ds->nama_desa}}</option>
+                        @endforeach --}}
+                    </select>
+                    @if ($errors->has('desa_id'))
+                        <span class="help-block text-danger fs-9">*{{$errors->first('desa_id')}}</span>
+                    @endif
+                </div>
+                {{-- <div class="form-group {{$errors->has('kecamatan_id') ? ' has-error' : ''}}">
+                    <label for="exampleDataList" class="form-label">Kecamatan</label>
                     <input class="form-control" value="{{old('kecamatan_id')}}" list="datalistOptions" id="exampleDataList" placeholder="Enter kecamatan" name="kecamatan_id">
                     <datalist id="datalistOptions">
                         <option value="">
@@ -77,7 +93,7 @@
                 </div>
 
                 <div class="form-group {{$errors->has('desa_id') ? ' has-error' : ''}}">
-                    <label for="exampleDataList" class="form-label">Pilih Desa</label>
+                    <label for="exampleDataList" class="form-label">Desa</label>
                     <input class="form-control" value="{{old('desa_id')}}" list="datalistOptions1" id="exampleDataList" placeholder="Enter desa" name="desa_id">
                     <datalist id="datalistOptions1">
                         <option value="">
@@ -88,15 +104,6 @@
                     @if ($errors->has('desa_id'))
                         <span class="help-block text-danger fs-9">*{{$errors->first('desa_id')}}</span>
                     @endif
-                </div>
-
-                {{-- <div class="form-group {{$errors->has('desa_id') ? ' has-error' : ''}}">
-                    <label for="pwd">Desa</label>
-                    <input name="desa_id" value="{{old('desa_id')}}" type="text" class="form-control" id="trgt"
-                        placeholder="Enter target" name="pwd">
-                        @if ($errors->has('desa_id'))
-                            <span class="help-block text-danger fs-9">*{{$errors->first('desa_id')}}</span>
-                        @endif
                 </div> --}}
 
                 <div class="form-group {{$errors->has('alamat') ? ' has-error' : ''}}">
@@ -140,17 +147,17 @@
                     @endif
                 </div> --}}
 
-                <div class="form-group {{$errors->has('jenis_kelamin_id') ? ' has-error' : ''}}">
+                <div class="form-group {{$errors->has('jeniskelamin_id') ? ' has-error' : ''}}">
                     <label for="exampleFormControlSelect1">Jenis Kelamin</label>
-                    <select name="jenis_kelamin_id" class="form-select" aria-label="Default select example">
+                    <select name="jeniskelamin_id" class="form-select" aria-label="Default select example">
                       
-                      <option value="">-Pilih-</option>
-                      @foreach ($jenis_kelamin as $jk)
-                        <option value="{{$jk->kelamin}}">{{$jk->kelamin}}</option>
+                    <option value="">-Pilih-</option>
+                        @foreach ($jenis_kelamin as $jk)
+                            <option value="{{$jk->kelamin}}">{{$jk->kelamin}}</option>
                         @endforeach
                     </select>
-                      @if ($errors->has('jenis_kelamin_id'))
-                          <span class="help-block text-danger">*{{$errors->first('jenis_kelamin_id')}}</span>
+                      @if ($errors->has('jeniskelamin_id'))
+                          <span class="help-block text-danger">*{{$errors->first('jeniskelamin_id')}}</span>
                       @endif
                   </div>
 
@@ -181,12 +188,25 @@
                         @endif
                 </div>
             <br>
-
             <button type="submit" class="btn btn-primary" >Submit</button>
-
-
         </main>
     </div>
+    
+    <script>
+        const render = document.querySelector('#desa_id')
+        const a = document.querySelector('#kecamatan_id');
+            a.addEventListener('change', function() {
+            const res = fetch(`/getDataDesa/${this.value}`).then((response) => response.json())
+            .then((data) => {
+                let rendered = data.map((data)=>{
+                    return ` <option value=${data.id}>${data.nama_desa}</option>`
+                })
+                rendered = `<option>Pilih Desa</option>${rendered}`
+                return render.innerHTML= rendered;
+            });
+            }, false);
+      
+    </script>
 </main>
 
 @endsection
