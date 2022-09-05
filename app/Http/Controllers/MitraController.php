@@ -129,6 +129,16 @@ class MitraController extends Controller
     {
 
         $mitra_baru = \App\Models\MitraBaru::find($id);
+        $daftar_mitra = DB::table('mitrabaru')
+        ->select('mitrabaru.id','mitrabaru.nama_mitra','mitrabaru.email','mitrabaru.alamat','mitrabaru.tanggal_lahir',
+        'mitrabaru.no_hp','mitrabaru.pekerjaan','mitrabaru.rekening_bri','kecamatan.nama_kecamatan', 'kecamatan.id',
+        'desa.nama_desa', 'jeniskelamin.kelamin')
+        ->join('kecamatan','kecamatan.id', '=', 'mitrabaru.kecamatan_id')
+        ->join('desa', 'desa.id', '=', 'mitrabaru.desa_id')
+        ->join('jeniskelamin', 'jeniskelamin.id', '=', 'mitrabaru.jeniskelamin_id')
+        ->where('mitrabaru.id', '=' , $mitra_baru -> id )
+        ->get();
+       
         $kegiatan = \App\Models\Kegiatan::find($id);
         
         
@@ -161,7 +171,8 @@ class MitraController extends Controller
 
         
 
-        return view('admin.detailmitra', [ 'mitra_baru' => $mitra_baru, 'kegiatan' => $kegiatan, 'data_kegiatan' => $data_kegiatan, 'kegiatan_mitra' => $kegiatan_mitra, ]);
+        return view('admin.detailmitra', [ 'mitra_baru' => $mitra_baru, 'kegiatan' => $kegiatan, 
+        'data_kegiatan' => $data_kegiatan, 'kegiatan_mitra' => $kegiatan_mitra, 'daftar_mitra' => $daftar_mitra ]);
         // dd($data_kegiatan);
     }
 }

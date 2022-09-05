@@ -127,7 +127,7 @@ class KegiatanMitraController extends Controller
     public function datalistPelaksana()
     {
         $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'asc')->get();
-        $mitra = Mitra::orderBy('nama_mitra', 'asc')->get();
+        $mitra = MitraBaru::orderBy('nama_mitra', 'asc')->get();
 
         $kegiatan_mitra = KegiatanMitra::all();
         return view('Kemitraan.mitra', ['kegiatan' => $kegiatan, 'mitra' => $mitra, 'kegiatan_mitra' => $kegiatan_mitra]);

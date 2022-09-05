@@ -84,11 +84,13 @@
                     </div>
                 </div>
                 <div class="card-body ">
-
+                    
                     <dl class="row">
                         <dl class="row">
+                        
                             <dt class="col-sm-3">Nama </dt>
                             <dd class="col-sm-6">: {{$mitra_baru->nama_mitra}}</dd>
+                            
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Email </dt>
@@ -102,14 +104,20 @@
                             <dt class="col-sm-3">Alamat </dt>
                             <dd class="col-sm-6">: {{$mitra_baru->alamat}}</dd>
                         </dl>
+                        @foreach($daftar_mitra as $daftar_mitra)
                         <dl class="row">
                             <dt class="col-sm-3">Kecamatan </dt>
-                            <dd class="col-sm-6">: {{$mitra_baru->kecamatan_id}}</dd>
+                            <dd class="col-sm-6">: {{$daftar_mitra->nama_kecamatan}}</dd>
                         </dl>
                         <dl class="row">
                             <dt class="col-sm-3">Desa </dt>
-                            <dd class="col-sm-6">: {{$mitra_baru->desa_id}}</dd>
+                            <dd class="col-sm-6">: {{$daftar_mitra->nama_desa}}</dd>
                         </dl>
+                        <dl class="row">
+                            <dt class="col-sm-3">JenisKelamin </dt>
+                            <dd class="col-sm-6">: {{$daftar_mitra->kelamin}}</dd>
+                        </dl>
+                        @endforeach
                         <dl class="row">
                             <dt class="col-sm-3">Nomor HP </dt>
                             <dd class="col-sm-6">: {{$mitra_baru->no_hp}}</dd>
@@ -119,7 +127,7 @@
                             <dd class="col-sm-6">: {{$mitra_baru->rekening_bri}}</dd>
                         </dl>
                     </dl>
-
+                    
                 </div>
             </div>
         </div>
