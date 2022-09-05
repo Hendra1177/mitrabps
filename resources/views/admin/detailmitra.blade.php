@@ -60,10 +60,9 @@
                                         </div>
 
                                         <div class="d-grid text-center mx-4">
-                                            <span class="text-sm font-weight-bolder">Target</span>
-                                            @foreach($kegiatan_mitra as $kegiatan_mitra )
-                                            <span class="text-sm opacity-8">{{$kegiatan_mitra->target}}</span>
-                                            @endforeach
+                                            <span class="text-sm font-weight-bolder">Total Target</span>
+                                            <span class="text-sm opacity-8">{{$targetmitra}}</span>
+                                            
                                         </div>
 
                                     </div>
@@ -146,6 +145,7 @@
                     <th>Volume</th>
                     <th>Satuan</th>
                     <th>Harga Satuan</th>
+                    <th>Target</th>
                     <th>Nilai Perjanjian</th>
                     <th>Beban Anggaran</th>
                 </thead>
@@ -160,6 +160,7 @@
                         <td>{{$data_kegiatan->volume_total}}</td>
                         <td>{{$data_kegiatan->satuan}}</td>
                         <td>{{$data_kegiatan->harga_satuan}}</td>
+                        <td>{{$data_kegiatan->target}}</td>
                         <td>{{$data_kegiatan->nilai_perjanjian}}</td>
                         <td>{{$data_kegiatan->beban_anggaran}}</td>
                         

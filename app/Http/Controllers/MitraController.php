@@ -145,7 +145,7 @@ class MitraController extends Controller
 
         $data_kegiatan = DB::table('kegiatan_mitra')
         ->select('kegiatan.id','kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
-                    'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id', 'kegiatan.beban_anggaran', 
+                    'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id', 'kegiatan.beban_anggaran', 'kegiatan_mitra.target',
                     'kecamatan.nama_kecamatan', 'kecamatan.id',
                     'desa.nama_desa', 'jeniskelamin.kelamin',
                     'mitrabaru.id','mitrabaru.nama_mitra', 'mitrabaru.email', 'mitrabaru.kecamatan_id', 'mitrabaru.desa_id', 'mitrabaru.alamat', 'mitrabaru.tanggal_lahir',
@@ -162,17 +162,20 @@ class MitraController extends Controller
 
             ->get();
 
-            $kegiatan_mitra = DB::table('kegiatan_mitra')
-            ->select('kegiatan_mitra.target', 'kegiatan_mitra.mitrabaru_id')
-            ->where('kegiatan_mitra.mitrabaru_id', '=' , $mitra_baru -> id )
-            ->get();
+            // $kegiatan_mitra = DB::table('kegiatan_mitra')
+            // ->select('kegiatan_mitra.target', 'kegiatan_mitra.mitrabaru_id')
+            // ->where('kegiatan_mitra.mitrabaru_id', '=' , $mitra_baru -> id )
+            // ->get();
+
+            $targetmitra = DB::table('kegiatan_mitra')
+            ->select(DB::raw("SUM(target) as count"))
+            ->orderBy("mitrabaru_id")
+            ->select('target')
+            ->where('mitrabaru_id', '=', $mitra_baru->id)
+            ->sum('target');
             
-
-
-        
-
         return view('admin.detailmitra', [ 'mitra_baru' => $mitra_baru, 'kegiatan' => $kegiatan, 
-        'data_kegiatan' => $data_kegiatan, 'kegiatan_mitra' => $kegiatan_mitra, 'daftar_mitra' => $daftar_mitra ]);
+        'data_kegiatan' => $data_kegiatan,  'daftar_mitra' => $daftar_mitra, 'targetmitra' => $targetmitra ]);
         // dd($data_kegiatan);
     }
 }

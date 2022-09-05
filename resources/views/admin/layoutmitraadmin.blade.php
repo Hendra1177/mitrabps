@@ -15,6 +15,8 @@
   <!-- Nucleo Icons -->
   <link href="{{asset('template/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
   <link href="{{asset('template/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="{{asset('template/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
@@ -32,7 +34,7 @@
 
 <body class="g-sidenav-show bg-white">
 
-  <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
+<aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" target="_blank">
@@ -61,9 +63,9 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active " href="/admin/mitra">
+          <a class="nav-link active" href="/admin/mitra">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            <i class="bi bi-people text-info text-lg"></i>
             </div>
             <span class="nav-link-text ms-1">Mitra</span>
           </a>
@@ -72,7 +74,7 @@
         <li class="nav-item">
           <a class="nav-link " href="/admin/perjanjian">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            <i class="bi bi-journal-text text-danger text-lg"></i>
             </div>
             <span class="nav-link-text ms-1">Perjanjian</span>
           </a>

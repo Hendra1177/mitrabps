@@ -126,7 +126,8 @@ class getDesa extends Controller
     {
         $desa = Desa::where('kecamatan_id', '=', $id)->get();
 
-        return \Illuminate\Routing\ResponseFactory::json( $desa);
+        // return \Illuminate\Routing\ResponseFactory::json( $desa);
+        echo $desa;
     }
 }
 

@@ -12,6 +12,8 @@
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <!-- Nucleo Icons -->
   <link href="{{asset('template/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
   
@@ -101,7 +103,7 @@
         <li class="nav-item">
           <a class="nav-link " href="/admin/mitra">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            <i class="bi bi-people text-info text-lg"></i>
             </div>
             <span class="nav-link-text ms-1">Mitra</span>
           </a>
@@ -110,7 +112,7 @@
         <li class="nav-item">
           <a class="nav-link " href="/admin/perjanjian">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            <i class="bi bi-journal-text text-danger text-lg"></i>
             </div>
             <span class="nav-link-text ms-1">Perjanjian</span>
           </a>

@@ -16,7 +16,9 @@
   <!-- Nucleo Icons -->
   <link href="{{asset('template/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
   <link href="{{asset('template/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
-<!-- 
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <!-- 
   {{-- Auto Complete --}}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -32,7 +34,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  
+
 </head>
 
 <body class="g-sidenav-show bg-white">
@@ -106,7 +108,7 @@
         <li class="nav-item">
           <a class="nav-link " href="/pelaksana">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+              <i class="bi bi-people text-info text-lg"></i>
             </div>
             <span class="nav-link-text ms-1">Pelaksana</span>
           </a>
@@ -127,24 +129,23 @@
           <h6 class="font-weight-bolder text-white mb-0">Tambah Kegiatan</h6>
         </nav>
         <ul class="navbar-nav  justify-content-end">
-        <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white font-weight-bold " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+          <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white font-weight-bold " href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              {{ Auth::user()->name }}
+            </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('login') }}"
-                                       onclick="event.preventDefault();
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{ route('login') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                {{ __('Logout') }}
+              </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-        <!-- <li class="nav-item ">
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
+            </div>
+          </li>
+          <!-- <li class="nav-item ">
               <a href="/login" class="nav-link text-white font-weight-bold px-7 ">
                 Logout
               </a>
@@ -166,7 +167,7 @@
     </nav>
     <!-- End Navbar -->
     @yield('content')
-    
+
     <!--   Core JS Files   -->
     <script src="{{asset('template/assets/js/core/popper.min.js')}}"></script>
     <script src="{{asset('template/assets/js/core/bootstrap.min.js')}}"></script>
@@ -180,7 +181,7 @@
       $(document).ready(function() {
         $('#datatables').DataTable();
       });
-      
+
       // $(document).ready(function() {
       //   $('#datatables').DataTable({
       //     dom: 'Bfrtip',
@@ -275,53 +276,52 @@
       });
     </script>
     <script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-      var options = {
-        damping: '0.5'
+      var win = navigator.platform.indexOf('Win') > -1;
+      if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+          damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
       }
-      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-  </script>
+    </script>
 
-<script src="{{asset('template/assets/js/argon-dashboard.min.js?v=2.0.4')}}"></script>
+    <script src="{{asset('template/assets/js/argon-dashboard.min.js?v=2.0.4')}}"></script>
 
     <script type="text/javascript">
       $(document).ready(function() {
-        $( "#kegiatan" ).autocomplete({
-          serviceUrl: "search.php",   // Kode php untuk prosesing data
-          dataType: "JSON",           // Tipe data JSON
-          onSelect: function (suggestion) {
-              $( "#kegiatan" ).val(suggestion.nama_kegiatan);
+        $("#kegiatan").autocomplete({
+          serviceUrl: "search.php", // Kode php untuk prosesing data
+          dataType: "JSON", // Tipe data JSON
+          onSelect: function(suggestion) {
+            $("#kegiatan").val(suggestion.nama_kegiatan);
           }
         });
       })
     </script>
 
     <script>
-          
-      
-      if(isset($_GET["query"])){
-        $key = "%".$_GET["query"]."%";
+      if (isset($_GET["query"])) {
+        $key = "%".$_GET["query"].
+        "%";
         $query = "SELECT * FROM kegiatan WHERE nama_kegiatan LIKE ? LIMIT 10";
-        $dewan1 = $db1->prepare($query);
-        $dewan1->bind_param('s', $key);
-        $dewan1->execute();
-        $res1 = $dewan1->get_result();
+        $dewan1 = $db1 - > prepare($query);
+        $dewan1 - > bind_param('s', $key);
+        $dewan1 - > execute();
+        $res1 = $dewan1 - > get_result();
 
-        while ($row = $res1->fetch_assoc()) {
-            $output['suggestions'][] = [
-                'value' => $row['nama_kegiatan'],
-                'nama_kegiatan'  => $row['nama_kegiatan']
-            ];
+        while ($row = $res1 - > fetch_assoc()) {
+          $output['suggestions'][] = [
+            'value' => $row['nama_kegiatan'],
+            'nama_kegiatan' => $row['nama_kegiatan']
+          ];
         }
 
-        if (! empty($output)) {
-            echo json_encode($output);
+        if (!empty($output)) {
+          echo json_encode($output);
         }
       }
-    
     </script>
 </body>
 @endcan
+
 </html>

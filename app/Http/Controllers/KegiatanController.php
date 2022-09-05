@@ -152,6 +152,17 @@ class KegiatanController extends Controller
     }
     public function updateUser(Request $request, $id)
     {
+        $this->validate($request, [
+            'nama_kegiatan' => 'required',
+            'bulan' => 'required',
+            'tanggal_mulai' => 'required',
+            'tanggal_akhir' => 'required',
+            'beban_anggaran' => 'required',
+            'volume_total' => 'required',
+            'satuan' => 'required',
+            'harga_satuan' => 'required',
+        ]);
+
         $kegiatan = \App\Models\Kegiatan::find($id);
         $kegiatan->update($request->all());
         return redirect('/kegiatan')->with('sukses', 'Data berhasil diupdate');
