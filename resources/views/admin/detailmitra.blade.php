@@ -61,7 +61,9 @@
 
                                         <div class="d-grid text-center mx-4">
                                             <span class="text-sm font-weight-bolder">Target</span>
+                                            @foreach($kegiatan_mitra as $kegiatan_mitra )
                                             <span class="text-sm opacity-8">{{$kegiatan_mitra->target}}</span>
+                                            @endforeach
                                         </div>
 
                                     </div>
@@ -140,21 +142,21 @@
                     <th>Beban Anggaran</th>
                 </thead>
                 <tbody>
-                    
+                @foreach($data_kegiatan as $data_kegiatan )
                     <tr>
                     
-                        <td>{{$kegiatan->id}}</td>
-                        <td>{{$kegiatan->nama_kegiatan}}</td>
-                        <td>{{$kegiatan->bulan}}</td>
-                        <td>{{$kegiatan->tanggal_mulai}} - {{$kegiatan->tanggal_akhir}}</td>
-                        <td>{{$kegiatan->volume_total}}</td>
-                        <td>{{$kegiatan->satuan}}</td>
-                        <td>{{$kegiatan->harga_satuan}}</td>
-                        <td>{{$kegiatan_mitra->nilai_perjanjian}}</td>
-                        <td>{{$kegiatan->beban_anggaran}}</td>
+                        <td>{{$data_kegiatan->kegiatan_id}}</td>
+                        <td>{{$data_kegiatan->nama_kegiatan}}</td>
+                        <td>{{$data_kegiatan->bulan}}</td>
+                        <td>{{$data_kegiatan->tanggal_mulai}} - {{$data_kegiatan->tanggal_akhir}}</td>
+                        <td>{{$data_kegiatan->volume_total}}</td>
+                        <td>{{$data_kegiatan->satuan}}</td>
+                        <td>{{$data_kegiatan->harga_satuan}}</td>
+                        <td>{{$data_kegiatan->nilai_perjanjian}}</td>
+                        <td>{{$data_kegiatan->beban_anggaran}}</td>
                         
                     </tr>
-                    
+                    @endforeach
                 </tbody>
             </table>
         </div>

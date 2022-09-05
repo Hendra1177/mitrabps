@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Kegiatan;
 use Illuminate\Support\Facades\Validator;
 use App\Models\KegiatanMitra;
-
+use App\Models\MitraBaru;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KegiatanController extends Controller
 {
@@ -63,11 +64,26 @@ class KegiatanController extends Controller
     }
     public function detailAdmin(Request $request, $id)
     {
-        $data_kegiatan = KegiatanMitra::join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
-            ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
-            ->get(['kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
+        $kegiatan = \App\Models\Kegiatan::find($id);
+
+        $data_kegiatan = DB::table('kegiatan_mitra')
+        ->select('kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
                     'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id', 'kegiatan.beban_anggaran', 
-                    'mitrabaru.nama_mitra', 'mitrabaru.email', 'mitrabaru.kecamatan_id', 'mitrabaru.desa_id', 'mitrabaru.alamat', 'mitrabaru.tanggal_lahir', 'mitrabaru.jeniskelamin_id', 'mitrabaru.no_hp', 'mitrabaru.pekerjaan', 'mitrabaru.rekening_bri']);
+                    'kecamatan.nama_kecamatan', 'kecamatan.id',
+                    'desa.nama_desa', 'jeniskelamin.kelamin',
+                    'mitrabaru.id','mitrabaru.nama_mitra', 'mitrabaru.email', 'mitrabaru.kecamatan_id', 'mitrabaru.desa_id', 'mitrabaru.alamat', 'mitrabaru.tanggal_lahir',
+                    'mitrabaru.jeniskelamin_id', 'mitrabaru.no_hp', 'mitrabaru.pekerjaan', 'mitrabaru.rekening_bri', 
+                    'kegiatan_mitra.bertugas_sebagai')
+
+            ->join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
+            ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
+            ->join('kecamatan','kecamatan.id', '=', 'mitrabaru.kecamatan_id')
+            ->join('desa', 'desa.id', '=', 'mitrabaru.desa_id')
+            ->join('jeniskelamin', 'jeniskelamin.id', '=', 'mitrabaru.jeniskelamin_id')
+
+            ->where('kegiatan.id', '=' , $kegiatan -> id)
+
+            ->get();
             // $kegiatan_nama = Kegiatan::where('id')->value('nama_kegiatan');
             
         $mitra_baru = \App\Models\MitraBaru::find($id);
@@ -76,7 +92,7 @@ class KegiatanController extends Controller
         $kegiatan_mitra = \App\Models\KegiatanMitra::find($id);
         // return view('admin.detailmitra', ['kegiatan_mitra' => $kegiatan_mitra]);
 
-        $kegiatan = \App\Models\Kegiatan::find($id);
+        
 
         return view('admin.detailkegiatan', [ 'mitra_baru' => $mitra_baru, 'kegiatan' => $kegiatan, 'kegiatan_mitra' => $kegiatan_mitra, 'data_kegiatan' => $data_kegiatan ]);
         // dd($data_kegiatan);
@@ -142,22 +158,42 @@ class KegiatanController extends Controller
     }
     public function detail(Request $request, $id)
     {
-        $data_kegiatan = KegiatanMitra::join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
-        ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
-        ->get(['kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
-                'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id', 'kegiatan.beban_anggaran', 
-                'mitrabaru.nama_mitra', 'mitrabaru.email', 'mitrabaru.kecamatan_id', 'mitrabaru.desa_id', 'mitrabaru.alamat', 'mitrabaru.tanggal_lahir', 'mitrabaru.jeniskelamin_id', 'mitrabaru.no_hp', 'mitrabaru.pekerjaan', 'mitrabaru.rekening_bri']);
-            // $kegiatan_nama = Kegiatan::where('id')->value('nama_kegiatan');
+       
+            $kegiatan = \App\Models\Kegiatan::find($id);
             
+
+        // $kegiatan_mitra = KegiatanMitra::with('kegiatan')->where('kegiatan_id', $kegiatan )->first();
+            
+        $data_kegiatan = DB::table('kegiatan_mitra')
+        ->select('kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
+                    'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id', 'kegiatan.beban_anggaran', 
+                    'kecamatan.nama_kecamatan', 'kecamatan.id',
+                    'desa.nama_desa', 'jeniskelamin.kelamin',
+                    'mitrabaru.id','mitrabaru.nama_mitra', 'mitrabaru.email', 'mitrabaru.kecamatan_id', 'mitrabaru.desa_id', 'mitrabaru.alamat', 'mitrabaru.tanggal_lahir',
+                    'mitrabaru.jeniskelamin_id', 'mitrabaru.no_hp', 'mitrabaru.pekerjaan', 'mitrabaru.rekening_bri', 
+                    'kegiatan_mitra.bertugas_sebagai')
+
+            ->join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
+            ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
+            ->join('kecamatan','kecamatan.id', '=', 'mitrabaru.kecamatan_id')
+            ->join('desa', 'desa.id', '=', 'mitrabaru.desa_id')
+            ->join('jeniskelamin', 'jeniskelamin.id', '=', 'mitrabaru.jeniskelamin_id')
+
+            ->where('kegiatan.id', '=' , $kegiatan -> id)
+
+            ->get();
+// echo $kegiatan;
+//             echo $data;
+
         $mitra_baru = \App\Models\MitraBaru::find($id);
-        // return view('admin.detailmitra', ['mitra' => $mitra]);
-        
-        $kegiatan_mitra = \App\Models\KegiatanMitra::find($id);
+       
+        // $kegiatan_mitra = \App\Models\KegiatanMitra::find($id);
         // return view('admin.detailmitra', ['kegiatan_mitra' => $kegiatan_mitra]);
 
-        $kegiatan = \App\Models\Kegiatan::find($id);
+        // echo $data_kegiatan;
 
-        return view('Kemitraan.detailkegiatan', [ 'mitra_baru' => $mitra_baru, 'kegiatan' => $kegiatan, 'kegiatan_mitra' => $kegiatan_mitra, 'data_kegiatan' => $data_kegiatan ]);
+        // return view('Kemitraan.detailkegiatan', [ 'mitra_baru' => $mitra_baru, 'kegiatan' => $kegiatan, 'kegiatan_mitra' => $kegiatan_mitra, 'data_kegiatan' => $data_kegiatan ]);
         // dd($data_kegiatan);
+        return view('Kemitraan.detailkegiatan', [ 'mitra_baru' => $mitra_baru, 'kegiatan' => $kegiatan, 'data_kegiatan' => $data_kegiatan]);
     }
 }

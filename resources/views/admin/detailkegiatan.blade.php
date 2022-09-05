@@ -98,24 +98,26 @@
                     <th>Nomor HP</th>
                     <th>Pekerjaan</th>
                     <th>Rekening Bri</th>
+                    <th>Bertugas Sebagai</th>
                 </thead>
                 <tbody>
-
+                @foreach($data_kegiatan as $data_kegiatan )
                     <tr>
-
-                        <td>{{$mitra_baru->id}}</td>
-                        <td>{{$mitra_baru->nama_mitra }}</td>
-                        <td>{{$mitra_baru->email}}</td>
-                        <td>{{$mitra_baru->kecamatan_id}}</td>
-                        <td>{{$mitra_baru->desa_id}}</td>
-                        <td>{{$mitra_baru->alamat}}</td>
-                        <td>{{$mitra_baru->tanggal_lahir}}</td>
-                        <td>{{$mitra_baru->jeniskelamin_id}}</td>
-                        <td>{{$mitra_baru->no_hp}}</td>
-                        <td>{{$mitra_baru->pekerjaan}}</td>
-                        <td>{{$mitra_baru->rekening_bri}}</td>
+                        
+                        <td>{{$data_kegiatan->id}}</td>
+                        <td>{{$data_kegiatan->nama_mitra }}</td>
+                        <td>{{$data_kegiatan->email}}</td>
+                        <td>{{$data_kegiatan->nama_kecamatan}}</td>
+                        <td>{{$data_kegiatan->nama_desa}}</td>
+                        <td>{{$data_kegiatan->alamat}}</td>
+                        <td>{{$data_kegiatan->tanggal_lahir}}</td>
+                        <td>{{$data_kegiatan->kelamin}}</td>
+                        <td>{{$data_kegiatan->no_hp}}</td>
+                        <td>{{$data_kegiatan->pekerjaan}}</td>
+                        <td>{{$data_kegiatan->rekening_bri}}</td>
+                        <td>{{$data_kegiatan->bertugas_sebagai}}</td>
                     </tr>
-
+                    @endforeach
                 </tbody>
             </table>
         </div>
