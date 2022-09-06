@@ -32,10 +32,8 @@
                 </div>
             </div>
             <div class="card-body">
-                @if (session('sukses'))
-                    <div class="alert alert-success fw-bold" role="alert">
-                        {{session('sukses')}}
-                    </div>
+            @if(!empty($successMsg))
+                    <div class="alert alert-success"> {{ $successMsg }}</div>
                 @endif
                 <div class="row">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">

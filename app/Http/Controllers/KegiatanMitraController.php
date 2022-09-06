@@ -35,33 +35,42 @@ class KegiatanMitraController extends Controller
 
     public function edit($id)
     {
-        $kegiatan1 = \App\Models\KegiatanMitra::find($id);
+        $kegiatanmitra = \App\Models\KegiatanMitra::find($id);
         $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'asc')->get();
         $mitra = MitraBaru::orderBy('nama_mitra', 'asc')->get();
 
         $kegiatan_mitra = KegiatanMitra::all();
-        return view('admin.kegiatanmitraedit', ['kegiatan' => $kegiatan, 'mitra' => $mitra, 'kegiatan_mitra' => $kegiatan_mitra,'kegiatan1' => $kegiatan1]);
+        return view('admin.kegiatanmitraedit', ['kegiatan_mitra' =>$kegiatan_mitra, 'kegiatan' => $kegiatan, 'mitra' => $mitra, 'kegiatanmitra' => $kegiatanmitra]);
     }
 
     public function update(Request $request, $id)
     {
-        $kegiatan = \App\Models\KegiatanMitra::find($id);
-        // $kegiatan->update($request->all());
-        // return redirect('/admin/kegiatanmitraindex')->with('sukses', 'Data berhasil diupdate');
+        $this->validate($request,[
+            'kegiatan_id' => 'required|exists:kegiatan,nama_kegiatan',
+            'mitrabaru_id' => 'required|exists:mitrabaru,nama_mitra',
+            'bertugas_sebagai' => 'required',
+            'target' => 'required|alpha-num',
+        ]);
+
+        $kegiatanmitra = \App\Models\KegiatanMitra::find($id);
+        $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'asc')->get();
+        $mitra = MitraBaru::orderBy('nama_mitra', 'asc')->get();
 
         $kegiatan_nama = Kegiatan::where('nama_kegiatan', $request->kegiatan_id)->value('id');
         $mitra_nama = MitraBaru::where('nama_mitra', $request->mitrabaru_id)->value('id');
 
-        $kegiatanmitra = new KegiatanMitra;
         $kegiatanmitra->kegiatan_id = $kegiatan_nama;
         $kegiatanmitra->mitrabaru_id = $mitra_nama;
-        // $kegiatra->nilai_perjanjian = $request->nilai_perjanjian;
-        $kegiatanmitra->bertugas_sebagai = $request->bertugas_sebagai;
+        $kegiatanmitra->bertugas_sebagai= $request->bertugas_sebagai;
         $kegiatanmitra->target = $request->target;
         $kegiatanmitra->save();
-            
-        return  view('admin.kegiatanmitraedit')->with('sukses', 'Data berhasil ditambahkan');
-    
+
+        $data_kegiatan = KegiatanMitra::join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
+            ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
+            ->get(['kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
+                    'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id', 'kegiatan.beban_anggaran']);
+
+        return  view('admin.kegiatanmitraindex',['kegiatanmitra'=>$kegiatanmitra,'kegiatan' => $kegiatan, 'mitra' => $mitra, 'data_kegiatan' =>$data_kegiatan])->with('successMsg', 'Data berhasil di edit');
     }
 
     public function delete($id)

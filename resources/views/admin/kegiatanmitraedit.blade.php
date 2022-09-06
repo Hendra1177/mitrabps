@@ -10,7 +10,7 @@
 
 <main class="main-content position-relative border-radius-lg ps">
     <div class="card" style="margin-left:30px; margin-right:30px; margin-top:30px; margin-bottom:17px;">
-        <form action="/admin/perjanjian/{{$kegiatan1->id}}/update" method="POST">
+        <form action="/admin/perjanjian/{{$kegiatanmitra->id}}/update" method="POST">
             {{csrf_field()}}
             @if (session('sukses'))
             <div class="alert alert-success fw-bold" role="alert">
