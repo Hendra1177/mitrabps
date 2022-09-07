@@ -80,6 +80,15 @@
           </a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link " href="/admin/spk">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+            <i class="bi bi-journal-text text-danger text-lg"></i>
+            </div>
+            <span class="nav-link-text ms-1">SPK</span>
+          </a>
+        </li>
+
         </li>
   </aside>
   <main class="main-content position-relative border-radius-lg ">

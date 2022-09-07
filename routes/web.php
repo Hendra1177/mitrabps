@@ -98,9 +98,9 @@ Route::get('/kegiatan/{id}/edit', 'App\Http\Controllers\KegiatanController@editU
 Route::post('/kegiatan/{id}/update', 'App\Http\Controllers\KegiatanController@updateUser');
 Route::get('/kegiatan/{id}/detail', 'App\Http\Controllers\KegiatanController@detail');
 
+//Route SPK
 
-// Route::get('/search', 'App\Http\Controllers\KegiatanController@index')->name('search');
-// Route::get('/tambahkegiatan/search', 'App\Http\Controllers\KegiatanController@autocomplete')->name('autocomplete');
+Route::get('/admin/spk', 'App\Http\Controllers\SpkController@index');
 
 // //Form User Mitra
 Route::post('/tambahmitra/create', 'App\Http\Controllers\MitraController@createMitra');

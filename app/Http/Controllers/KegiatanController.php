@@ -193,18 +193,8 @@ class KegiatanController extends Controller
             ->where('kegiatan.id', '=' , $kegiatan -> id)
 
             ->get();
-// echo $kegiatan;
-//             echo $data;
 
         $mitra_baru = \App\Models\MitraBaru::find($id);
-       
-        // $kegiatan_mitra = \App\Models\KegiatanMitra::find($id);
-        // return view('admin.detailmitra', ['kegiatan_mitra' => $kegiatan_mitra]);
-
-        // echo $data_kegiatan;
-
-        // return view('Kemitraan.detailkegiatan', [ 'mitra_baru' => $mitra_baru, 'kegiatan' => $kegiatan, 'kegiatan_mitra' => $kegiatan_mitra, 'data_kegiatan' => $data_kegiatan ]);
-        // dd($data_kegiatan);
         return view('Kemitraan.detailkegiatan', [ 'mitra_baru' => $mitra_baru, 'kegiatan' => $kegiatan, 'data_kegiatan' => $data_kegiatan]);
     }
 }

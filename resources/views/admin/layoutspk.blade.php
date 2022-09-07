@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @can('isAdmin')
-    
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,67 +12,29 @@
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <!-- Nucleo Icons -->
   <link href="{{asset('template/assets/css/nucleo-icons.css')}}" rel="stylesheet" />
-  
+  <link href="{{asset('template/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <link href="{{asset('template/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="{{asset('template/assets/css/argon-dashboard.css')}}" rel="stylesheet" />
-  
-  {{-- Data Tables Local --}}
-  {{-- <link href="{{asset('template/assets/dataTables/datatables.min.css')}}" rel="stylesheet" /> --}}
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
-  {{-- Data Table CDN --}}
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/sr-1.1.1/datatables.min.css"/>
-
+  <link id="pagestyle" href="{{asset('template/assets/css/argon-dashboard.css')}}" rel="stylesheet" />
+  <link id="pagestyle" href="{{asset('template/assets/dataTables/datatables.min.css')}}" rel="stylesheet" />
   
 
 </head>
 
 <body class="g-sidenav-show bg-white">
-  <div class="min-height-300 bg-white position-absolute w-100">
-    <div id="demo" class="carousel slide" data-ride="carousel">
 
-      <!-- Indicators -->
-      <ul class="carousel-indicators">
-        <li data-target="#demo" data-slide-to="0" class="active"></li>
-        <li data-target="#demo" data-slide-to="1"></li>
-        <li data-target="#demo" data-slide-to="2"></li>
-      </ul>
-
-      <!-- The slideshow -->
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="{{asset('template/assets/img/sp2.jpg')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
-        </div>
-        <div class="carousel-item">
-          <img src="{{asset('template/assets/img/sensus3.png')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
-        </div>
-        <div class="carousel-item">
-          <img src="{{asset('template/assets/img/bps people.jpg')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
-        </div>
-        <div class="carousel-item">
-          <img src="{{asset('template/assets/img/sp3.jpg')}}" class="img-responsive center-block d-block mx-auto" style="height: 300px;width: 1536px;">
-        </div>
-      </div>
-
-
-      <!-- Left and right controls -->
-      <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </a>
-      <a class="carousel-control-next" href="#demo" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </a> -->
-
-    </div>
-    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)"></div>
-  </div>
-  <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
+<aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand m-0" target="_blank">
@@ -84,7 +46,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="/admin/dashboard">
+          <a class="nav-link " href="/admin/dashboard">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
             </div>
@@ -119,7 +81,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link " href="/admin/spk">
+          <a class="nav-link active" href="/admin/spk">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
             <i class="bi bi-journal-text text-danger text-lg"></i>
             </div>
@@ -131,14 +93,14 @@
   </aside>
   <main class="main-content position-relative border-radius-lg ">
     <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl " id="navbarBlur" data-scroll="false">
+    <nav class="navbar navbar-main navbar-expand-lg  shadow  navbar-dark bg-primary " id="navbarBlur" data-scroll="false">
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="/admin/dashboard">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-white active" aria-current="page">Dashboard</li>
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-0 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-white active" aria-current="page">SPK</li>
           </ol>
-          <h6 class="font-weight-bolder text-white mb-0">Dashboard</h6>
+          <h6 class="font-weight-bolder text-white mb-0">Surat Perjanjian Kerja</h6>
         </nav>
         <ul class="navbar-nav  justify-content-end">
           <li class="nav-item dropdown">
@@ -186,7 +148,41 @@
     <script src="{{asset('template/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
     <script src="{{asset('template/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
     <script src="{{asset('template/assets/js/plugins/chartjs.min.js')}}"></script>
+    <script src="{{asset('template/assets/dataTables/datatables.min.js')}}"></script>
+    <!-- <script src="{{asset('template/assets/DataTables/Buttons-2.2.3/js/buttons.dataTables.min.js')}}"></script> -->
+    <!-- <script src="{{asset('template/assets/DataTables/Buttons-2.2.3/js/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('template/assets/DataTables/Buttons-2.2.3/js/dataTables.button.min.js')}}"></script>
+    <script src="{{asset('template/assets/DataTables/pdfmake-0.1.36/js/pdfmake.min.js')}}"></script>
+    <script src="{{asset('template/assets/DataTables/JSZip-2.5.0/jszip.min.js')}}"></script> -->
 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <!-- <script src="{{asset('template/assets/DataTables/Button-2.2.3/js/buttons.jqueryui.min.js')}}"></script> -->
+    
+
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#dataspk').DataTable();
+      });
+    </script>
+
+    <!-- <script type="text/javascript">
+      $(document).ready(function() {
+        $('#tablemitra').DataTable({
+          dom: 'Bfrtip',
+          buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+          ]
+        });
+      });
+    </script> -->
 
     <script>
       var ctx1 = document.getElementById("chart-line").getContext("2d");
@@ -271,37 +267,6 @@
         },
       });
     </script>
-    <script>
-      var win = navigator.platform.indexOf('Win') > -1;
-      if (win && document.querySelector('#sidenav-scrollbar')) {
-        var options = {
-          damping: '0.5'
-        }
-        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-      }
-    </script>
-
-    {{-- Data Table CDN --}}
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.12.1/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/r-2.3.0/rg-1.2.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/sr-1.1.1/datatables.min.js">
-      $(document).ready( function () {
-          $('#coba').DataTable();
-      } );
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    {{-- Data Table Local --}}
-    {{-- <script src="{{asset('template/assets/dataTables/datatables.min.js')}}"></script>
-    <script type="text/javascript">
-      $(document).ready( function () {
-        $('#datatables').DataTable();
-      } );
-    </script> --}}
-
-
-
 <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -313,8 +278,7 @@
   </script>
 
 <script src="{{asset('template/assets/js/argon-dashboard.min.js?v=2.0.4')}}"></script>
-
-
 </body>
 @endcan
+
 </html>

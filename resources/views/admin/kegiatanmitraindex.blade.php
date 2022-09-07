@@ -43,7 +43,7 @@
                         <table class="table table-hover table-bordered" id="datatables">
                             <thead>
                                 <tr class="text-center">
-                                    <th>No</th>
+                                <th scope="col">No</th>
                                     <th>Uraian Kegiatan</th>
                                     <th>Bulan</th>
                                     <th>Jangka Waktu</th>
@@ -56,9 +56,10 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php $no=1;?>
                             @foreach ($data_kegiatan as $kegiatan)
                                 <tr>
-                                    <td class="text-center">{{$kegiatan->id}}</td>
+                                <th scope="row">  {{$no}}</th>
                                     <td>{{$kegiatan->nama_kegiatan}}</td>
                                     <td>{{$kegiatan->bulan}}</td>
                                     <td class="text-center">{{$kegiatan->tanggal_mulai}} - {{$kegiatan->tanggal_akhir}}</td>
@@ -75,6 +76,7 @@
                                         <a href="/admin/perjanjian/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a>     
                                     </td>
                                 </tr>
+                                <?php $no++ ;?>
                             @endforeach
                             </tbody>
                         </table>

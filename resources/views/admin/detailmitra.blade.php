@@ -138,7 +138,7 @@
         <div id="over">
             <table class="table table-hover table-bordered" id="tablemitra">
                 <thead>
-                    <th>ID</th>
+                    <th scope="col">No</th>
                     <th>Uraian Kegiatan</th>
                     <th>Bulan</th>
                     <th>Jangka Waktu</th>
@@ -150,10 +150,11 @@
                     <th>Beban Anggaran</th>
                 </thead>
                 <tbody>
+                <?php $no=1;?>
                 @foreach($data_kegiatan as $data_kegiatan )
                     <tr>
                     
-                        <td>{{$data_kegiatan->kegiatan_id}}</td>
+                        <th scope="row">  {{$no}}</th>
                         <td>{{$data_kegiatan->nama_kegiatan}}</td>
                         <td>{{$data_kegiatan->bulan}}</td>
                         <td>{{$data_kegiatan->tanggal_mulai}} - {{$data_kegiatan->tanggal_akhir}}</td>
@@ -165,6 +166,7 @@
                         <td>{{$data_kegiatan->beban_anggaran}}</td>
                         
                     </tr>
+                    <?php $no++ ;?>
                     @endforeach
                 </tbody>
             </table>

@@ -162,10 +162,7 @@ class MitraController extends Controller
 
             ->get();
 
-            // $kegiatan_mitra = DB::table('kegiatan_mitra')
-            // ->select('kegiatan_mitra.target', 'kegiatan_mitra.mitrabaru_id')
-            // ->where('kegiatan_mitra.mitrabaru_id', '=' , $mitra_baru -> id )
-            // ->get();
+            
 
             $targetmitra = DB::table('kegiatan_mitra')
             ->select(DB::raw("SUM(target) as count"))
