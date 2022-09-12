@@ -32,26 +32,27 @@
             </div>
 
             <div class="card-body">
-                @if (session('sukses'))
+                @if (session('successMsg'))
                     <div class="alert alert-success fw-bold" role="alert">
-                        {{session('sukses')}}
+                        {{session('successMsg')}}
                     </div>
                 @endif
                 <div class="row">
-                    
-                    <div class="col-10">
+                    <div class="col-11">
                         <!-- Button trigger modal -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="/admin/kegiatan/formkegiatan" class="btn btn-primary" role="button">Tambah SPK</a>
+                            <a href="/admin/spk/formspk" class="btn btn-primary" role="button">Tambah SPK</a>
                         </div>
                     </div>
-                    <div id="over">
+                    <div id="over" style="margin-left:auto;margin-right:auto">
                         <table class="table table-hover table-bordered" id="dataspk">
                             <thead>
                             <tr class="text-center">
                             <th scope="col">No</th>
-                                <th>Nama Mitra</th>
-                                <th>Nama PPK</th>
+                                {{-- <th>Nama Mitra</th> --}}
+                                <th>Kegiatan</th>
+                                <th>Pembuat Perjanjian Kerja</th>
+                                <th>Mitra</th>
                                 <th>Hari</th>
                                 <th>Tanggal</th>
                                 <th>Bulan</th>
@@ -62,25 +63,27 @@
                             </thead>
 
                             <tbody>
-                            <?php $no=1;?>
-                                @foreach ($data_kegiatan as $kegiatan)
-                            <tr>
-                            <th scope="row">  {{$no}}</th>
-                                <td>{{$kegiatan->nama_kegiatan}}</td>
-                                <td>{{$kegiatan->bulan}}</td>
-                                <td class="text-center">{{$kegiatan->tanggal_mulai}}</td>
-                                <td class="text-center">{{$kegiatan->tanggal_akhir}}</td>
-                                <td class="text-center">{{$kegiatan->beban_anggaran}}</td>
-                                <td class="text-center">{{$kegiatan->volume_total}}</td>
-                                
-                                <td>
-                                    <a href="/admin/kegiatan/{{$kegiatan->id}}/detail" class="btn btn-info btn-sm">View</a>
-                                    <a href="/admin/kegiatan/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">Hapus</a>
-                                </td>
-                            </tr>
-                            <?php $no++ ;?>
-                                @endforeach
+                                <?php $no=1;?>
+                                    @foreach ($spk as $spk)
+                                    <tr>
+                                        <th scope="row">  {{$no}}</th>
+                                        {{-- <td>{{$kegiatan->nama_kegiatan}}</td> --}}
+                                        <td>{{$spk->nama_kegiatan}}</td>
+                                        <td>{{$spk->ppk}}</td>
+                                        <td>{{$spk->nama_mitra}}</td>
+                                        <td class="text-center">{{$spk->hari}}</td>
+                                        <td class="text-center">{{$spk->tanggal}}</td>
+                                        <td class="text-center">{{$spk->bulan}}</td>
+                                        <td class="text-center">{{$spk->tahun}}</td>
+                                        
+                                        <td>
+                                            <a href="/admin/spk/{{$spk->id}}/detail" class="btn btn-info btn-sm">View</a>
+                                            <a href="/admin/spk/{{$spk->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+                                            <a href="/admin/spk/{{$spk->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">Hapus</a>
+                                        </td>
+                                    </tr>
+                                <?php $no++ ;?>
+                                    @endforeach
                             </tbody>
                         </table>
                     </div>

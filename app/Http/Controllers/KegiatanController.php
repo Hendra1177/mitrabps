@@ -67,22 +67,19 @@ class KegiatanController extends Controller
         $kegiatan = \App\Models\Kegiatan::find($id);
 
         $data_kegiatan = DB::table('kegiatan_mitra')
-        ->select('kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
-                    'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id', 'kegiatan.beban_anggaran', 
+            ->select('kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
+                    'kegiatan_mitra.id', 'kegiatan.beban_anggaran', 
                     'kecamatan.nama_kecamatan', 'kecamatan.id',
                     'desa.nama_desa', 'jeniskelamin.kelamin',
                     'mitrabaru.id','mitrabaru.nama_mitra', 'mitrabaru.email', 'mitrabaru.kecamatan_id', 'mitrabaru.desa_id', 'mitrabaru.alamat', 'mitrabaru.tanggal_lahir',
                     'mitrabaru.jeniskelamin_id', 'mitrabaru.no_hp', 'mitrabaru.pekerjaan', 'mitrabaru.rekening_bri', 
                     'kegiatan_mitra.bertugas_sebagai')
-
             ->join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
             ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
             ->join('kecamatan','kecamatan.id', '=', 'mitrabaru.kecamatan_id')
             ->join('desa', 'desa.id', '=', 'mitrabaru.desa_id')
             ->join('jeniskelamin', 'jeniskelamin.id', '=', 'mitrabaru.jeniskelamin_id')
-
             ->where('kegiatan.id', '=' , $kegiatan -> id)
-
             ->get();
             // $kegiatan_nama = Kegiatan::where('id')->value('nama_kegiatan');
             
@@ -176,22 +173,19 @@ class KegiatanController extends Controller
         // $kegiatan_mitra = KegiatanMitra::with('kegiatan')->where('kegiatan_id', $kegiatan )->first();
             
         $data_kegiatan = DB::table('kegiatan_mitra')
-        ->select('kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
-                    'kegiatan_mitra.nilai_perjanjian', 'kegiatan_mitra.id', 'kegiatan.beban_anggaran', 
+            ->select('kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
+                    'kegiatan_mitra.id', 'kegiatan.beban_anggaran', 
                     'kecamatan.nama_kecamatan', 'kecamatan.id',
                     'desa.nama_desa', 'jeniskelamin.kelamin',
                     'mitrabaru.id','mitrabaru.nama_mitra', 'mitrabaru.email', 'mitrabaru.kecamatan_id', 'mitrabaru.desa_id', 'mitrabaru.alamat', 'mitrabaru.tanggal_lahir',
                     'mitrabaru.jeniskelamin_id', 'mitrabaru.no_hp', 'mitrabaru.pekerjaan', 'mitrabaru.rekening_bri', 
                     'kegiatan_mitra.bertugas_sebagai')
-
             ->join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
             ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
             ->join('kecamatan','kecamatan.id', '=', 'mitrabaru.kecamatan_id')
             ->join('desa', 'desa.id', '=', 'mitrabaru.desa_id')
             ->join('jeniskelamin', 'jeniskelamin.id', '=', 'mitrabaru.jeniskelamin_id')
-
             ->where('kegiatan.id', '=' , $kegiatan -> id)
-
             ->get();
 
         $mitra_baru = \App\Models\MitraBaru::find($id);

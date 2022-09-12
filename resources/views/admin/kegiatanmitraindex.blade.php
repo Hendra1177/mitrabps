@@ -50,7 +50,7 @@
                                     <th>Volume</th>
                                     <th>Satuan</th>
                                     <th>Harga Satuan</th>
-                                    <th>Nilai Perjanjian</th>
+                                    {{-- <th>Nilai Perjanjian</th> --}}
                                     <th>Beban Anggaran</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
@@ -63,13 +63,11 @@
                                     <td>{{$kegiatan->nama_kegiatan}}</td>
                                     <td>{{$kegiatan->bulan}}</td>
                                     <td class="text-center">{{$kegiatan->tanggal_mulai}} - {{$kegiatan->tanggal_akhir}}</td>
-                                    
                                     <td class="text-center">{{$kegiatan->volume_total}}</td>
                                     <td class="text-center">{{$kegiatan->satuan}}</td>
                                     <td class="text-center">{{$kegiatan->harga_satuan}}</td>
-                                    <td class="text-center">{{$kegiatan->nilai_perjanjian}}</td>
+                                    {{-- <td class="text-center">{{$kegiatan->nilai_perjanjian}}</td> --}}
                                     <td class="text-center">{{$kegiatan->beban_anggaran}}</td>
-
                                     <td>
                                        
                                         <a href="/admin/perjanjian/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm">edit</a>
@@ -81,9 +79,9 @@
                             </tbody>
                         </table>
                     </div>
-                    
                 </div>
-    </div>
+            </div>
+        </div>
 
     <!-- Modal 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -152,7 +150,5 @@
                 </div>
             </div>-->
             
-</main>
-</div>
 </main>
 @endsection

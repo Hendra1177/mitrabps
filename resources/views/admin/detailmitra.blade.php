@@ -133,12 +133,26 @@
     </div>
 </div>
 
-<div class="card" style="margin-right:30px; margin-left:30px;">
-    <div class="card-body" style="margin-right:15px; margin-left:15px;">
+<div class="card cardspk" style="margin-right:30px; margin-left:30px;">
+    <div class="card-body card-body-spk" style="margin-right:15px; margin-left:15px;">
         <div id="over">
             <table class="table table-hover table-bordered" id="tablemitra">
                 <thead>
-                    <th scope="col">No</th>
+                    <tr>
+                        <th rowspan="2" class="text-center">No</th>
+                        <th rowspan="2" class="text-center">Uraian Tugas</th>
+                        <th rowspan="2" class="text-center">Jangka Waktu</th>
+                        <th colspan="2" class="text-center">Target Pekerjaan</th>
+                        <th rowspan="2" class="text-center">Harga Satuan</th>
+                        {{-- <th rowspan="2" class="text-center"> Nilai Perjanjian</th> --}}
+                        <th rowspan="2" class="text-center"> Beban Anggaran</th>
+                    </tr>
+                    <tr>
+                        
+                        <th class="text-center">Volume</th>
+                        <th class="text-center">Satuan</th>
+                    </tr>
+                    {{-- <th scope="col">No</th>
                     <th>Uraian Kegiatan</th>
                     <th>Bulan</th>
                     <th>Jangka Waktu</th>
@@ -147,11 +161,26 @@
                     <th>Harga Satuan</th>
                     <th>Target</th>
                     <th>Nilai Perjanjian</th>
-                    <th>Beban Anggaran</th>
+                    <th>Beban Anggaran</th> --}}
                 </thead>
                 <tbody>
                 <?php $no=1;?>
-                @foreach($data_kegiatan as $data_kegiatan )
+                    @foreach($data_kegiatan as $data_kegiatan )
+                        <tr>
+                            <td>{{$no}}</td>
+                            <td>{{$data_kegiatan->nama_kegiatan}}</td>
+                            {{-- <td>{{$data_kegiatan->bulan}}</td> --}}
+                            <td>{{$data_kegiatan->tanggal_mulai}} - {{$data_kegiatan->tanggal_akhir}}</td>
+                            <td>{{$data_kegiatan->volume_total}}</td>
+                            <td>{{$data_kegiatan->satuan}}</td>
+                            <td>{{$data_kegiatan->harga_satuan}}</td>
+                            {{-- <td>{{$data_kegiatan->target}}</td> --}}
+                            {{-- <td>{{$data_kegiatan->nilai_perjanjian}}</td> --}}
+                            <td>{{$data_kegiatan->beban_anggaran}}</td>
+                        </tr>
+                        <?php $no++ ;?>
+                    @endforeach
+                {{-- @foreach($data_kegiatan as $data_kegiatan )
                     <tr>
                     
                         <th scope="row">  {{$no}}</th>
@@ -167,7 +196,7 @@
                         
                     </tr>
                     <?php $no++ ;?>
-                    @endforeach
+                    @endforeach --}}
                 </tbody>
             </table>
         </div>

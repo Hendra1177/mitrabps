@@ -83,7 +83,7 @@
                 
                 {{-- <a class="btn btn-warning" href="/tambahmitra" role="button">Tambah Mitra</a> --}}
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-warning">Update</button>
             </main>
         </form>
 </main>

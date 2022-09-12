@@ -87,6 +87,15 @@ Route::get('/admin/perjanjian/{id}/edit', 'App\Http\Controllers\KegiatanMitraCon
 
 Route::post('/admin/perjanjian/{id}/update', 'App\Http\Controllers\KegiatanMitraController@update');
 
+//Admin SPK
+Route::get('/admin/spk', 'App\Http\Controllers\SpkController@index');
+Route::get('/admin/spk/formspk', 'App\Http\Controllers\SpkController@getCreate');
+Route::post('/admin/spk/formspk/create', 'App\Http\Controllers\SpkController@create');
+Route::get('/admin/spk/{id}/edit', 'App\Http\Controllers\SpkController@edit');
+Route::post('/admin/spk/{id}/update', 'App\Http\Controllers\SpkController@update');
+Route::get('/admin/spk/{id}/delete', 'App\Http\Controllers\SpkController@delete');
+Route::get('/admin/spk/{id}/detail', 'App\Http\Controllers\SpkController@detailspk');
+
 //Form User Kegiatan 
 Route::get('datalistPelaksana', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksana')->name('mitra.datalistPelaksana');
 Route::get('/pelaksana', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksana');
@@ -97,10 +106,6 @@ Route::get('/kegiatan/formkegiatan', 'App\Http\Controllers\KegiatanController@to
 Route::get('/kegiatan/{id}/edit', 'App\Http\Controllers\KegiatanController@editUser');
 Route::post('/kegiatan/{id}/update', 'App\Http\Controllers\KegiatanController@updateUser');
 Route::get('/kegiatan/{id}/detail', 'App\Http\Controllers\KegiatanController@detail');
-
-//Route SPK
-
-Route::get('/admin/spk', 'App\Http\Controllers\SpkController@index');
 
 // //Form User Mitra
 Route::post('/tambahmitra/create', 'App\Http\Controllers\MitraController@createMitra');

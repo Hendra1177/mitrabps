@@ -20859,6 +20859,11 @@ fieldset:disabled .btn {
   padding: 1.5rem;
 }
 
+.cardspk .card-body-spk {
+  font-family: 'Times New Roman', Times, serif;
+  padding: 1.5rem;
+}
+
 .card.card-plain {
   background-color: transparent;
   box-shadow: none !important;

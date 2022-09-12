@@ -50,16 +50,6 @@
                     @endif
                 </div>
 
-                {{-- <div class="col-1">
-                    <hr>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end"> 
-                        <button class="btn btn-success me-sm btn-md add-more" type="button" id="add-more">
-                            <i class="glyphicon glyphicon-plus"></i> +
-                        </button>
-                        
-                    </div>
-                </div> --}}
-
                 <div class="form-group {{$errors->has('bertugas_sebagai') ? ' has-error' : ''}}">
                     <label for="pwd">Bertugas sebagai</label>
                     <input type="form" value="{{old('bertugas_sebagai')}}" class="form-control" id="bertugas_sebagai" placeholder="Enter bertugas sebagai.." name="bertugas_sebagai" value="{{old('bertugas_sebagai')}}">
@@ -75,13 +65,6 @@
                         <span class="help-block text-danger fs-9">*{{$errors->first('target')}}</span>
                     @endif
                 </div>
-
-                {{-- <div class="form-group">
-                            <label for="pwd">Bertugas Sebagai</label>
-                            <input type="form" class="form-control" id="tugas" placeholder="Enter bertugas sebagai" name="pwd">
-                        </div> --}}
-                
-                {{-- <a class="btn btn-warning" href="/tambahmitra" role="button">Tambah Mitra</a> --}}
 
                 <button type="submit" class="btn btn-primary">Submit</button>
             </main>
