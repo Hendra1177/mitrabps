@@ -51,20 +51,22 @@
         @endforeach
         <br><br>
 
-        <p>Pada hari ini {{$data->hari}}, tanggal (need help), bulan {{$data->bulan}}, tahun (need help), bertempat di Kantor BPS Kabupaten Jombang,
+        <p>Pada hari ini {{$data->hari}}, tanggal {{tanggalTerbilang($data->tanggal)}} , bulan {{$data->bulan}}, tahun {{terbilang($data->tahun)}}, bertempat di Kantor BPS Kabupaten Jombang,
             yang bertanda tangan di bawah ini:
         </p>
         <dl class="row">
-  <p class="col-sm-3">{{$data->ppk}}     :</p>
-  <p class="col-sm-9">Pejabat Pembuat Komitmen Badan Pusat Statistik Kabupaten Jombang,
+  <p class="col-sm-1">1.</p>
+  <p class="col-sm-3">{{$data->ppk}}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:</p>
+  <p class="col-sm-7">Pejabat Pembuat Komitmen Badan Pusat Statistik Kabupaten Jombang,
 berkedudukan di Jalan Airlangga No.46A Jombang, bertindak untuk dan atas nama
 Badan Pusat Statistik Kabupaten Jombang, selanjutnya disebut sebagai <b>PIHAK PERTAMA</b>.
   </p>
         </dl>
 
         <dl class="row">
-    <p class="col-sm-3">{{$data->nama_mitra}}      :</p>
-    <p class="col-sm-9"> <big class="text-uppercase">{{$data->pekerjaan}}</big>, berkedudukan di {{$data->alamat}} Kec. {{$data->nama_kecamatan}} Kab.Jombang, bertindak
+    <p class="col-sm-1">2.</p>
+    <p class="col-sm-3">{{$data->nama_mitra}}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:</p>
+    <p class="col-sm-7"> <big class="text-uppercase">{{$data->pekerjaan}}</big>, berkedudukan di {{$data->alamat}} Kec. {{$data->nama_kecamatan}} Kab.Jombang, bertindak
  untuk dan atas nama sendiri, selanjutnya disebut <b>PIHAK KEDUA</b>.
   </p>
         </dl>
@@ -80,14 +82,14 @@ Kabupaten Jombang dengan lingkup pekerjaan yang ditetapkan oleh <b>PIHAK PERTAMA
 <p>Ruang lingkup pekerjaan dalam Perjanjian ini mengacu pada wilayah kerja dan beban kerja sebagaimana tertuang dalam Lampiran Perjanjian pada Badan Pusat Statistik
     Kabupaten Jombang, dan ketentuan-ketentuan yang ditetapkan oleh <b>PIHAK PERTAMA</b>.</p>
 <p class="text-center fw-bold">Pasal 3</p>
-<p>Jangka Waktu Perjanjian terhitung sejak tanggal (need help) sampai dengan tanggal (need help).</p>
+<p>Jangka Waktu Perjanjian terhitung sejak tanggal {{tanggal_indonesia($data->tanggal_mulai)}} sampai dengan tanggal {{tanggal_indonesia($data->tanggal_akhir)}}.</p>
 <br><br><br><br><br><br>
 <p class="text-center">[1]</p>
     </div>
 </div>
 <br>
-<div class="card" style="margin-right:30px; margin-left:30px; padding-right:100px; padding-left:100px; padding-top:90px; padding-bottom:110px;">
-    <div class="card-body" style="margin-right:15px; margin-left:15px;">
+<div class="card cardspk" style="margin-right:30px; margin-left:30px; padding-right:100px; padding-left:100px; padding-top:90px; padding-bottom:110px;">
+    <div class="card-body card-body-spk" style="margin-right:15px; margin-left:15px;">
     <p class="text-center fw-bold">Pasal 4</p>
 <p><b>PIHAK KEDUA</b> berkewajiban melaksanakan seluruh pekerjaan yang diberikan oleh <b>PIHAK PERTAMA</b> sampai selesai,
 sesuai ruang lingkup pekerjaan sebagaimana dimaksud dalam Pasal 2, dengan menerapkan protokol kesehatan pencegahan <em>Covid-19</em>
@@ -97,7 +99,7 @@ yang berlaku di wilayah kerja masing-masing.</p>
 
 <dl class="row">
 <p class="col-1">(1)</p>
-<p class="col"><b>PIHAK KEDUA</b> berhak untuk mendapatkan honorarium Petugas dari <b>PIHAK PERTAMA</b> sebesar Rp.(need help)(terbilang) untuk pekerjaan sebagaimana dimaksud dalam pasal 2, termasuk biaya pajak,
+<p class="col"><b>PIHAK KEDUA</b> berhak untuk mendapatkan honorarium Petugas dari <b>PIHAK PERTAMA</b> sebesar {{"Rp. ".format_uang($data->harga_satuan)}} <em>({{terbilang($data->harga_satuan)."rupiah "}})</em> untuk pekerjaan sebagaimana dimaksud dalam pasal 2, termasuk biaya pajak,
 bea material, pulsa dan kuota internet untuk komunikasi, dan jasa pelayanan keuangan.</p>
 </dl>
 <dl class="row">
@@ -128,7 +130,7 @@ Pasal 4, termasuk dalam kondisi terindikasi terinfeksi virus <em>Covid-19</em>, 
 <dl class="row">
 <p class="col-1">(1)</p>
 <p class="col">Apabila <b>PIHAK KEDUA</b> mengundurkan diri pada saat / setelah pelaksanaan pekerjaan pengolahan dengan tidak menyelesaikan pekerjaan yang menjadi tanggung jawabnya,
-maka wajib membayar ganti rugi kepada <b>PIHAK PERTAMA</b> sebesar Rp.(need help) (terbilang)</p>
+maka wajib membayar ganti rugi kepada <b>PIHAK PERTAMA</b> sebesar {{"Rp. ".format_uang($data->harga_satuan)}} <em>({{terbilang($data->harga_satuan)."Rupiah "}})</em>. </p>
 </dl>
 <dl class="row">
 <p class="col-1">(2)</p>
@@ -141,9 +143,12 @@ sakit dengan keterangan rawat inap, terindikasi terinfeksi virus <em>Covid-19</e
     </div>
 </div>
 <br>
-<div class="card" style="margin-right:30px; margin-left:30px; padding-right:100px; padding-left:100px; padding-top:90px; padding-bottom:110px;">
-    <div class="card-body" style="margin-right:15px; margin-left:15px;">
-    <p>kecelakaan dengan keterangan kepolisian, dan/atau telah diberikan Surat Pemutusan Perjanjian Kerja dari <b>PIHAK PERTAMA</b>.</p>
+<div class="card cardspk" style="margin-right:30px; margin-left:30px; padding-right:100px; padding-left:100px; padding-top:90px; padding-bottom:110px;">
+    <div class="card-body card-body-spk" style="margin-right:15px; margin-left:15px;">
+    <dl class="row">
+    <p class="col-1"></p>
+        <p class="col">kecelakaan dengan keterangan kepolisian, dan/atau telah diberikan Surat Pemutusan Perjanjian Kerja dari <b>PIHAK PERTAMA</b>.</p>
+    </dl>
     <dl class="row">
 <p class="col-1">(3)</p>
 <p class="col">Dalam hal terjadi peristiwa sebagaimana dimaksud pada ayat (2), <b>PIHAK PERTAMA</b> membayarkan honorarium kepada <b>PIHAK KEDUA</b> secara proporsional

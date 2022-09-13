@@ -125,10 +125,12 @@ class SpkController extends Controller
     {
         $spk = \App\Models\Spk::find($id);
         $data = DB::table('spk')
-            ->select('spk.bulan','spk.tahun','spk.id','spk.kegiatanmitra_id','spk.hari', 'spk.ppk','spk.mitrabaru_id',
-                    'mitrabaru.nama_mitra', 'mitrabaru.pekerjaan', 'mitrabaru.alamat','mitrabaru.id','kecamatan.nama_kecamatan')
+            ->select('spk.bulan','spk.tahun','spk.id','spk.kegiatanmitra_id','spk.hari', 'spk.ppk','spk.mitrabaru_id','spk.tanggal',
+                    'mitrabaru.nama_mitra', 'mitrabaru.pekerjaan', 'mitrabaru.alamat','mitrabaru.id','kecamatan.nama_kecamatan',
+                    'kegiatan.harga_satuan','kegiatan.tanggal_mulai','kegiatan.tanggal_akhir')
             ->join('mitrabaru','mitrabaru.id', '=','spk.mitrabaru_id' )
             ->join('kecamatan','kecamatan.id','=','spk.kecamatan_id')
+            ->join('kegiatan','kegiatan.id','=','spk.kegiatan_id')
             ->where('spk.id', '=', $spk->id)
             ->get();
         return view ('admin.detailspk', ['spk' => $spk, 'data' => $data]);
