@@ -165,10 +165,10 @@
     <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
     <!-- <script src="{{asset('template/assets/DataTables/Button-2.2.3/js/buttons.jqueryui.min.js')}}"></script> -->
-    
-
 
     <script type="text/javascript">
+      let bulan = $("#filter-bulan").val()
+      
       DataTable.datetime('D MMM YYYY');
       $(document).ready(function() {
         $('#datatable').DataTable();
@@ -180,7 +180,7 @@
         $('#tablemitra').DataTable({
           dom: 'Bfrtip',
           buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy', 'csv', 'excel',
           ]
         });
       });

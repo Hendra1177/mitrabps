@@ -35,7 +35,26 @@ class KegiatanController extends Controller
             'harga_satuan' => 'required',
         ]);
 
-        \App\Models\Kegiatan::create($request->all());
+        $kegiatan = new Kegiatan;
+        $kegiatan->nama_kegiatan = $request->nama_kegiatan;
+        $kegiatan->bulan = $request->bulan;
+        $kegiatan->tanggal_mulai = $request->tanggal_mulai;
+        $kegiatan->tanggal_akhir= $request->tanggal_akhir;
+        $kegiatan->beban_anggaran = $request->beban_anggaran;
+        $kegiatan->volume_total = $request->volume_total;
+        $kegiatan->satuan = $request->satuan;
+        $kegiatan->harga_satuan = $request->harga_satuan;
+        $hitung = ($request->volume_total * $request->harga_satuan);
+        $kegiatan->nilai_perjanjian = $hitung;
+        $kegiatan->save();
+
+        // $jumlah = DB::table('kegiatan_mitra')
+        // ->select('kegiatan.nilai_perjanjian')
+        // ->join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
+        // ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
+        // ->sum('kegiatan.nilai_perjanjian')
+        // ->save();
+
         if ($this) {
             return redirect('/admin/kegiatan')->with('sukses', 'Data berhasil ditambahkan');
         } else {
@@ -51,8 +70,31 @@ class KegiatanController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'nama_kegiatan' => 'required',
+            'bulan' => 'required',
+            'tanggal_mulai' => 'required',
+            'tanggal_akhir' => 'required',
+            'beban_anggaran' => 'required',
+            'volume_total' => 'required',
+            'satuan' => 'required',
+            'harga_satuan' => 'required',
+        ]);
+        
         $kegiatan = \App\Models\Kegiatan::find($id);
-        $kegiatan->update($request->all());
+        $kegiatan->nama_kegiatan = $request->nama_kegiatan;
+        $kegiatan->bulan = $request->bulan;
+        $kegiatan->tanggal_mulai = $request->tanggal_mulai;
+        $kegiatan->tanggal_akhir= $request->tanggal_akhir;
+        $kegiatan->beban_anggaran = $request->beban_anggaran;
+        $kegiatan->volume_total = $request->volume_total;
+        $kegiatan->satuan = $request->satuan;
+        $kegiatan->harga_satuan = $request->harga_satuan;
+        $hitung = ($request->volume_total * $request->harga_satuan);
+        $kegiatan->nilai_perjanjian = $hitung;
+        $kegiatan->save();
+
+        
         return redirect('/admin/kegiatan')->with('sukses', 'Data berhasil diupdate');
     }
 
@@ -98,7 +140,7 @@ class KegiatanController extends Controller
 
     // Method User
 
-    public function createKegiatan(Request $request)
+    public function createKegiatan(Request $request, $id)
     {
         $this->validate($request, [
             'nama_kegiatan' => 'required|unique:kegiatan,nama_kegiatan',
@@ -111,7 +153,19 @@ class KegiatanController extends Controller
             'harga_satuan' => 'required',
         ]);
 
-        \App\Models\Kegiatan::create($request->all());
+        $kegiatan = \App\Models\Kegiatan::find($id);
+        $kegiatan->nama_kegiatan = $request->nama_kegiatan;
+        $kegiatan->bulan = $request->bulan;
+        $kegiatan->tanggal_mulai = $request->tanggal_mulai;
+        $kegiatan->tanggal_akhir= $request->tanggal_akhir;
+        $kegiatan->beban_anggaran = $request->beban_anggaran;
+        $kegiatan->volume_total = $request->volume_total;
+        $kegiatan->satuan = $request->satuan;
+        $kegiatan->harga_satuan = $request->harga_satuan;
+        $hitung = ($request->volume_total * $request->harga_satuan);
+        $kegiatan->nilai_perjanjian = $hitung;
+        $kegiatan->save();
+        
         if ($this) {
             return redirect('/kegiatan')->with('sukses', 'Data berhasil ditambahkan');
         } else {

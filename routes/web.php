@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Controller;
 use App\Models\Desa;
+use App\Models\KegiatanMitra;
+use App\Models\MitraBaru;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +75,8 @@ Route::get('/admin/mitra/{id}/delete', 'App\Http\Controllers\MitraController@del
 
 Route::get('/admin/mitra/{id}/detail', 'App\Http\Controllers\MitraController@detail');
 
+Route::get('/admin/mitra/{id}/cetakpdfmitra', 'App\Http\Controllers\MitraController@cetakPdfMitra');
+
 
 //CRUD Admin Perjanjian
 Route::get('/admin/perjanjian', 'App\Http\Controllers\KegiatanMitraController@joinKegiatan');
@@ -116,10 +120,9 @@ Route::post('/tambahmitra/create', 'App\Http\Controllers\MitraController@createM
 
 Route::get('/perjanjiankerja', 'App\Http\Controllers\KegiatanMitraController@index')->name('userjoinKegiatan');
 
-
-
 // route api
 Route::get('/getDataDesa/{id}',[getDesa::class, 'post']);
+Route::get('/getDataKegiatan/{id}', [getKegiatan::class, 'post']);
 
 class getDesa extends Controller
 {
@@ -138,5 +141,25 @@ class getDesa extends Controller
         echo $desa;
     }
 }
+
+class getKegiatan extends Controller
+{
+    /**
+     * Update the specified user.
+     *
+     * 
+     * @param  string  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function post($id)
+    {
+        // $mitra = KegiatanMitra::where('mitrabaru_id', '=', 'mitrabaru.id')->get();
+
+        $mitra = KegiatanMitra::where('kegiatan_id', '=', $id)->get('mitrabaru_id');
+        // return \Illuminate\Routing\ResponseFactory::json( $mitra);
+        echo $mitra;
+    }
+}
+
 
 

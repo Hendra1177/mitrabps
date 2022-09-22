@@ -24,7 +24,9 @@
                 <hr>
                 <div class="form-group {{$errors->has('kegiatan_id') ? ' has-error' : ''}}">
                     <label for="exampleDataList" class="form-label">Pilih Kegiatan</label>
-                    <input class="form-control" value="{{old('kegiatan_id')}}" list="datalistOptions" id="exampleDataList" placeholder="Enter kegiatan.." name="kegiatan_id">
+                    @foreach ($data_kegiatan as $dk)    
+                    <input class="form-control" value="{{$dk->nama_kegiatan}}" list="datalistOptions" id="exampleDataList" placeholder="Enter kegiatan.." name="kegiatan_id">
+                    @endforeach
                     <datalist id="datalistOptions">
                         <option value="">
                             @foreach ($kegiatan as $kg)
@@ -38,7 +40,9 @@
 
                 <div class="form-group {{$errors->has('mitrabaru_id') ? ' has-error' : ''}}">
                     <label for="exampleDataList1" class="form-label">Pilih Mitra</label>
-                    <input class="form-control" value="{{old('mitrabaru_id')}}" list="datalistOptions1" id="exampleDataList1" placeholder="Enter mitra.." name="mitrabaru_id">
+                    @foreach ($data_kegiatan as $dk)
+                    <input class="form-control" value="{{$dk->nama_mitra}}" list="datalistOptions1" id="exampleDataList1" placeholder="Enter mitra.." name="mitrabaru_id">
+                    @endforeach
                     <datalist id="datalistOptions1">
                         <option value="">
                             @foreach ($mitra as $mt)
@@ -62,7 +66,7 @@
 
                 <div class="form-group {{$errors->has('bertugas_sebagai') ? ' has-error' : ''}}">
                     <label for="pwd">Bertugas sebagai</label>
-                    <input type="form" value="{{old('bertugas_sebagai')}}" class="form-control" id="bertugas_sebagai" placeholder="Enter bertugas sebagai.." name="bertugas_sebagai" value="{{old('bertugas_sebagai')}}">
+                    <input type="form" value="{{$kegiatanmitra->bertugas_sebagai}}" class="form-control" id="bertugas_sebagai" placeholder="Enter bertugas sebagai.." name="bertugas_sebagai" value="{{old('bertugas_sebagai')}}">
                     @if ($errors->has('bertugas_sebagai'))
                         <span class="help-block text-danger fs-9">*{{$errors->first('bertugas_sebagai')}}</span>
                     @endif
@@ -70,7 +74,7 @@
 
                 <div class="form-group {{$errors->has('target') ? ' has-error' : ''}}">
                     <label for="pwd">Target</label>
-                    <input type="form" value="{{old('target')}}" class="form-control" id="target" placeholder="Enter target" name="target">
+                    <input type="form" value="{{$kegiatanmitra->target}}" class="form-control" id="target" placeholder="Enter target" name="target">
                     @if ($errors->has('target'))
                         <span class="help-block text-danger fs-9">*{{$errors->first('target')}}</span>
                     @endif

@@ -32,7 +32,7 @@
                 </div>
             @endif
 
-            <h3 class="text-center" style="padding-top:20px">Form Tambah Mitra</h3>
+            <h3 class="text-center" style="padding-top :20px;">Form Tambah Mitra</h3>
             <hr>
             <form action="{{route('mitraAdmin.create')}}" method="POST">
                 {{csrf_field()}}
@@ -55,7 +55,7 @@
 
                 <div class="form-group {{$errors->has('kecamatan_id') ? ' has-error' : ''}}">
                     <label for="kecamatan">Kecamatan</label>
-                    <select class="form-select " name="kecamatan_id" id="kecamatan_id" onselect="getData" value="{{old('kecamatan_id')}}">
+                    <select class="form-select " name="kecamatan_id" value="{{old('kecamatan_id')}}" id="kecamatan_id" onselect="getData">
                         <option selected>Pilih Kecamatan</option>
                         @foreach ($kecamatan as $kec)
                             <option value="{{$kec->id}}">{{$kec->nama_kecamatan}}</option>
@@ -68,43 +68,13 @@
 
                 <div class="form-group {{$errors->has('desa_id') ? ' has-error' : ''}}">
                     <label for="desa">Desa</label>
-                    <select class="form-select" name="desa_id" id="desa_id" value="{{old('desa_id')}}">
+                    <select class="form-select" name="desa_id" value="{{old('desa_id')}}" id="desa_id">
                         <option>Pilih Desa</option>
-                        {{-- @foreach ($desa as $ds)
-                            <option value="{{$ds->id}}">{{$ds->nama_desa}}</option>
-                        @endforeach --}}
                     </select>
                     @if ($errors->has('desa_id'))
                         <span class="help-block text-danger fs-9">*{{$errors->first('desa_id')}}</span>
                     @endif
                 </div>
-                {{-- <div class="form-group {{$errors->has('kecamatan_id') ? ' has-error' : ''}}">
-                    <label for="exampleDataList" class="form-label">Kecamatan</label>
-                    <input class="form-control" value="{{old('kecamatan_id')}}" list="datalistOptions" id="exampleDataList" placeholder="Enter kecamatan" name="kecamatan_id">
-                    <datalist id="datalistOptions">
-                        <option value="">
-                            @foreach ($kecamatan as $kc)
-                        <option value="{{$kc->nama_kecamatan}}">{{$kc->nama_kecamatan}}</option>
-                        @endforeach
-                    </datalist>
-                    @if ($errors->has('kecamatan_id'))
-                        <span class="help-block text-danger fs-9">*{{$errors->first('kecamatan_id')}}</span>
-                    @endif
-                </div>
-
-                <div class="form-group {{$errors->has('desa_id') ? ' has-error' : ''}}">
-                    <label for="exampleDataList" class="form-label">Desa</label>
-                    <input class="form-control" value="{{old('desa_id')}}" list="datalistOptions1" id="exampleDataList" placeholder="Enter desa" name="desa_id">
-                    <datalist id="datalistOptions1">
-                        <option value="">
-                            @foreach ($desa as $ds)
-                        <option value="{{$ds->nama_desa}}">{{$ds->nama_desa}}</option>
-                        @endforeach
-                    </datalist>
-                    @if ($errors->has('desa_id'))
-                        <span class="help-block text-danger fs-9">*{{$errors->first('desa_id')}}</span>
-                    @endif
-                </div> --}}
 
                 <div class="form-group {{$errors->has('alamat') ? ' has-error' : ''}}">
                     <label for="exampleInputEmail1" class="form-label">Alamat</label>
@@ -117,39 +87,16 @@
 
                 <div class="form-group {{$errors->has('tanggal_lahir') ? ' has-error' : ''}}">
                     <label for="exampleInputEmail1" class="form-label">Tanggal Lahir</label>
-                    <input name="tanggal_lahir" value="{{old('alamat')}}" type="date" class="form-control" id="exampleInputEmail1"
+                    <input name="tanggal_lahir" value="{{old('tanggal_lahir')}}" type="date" class="form-control" id="exampleInputEmail1"
                         aria-describedby="emailHelp" placeholder="Enter tanggal lahir">
                         @if ($errors->has('tanggal_lahir'))
                             <span class="help-block text-danger fs-9">*{{$errors->first('tanggal_lahir')}}</span>
                         @endif
                 </div>
 
-                {{-- <div class="form-group {{$errors->has('jenis_kelamin_id') ? ' has-error' : ''}}">
-                    <label for="exampleInputEmail1" class="form-label">Jenis_Kelamin</label>
-                    <input name="jenis_kelamin_id" value="{{old('alamat')}}" type="text" class="form-control" id="exampleInputEmail1"
-                        aria-describedby="emailHelp" placeholder="Enter jenis kelamin">
-                        @if ($errors->has('jenis_kelamin_id'))
-                            <span class="help-block text-danger fs-9">*{{$errors->first('jenis_kelamin_id')}}</span>
-                        @endif
-                </div> --}}
-
-                {{-- <div class="form-group {{$errors->has('jenis_kelamin_id') ? ' has-error' : ''}}">
-                    <label for="exampleDataList" class="form-label">Pilih Jenis Kelamin</label>
-                    <input class="form-control" value="{{old('jenis_kelamin_id')}}" list="datalistOptions2" id="exampleDataList2" placeholder="Enter jenis kelamin" name="jenis_kelamin_id">
-                    <datalist id="datalistOptions2">
-                        <option value="">
-                            @foreach ($jenis_kelamin as $jk)
-                        <option value="{{$jk->kelamin}}">{{$jk->kelamin}}</option>
-                        @endforeach
-                    </datalist>
-                    @if ($errors->has('jenis_kelamin_id'))
-                        <span class="help-block text-danger fs-9">*{{$errors->first('jenis_kelamin_id')}}</span>
-                    @endif
-                </div> --}}
-
                 <div class="form-group {{$errors->has('jeniskelamin_id') ? ' has-error' : ''}}">
                     <label for="exampleFormControlSelect1">Jenis Kelamin</label>
-                    <select name="jeniskelamin_id" class="form-select" aria-label="Default select example">
+                    <select name="jeniskelamin_id" value="{{old('jeniskelamin_id')}}"class="form-select" aria-label="Default select example">
                       
                     <option value="">-Pilih-</option>
                         @foreach ($jenis_kelamin as $jk)

@@ -58,7 +58,6 @@
                                 <th>Bulan</th>
                                 <th>Tahun</th>
                                 <th>Aksi</th>
-
                             </tr>
                             </thead>
 
@@ -75,11 +74,10 @@
                                         <td class="text-center">{{$spk->tanggal}}</td>
                                         <td class="text-center">{{$spk->bulan}}</td>
                                         <td class="text-center">{{$spk->tahun}}</td>
-                                        
                                         <td>
                                             <a href="/admin/spk/{{$spk->id}}/detail" class="btn btn-info btn-sm">View</a>
-                                            <a href="/admin/spk/{{$spk->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
                                             <a href="/admin/spk/{{$spk->id}}/cetakspk" class="btn btn-primary btn-sm" >Cetak</a>
+                                            <a href="/admin/spk/{{$spk->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
                                             <a href="/admin/spk/{{$spk->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">Hapus</a>
                                         </td>
                                     </tr>
@@ -87,7 +85,6 @@
                                     @endforeach
                             </tbody>
                         </table>
-                        
                     </div>
                 </div>
             </div>

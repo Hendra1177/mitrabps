@@ -33,7 +33,7 @@
             {{session('sukses')}}
           </div>
         @endif
-        <h3 class="text-center">Form Edit Surat Perjanjian Kerja</h3>
+        <h3 class="text-center">Edit Surat Perjanjian Kerja</h3>
         <hr>
         
         <div class="form-group {{$errors->has('hari') ? ' has-error' : ''}}">
@@ -41,13 +41,13 @@
             <select name="hari" class="form-select" aria-label="Default select example">
               {{-- <option selected></option> --}}
               <option value="">-Pilih Hari-</option>
-              <option value="Senin"{{(old('hari') == 'Senin') ? 'selected' : ''}}>Senin</option>
-              <option value="Selasa"{{(old('hari') == 'Selasa') ? 'selected' : ''}}>Selasa</option>
-              <option value="Rabu"{{(old('hari') == 'Rabu') ? 'selected' : ''}}>Rabu</option>
-              <option value="Kamis"{{(old('hari') == 'Kamis') ? 'selected' : ''}}>Kamis</option>
-              <option value="Jumat"{{(old('hari') == 'Jumat') ? 'selected' : ''}}>Jum'at</option>
-              <option value="Sabtu"{{(old('hari') == 'Sabtu') ? 'selected' : ''}}>Sabtu</option>
-              <option value="Minggu"{{(old('hari') == 'Minggu') ? 'selected' : ''}}>Minggu</option>
+              <option value="Senin"@if($spk->hari == 'Senin') selected @endif>Senin</option>
+              <option value="Selasa"@if($spk->hari == 'Selasa') selected @endif>Selasa</option>
+              <option value="Rabu"@if($spk->hari == 'Rabu') selected @endif>Rabu</option>
+              <option value="Kamis"@if($spk->hari == 'Kamis') selected @endif>Kamis</option>
+              <option value="Jumat"@if($spk->hari == 'Jumat') selected @endif>Jum'at</option>
+              <option value="Sabtu"@if($spk->hari == 'Sabtu') selected @endif>Sabtu</option>
+              <option value="Minggu"@if($spk->hari == 'Minggu') selected @endif>Minggu</option>
             </select>
               @if ($errors->has('hari'))
                   <span class="help-block text-danger">*{{$errors->first('hari')}}</span>
@@ -56,7 +56,7 @@
 
         <div class="form-group {{$errors->has('tanggal') ? ' has-error' : ''}}">
             <label for="text">Tanggal</label>
-            <input name="tanggal" value="{{old('tanggal')}}" type="text" class="form-control" id="tanggal"
+            <input name="tanggal" value="{{$spk->tanggal}}" type="text" class="form-control" id="tanggal"
               placeholder="Enter tanggal">
               @if ($errors->has('tanggal'))
                   <span class="help-block text-danger">*{{$errors->first('tanggal')}}</span>
@@ -68,18 +68,18 @@
           <select name="bulan" class="form-select" aria-label="Default select example">
             {{-- <option selected></option> --}}
             <option value="">-Pilih Bulan-</option>
-            <option value="Januari"{{(old('bulan') == 'Januari') ? 'selected' : ''}}>Januari</option>
-            <option value="Februari"{{(old('bulan') == 'Februari') ? 'selected' : ''}}>Februari</option>
-            <option value="Maret"{{(old('bulan') == 'Maret') ? 'selected' : ''}}>Maret</option>
-            <option value="April"{{(old('bulan') == 'April') ? 'selected' : ''}}>April</option>
-            <option value="Mei"{{(old('bulan') == 'Mei') ? 'selected' : ''}}>Mei</option>
-            <option value="Juni"{{(old('bulan') == 'Juni') ? 'selected' : ''}}>Juni</option>
-            <option value="Juli"{{(old('bulan') == 'Juli') ? 'selected' : ''}}>Juli</option>
-            <option value="Agustus"{{(old('bulan') == 'Agustus') ? 'Septemberlected' : ''}}>Agustus</option>
-            <option value="September"{{(old('bulan') == 'September') ? 'Oktoberelected' : ''}}>September</option>
-            <option value="Oktober"{{(old('bulan') == 'Oktober') ? 'selected' : ''}}>Oktober</option>
-            <option value="November"{{(old('bulan') == 'November') ? 'selected' : ''}}>November</option>
-            <option value="Desember"{{(old('bulan') == 'Desember') ? 'selected' : ''}}>Desember</option>
+            <option value="Januari"@if($spk->bulan == 'Januari') selected @endif>Januari</option>
+            <option value="Februari"@if($spk->bulan == 'Februari') selected @endif>Februari</option>
+            <option value="Maret"@if($spk->bulan == 'Maret') selected @endif>Maret</option>
+            <option value="April"@if($spk->bulan == 'April') selected @endif>April</option>
+            <option value="Mei"@if($spk->bulan == 'Mei') selected @endif>Mei</option>
+            <option value="Juni"@if($spk->bulan == 'Juni') selected @endif>Juni</option>
+            <option value="Juli"@if($spk->bulan == 'Juli') selected @endif>Juli</option>
+            <option value="Agustus"@if($spk->bulan == 'Agustus') selected @endif>Agustus</option>
+            <option value="September"@if($spk->bulan == 'September') selected @endif>September</option>
+            <option value="Oktober"@if($spk->bulan == 'Oktober') selected @endif>Oktober</option>
+            <option value="November"@if($spk->bulan == 'November') selected @endif>November</option>
+            <option value="Desember"@if($spk->bulan == 'Desember') selected @endif>Desember</option>
           </select>
             @if ($errors->has('bulan'))
                 <span class="help-block text-danger">*{{$errors->first('bulan')}}</span>
@@ -88,7 +88,7 @@
 
         <div class="form-group {{$errors->has('tahun') ? ' has-error' : ''}}">
             <label for="text">Tahun</label>
-            <input name="tahun" value="{{old('tahun')}}" type="text" class="form-control" id="tahun"
+            <input name="tahun" value="{{$spk->tahun}}" type="text" class="form-control" id="tahun"
               placeholder="Enter tahun">
               @if ($errors->has('tahun'))
                   <span class="help-block text-danger">*{{$errors->first('tahun')}}</span>
@@ -97,7 +97,7 @@
 
         <div class="form-group {{$errors->has('ppk') ? ' has-error' : ''}}">
           <label for="text">Pejabat Pembuat Komitmen</label>
-          <input name="ppk" value="{{old('ppk')}}" type="text" class="form-control" id="ppk"
+          <input name="ppk" value="{{$spk->ppk}}" type="text" class="form-control" id="ppk"
             placeholder="Enter nama PPK">
             @if ($errors->has('ppk'))
                 <span class="help-block text-danger">*{{$errors->first('ppk')}}</span>
@@ -119,7 +119,9 @@
 
         <div class="form-group {{$errors->has('kegiatan_id') ? ' has-error' : ''}}">
           <label for="exampleDataList" class="form-label">Pilih Kegiatan</label>
-          <input class="form-control" value="{{old('kegiatan_id')}}" list="datalistOptions" id="exampleDataList" placeholder="Enter kegiatan" name="kegiatan_id">
+          @foreach ($data_kegiatan as $dk)
+          <input class="form-control" value="{{$dk->nama_kegiatan}}" list="datalistOptions" id="exampleDataList" placeholder="Enter kegiatan" name="kegiatan_id">
+          @endforeach
           <datalist id="datalistOptions">
               <option value="">
                   @foreach ($kegiatan as $km)
@@ -133,7 +135,9 @@
 
         <div class="form-group {{$errors->has('mitrabaru_id') ? ' has-error' : ''}}">
           <label for="exampleDataList1" class="form-label">Pilih Mitra</label>
-          <input class="form-control" value="{{old('mitrabaru_id')}}" list="datalistOptions1" id="exampleDataList1" placeholder="Enter mitra.." name="mitrabaru_id">
+          @foreach ($data_kegiatan as $dk)yy
+          <input class="form-control" value="{{$dk->nama_mitra}}" list="datalistOptions1" id="exampleDataList1" placeholder="Enter mitra.." name="mitrabaru_id">
+          @endforeach
           <datalist id="datalistOptions1">
               <option value="">
                   @foreach ($mitra as $mt)

@@ -36,11 +36,20 @@ class KegiatanMitraController extends Controller
     public function edit($id)
     {
         $kegiatanmitra = \App\Models\KegiatanMitra::find($id);
+        
+        $data_kegiatan = DB::table('kegiatan_mitra')
+        ->select('kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
+                'kegiatan_mitra.id', 'kegiatan.beban_anggaran', 'mitrabaru.nama_mitra')
+        ->join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
+        ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
+        ->where('kegiatan_mitra.id', '=', $id)
+        ->get();
+
         $kegiatan = Kegiatan::orderBy('nama_kegiatan', 'asc')->get();
         $mitra = MitraBaru::orderBy('nama_mitra', 'asc')->get();
 
         $kegiatan_mitra = KegiatanMitra::all();
-        return view('admin.kegiatanmitraedit', ['kegiatan_mitra' =>$kegiatan_mitra, 'kegiatan' => $kegiatan, 'mitra' => $mitra, 'kegiatanmitra' => $kegiatanmitra]);
+        return view('admin.kegiatanmitraedit', ['data_kegiatan' => $data_kegiatan,'kegiatan_mitra' =>$kegiatan_mitra, 'kegiatan' => $kegiatan, 'mitra' => $mitra, 'kegiatanmitra' => $kegiatanmitra]);
     }
 
     public function update(Request $request, $id)

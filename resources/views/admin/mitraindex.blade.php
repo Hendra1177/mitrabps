@@ -78,7 +78,7 @@
                                     <td>{{$mitra->alamat}}</td>
                                     <td>{{$mitra->tanggal_lahir}}</td>
                                     <td>{{$mitra->kelamin}}</td>
-                                    <td>{{$mitra->no_hp}}</td>
+                                    <td>{{"0".$mitra->no_hp}}</td>
                                     <td>{{$mitra->pekerjaan}}</td>
                                     <td>{{$mitra->rekening_bri}}</td>
                                     <td>

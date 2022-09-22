@@ -95,7 +95,7 @@
 
         <div class="form-group {{$errors->has('volume_total') ? ' has-error' : ''}}">
           <label for="text">Volume Total</label>
-          <input name="volume_total" value="{{old('volume_total')}}" type="text" class="form-control" id="volume_total"
+          <input name="volume_total" onchange="myFunction()" value="{{old('volume_total')}}" type="text" class="form-control" id="volume_total"
             placeholder="Enter volume total">
             @if ($errors->has('volume_total'))
                 <span class="help-block text-danger">*{{$errors->first('volume_total')}}</span>
@@ -112,7 +112,7 @@
 
         <div class="form-group {{$errors->has('harga_satuan') ? ' has-error' : ''}}">
           <label for="text">Harga Satuan</label>
-          <input name="harga_satuan" value="{{old('harga_satuan')}}" type="text" class="form-control" id="harga_satuan"
+          <input name="harga_satuan" onchange="myFunction()" value="{{old('harga_satuan')}}" type="text" class="form-control" id="harga_satuan"
             placeholder="Enter harga satuan">
             @if ($errors->has('harga_satuan'))
                 <span class="help-block text-danger">*{{$errors->first('harga_satuan')}}</span>
@@ -123,6 +123,18 @@
       </main>
     </form>
   </div>
+  <script>
+    function myFunction() {
+      var volume_total = document.getElementById("volume_total").value;
+      var harga_satuan = document.getElementById("harga_satuan").value;
+  
+      var nilai_perjanjian = volume_total * harga_satuan; // Perkalian folmula
+  
+      var result = document.getElementById("nilai_perjanjian");
+  
+      result.innerHTML = nilai_perjanjian;
+    }
+  </script>
 </main>
 
 

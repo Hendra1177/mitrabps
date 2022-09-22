@@ -78,12 +78,12 @@
                             <th scope="row">  {{$no}}</th>
                                 <td>{{$kegiatan->nama_kegiatan}}</td>
                                 <td>{{$kegiatan->bulan}}</td>
-                                <td class="text-center">{{$kegiatan->tanggal_mulai}}</td>
-                                <td class="text-center">{{$kegiatan->tanggal_akhir}}</td>
+                                <td class="text-center">{{ tanggal_indonesia($kegiatan->tanggal_mulai)}}</td>
+                                <td class="text-center">{{ tanggal_indonesia($kegiatan->tanggal_akhir)}}</td>
                                 <td class="text-center">{{$kegiatan->beban_anggaran}}</td>
                                 <td class="text-center">{{$kegiatan->volume_total}}</td>
                                 <td class="text-center">{{$kegiatan->satuan}}</td>
-                                <td class="text-center">{{$kegiatan->harga_satuan}}</td>
+                                <td class="text-center">{{"Rp ".format_uang($kegiatan->harga_satuan)}}</td>
                                 <td>
                                     <a href="/admin/kegiatan/{{$kegiatan->id}}/detail" class="btn btn-info btn-sm">View</a>
                                     <a href="/admin/kegiatan/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
