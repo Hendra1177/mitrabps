@@ -95,6 +95,7 @@ Route::get('/admin/spk/{id}/edit', 'App\Http\Controllers\SpkController@edit');
 Route::post('/admin/spk/{id}/update', 'App\Http\Controllers\SpkController@update');
 Route::get('/admin/spk/{id}/delete', 'App\Http\Controllers\SpkController@delete');
 Route::get('/admin/spk/{id}/detail', 'App\Http\Controllers\SpkController@detailspk');
+Route::get('/admin/spk/{id}/cetakspk', 'App\Http\Controllers\SpkController@cetakPdf');
 
 //Form User Kegiatan 
 Route::get('datalistPelaksana', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksana')->name('mitra.datalistPelaksana');
@@ -114,6 +115,8 @@ Route::post('/tambahmitra/create', 'App\Http\Controllers\MitraController@createM
 // Route::post('/tambahkegiatanmitra/create', 'App\Http\Controllers\KegiatanMitraController@createKegiatanMitra');
 
 Route::get('/perjanjiankerja', 'App\Http\Controllers\KegiatanMitraController@index')->name('userjoinKegiatan');
+
+
 
 // route api
 Route::get('/getDataDesa/{id}',[getDesa::class, 'post']);

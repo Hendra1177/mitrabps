@@ -2,6 +2,15 @@
 
 return [
 
+    'providers' => [
+        
+        Barryvdh\DomPDF\ServiceProvider::class,
+        ],
+        'aliases' => [
+    
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+        ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -230,6 +239,5 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-    ],
-
+    ]
 ];

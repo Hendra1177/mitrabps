@@ -66,7 +66,7 @@ Badan Pusat Statistik Kabupaten Jombang, selanjutnya disebut sebagai <b>PIHAK PE
         <dl class="row">
     <p class="col-sm-1">2.</p>
     <p class="col-sm-3">{{$data->nama_mitra}}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:</p>
-    <p class="col-sm-7"> <big class="text-uppercase">{{$data->pekerjaan}}</big>, berkedudukan di {{$data->alamat}} Kec. {{$data->nama_kecamatan}} Kab.Jombang, bertindak
+    <p class="col-sm-7"> <big class="text-uppercase">{{$data->pekerjaan}}</big>, berkedudukan di {{$data->alamat}}, Desa {{$data->nama_desa}}, Kec. {{$data->nama_kecamatan}} Kab.Jombang, bertindak
  untuk dan atas nama sendiri, selanjutnya disebut <b>PIHAK KEDUA</b>.
   </p>
         </dl>
@@ -99,7 +99,7 @@ yang berlaku di wilayah kerja masing-masing.</p>
 
 <dl class="row">
 <p class="col-1">(1)</p>
-<p class="col"><b>PIHAK KEDUA</b> berhak untuk mendapatkan honorarium Petugas dari <b>PIHAK PERTAMA</b> sebesar {{"Rp. ".format_uang($data->harga_satuan)}} <em>({{terbilang($data->harga_satuan)."rupiah "}})</em> untuk pekerjaan sebagaimana dimaksud dalam pasal 2, termasuk biaya pajak,
+<p class="col"><b>PIHAK KEDUA</b> berhak untuk mendapatkan honorarium Petugas dari <b>PIHAK PERTAMA</b> sebesar {{"Rp. ".format_uang($data->harga_satuan)}} ({{terbilang($data->harga_satuan)."rupiah "}}) untuk pekerjaan sebagaimana dimaksud dalam pasal 2, termasuk biaya pajak,
 bea material, pulsa dan kuota internet untuk komunikasi, dan jasa pelayanan keuangan.</p>
 </dl>
 <dl class="row">
@@ -130,7 +130,7 @@ Pasal 4, termasuk dalam kondisi terindikasi terinfeksi virus <em>Covid-19</em>, 
 <dl class="row">
 <p class="col-1">(1)</p>
 <p class="col">Apabila <b>PIHAK KEDUA</b> mengundurkan diri pada saat / setelah pelaksanaan pekerjaan pengolahan dengan tidak menyelesaikan pekerjaan yang menjadi tanggung jawabnya,
-maka wajib membayar ganti rugi kepada <b>PIHAK PERTAMA</b> sebesar {{"Rp. ".format_uang($data->harga_satuan)}} <em>({{terbilang($data->harga_satuan)."Rupiah "}})</em>. </p>
+maka wajib membayar ganti rugi kepada <b>PIHAK PERTAMA</b> sebesar {{"Rp. ".format_uang($data->harga_satuan)}} ({{terbilang($data->harga_satuan)."Rupiah "}}). </p>
 </dl>
 <dl class="row">
 <p class="col-1">(2)</p>

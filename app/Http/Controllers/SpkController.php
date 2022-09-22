@@ -8,6 +8,7 @@ use App\Models\KegiatanMitra;
 use App\Models\Spk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class SpkController extends Controller
 {
@@ -127,13 +128,34 @@ class SpkController extends Controller
         $data = DB::table('spk')
             ->select('spk.bulan','spk.tahun','spk.id','spk.kegiatanmitra_id','spk.hari', 'spk.ppk','spk.mitrabaru_id','spk.tanggal',
                     'mitrabaru.nama_mitra', 'mitrabaru.pekerjaan', 'mitrabaru.alamat','mitrabaru.id','kecamatan.nama_kecamatan',
-                    'kegiatan.harga_satuan','kegiatan.tanggal_mulai','kegiatan.tanggal_akhir')
+                    'kegiatan.harga_satuan','kegiatan.tanggal_mulai','kegiatan.tanggal_akhir',
+                    'desa.nama_desa')
             ->join('mitrabaru','mitrabaru.id', '=','spk.mitrabaru_id' )
             ->join('kecamatan','kecamatan.id','=','spk.kecamatan_id')
             ->join('kegiatan','kegiatan.id','=','spk.kegiatan_id')
+            ->join('desa','desa.id','=','spk.desa_id')
             ->where('spk.id', '=', $spk->id)
             ->get();
         return view ('admin.detailspk', ['spk' => $spk, 'data' => $data]);
         // echo $data;
+    }
+    public function cetakPdf($id)
+    {
+        
+        $spk = \App\Models\Spk::find($id);
+        $data = DB::table('spk')
+            ->select('spk.bulan','spk.tahun','spk.id','spk.kegiatanmitra_id','spk.hari', 'spk.ppk','spk.mitrabaru_id','spk.tanggal',
+                    'mitrabaru.nama_mitra', 'mitrabaru.pekerjaan', 'mitrabaru.alamat','mitrabaru.id','kecamatan.nama_kecamatan',
+                    'kegiatan.harga_satuan','kegiatan.tanggal_mulai','kegiatan.tanggal_akhir',
+                    'desa.nama_desa')
+            ->join('mitrabaru','mitrabaru.id', '=','spk.mitrabaru_id' )
+            ->join('kecamatan','kecamatan.id','=','spk.kecamatan_id')
+            ->join('kegiatan','kegiatan.id','=','spk.kegiatan_id')
+            ->join('desa','desa.id','=','spk.desa_id')
+            ->where('spk.id', '=', $spk->id)
+            ->get();
+        $pdf =PDF::loadview('admin.cetakspk',['spk'=>$spk , 'data'=>$data])->setOptions(['defaultFont' => 'sans-serif']);
+        return $pdf->stream();
+        
     }
 }
