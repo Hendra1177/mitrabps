@@ -104,39 +104,40 @@
             @endif
         </div>
 
-        {{-- <div class="form-group {{$errors->has('hari') ? ' has-error' : ''}}">
-          <label for="exampleFormControlSelect1">Kegiatan</label>
-          <select name="hari" class="form-select" aria-label="Default select example">
-            <option selected>-Pilih Kegiatan-</option>
-            @foreach($spk as $km)
-            <option value="{{$km->id}}">{{$km->nama_kegiatan}}</option>
-            @endforeach
-          </select>
-            @if ($errors->has('hari'))
-                <span class="help-block text-danger">*{{$errors->first('hari')}}</span>
-            @endif
-        </div> --}}
-
-        <div class="form-group {{$errors->has('kegiatan_id') ? ' has-error' : ''}}">
-          <label for="kegiatan_id">Kegiatan</label>
-          <select class="form-select " name="kegiatan_id" id="kegiatan_id" onselect="getData" value="{{old('kegiatan_id')}}">
-              <option selected>Pilih Kegiatan</option>
+        <div class="mb-3" {{$errors->has('kegiatan_id') ? ' has-error' : ''}}>
+          <label for="disabledSelect" class="form-label">Kegiatan</label>
+          <select id="disabledSelect1" class="form-select" value="{{old('kegiatan_id')}}" list="datalistOptions" name="kegiatan_id"  >
+            <option value="">-Pilih Kegiatan-</option>
               @foreach ($kegiatan as $km)
-              <option value="{{$km->kegiatan_id}}">{{$km->nama_kegiatan}}</option>
-              @endforeach
+          <option value="{{$km->kegiatan_id}}">{{$km->nama_kegiatan}}</option>
+          @endforeach
           </select>
           @if ($errors->has('kegiatan_id'))
-              <span class="help-block text-danger fs-9">*{{$errors->first('kegiatan_id')}}</span>
+              <span class="help-block text-danger fs-9">*The kegiatan field is required.</span>
           @endif
-      </div>
-      
+        </div>
+    
+        <div class="mb-3" {{$errors->has('mitrabaru_id') ? ' has-error' : ''}}>
+          <label for="disabledSelect" class="form-label">Pilih Mitra</label>
+          <select id="disabledSelect" class="form-select" value="{{old('mitrabaru_id')}}" list="datalistOptions1" id="exampleDataList1" placeholder="Enter mitra.." name="mitrabaru_id"">
+            <option value="">-Pilih Mitra-</option>
+              {{-- @foreach ($mitra as $mt)
+              <option value="{{$mt->id}}">{{$mt->nama_mitra}}</option>
+              @endforeach --}}
+          </select>
+          @if ($errors->has('mitra_id'))
+              <span class="help-block text-danger fs-9">*The mitra field is required.</span>
+          @endif
+        </div>
+     
+      {{-- (JANGAN DIHAPUS) --}}
         {{-- <div class="form-group {{$errors->has('kegiatan_id') ? ' has-error' : ''}}">
           <label for="exampleDataList" class="form-label">Pilih Kegiatan</label>
-          <input class="form-control" onselect="getData" value="{{old('kegiatan_id')}}" list="datalistOptions" id="exampleDataList" placeholder="Enter kegiatan" name="kegiatan_id">
+          <input class="form-control" onselect="getData" value="{{old('kegiatan_id')}}" list="datalistOptions" id="exampleDataList" placeholder="Enter kegiatan" name="kegiatan_id"  onchange="renderDataList()">
           <datalist id="datalistOptions">
               <option value="">
                   @foreach ($kegiatan as $km)
-              <option value="{{$km->kegiatan_id}}">{{$km->kegiatan_id}}</option>
+              <option data-id="{{$km->kegiatan_id}}">{{$km->nama_kegiatan}}</option>
               @endforeach
           </datalist>
           @if ($errors->has('kegiatan_id'))
@@ -144,23 +145,14 @@
           @endif
         </div> --}}
 
-        <div class="form-group {{$errors->has('mitrabaru_id') ? ' has-error' : ''}}">
-          <label for="mitrabaru_id">Mitra</label>
-          <select class="form-select" name="mitrabaru_id" id="mitrabaru_id" >
-              <option>Pilih Mitra</option>
-          </select>
-          @if ($errors->has('mitrabaru_id'))
-              <span class="help-block text-danger fs-9">*{{$errors->first('mitrabaru_id')}}</span>
-          @endif
-      </div>
-
+      {{-- (JANGAN DIHAPUS) --}}
         {{-- <div class="form-group {{$errors->has('mitrabaru_id') ? ' has-error' : ''}}">
           <label for="exampleDataList1" class="form-label">Pilih Mitra</label>
           <input class="form-control" value="{{old('mitrabaru_id')}}" list="datalistOptions1" id="exampleDataList1" placeholder="Enter mitra.." name="mitrabaru_id">
           <datalist id="datalistOptions1">
               <option value="">
                   @foreach ($mitra as $mt)
-              <option value="{{$mt->mitrabaru_id}}">{{$mt->mitrabaru_id}}</option>
+              <option value="{{$mt->id}}">{{$mt->nama_mitra}}</option>
               @endforeach
           </datalist>
           @if ($errors->has('mitra_id'))
@@ -174,20 +166,24 @@
   </div>
 
   <script>
-    const render = document.querySelector('#mitrabaru_id')
-    const a = document.querySelector('#kegiatan_id');
+    const render = document.querySelector('#disabledSelect')
+    
+    const a = document.querySelector('#disabledSelect1');
         a.addEventListener('change', function() {
-        const res = fetch(`/getDataKegiatan/${this.value}`).then((response) => response.json())
+          console.log(a.value);
+        const res = fetch(`/getDataKegiatan/${this.value}`).then((response) =>response.json())
         .then((data) => {
+          console.log(render);
             let rendered = data.map((data)=>{
-                return ` <option value=${data.id}>${data.mitrabaru_id}</option>`
+                return ` <option value=${data.mitrabaru_id}>${data.nama_mitra}</option>`
             })
-            rendered = `<option>Pilih Mitra</option>${rendered}`
+            rendered = `<option>-Pilih Mitra-</option>${rendered}`
             return render.innerHTML= rendered;
-        });
-        }, false);
-  
-</script>
+        }).catch((e)=>{
+          console.log(e);
+        })
+        })
+  </script>
 </main>
 
 

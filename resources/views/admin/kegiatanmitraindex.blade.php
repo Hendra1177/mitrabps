@@ -34,7 +34,12 @@
             <div class="card-body">
             @if(!empty($successMsg))
                     <div class="alert alert-success"> {{ $successMsg }}</div>
-                @endif
+            @endif
+            @if (session('sukses'))
+        <div class="alert alert-success fw-bold" role="alert">
+            {{session('sukses')}}
+        </div>
+        @endif
                 <div class="row">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <a href="/admin/perjanjian/formperjanjian" class="btn btn-primary" role="button">Tambah Pelaksana</a>

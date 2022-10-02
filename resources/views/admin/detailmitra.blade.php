@@ -6,6 +6,10 @@
 
 <head>
     <title></title>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.js" integrity="sha512-/fgTphwXa3lqAhN+I8gG8AvuaTErm1YxpUjbdCvwfTMyv8UZnFyId7ft5736xQ6CyQN4Nzr21lBuWWA9RTCXCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.css" integrity="sha512-tKGnmy6w6vpt8VyMNuWbQtk6D6vwU8VCxUi0kEMXmtgwW+6F70iONzukEUC3gvb+KTJTLzDKAGGWc1R7rmIgxQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.css" integrity="sha512-zrPsLVYkdDha4rbMGgk9892aIBPeXti7W77FwOuOBV85bhRYi9Gh+gK+GWJzrUnaCiIEm7YfXOxW8rzYyTuI1A==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.min.js" integrity="sha512-16cHhHqb1CbkfAWbdF/jgyb/FDZ3SdQacXG8vaOauQrHhpklfptATwMFAc35Cd62CQVN40KDTYo9TIsQhDtMFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
@@ -125,7 +129,11 @@
 
 <div class="card cardspk" style="margin-right:30px; margin-left:30px;">
     <div class="card-body card-body-spk" style="margin-right:15px; margin-left:15px;">
-        <a href="/admin/mitra/{{$mitra_baru->id}}/cetakpdfmitra" class="btn btn-danger btn-md" style="padding-left:12px; padding-right:12px; padding-top:7px; padding-bottom:7px">PDF</a>
+        <a href="/admin/mitra/{{$mitra_baru->id}}/cetakpdfmitra" class="btn btn-danger btn-md" style="padding-left:16px; padding-right:16px; padding-top:9px; padding-bottom:9px">PDF</a>
+        <a href="/admin/mitra/{{$mitra_baru->id}}/cetak-pdf" class="btn btn-danger btn-md" style="padding-left:16px; padding-right:16px; padding-top:9px; padding-bottom:9px">Cetak</a>
+        <button type="button" class="btn-danger" onclick="printData()">
+            Print Form
+         </button>
         <!-- {{-- <div class="row">
             <div class="col-10">
 
@@ -152,7 +160,7 @@
         
           
         <div id="over">
-            <table class="table table-hover table-bordered" id="tablemitra">
+            <table border="1" style=" border-collapse: collapse;" class="table table-hover table-bordered changes" id="tablemitra">
                 <thead>
                     <tr>
                         <th rowspan="2" class="text-center">No</th>
@@ -178,10 +186,10 @@
                     <th>Nilai Perjanjian</th>
                     <th>Beban Anggaran</th> --}}
                 </thead>
-                <tbody>
+                <tbody >
                 <?php $no=1;?>
                     @foreach($data_kegiatan as $data_kegiatan )
-                        <tr>
+                        <tr  >
                             <td>{{$no}}</td>
                             <td>{{$data_kegiatan->nama_kegiatan}}</td>
                             <td>{{ tanggal_indonesia($data_kegiatan->tanggal_mulai)}} - {{ tanggal_indonesia($data_kegiatan->tanggal_akhir)}}</td>
@@ -189,7 +197,7 @@
                             <td>{{$data_kegiatan->satuan}}</td>
                             <td>{{"Rp ".format_uang($data_kegiatan->harga_satuan)}}</td>
                             {{-- <td>{{$data_kegiatan->target}}</td> --}}
-                            <td>{{"Rp ".format_uang($data_kegiatan->nilai_perjanjian)}}</td>
+                            <td data-count="{{$data_kegiatan->nilai_perjanjian}}" id="currency">{{"Rp ".format_uang($data_kegiatan->nilai_perjanjian)}}</td>
                             <td>{{$data_kegiatan->beban_anggaran}}</td>
                         </tr>
                         <?php $no++ ;?>
@@ -212,10 +220,11 @@
                     <?php $no++ ;?>
                     @endforeach --}}
                 </tbody>
+
                 <tfoot>
                     <tr>
                         <th colspan="6" class="text-center">Total</th>
-                        <td>{{"Rp ".format_uang($total)}}</td>
+                        <td id="renderCurrency"></td>
                         <th></th>
                     </tr>
                 </tfoot>
@@ -227,13 +236,50 @@
 
 <script type="text/javascript">
         
-
+        const currency = document.querySelectorAll('#currency')
+        const curr = document.querySelector('#renderCurrency')
+        const changes = document.querySelector('.changes')
+        console.log(changes);
+       
+           
+        setInterval(function(){
+           
+            const currency = document.querySelectorAll('#currency')
+            let dataCurrency = 0
+            currency.forEach(data => {
+            dataCurrency+= parseInt(data.dataset.count)
+            })
+            curr.innerHTML =  `Rp ${formatCurrency(dataCurrency)}`
+    }, 500);
+        
+        // changes.addEventListener('change',()=>{
+        //     currency.forEach(data => {
+        //    dataCurrency+= parseInt(data.dataset.count)
+        // })
+        // console.log(curr);
+        // curr.innerHTML = dataCurrency
+        // })
         $(".filter").on('change', function(){
             // console.log("Filter ini");
             bulan = $("#filter-bulan").val()
             console.log(bulan);
             table.ajax.reload(null, false)
         })
+        const formatCurrency =(bilangan)=>{
+            let	reverse = bilangan.toString().split('').reverse().join('')
+            let  ribuan 	= reverse.match(/\d{1,3}/g);
+           return ribuan= ribuan.join('.').split('').reverse().join('');
+            
+        }
+        const printData=() =>    
+        {
+            console.log('test');
+        var divToPrint=document.getElementById("tablemitra");
+        let newWin = window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+        }
 </script>
 </main>
 

@@ -28,7 +28,6 @@
 
   <link id="pagestyle" href="{{asset('template/assets/css/argon-dashboard.css')}}" rel="stylesheet" />
   <link id="pagestyle" href="{{asset('template/assets/dataTables/datatables.min.css')}}" rel="stylesheet" />
-  
 
 </head>
 
@@ -180,7 +179,7 @@
         $('#tablemitra').DataTable({
           dom: 'Bfrtip',
           buttons: [
-            'copy', 'csv', 'excel',
+            'copy', 'csv', 'excel', 'pdf',
           ]
         });
       });

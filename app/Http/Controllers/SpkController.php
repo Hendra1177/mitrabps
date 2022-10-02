@@ -54,10 +54,24 @@ class SpkController extends Controller
     }
     public function getCreate()
     {
-        $kegiatan = KegiatanMitra::orderBy('kegiatan_id', 'asc')->get();
-        $kegiatan= KegiatanMitra::join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
-        ->get(['kegiatan.nama_kegiatan']);
-        $mitra = KegiatanMitra::orderBy('mitrabaru_id', 'asc')->get();
+        $kegiatan = KegiatanMitra::orderBy('kegiatan_id', 'asc')
+        ->select('kegiatan_mitra.kegiatan_id', 'kegiatan_mitra.mitrabaru_id', 'kegiatan.nama_kegiatan')
+        ->join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
+        ->get();
+        
+        // $kegiatan = KegiatanMitra::find($id)->get();
+
+        // $mitra = DB::table('kegiatan_mitra')
+        // ->select('kegiatan_mitra.mitrabaru_id', 'kegiatan_mitra.kegiatan_id')
+        // ->join('mitrabaru', 'mitrabaru_id', '=', 'kegiatan_mitra.mitrabaru_id')
+        // ->join('kegiatan', 'kegiatan_id', '=', 'kegiatan_mitra.kegiatan_id')
+        // ->where('kegiatan_id', '=', $id)
+        // ->get('mitrabaru_id');
+
+        $mitra = KegiatanMitra::orderBy('mitrabaru_id', 'asc')
+        ->select('kegiatan_mitra.mitrabaru_id', 'kegiatan_mitra.mitrabaru_id', 'mitrabaru.nama_mitra')
+        ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
+        ->get();
 
         return view('admin.spkcreate', ['kegiatan' => $kegiatan, 'mitra' => $mitra]);
     }
@@ -73,7 +87,10 @@ class SpkController extends Controller
         ->where('spk.id', '=', $id)
         ->get();
         
-        $kegiatan = KegiatanMitra::orderBy('kegiatan_id', 'asc')->get();
+        $kegiatan = KegiatanMitra::orderBy('kegiatan_id', 'asc')
+        ->select('kegiatan_mitra.kegiatan_id', 'kegiatan_mitra.mitrabaru_id', 'kegiatan.nama_kegiatan')
+        ->join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
+        ->get();
         $mitra = KegiatanMitra::orderBy('mitrabaru_id', 'asc')->get();
 
         // $spk = Spk::all();

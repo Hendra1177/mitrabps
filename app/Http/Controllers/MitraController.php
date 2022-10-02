@@ -229,6 +229,38 @@ class MitraController extends Controller
         return $pdf->stream();
     }
 
+    public function cetakPdf($id)
+    {
+        $kegiatan = \App\Models\Kegiatan::find($id);
+        $mitra_baru = \App\Models\MitraBaru::find($id);
+
+        $kegiatanmitra = KegiatanMitra::all();
+        
+        $data_kegiatan = DB::table('kegiatan_mitra')
+            ->select('kegiatan.id','kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
+                    'kegiatan_mitra.id', 'kegiatan.beban_anggaran', 'kegiatan.nilai_perjanjian', 'kegiatan_mitra.target',
+                    'kecamatan.nama_kecamatan', 'kecamatan.id',
+                    'desa.nama_desa', 'jeniskelamin.kelamin',
+                    'mitrabaru.id','mitrabaru.nama_mitra', 'mitrabaru.email', 'mitrabaru.kecamatan_id', 'mitrabaru.desa_id', 'mitrabaru.alamat', 'mitrabaru.tanggal_lahir',
+                    'mitrabaru.jeniskelamin_id', 'mitrabaru.no_hp', 'mitrabaru.pekerjaan', 'mitrabaru.rekening_bri', 
+                    'kegiatan_mitra.bertugas_sebagai', 'kegiatan_mitra.kegiatan_id')
+
+            ->join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
+            ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
+            ->join('kecamatan','kecamatan.id', '=', 'mitrabaru.kecamatan_id')
+            ->join('desa', 'desa.id', '=', 'mitrabaru.desa_id')
+            ->join('jeniskelamin', 'jeniskelamin.id', '=', 'mitrabaru.jeniskelamin_id')
+            ->where('mitrabaru.id', '=' , $mitra_baru -> id )
+            ->get();
+        $total = DB::table('kegiatan_mitra')
+            ->select('kegiatan.nilai_perjanjian')
+            ->join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
+            ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
+            ->where('mitrabaru.id', '=', $id)
+            ->sum('kegiatan.nilai_perjanjian');
+        return view('admin.cetakmitrapdf', ['mitrabaru' => $mitra_baru, 'kegiatanmitra' => $kegiatanmitra, 'data_kegiatan' => $data_kegiatan,'kegiatan' => $kegiatan, 'total' => $total]);
+    }
+
     
     //User
     public function createMitra(Request $request)

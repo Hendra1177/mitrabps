@@ -76,6 +76,7 @@ Route::get('/admin/mitra/{id}/delete', 'App\Http\Controllers\MitraController@del
 Route::get('/admin/mitra/{id}/detail', 'App\Http\Controllers\MitraController@detail');
 
 Route::get('/admin/mitra/{id}/cetakpdfmitra', 'App\Http\Controllers\MitraController@cetakPdfMitra');
+Route::get('/admin/mitra/{id}/cetak-pdf', 'App\Http\Controllers\MitraController@cetakPdf');
 
 
 //CRUD Admin Perjanjian
@@ -122,7 +123,7 @@ Route::get('/perjanjiankerja', 'App\Http\Controllers\KegiatanMitraController@ind
 
 // route api
 Route::get('/getDataDesa/{id}',[getDesa::class, 'post']);
-Route::get('/getDataKegiatan/{id}', [getKegiatan::class, 'post']);
+Route::get('/getDataKegiatan/{id}', [getKegiatan::class, 'postKegiatan']);
 
 class getDesa extends Controller
 {
@@ -133,7 +134,7 @@ class getDesa extends Controller
      * @param  string  $id
      * @return \Illuminate\Http\Response
      */
-    public function post( $id)
+    public function post($id)
     {
         $desa = Desa::where('kecamatan_id', '=', $id)->get();
 
@@ -151,13 +152,21 @@ class getKegiatan extends Controller
      * @param  string  $id
      * @return \Illuminate\Http\Response
      */
-    public function post($id)
-    {
-        // $mitra = KegiatanMitra::where('mitrabaru_id', '=', 'mitrabaru.id')->get();
 
-        $mitra = KegiatanMitra::where('kegiatan_id', '=', $id)->get('mitrabaru_id');
-        // return \Illuminate\Routing\ResponseFactory::json( $mitra);
-        echo $mitra;
+     
+    public function postKegiatan($id)
+    {
+       
+        // $mitra = KegiatanMitra::where('mitrabaru_id', '=', $id)->get();
+
+        // $mitra = KegiatanMitra::where('kegiatan_id', '=', $id)->get('mitrabaru_id');
+        $mitra = DB::table('kegiatan_mitra')
+            ->select('kegiatan_mitra.mitrabaru_id', 'mitrabaru.nama_mitra')
+            ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
+            ->where('kegiatan_id', '=', $id)
+            ->get();
+        // return \Illuminate\Routing\ResponseFactory::json($mitra);
+        return $mitra;
     }
 }
 
