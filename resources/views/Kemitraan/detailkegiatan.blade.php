@@ -71,9 +71,7 @@
                     <input class="col-sm-4 form-control" type="text" value="{{$kegiatan->beban_anggaran}}" aria-label="Disabled input example" disabled readonly>
                 </dl>
             </dl>
-
         </div>
-
     </div>
 </main>
 
@@ -88,7 +86,7 @@
         <div id="over">
             <table class="table table-hover table-bordered" id="datatables">
                 <thead>
-                <th>ID</th>
+                    <th>No</th>
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Kecamatan</th>
@@ -102,10 +100,10 @@
                     <th>Bertugas Sebagai</th>
                 </thead>
                 <tbody>
+                <?php $no=1;?>
                 @foreach($data_kegiatan as $data_kegiatan )
                     <tr>
-                        
-                        <td>{{$data_kegiatan->id}}</td>
+                        <td>{{$no}}</td>
                         <td>{{$data_kegiatan->nama_mitra }}</td>
                         <td>{{$data_kegiatan->email}}</td>
                         <td>{{$data_kegiatan->nama_kecamatan}}</td>
@@ -118,6 +116,7 @@
                         <td>{{$data_kegiatan->rekening_bri}}</td>
                         <td>{{$data_kegiatan->bertugas_sebagai}}</td>
                     </tr>
+                    <?php $no++ ;?>
                     @endforeach
                 </tbody>
             </table>

@@ -41,7 +41,7 @@
                     <div class="col-11">
                         <!-- Button trigger modal -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="/admin/spk/formspk" class="btn btn-primary" role="button">Tambah SPK</a>
+                            <a href="/admin/spk/formspk" class="btn btn-primary" role="button" style="margin-left: 90%">Tambah SPK</a>
                         </div>
                     </div>
                     <div id="over" style="margin-left:auto;margin-right:auto">

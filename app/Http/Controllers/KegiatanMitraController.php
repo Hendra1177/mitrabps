@@ -101,8 +101,8 @@ class KegiatanMitraController extends Controller
     public function createKegiatanAdmin(Request $request)
     {
         $this->validate($request,[
-            'kegiatan_id' => 'required|exists:kegiatan,nama_kegiatan',
-            'mitrabaru_id' => 'required|exists:mitrabaru,nama_mitra',
+            'kegiatan_id' => 'required',
+            'mitrabaru_id' => 'required',
             'bertugas_sebagai' => 'required',
             'target' => 'required',
         ]);
@@ -110,9 +110,17 @@ class KegiatanMitraController extends Controller
         $kegiatan_nama = Kegiatan::where('nama_kegiatan', $request->kegiatan_id)->value('id');
         $mitra_nama = MitraBaru::where('nama_mitra', $request->mitrabaru_id)->value('id');
 
+        // $kegiatanmitra = new KegiatanMitra;
+        // $kegiatanmitra->kegiatan_id = $kegiatan_nama;
+        // $kegiatanmitra->mitrabaru_id = $mitra_nama;
+        // // $kegiatanmitra->nilai_perjanjian = $request->nilai_perjanjian;
+        // $kegiatanmitra->bertugas_sebagai = $request->bertugas_sebagai;
+        // $kegiatanmitra->target = $request->target;
+        // $kegiatanmitra->save();
+
         $kegiatanmitra = new KegiatanMitra;
-        $kegiatanmitra->kegiatan_id = $kegiatan_nama;
-        $kegiatanmitra->mitrabaru_id = $mitra_nama;
+        $kegiatanmitra->kegiatan_id = $request->kegiatan_id;
+        $kegiatanmitra->mitrabaru_id = $request->mitrabaru_id;
         // $kegiatanmitra->nilai_perjanjian = $request->nilai_perjanjian;
         $kegiatanmitra->bertugas_sebagai = $request->bertugas_sebagai;
         $kegiatanmitra->target = $request->target;
@@ -169,17 +177,17 @@ class KegiatanMitraController extends Controller
             'kegiatan_id' => 'required',
             'mitrabaru_id' => 'required',
             // 'nilai_perjanjian' => 'required',
-            'target' => 'required',
             'bertugas_sebagai' => 'required',
+            'target' => 'required',
         ]);
 
         $kegiatan_nama = Kegiatan::where('nama_kegiatan', $request->kegiatan_id)->value('id');
         $mitra_nama = Mitra::where('nama_mitra', $request->mitra_id)->value('id');
 
         $kegiatanmitra = new KegiatanMitra;
-        $kegiatanmitra->kegiatan_id = $kegiatan_nama;
-        $kegiatanmitra->mitra_id = $mitra_nama;
-        $kegiatanmitra->nilai_perjanjian = $request->nilai_perjanjian;
+        $kegiatanmitra->kegiatan_id = $request->kegiatan_id;
+        $kegiatanmitra->mitrabaru_id = $request->mitrabaru_id;
+        $kegiatanmitra->bertugas_sebagai = $request->bertugas_sebagai;
         $kegiatanmitra->target = $request->target;
         $kegiatanmitra->save();
             

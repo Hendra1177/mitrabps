@@ -125,7 +125,7 @@
               <option value="{{$mt->id}}">{{$mt->nama_mitra}}</option>
               @endforeach --}}
           </select>
-          @if ($errors->has('mitra_id'))
+          @if ($errors->has('mitrabaru_id'))
               <span class="help-block text-danger fs-9">*The mitra field is required.</span>
           @endif
         </div>

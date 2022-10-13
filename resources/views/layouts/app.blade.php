@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" href="{{asset('template/assets/img/BPS.png')}}">
 
-    <title>Mitra Badan Pusat Statistik Kabupaten Jombang</title>
+    <title>Badan Pusat Statistik Kabupaten Jombang</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -26,7 +26,7 @@
             <div class="container">
                 <a class="navbar-brand text-gray" href="{{ url('/') }}">
                 <img src= "{{asset('template/assets/img/BPS.png')}}" class="img-responsive " style="height: 30px;width: 30px;">
-                Mitra Badan Pusat Statistik Kabupaten Jombang
+                Badan Pusat Statistik Kabupaten Jombang
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
