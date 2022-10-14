@@ -163,6 +163,14 @@ class SpkController extends Controller
     public function cetakPdf($id)
     {
         
+            
+        $kegiatan_mitra = \App\Models\KegiatanMitra::find($id);
+        $kegiatan = KegiatanMitra::orderBy('kegiatan_id','asc')
+        ->select('kegiatan_mitra.kegiatan_id', 'kegiatan_mitra.mitrabaru_id', 'kegiatan.nama_kegiatan')
+        ->join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
+        ->where('kegiatan_mitra.id','=', $kegiatan_mitra->id)
+        ->get();
+
         $spk = \App\Models\Spk::find($id);
         $data = DB::table('spk')
             ->select('spk.bulan','spk.tahun','spk.id','spk.kegiatanmitra_id','spk.hari', 'spk.ppk','spk.mitrabaru_id','spk.tanggal',
@@ -175,8 +183,37 @@ class SpkController extends Controller
             ->join('desa','desa.id','=','spk.desa_id')
             ->where('spk.id', '=', $spk->id)
             ->get();
+
+            $bulan = Spk::find($id);
+
+            $bulan_nama = DB::table('spk')
+            ->select('bulan')
+            ->where('spk.id', '=', $bulan->id)
+            ->get();
+
+            switch ($bulan_nama) {
+                case "Januari":
+                  echo "01";
+                  break;
+                case "Februari":
+                  echo "02";
+                  break;
+                case "Maret":
+                  echo "03";
+                  break;
+                  case "April":
+                  echo "04";
+                  break;
+                  case "Oktober":
+                  echo "10";
+                  break;
+                  case "Juli":
+                  echo "07";
+                  break;
+              }
             
-        $pdf =PDF::loadview('admin.cetakspk',['spk'=>$spk , 'data'=>$data])->setOptions(['defaultFont' => 'sans-serif']);
+            
+        $pdf =PDF::loadview('admin.cetakspk',['spk'=>$spk , 'data'=>$data, 'kegiatan'=>$kegiatan, 'bulan'=>$bulan_nama])->setOptions(['defaultFont' => 'sans-serif']);
         return $pdf->stream();
         
     }
