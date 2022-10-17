@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kecamatan;
 use App\Models\MitraBaru;
 use App\Models\Kegiatan;
 use App\Models\KegiatanMitra;
@@ -73,7 +74,36 @@ class SpkController extends Controller
         ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
         ->get();
 
-        return view('admin.spkcreate', ['kegiatan' => $kegiatan, 'mitra' => $mitra]);
+        
+        // $kec = Kecamatan::orderBy('nama_kecamatan', 'asc')
+        // ->select('kecamatan.nama_kecamatan')
+        // ->join('kegiatan_mitra', 'kegiatan_mitra.mitrabaru_id', '=', 'mitrabaru.id')
+        // ->where('kegiatan_mitra.mitrabaru_id', '=', 'mitrabaru.id')
+        // ->get();
+
+        // $kec = DB::table('kegiatan_mitra')
+        // ->select('kegiatan_mitra.mitrabaru_id', 'mitrabaru.nama_mitra', 'mitrabaru.kecamatan_id', 'mitrabaru.desa_id', 'kecamatan.nama_kecamatan', 'desa.nama_desa')
+        // ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
+        // ->join('kecamatan', 'kecamatan.id', '=', 'mitrabaru.kecamatan_id')
+        // ->join('desa', 'desa.id', '=', 'mitrabaru.desa_id')
+        // ->where('kegiatan_mitra.mitrabaru_id', '=', 'mitrabaru_id')
+        // ->get();
+        // dd($kec);
+
+        $kec = DB::table('mitrabaru')
+        ->select('mitrabaru.id', 'kecamatan_id', 'desa_id')
+        ->where('mitrabaru.id', '=', 4)
+        ->get();
+
+
+        $resultKec = DB::table('kecamatan')
+        ->select('nama_kecamatan')->where('id','=',$kec[0]->kecamatan_id)->get();
+        $resultDes = DB::table('desa')
+        ->select('nama_desa')->where('id','=',$kec[0]->desa_id)->get();
+     
+        $result = [$resultKec[0]->nama_kecamatan,$resultDes[0]->nama_desa];
+   
+        return view('admin.spkcreate', ['kegiatan' => $kegiatan, 'mitra' => $mitra, 'kec'=>$kec]);
     }
 
     public function edit($id)
@@ -184,33 +214,6 @@ class SpkController extends Controller
             ->where('spk.id', '=', $spk->id)
             ->get();
 
-            $bulan = Spk::find($id);
-
-            $bulan_nama = DB::table('spk')
-            ->select('bulan')
-            ->where('spk.id', '=', $bulan->id)
-            ->get();
-
-            switch ($bulan_nama) {
-                case "Januari":
-                  echo "01";
-                  break;
-                case "Februari":
-                  echo "02";
-                  break;
-                case "Maret":
-                  echo "03";
-                  break;
-                  case "April":
-                  echo "04";
-                  break;
-                  case "Oktober":
-                  echo "10";
-                  break;
-                  case "Juli":
-                  echo "07";
-                  break;
-              }
             
             
         $pdf =PDF::loadview('admin.cetakspk',['spk'=>$spk , 'data'=>$data, 'kegiatan'=>$kegiatan, 'bulan'=>$bulan_nama])->setOptions(['defaultFont' => 'sans-serif']);

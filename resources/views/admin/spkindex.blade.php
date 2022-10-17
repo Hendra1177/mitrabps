@@ -37,26 +37,26 @@
                         {{session('successMsg')}}
                     </div>
                 @endif
-                <div class="row">
-                    <div class="col-11">
+                
+                    
                         <!-- Button trigger modal -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="/admin/spk/formspk" class="btn btn-primary" role="button" style="margin-left: 90%">Tambah SPK</a>
+                        <a href="#" role="button" class="btn btn-primary" style="margin-left: 70%" onclick="check()">Cetak</a>
+                            <a href="/admin/spk/formspk" class="btn btn-primary" role="button" >Tambah SPK</a>
                         </div>
-                    </div>
+                    
                     <div id="over" style="margin-left:auto;margin-right:auto">
                         <table class="table table-hover table-bordered" id="dataspk">
                             <thead>
                             <tr class="text-center">
+                            <th>#</th>
                             <th scope="col">No</th>
                                 {{-- <th>Nama Mitra</th> --}}
                                 <th>Kegiatan</th>
                                 <th>Pembuat Perjanjian Kerja</th>
                                 <th>Mitra</th>
                                 <th>Hari</th>
-                                <th>Tanggal</th>
-                                <th>Bulan</th>
-                                <th>Tahun</th>
+                                <th>Tanggal Pembuatan</th>
                                 <th>Aksi</th>
                             </tr>
                             </thead>
@@ -65,15 +65,13 @@
                                 <?php $no=1;?>
                                     @foreach ($spk as $spk)
                                     <tr>
-                                        <th scope="row">  {{$no}}</th>
-                                        {{-- <td>{{$kegiatan->nama_kegiatan}}</td> --}}
+                                        <th><input type="checkbox" id="spk_id" value="foreach"></th>
+                                        <th scope="row" id="id">  {{$no}}</th>
                                         <td>{{$spk->nama_kegiatan}}</td>
                                         <td>{{$spk->ppk}}</td>
                                         <td>{{$spk->nama_mitra}}</td>
                                         <td class="text-center">{{$spk->hari}}</td>
-                                        <td class="text-center">{{$spk->tanggal}}</td>
-                                        <td class="text-center">{{$spk->bulan}}</td>
-                                        <td class="text-center">{{$spk->tahun}}</td>
+                                        <td class="text-center">{{$spk->tanggal}} {{$spk->bulan}} {{$spk->tahun}}</td>
                                         <td>
                                             <a href="/admin/spk/{{$spk->id}}/detail" class="btn btn-info btn-sm">View</a>
                                             <a href="/admin/spk/{{$spk->id}}/cetakspk" class="btn btn-primary btn-sm" >Cetak</a>
@@ -90,5 +88,13 @@
             </div>
         </div>    
 </main>
+
+<script>
+    function myFunction() {
+    var x = document.getElementById("spk_id").value;
+    document.getElementById("id").innerHTML = x;
+    console.log('Tes');
+    }
+</script>
 
 @endsection

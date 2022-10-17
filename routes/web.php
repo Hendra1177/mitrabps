@@ -124,6 +124,7 @@ Route::get('/perjanjiankerja', 'App\Http\Controllers\KegiatanMitraController@ind
 // route api
 Route::get('/getDataDesa/{id}',[getDesa::class, 'post']);
 Route::get('/getDataKegiatan/{id}', [getKegiatan::class, 'postKegiatan']);
+Route::get('/getKecDes/{id}', [getKecDes::class, 'kecamatanDesa']);
 
 class getDesa extends Controller
 {
@@ -170,5 +171,25 @@ class getKegiatan extends Controller
     }
 }
 
+class getKecDes extends Controller
+{
+    public function kecamatanDesa($id)
+    {
+        $kec = DB::table('mitrabaru')
+        ->select('mitrabaru.id', 'kecamatan_id', 'desa_id')
+        ->where('mitrabaru.id', '=', $id)
+        ->get();
+
+
+        $resultKec = DB::table('kecamatan')
+        ->select('nama_kecamatan')->where('id','=',$kec[0]->kecamatan_id)->get();
+        $resultDes = DB::table('desa')
+        ->select('nama_desa')->where('id','=',$kec[0]->desa_id)->get();
+     
+        $result = [$resultKec[0]->nama_kecamatan,$resultDes[0]->nama_desa];
+        // return \Illuminate\Routing\ResponseFactory::json($mitra);
+        return $result;
+    }
+}
 
 

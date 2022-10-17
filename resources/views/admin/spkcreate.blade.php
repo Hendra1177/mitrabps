@@ -105,7 +105,7 @@
         </div>
 
         <div class="mb-3" {{$errors->has('kegiatan_id') ? ' has-error' : ''}}>
-          <label for="disabledSelect" class="form-label">Kegiatan</label>
+          <label for="disabledSelect1" class="form-label">Kegiatan</label>
           <select id="disabledSelect1" class="form-select" value="{{old('kegiatan_id')}}" list="datalistOptions" name="kegiatan_id"  >
             <option value="">-Pilih Kegiatan-</option>
               @foreach ($kegiatan as $km)
@@ -129,6 +129,22 @@
               <span class="help-block text-danger fs-9">*The mitra field is required.</span>
           @endif
         </div>
+
+        <div class="row">
+            <div class="col-6">
+              <label for="text">Kecamatan</label>
+              <input class="form-control" id="kec_id" value="" type="text" placeholder="" aria-label="Disabled input example" disabled>
+              
+            </div>
+            <div class="col-6">
+              <div class="mb-3">
+                <label for="text">Desa</label>
+                <input class="form-control" id="des_id" type="text" placeholder="Disabled input" aria-label="Disabled input example" disabled>
+                
+              </div>
+            </div>
+        </fieldset>
+      </div>
      
       {{-- (JANGAN DIHAPUS) --}}
         {{-- <div class="form-group {{$errors->has('kegiatan_id') ? ' has-error' : ''}}">
@@ -165,6 +181,8 @@
     </form>
   </div>
 
+  
+
   <script>
     const render = document.querySelector('#disabledSelect')
     
@@ -178,6 +196,24 @@
                 return ` <option value=${data.mitrabaru_id}>${data.nama_mitra}</option>`
             })
             rendered = `<option>-Pilih Mitra-</option>${rendered}`
+            return render.innerHTML= rendered;
+        }).catch((e)=>{
+          console.log(e);
+        })
+        })
+  </script>
+  <script>
+    const kec = document.querySelector('#kec_id')
+    const des = document.querySelector('#des_id')
+    const mitra = document.querySelector('#disabledSelect');
+    mitra.addEventListener('change', function() {
+          console.log("test");
+        const res = fetch(`/getKecDes/${mitra.value}`).then((response) =>response.json())
+        .then((data) => {
+          console.log(data+"  response");
+            kec.value = data[0]
+            des.value = data[1]
+            // rendered = `<option>-Pilih Mitra-</option>${rendered}`
             return render.innerHTML= rendered;
         }).catch((e)=>{
           console.log(e);
