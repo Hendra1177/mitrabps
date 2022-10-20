@@ -55,13 +55,16 @@
 
         <div id="over">
             <div class="margin-start:10px;" style="padding-top: 20px; padding-bottom:20px; padding-right:20px; font-family:'Times New Roman', Times, serif;">
-                <p style="text-align:right;padding-right:327px;line-height:10px;">
-                    Lampiran
-                </p>
+                {{-- <p style="text-align:right;padding-right:327px;line-height:10px;">
+                    LAMPIRAN
+                </p> --}}
                 <br>
-                <pre style="text-align:right;padding-right:243px; font-family:'Times New Roman', Times, serif;">PERJANJIAN KERJA
-                                                                                                           BADAN PUSAT STATISTIK KABUPATEN JOMBANG
-                                                                                                           NOMOR: 35171.{{$mitrabaru->id}}/SPK/ALL/(bulan angka)/2022</pre>
+                <pre style="text-align:left;padding-left:400px; font-family:'Times New Roman', Times, serif;">
+                                                                                                        LAMPIRAN</pre>
+                <pre style="text-align:left;padding-left:400px; font-family:'Times New Roman', Times, serif;">
+                                                                                                        PERJANJIAN KERJA
+                                                                                                        BADAN PUSAT STATISTIK KABUPATEN JOMBANG
+                                                                                                        NOMOR: 35171.{{$mitrabaru->id}}/SPK/ALL/(bulan angka)/2022</pre>
                 <!-- <p style="text-align:right;padding-right:20px;line-height:10px;">BADAN PUSAT STATISTIK KABUPATEN JOMBANG</p>
                 <p style="text-align:right;padding-right:56px;line-height:10px;">NOMOR: 35171.{{$mitrabaru->id}}/SPK/ALL/(bulan angka)/2022</p> -->
                 <br><br>
@@ -144,57 +147,46 @@
     </div>
 </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+    <script src="{{asset('template/assets/DataTables/Button-2.2.3/js/buttons.jqueryui.min.js')}}"></script>
 
-<!-- <script type="text/javascript">
-        let bulan = $("#filter-bulan").val()
-        
-        DataTable.datetime('D MMM YYYY');
-        $(document).ready(function() {
-          $('#datatable').DataTable({
-            "pagingType": "scrolling"
-          });
-         
+    <script type="text/javascript">
+      let bulan = $("#filter-bulan").val()
+      
+      DataTable.datetime('D MMM YYYY');
+      $(document).ready(function() {
+        $('#datatable').DataTable({
+            paging: false, 
+            info: false
         });
-      </script> -->
+      });
 
-<script type="text/javascript" src="jquery.dataTables.js"></script>
-<script type="text/javascript" src="dataTables.scrollingPagination.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#datatable').dataTable( {
-            "bFilter": false 
-        } );
-    } );
-</script>
-  
-      <script type="text/javascript">
-        $(document).ready(function() {
-          $('#tablemitra').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-              'copy', 'csv', 'excel', 'pdf',
-            ]
-          });
-        });
-      </script>
+    </script>
+
 <script type="text/javascript">
     const currency = document.querySelectorAll('#currency')
     const curr = document.querySelector('#renderCurrency')
     const changes = document.querySelector('.changes')
     console.log(changes);
-
-
+    
     setInterval(function() {
+        let count = 1;
+        const setCount = document.querySelectorAll('.sorting_1');
+        let item = Array.from(setCount).map((elem)=>{
+            elem.innerHTML=`${count}`
 
+            count = count + 1;
+        })
+        
         const currency = document.querySelectorAll('#currency')
         let dataCurrency = 0
         currency.forEach(data => {
@@ -223,7 +215,9 @@
 
     }
     const printData = () => {
-        console.log('test');
+        const label = document.querySelector("#datatable_filter")
+        console.log(label);
+        label.style.display = "none"
         var divToPrint = document.getElementById("over");
         let newWin = window.open("");
         newWin.document.write(divToPrint.outerHTML);
