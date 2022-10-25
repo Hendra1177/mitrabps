@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Desa;
 use App\Models\Kecamatan;
 use App\Models\MitraBaru;
 use App\Models\Kegiatan;
@@ -33,8 +34,13 @@ class SpkController extends Controller
             'ppk' => 'required',
             'kegiatan_id' => 'required',
             'mitrabaru_id' => 'required',
+            'desa_id' => 'required',
+            'kecamatan_id' => 'required',
             // 'kegiatanmitra_id' => 'required'
         ]);
+
+        $kec = Kecamatan::where('nama_kecamatan', $request->kecamatan_id)->value('id');
+        $desa = Desa::where('nama_desa', $request->desa_id)->value('id');
 
         $spk = new Spk;
         $spk->hari = $request->hari;
@@ -44,6 +50,8 @@ class SpkController extends Controller
         $spk->ppk = $request->ppk;
         $spk->kegiatan_id = $request->kegiatan_id;
         $spk->mitrabaru_id = $request->mitrabaru_id;
+        $spk->desa_id = $desa;
+        $spk->kecamatan_id = $kec;
         $spk->save();
 
         // \App\Models\Spk::create($request->all());
@@ -74,36 +82,7 @@ class SpkController extends Controller
         ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
         ->get();
 
-        
-        // $kec = Kecamatan::orderBy('nama_kecamatan', 'asc')
-        // ->select('kecamatan.nama_kecamatan')
-        // ->join('kegiatan_mitra', 'kegiatan_mitra.mitrabaru_id', '=', 'mitrabaru.id')
-        // ->where('kegiatan_mitra.mitrabaru_id', '=', 'mitrabaru.id')
-        // ->get();
-
-        // $kec = DB::table('kegiatan_mitra')
-        // ->select('kegiatan_mitra.mitrabaru_id', 'mitrabaru.nama_mitra', 'mitrabaru.kecamatan_id', 'mitrabaru.desa_id', 'kecamatan.nama_kecamatan', 'desa.nama_desa')
-        // ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
-        // ->join('kecamatan', 'kecamatan.id', '=', 'mitrabaru.kecamatan_id')
-        // ->join('desa', 'desa.id', '=', 'mitrabaru.desa_id')
-        // ->where('kegiatan_mitra.mitrabaru_id', '=', 'mitrabaru_id')
-        // ->get();
-        // dd($kec);
-
-        $kec = DB::table('mitrabaru')
-        ->select('mitrabaru.id', 'kecamatan_id', 'desa_id')
-        ->where('mitrabaru.id', '=', 4)
-        ->get();
-
-
-        $resultKec = DB::table('kecamatan')
-        ->select('nama_kecamatan')->where('id','=',$kec[0]->kecamatan_id)->get();
-        $resultDes = DB::table('desa')
-        ->select('nama_desa')->where('id','=',$kec[0]->desa_id)->get();
-     
-        $result = [$resultKec[0]->nama_kecamatan,$resultDes[0]->nama_desa];
-   
-        return view('admin.spkcreate', ['kegiatan' => $kegiatan, 'mitra' => $mitra, 'kec'=>$kec]);
+        return view('admin.spkcreate', ['kegiatan' => $kegiatan, 'mitra' => $mitra]);
     }
 
     public function edit($id)
@@ -138,6 +117,8 @@ class SpkController extends Controller
             'ppk' => 'required',
             'kegiatan_id' => 'required',
             'mitrabaru_id' => 'required',
+            'desa_id' => 'required',
+            'kecamatan_id' => 'required',
         ]);
 
         $spk = \App\Models\Spk::find($id);
@@ -147,6 +128,9 @@ class SpkController extends Controller
         // $kegiatan_nama = Kegiatan::where('nama_kegiatan', $request->kegiatan_id)->value('id');
         // $mitra_nama = MitraBaru::where('nama_mitra', $request->mitrabaru_id)->value('id');
 
+        $kec = Kecamatan::where('nama_kecamatan', $request->kecamatan_id)->value('id');
+        $desa = Desa::where('nama_desa', $request->desa_id)->value('id');
+
         $spk->hari = $request->hari;
         $spk->tanggal = $request->tanggal;
         $spk->bulan = $request->bulan;
@@ -154,12 +138,16 @@ class SpkController extends Controller
         $spk->ppk = $request->ppk;
         $spk->kegiatan_id = $request->kegiatan_id;
         $spk->mitrabaru_id = $request->mitrabaru_id;
+        $spk->desa_id = $desa;
+        $spk->kecamatan_id = $kec;
         $spk->save();
 
         $spk = DB::table('spk')
-        ->select('mitrabaru.nama_mitra', 'kegiatan.nama_kegiatan', 'spk.hari', 'spk.tanggal', 'spk.bulan', 'spk.tahun', 'spk.ppk', 'spk.id')
+        ->select('mitrabaru.nama_mitra', 'kegiatan.nama_kegiatan', 'spk.hari', 'spk.tanggal', 'spk.bulan', 'spk.tahun', 'spk.ppk', 'spk.id', 'kecamatan.nama_kecamatan', 'desa.nama_desa')
         ->join('kegiatan', 'kegiatan.id', '=', 'spk.kegiatan_id')
         ->join('mitrabaru', 'mitrabaru.id', '=', 'spk.mitrabaru_id')
+        ->join('kecamatan', 'kecamatan.id', '=', 'spk.kecamatan_id')
+        ->join('desa', 'desa.id', '=', 'spk.desa_id')
         ->get();
 
         $data_kegiatan = Spk::join('kegiatan', 'kegiatan.id', '=', 'spk.kegiatan_id')
@@ -194,11 +182,11 @@ class SpkController extends Controller
     {
         
             
-        $kegiatan_mitra = \App\Models\KegiatanMitra::find($id);
-        $kegiatan = KegiatanMitra::orderBy('kegiatan_id','asc')
-        ->select('kegiatan_mitra.kegiatan_id', 'kegiatan_mitra.mitrabaru_id', 'kegiatan.nama_kegiatan')
-        ->join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
-        ->where('kegiatan_mitra.id','=', $kegiatan_mitra->id)
+        $kegiatanspk = \App\Models\Spk::find($id);
+        $kegiatan = Spk::orderBy('kegiatan_id','asc')
+        ->select('spk.kegiatan_id', 'kegiatan.nama_kegiatan')
+        ->join('kegiatan', 'kegiatan.id', '=', 'spk.kegiatan_id')
+        ->where('spk.id','=', $kegiatanspk->id)
         ->get();
 
         $spk = \App\Models\Spk::find($id);
@@ -206,7 +194,7 @@ class SpkController extends Controller
             ->select('spk.bulan','spk.tahun','spk.id','spk.kegiatanmitra_id','spk.hari', 'spk.ppk','spk.mitrabaru_id','spk.tanggal',
                     'mitrabaru.nama_mitra', 'mitrabaru.pekerjaan', 'mitrabaru.alamat','mitrabaru.id','kecamatan.nama_kecamatan',
                     'kegiatan.harga_satuan','kegiatan.tanggal_mulai','kegiatan.tanggal_akhir',
-                    'desa.nama_desa')
+                    'desa.nama_desa', 'kegiatan.beban_anggaran')
             ->join('mitrabaru','mitrabaru.id', '=','spk.mitrabaru_id' )
             ->join('kecamatan','kecamatan.id','=','spk.kecamatan_id')
             ->join('kegiatan','kegiatan.id','=','spk.kegiatan_id')
@@ -216,7 +204,8 @@ class SpkController extends Controller
 
             
             
-        $pdf =PDF::loadview('admin.cetakspk',['spk'=>$spk , 'data'=>$data, 'kegiatan'=>$kegiatan, 'bulan'=>$bulan_nama])->setOptions(['defaultFont' => 'sans-serif']);
+            
+        $pdf =PDF::loadview('admin.cetakspk',['spk'=>$spk , 'data'=>$data, 'kegiatan'=>$kegiatan])->setOptions(['defaultFont' => 'sans-serif']);
         return $pdf->stream();
         
     }

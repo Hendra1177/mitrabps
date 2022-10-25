@@ -113,7 +113,7 @@
           @endforeach
           </select>
           @if ($errors->has('kegiatan_id'))
-              <span class="help-block text-danger fs-9">*The kegiatan field is required.</span>
+              <span class="help-block text-danger fs-9">*Kegiatan field is required.</span>
           @endif
         </div>
     
@@ -126,21 +126,25 @@
               @endforeach --}}
           </select>
           @if ($errors->has('mitrabaru_id'))
-              <span class="help-block text-danger fs-9">*The mitra field is required.</span>
+              <span class="help-block text-danger fs-9">*Mitra field is required.</span>
           @endif
         </div>
 
         <div class="row">
-            <div class="col-6">
+            <div class="col-6" {{$errors->has('kecamatan_id') ? ' has-error' : ''}}>
               <label for="text">Kecamatan</label>
-              <input class="form-control" id="kec_id" value="" type="text" placeholder="" aria-label="Disabled input example" disabled>
-              
+              <input class="form-control" id="kec_id" name="kecamatan_id" value="" type="text" placeholder="Nama Kecamatan" aria-label="Disabled input example" >
+              @if ($errors->has('kecamatan_id'))
+              <span class="help-block text-danger fs-9">*Kecamatan field is required.</span>
+              @endif
             </div>
-            <div class="col-6">
+            <div class="col-6" {{$errors->has('desa_id') ? ' has-error' : ''}}>
               <div class="mb-3">
                 <label for="text">Desa</label>
-                <input class="form-control" id="des_id" type="text" placeholder="Disabled input" aria-label="Disabled input example" disabled>
-                
+                <input class="form-control" id="des_id" name="desa_id" type="text" placeholder="Nama Desa" aria-label="Disabled input example" >
+                @if ($errors->has('desa_id'))
+                <span class="help-block text-danger fs-9">*Desa field is required.</span>
+                @endif
               </div>
             </div>
         </fieldset>

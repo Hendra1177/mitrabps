@@ -82,7 +82,7 @@
         <li class="nav-item">
           <a class="nav-link " href="/admin/spk">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="bi bi-journal-text text-danger text-lg"></i>
+            <i class="bi bi-file-earmark-text text-success text-lg"></i>
             </div>
             <span class="nav-link-text ms-1">SPK</span>
           </a>
@@ -176,12 +176,7 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#tablemitra').DataTable({
-          dom: 'Bfrtip',
-          buttons: [
-            'copy', 'csv', 'excel', 'pdf',
-          ]
-        });
+        $('#tablemitra').DataTable();
       });
     </script>
 

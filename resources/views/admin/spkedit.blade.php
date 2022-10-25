@@ -138,7 +138,7 @@
 
       <div class="mb-3" {{$errors->has('kegiatan_id') ? ' has-error' : ''}}>
         <label for="disabledSelect" class="form-label">Kegiatan</label>
-        <select id="disabledSelect1" class="form-select" value="{{old('kegiatan_id')}}" list="datalistOptions" name="kegiatan_id"  >
+        <select id="disabledSelect1" class="form-select" value="{{old('kegiatan_id')}}" list="datalistOptions" name="kegiatan_id" placeholder="Pilih Kegiatan" >
           <option value="">-Pilih Kegiatan-</option>
             @foreach ($kegiatan as $km)
         <option value="{{$km->kegiatan_id}}">{{$km->nama_kegiatan}}</option>
@@ -150,8 +150,8 @@
       </div>
   
       <div class="mb-3" {{$errors->has('mitrabaru_id') ? ' has-error' : ''}}>
-        <label for="disabledSelect" class="form-label">Pilih Mitra</label>
-        <select id="disabledSelect" class="form-select" value="{{old('mitrabaru_id')}}" list="datalistOptions1" id="exampleDataList1" placeholder="Enter mitra.." name="mitrabaru_id"">
+        <label for="disabledSelect" class="form-label">Mitra</label>
+        <select id="disabledSelect" class="form-select" value="{{old('mitrabaru_id')}}" list="datalistOptions1" id="exampleDataList1" placeholder="Pilih Mitra" name="mitrabaru_id"">
           <option value="">-Pilih Mitra-</option>
             {{-- @foreach ($mitra as $mt)
             <option value="{{$mt->id}}">{{$mt->nama_mitra}}</option>
@@ -165,18 +165,21 @@
       <div class="row">
         <div class="col-6">
           <label for="text">Kecamatan</label>
-          <input class="form-control" id="kec_id" value="" type="text" placeholder="" aria-label="Disabled input example" disabled>
+          <input class="form-control" id="kec_id" name="kecamatan_id" value="{{$spk->kecamatan_id}}" type="text" placeholder="" aria-label="Disabled input example">
           
         </div>
         <div class="col-6">
           <div class="mb-3">
             <label for="text">Desa</label>
-            <input class="form-control" id="des_id" type="text" placeholder="Disabled input" aria-label="Disabled input example" disabled>
+            <input class="form-control" id="des_id" name="desa_id" value="{{$spk->desa_id}}" type="text" placeholder="" aria-label="Disabled input example">
             
         </div>
       </div>
-        
-        <button type="submit" class="btn btn-warning" action>Update</button>
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-warning" action>Update</button>
+        </div>
+      </div>
       </main>
     </form>
   </div>

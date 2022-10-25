@@ -47,7 +47,7 @@
         <p class="h6 text-center fw-bold">BADAN PUSAT STATISTIK KABUPATEN JOMBANG</p>
         @foreach($data as $data)
         <p class="text-uppercase text-center fw-bold">BULAN {{$data->bulan}} TAHUN {{$data->tahun}}</p>
-        <p class="h6 text-center fw-bold text-uppercase">NOMOR: 35171.{{$data->id}}/SPK/(kode kegiatan)/04/{{$data->tahun}}</p>
+        <p class="h6 text-center fw-bold text-uppercase">NOMOR: 35171.{{$data->id}}/SPK/(kode kegiatan)/{{bulan($data->bulan)}}/{{$data->tahun}}</p>
         @endforeach
         <br><br>
 
@@ -80,7 +80,7 @@ Kabupaten Jombang dengan lingkup pekerjaan yang ditetapkan oleh <b>PIHAK PERTAMA
 <p>Ruang lingkup pekerjaan dalam Perjanjian ini mengacu pada wilayah kerja dan beban kerja sebagaimana tertuang dalam Lampiran Perjanjian pada Badan Pusat Statistik
     Kabupaten Jombang, dan ketentuan-ketentuan yang ditetapkan oleh <b>PIHAK PERTAMA</b>.</p>
 <p class="text-center fw-bold">Pasal 3</p>
-<p>Jangka Waktu Perjanjian terhitung sejak tanggal (need help) sampai dengan tanggal (need help).</p>
+<p>Jangka Waktu Perjanjian terhitung sejak tanggal {{tanggal_indonesia($data->tanggal_mulai)}} sampai dengan tanggal {{tanggal_indonesia($data->tanggal_akhir)}}.</p>
 <br><br><br><br><br><br>
 <p class="text-center">[1]</p>
     </div>
@@ -97,7 +97,7 @@ yang berlaku di wilayah kerja masing-masing.</p>
 
 <dl class="row">
 <p class="col-1">(1)</p>
-<p class="col"><b>PIHAK KEDUA</b> berhak untuk mendapatkan honorarium Petugas dari <b>PIHAK PERTAMA</b> sebesar Rp.(need help)(terbilang) untuk pekerjaan sebagaimana dimaksud dalam pasal 2, termasuk biaya pajak,
+<p class="col"><b>PIHAK KEDUA</b> berhak untuk mendapatkan honorarium Petugas dari <b>PIHAK PERTAMA</b> sebesar Rp.{{"Rp. ".format_uang($data->harga_satuan)}} ({{terbilang($data->harga_satuan)."rupiah "}})  untuk pekerjaan sebagaimana dimaksud dalam pasal 2, termasuk biaya pajak,
 bea material, pulsa dan kuota internet untuk komunikasi, dan jasa pelayanan keuangan.</p>
 </dl>
 <dl class="row">
@@ -128,7 +128,7 @@ Pasal 4, termasuk dalam kondisi terindikasi terinfeksi virus <em>Covid-19</em>, 
 <dl class="row">
 <p class="col-1">(1)</p>
 <p class="col">Apabila <b>PIHAK KEDUA</b> mengundurkan diri pada saat / setelah pelaksanaan pekerjaan pengolahan dengan tidak menyelesaikan pekerjaan yang menjadi tanggung jawabnya,
-maka wajib membayar ganti rugi kepada <b>PIHAK PERTAMA</b> sebesar Rp.(need help) (terbilang)</p>
+maka wajib membayar ganti rugi kepada <b>PIHAK PERTAMA</b> sebesar Rp.{{"Rp. ".format_uang($data->harga_satuan)}} ({{terbilang($data->harga_satuan)."rupiah "}}) </p>
 </dl>
 <dl class="row">
 <p class="col-1">(2)</p>

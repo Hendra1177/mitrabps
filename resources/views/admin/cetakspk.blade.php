@@ -4284,9 +4284,9 @@ style='mso-no-proof:yes'>{{$data->id}}</span></span></b><!--[if supportFields]><
 style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-family:"Bookman Old Style",serif'><span
 style='mso-element:field-end'></span></span></b><![endif]--><b
 @endforeach
-@foreach($bulan as $bulan)
-style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-family:"Bookman Old Style",serif'>/SPK/SAK/{{$bulan->bulan}}/2022<o:p></o:p></span></b></p>
-@endforeach
+
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-family:"Bookman Old Style",serif'>/SPK/SAK/{{bulan($data->bulan)}}/2022<o:p></o:p></span></b></p>
+
 
 <p class=MsoNormal style='margin-bottom:0cm;text-align:justify;text-justify:
 inter-ideograph;line-height:125%'><span lang=EN-US style='font-family:"Bookman Old Style",serif'>Pada
@@ -4315,7 +4315,7 @@ Pembuat Komitmen Badan Pusat <span class=GramE>Statistik <span
 style='mso-ansi-language:ZH-CN'><span style='mso-spacerun:yes'></span></span><span
 class=SpellE><span lang=EN-US style='mso-ansi-language:EN-US'>Kabupaten</span></span></span></span><span
 lang=EN-US style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'>
-<span class=SpellE>Jombang</span></span><span lang=IN style='font-family:"Bookman Old Style",serif'>,
+<span class=SpellE>Jombang untuk kode kegiatan {{$data->beban_anggaran}}</span></span><span lang=IN style='font-family:"Bookman Old Style",serif'>,
 berkedudukan di </span><span lang=EN-US style='font-family:"Bookman Old Style",serif;
 mso-ansi-language:EN-US'>Jalan <span class=SpellE>Airlangga</span> No. 46A <span
 class=SpellE>Jombang</span></span><span lang=IN style='font-family:"Bookman Old Style",serif'>,
@@ -4344,7 +4344,7 @@ lang=IN style='font-family:"Bookman Old Style",serif'><span style='mso-tab-count
 lang=IN style='font-family:"Bookman Old Style",serif'><span style='mso-element:
 field-begin'></span> MERGEFIELD kerja <span style='mso-element:field-separator'></span></span><![endif]--><span
 lang=IN style='font-family:"Bookman Old Style",serif'><span style='mso-no-proof:
-yes'>Karyawan Swasta</span></span><!--[if supportFields]><span lang=IN
+yes'>{{$data->pekerjaan}}</span></span><!--[if supportFields]><span lang=IN
 style='font-family:"Bookman Old Style",serif'><span style='mso-element:field-end'></span></span><![endif]--><span
 lang=IN style='font-family:"Bookman Old Style",serif'>, berkedudukan di</span><span
 lang=IN style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'> </span><!--[if supportFields]><span
@@ -4352,8 +4352,7 @@ lang=EN-US style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'
 style='mso-element:field-begin'></span><span
 style='mso-spacerun:yes'></span>MERGEFIELD AlamatDetail <span
 style='mso-element:field-separator'></span></span><![endif]--><span lang=IN
-style='font-family:"Bookman Old Style",serif;mso-no-proof:yes'>Dusun
-Carangpuspo RT 003 RW 001</span><!--[if supportFields]><span lang=EN-US
+style='font-family:"Bookman Old Style",serif;mso-no-proof:yes'>{{$data->alamat}}</span><!--[if supportFields]><span lang=EN-US
 style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'><span
 style='mso-element:field-end'></span></span><![endif]--><span lang=EN-US
 style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'> <span
@@ -4362,7 +4361,7 @@ style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'><span
 style='mso-element:field-begin'></span><span
 style='mso-spacerun:yes'>�</span>MERGEFIELD ASAL_KECAMATAN <span
 style='mso-element:field-separator'></span></span><![endif]--><span lang=IN
-style='font-family:"Bookman Old Style",serif;mso-no-proof:yes'>Kesamben</span><!--[if supportFields]><span
+style='font-family:"Bookman Old Style",serif;mso-no-proof:yes'>{{$data->nama_kecamatan}}</span><!--[if supportFields]><span
 lang=EN-US style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'><span
 style='mso-element:field-end'></span></span><![endif]--><span lang=EN-US
 style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'> <span

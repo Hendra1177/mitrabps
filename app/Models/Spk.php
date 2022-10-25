@@ -16,7 +16,9 @@ class Spk extends Model
         'tahun',
         'ppk',
         'kegiatan_id',
-        'mitrabaru_id'
+        'mitrabaru_id',
+        'kecamatan_id',
+        'desa_id',
         
     ];
 

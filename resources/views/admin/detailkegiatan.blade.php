@@ -84,7 +84,7 @@
         <div id="over">
             <table class="table table-hover table-bordered" id="datatables">
                 <thead>
-                    <th>ID</th>
+                    <th>No</th>
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Kecamatan</th>
@@ -98,10 +98,12 @@
                     <th>Bertugas Sebagai</th>
                 </thead>
                 <tbody>
+                <?php $no=1;?>
                 @foreach($data_kegiatan as $data_kegiatan )
                     <tr>
                         
-                        <td>{{$data_kegiatan->id}}</td>
+                        <!-- <td>{{$data_kegiatan->id}}</td> -->
+                        <th scope="row" id="id">  {{$no}}</th>
                         <td>{{$data_kegiatan->nama_mitra }}</td>
                         <td>{{$data_kegiatan->email}}</td>
                         <td>{{$data_kegiatan->nama_kecamatan}}</td>
@@ -114,6 +116,7 @@
                         <td>{{$data_kegiatan->rekening_bri}}</td>
                         <td>{{$data_kegiatan->bertugas_sebagai}}</td>
                     </tr>
+                    <?php $no++ ;?>
                     @endforeach
                 </tbody>
             </table>
