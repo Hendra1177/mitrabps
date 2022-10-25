@@ -40,18 +40,32 @@
                 
                     
                         <!-- Button trigger modal -->
+                        <form>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+<<<<<<< HEAD
                         <!-- <a href="#" role="button" class="btn btn-primary" style="margin-left: 70%" onclick="check()">Cetak</a> -->
                             <a href="/admin/spk/formspk" class="btn btn-primary" role="button" >Tambah SPK</a>
+=======
+                            <button  type="submit" role="button" class="btn btn-danger" id="button-hapus" onclick="hapusTerpilih()" disabled>Hapus</button>
+                            <a href="/admin/spk/formspk" class="btn btn-primary" role="button">Tambah SPK</a>
+>>>>>>> b434cf21fe74449860692c1a549dae689f31435f
                         </div>
                     
                     <div id="over" style="margin-left:auto;margin-right:auto">
                         <table class="table table-hover table-bordered" id="dataspk">
                             <thead>
                             <tr class="text-center">
+<<<<<<< HEAD
                             <!-- <th>#</th> -->
                             <th scope="col">No</th>
                                 {{-- <th>Nama Mitra</th> --}}
+=======
+                                <th>
+                                    <input type="checkbox" id="cb-head" name="n-head">
+                                </th>
+                                {{-- <th><input type="checkbox" id="chkCheckAll"></th> --}}
+                                <th scope="col">No</th>
+>>>>>>> b434cf21fe74449860692c1a549dae689f31435f
                                 <th>Kegiatan</th>
                                 <th>Pembuat Perjanjian Kerja</th>
                                 <th>Mitra</th>
@@ -65,8 +79,16 @@
                                 <?php $no=1;?>
                                     @foreach ($spk as $spk)
                                     <tr>
+<<<<<<< HEAD
                                         <!-- <th><input type="checkbox" id="spk_id" value="foreach"></th> -->
                                         <th scope="row" id="id">  {{$no}}</th>
+=======
+                                        <th>
+                                            <input type="checkbox" class="cb-child" name="n-body">
+                                        </th>
+                                        {{-- <th><input type="checkbox" name="ids" class="checkBoxClass" value="{{$spk->id}}"></th> --}}
+                                        <th scope="row">  {{$no}}</th>
+>>>>>>> b434cf21fe74449860692c1a549dae689f31435f
                                         <td>{{$spk->nama_kegiatan}}</td>
                                         <td>{{$spk->ppk}}</td>
                                         <td>{{$spk->nama_mitra}}</td>
@@ -84,16 +106,62 @@
                             </tbody>
                         </table>
                     </div>
+                </form>
                 </div>
             </div>
         </div>    
 </main>
 
 <script>
-    function myFunction() {
-    var x = document.getElementById("spk_id").value;
-    document.getElementById("id").innerHTML = x;
-    console.log('Tes');
+    let yangDicek = 0;
+
+    $("#cb-head").on('click', function(){
+        var isChecked = $("#cb-head").prop('checked')
+        $(".cb-child").prop('checked', isChecked)
+        $("#button-hapus").prop('disabled', !isChecked)
+    })
+
+    $("#dataspk").on('click', '.cb-child', function(){
+        if($(this).prop('checked')!=true){
+            $("#cb-head").prop('checked', false)
+        }
+
+        let semua_checkbox = $("#dataspk .cb-child:checked")
+        let button_non_aktif_status = (semua_checkbox.length>0)
+        $("#button-hapus").prop('disabled', !button_non_aktif_status)
+        
+    })
+
+    function hapusTerpilih(){
+        let checkbox_terpilih = $("#dataspk .cb-child:checked")
+        let semua_id = []
+        $.each(checkbox_terpilih,function(index,elm){
+            semua_id.push(elm.value)
+        })
+        // for(let key in checkbox_terpilih){
+        //     semua_id.push(checkbox_terpilih[key].value)
+        // }
+        // console.log(semua_id)
+        $.ajax({
+            url:"{{url('')}}/admin/spk/delete",
+            method:'post',
+            data:{ids:semua_id},
+            success:function(res){
+                table.ajax.reload(null,false)
+            }
+        })
+        
+        console.log("Terpilih hapus")
+    }
+
+    function del(){
+        $('#button-hapus').click(function(){
+            var cricketer = [];
+            $("input:checkbox[name='n-body']:checked").each(function(){    
+                cricketer.push($(this).attr("id"));    		
+            });
+            console.log("The best cricketers are: " + cricketer.join(", "));
+        });
     }
 </script>
 

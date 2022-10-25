@@ -96,6 +96,7 @@ Route::post('/admin/perjanjian/{id}/update', 'App\Http\Controllers\KegiatanMitra
 Route::get('/admin/spk', 'App\Http\Controllers\SpkController@index');
 Route::get('/admin/spk/formspk', 'App\Http\Controllers\SpkController@getCreate');
 Route::post('/admin/spk/formspk/create', 'App\Http\Controllers\SpkController@create');
+Route::post('/admin/spk/delete', 'App\Http\Controllers\SpkController@deleteMultiple');
 Route::get('/admin/spk/{id}/edit', 'App\Http\Controllers\SpkController@edit');
 Route::post('/admin/spk/{id}/update', 'App\Http\Controllers\SpkController@update');
 Route::get('/admin/spk/{id}/delete', 'App\Http\Controllers\SpkController@delete');

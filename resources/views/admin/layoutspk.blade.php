@@ -169,7 +169,7 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#dataspk').DataTable();
+        $('#dataspk').DataTable({});
       });
     </script>
 

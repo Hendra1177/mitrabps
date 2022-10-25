@@ -67,22 +67,29 @@ class SpkController extends Controller
         ->select('kegiatan_mitra.kegiatan_id', 'kegiatan_mitra.mitrabaru_id', 'kegiatan.nama_kegiatan')
         ->join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
         ->get();
-        
-        // $kegiatan = KegiatanMitra::find($id)->get();
-
-        // $mitra = DB::table('kegiatan_mitra')
-        // ->select('kegiatan_mitra.mitrabaru_id', 'kegiatan_mitra.kegiatan_id')
-        // ->join('mitrabaru', 'mitrabaru_id', '=', 'kegiatan_mitra.mitrabaru_id')
-        // ->join('kegiatan', 'kegiatan_id', '=', 'kegiatan_mitra.kegiatan_id')
-        // ->where('kegiatan_id', '=', $id)
-        // ->get('mitrabaru_id');
 
         $mitra = KegiatanMitra::orderBy('mitrabaru_id', 'asc')
         ->select('kegiatan_mitra.mitrabaru_id', 'kegiatan_mitra.mitrabaru_id', 'mitrabaru.nama_mitra')
         ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
         ->get();
 
+<<<<<<< HEAD
         return view('admin.spkcreate', ['kegiatan' => $kegiatan, 'mitra' => $mitra]);
+=======
+        $kec = DB::table('mitrabaru')
+        ->select('mitrabaru.id', 'kecamatan_id', 'desa_id')
+        ->where('mitrabaru.id', '=', 4)
+        ->get();
+
+        $resultKec = DB::table('kecamatan')
+        ->select('nama_kecamatan')->where('id','=',$kec[0]->kecamatan_id)->get();
+        $resultDes = DB::table('desa')
+        ->select('nama_desa')->where('id','=',$kec[0]->desa_id)->get();
+     
+        $result = [$resultKec[0]->nama_kecamatan,$resultDes[0]->nama_desa];
+   
+        return view('admin.spkcreate', ['kegiatan' => $kegiatan, 'mitra' => $mitra, 'kec'=>$kec]);
+>>>>>>> b434cf21fe74449860692c1a549dae689f31435f
     }
 
     public function edit($id)
@@ -162,6 +169,13 @@ class SpkController extends Controller
     {
         $spk = \App\Models\Spk::find($id);
         $spk->delete($spk);
+        return redirect('/admin/spk')->with('sukses', 'Data berhasil dihapus');
+    }
+
+    public function deleteMultiple(Request $request)
+    {
+        
+        $spk = Spk::whereIn('id', $request->ids)->delete();
         return redirect('/admin/spk')->with('sukses', 'Data berhasil dihapus');
     }
 

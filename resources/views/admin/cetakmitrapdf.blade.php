@@ -59,7 +59,10 @@
                     LAMPIRAN
                 </p> --}}
                 <br>
+<<<<<<< HEAD
                
+=======
+>>>>>>> b434cf21fe74449860692c1a549dae689f31435f
                 <pre style="text-align:left;padding-left:400px; font-family:'Times New Roman', Times, serif;">
                                                                                                         LAMPIRAN</pre>
                 <pre style="text-align:left;padding-left:400px; font-family:'Times New Roman', Times, serif;">
