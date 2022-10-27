@@ -51,7 +51,7 @@
                     <div class="col-6">
                         <!-- Button trigger modal -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="/admin/kegiatan/formkegiatan" class="btn btn-primary" role="button">Tambah Kegiatan</a>
+                            <a href="/admin/kegiatan/formkegiatan" class="btn btn-primary bi bi-plus-lg" role="button"> Tambah Kegiatan</a>
                         </div>
                     </div>
                     <div id="over">
@@ -85,9 +85,9 @@
                                 <td class="text-center">{{$kegiatan->satuan}}</td>
                                 <td class="text-center">{{"Rp ".format_uang($kegiatan->harga_satuan)}}</td>
                                 <td>
-                                    <a href="/admin/kegiatan/{{$kegiatan->id}}/detail" class="btn btn-info btn-sm">View</a>
-                                    <a href="/admin/kegiatan/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">Hapus</a>
+                                    <a href="/admin/kegiatan/{{$kegiatan->id}}/detail" class="btn btn-info btn-sm bi bi-sticky" title="Detail"></a>
+                                    <a href="/admin/kegiatan/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm bi bi-pencil-square" title="Edit"></a>
+                                    <a href="/admin/kegiatan/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm bi bi-trash3-fill" title="Hapus" onclick="return confirm('Apakah yakin mau dihapus?')"></a>
                                 </td>
                             </tr>
                             <?php $no++ ;?>

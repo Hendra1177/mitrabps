@@ -42,30 +42,17 @@
                         <!-- Button trigger modal -->
                         <form>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-<<<<<<< HEAD
                         <!-- <a href="#" role="button" class="btn btn-primary" style="margin-left: 70%" onclick="check()">Cetak</a> -->
-                            <a href="/admin/spk/formspk" class="btn btn-primary" role="button" >Tambah SPK</a>
-=======
-                            <button  type="submit" role="button" class="btn btn-danger" id="button-hapus" onclick="hapusTerpilih()" disabled>Hapus</button>
-                            <a href="/admin/spk/formspk" class="btn btn-primary" role="button">Tambah SPK</a>
->>>>>>> b434cf21fe74449860692c1a549dae689f31435f
+                            <a href="/admin/spk/formspk" class="btn btn-primary bi bi-plus-lg" role="button"> Tambah SPK</a>
                         </div>
                     
                     <div id="over" style="margin-left:auto;margin-right:auto">
                         <table class="table table-hover table-bordered" id="dataspk">
                             <thead>
                             <tr class="text-center">
-<<<<<<< HEAD
                             <!-- <th>#</th> -->
                             <th scope="col">No</th>
                                 {{-- <th>Nama Mitra</th> --}}
-=======
-                                <th>
-                                    <input type="checkbox" id="cb-head" name="n-head">
-                                </th>
-                                {{-- <th><input type="checkbox" id="chkCheckAll"></th> --}}
-                                <th scope="col">No</th>
->>>>>>> b434cf21fe74449860692c1a549dae689f31435f
                                 <th>Kegiatan</th>
                                 <th>Pembuat Perjanjian Kerja</th>
                                 <th>Mitra</th>
@@ -79,16 +66,8 @@
                                 <?php $no=1;?>
                                     @foreach ($spk as $spk)
                                     <tr>
-<<<<<<< HEAD
                                         <!-- <th><input type="checkbox" id="spk_id" value="foreach"></th> -->
                                         <th scope="row" id="id">  {{$no}}</th>
-=======
-                                        <th>
-                                            <input type="checkbox" class="cb-child" name="n-body">
-                                        </th>
-                                        {{-- <th><input type="checkbox" name="ids" class="checkBoxClass" value="{{$spk->id}}"></th> --}}
-                                        <th scope="row">  {{$no}}</th>
->>>>>>> b434cf21fe74449860692c1a549dae689f31435f
                                         <td>{{$spk->nama_kegiatan}}</td>
                                         <td>{{$spk->ppk}}</td>
                                         <td>{{$spk->nama_mitra}}</td>
@@ -96,9 +75,10 @@
                                         <td class="text-center">{{$spk->tanggal}} {{$spk->bulan}} {{$spk->tahun}}</td>
                                         <td>
                                             
-                                            <a href="/admin/spk/{{$spk->id}}/cetakspk" class="btn btn-primary btn-sm" >Cetak</a>
-                                            <a href="/admin/spk/{{$spk->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                            <a href="/admin/spk/{{$spk->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">Hapus</a>
+                                            <a href="/admin/spk/{{$spk->id}}/cetak-spk" class="btn btn-success btn-sm bi bi-file-earmark-pdf" title="Cetak SPK"></a>
+                                            <a href="/admin/spk/{{$spk->id}}/cetak-lampiran" class="btn btn-info btn-sm bi bi-file-earmark-pdf-fill" title="Cetak Lampiran"></a>
+                                            <a href="/admin/spk/{{$spk->id}}/edit" class="btn btn-warning btn-sm bi bi-pencil-square" title="Edit"></a>
+                                            <a href="/admin/spk/{{$spk->id}}/delete" class="btn btn-danger btn-sm bi bi-trash3-fill" title="Hapus"></a>
                                         </td>
                                     </tr>
                                 <?php $no++ ;?>

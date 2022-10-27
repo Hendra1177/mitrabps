@@ -42,7 +42,7 @@
         @endif
                 <div class="row">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a href="/admin/perjanjian/formperjanjian" class="btn btn-primary" role="button">Tambah Pelaksana</a>
+                        <a href="/admin/perjanjian/formperjanjian" class="btn btn-primary bi bi-plus-lg" role="button"> Tambah Pelaksana</a>
                     </div>
                     <div id="over">
                         <table class="table table-hover table-bordered" id="datatables">
@@ -75,8 +75,8 @@
                                     <td class="text-center">{{$kegiatan->beban_anggaran}}</td>
                                     <td>
                                        
-                                        <a href="/admin/perjanjian/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm">edit</a>
-                                        <a href="/admin/perjanjian/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">delete</a>     
+                                        <a href="/admin/perjanjian/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm bi bi-pencil-square" title="Edit"></a>
+                                        <a href="/admin/perjanjian/{{$kegiatan->id}}/delete" class="btn btn-danger btn-sm bi bi-trash3-fill" title="Hapus" onclick="return confirm('Apakah yakin mau dihapus?')"></a>     
                                     </td>
                                 </tr>
                                 <?php $no++ ;?>

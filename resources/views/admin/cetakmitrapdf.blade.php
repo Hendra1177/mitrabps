@@ -44,14 +44,9 @@
 <div class="card cardspk" style="margin-right:30px; margin-left:30px;">
     <div class="card-body card-body-spk" style="margin-right:15px; margin-left:15px;">
 
-        <button type="button" class="btn-danger" onclick="printData()">
-            Print Form
+        <button type="button" class="btn-danger bi bi-printer-fill" title="Print" onclick="printData()">
+            Cetak
         </button>
-
-
-
-
-
 
         <div id="over">
             <div class="margin-start:10px;" style="padding-top: 20px; padding-bottom:20px; padding-right:20px; font-family:'Times New Roman', Times, serif;">
@@ -59,20 +54,18 @@
                     LAMPIRAN
                 </p> --}}
                 <br>
-<<<<<<< HEAD
+               @foreach ($kd_spk as $kd_spk)
+                   
                
-=======
->>>>>>> b434cf21fe74449860692c1a549dae689f31435f
                 <pre style="text-align:left;padding-left:400px; font-family:'Times New Roman', Times, serif;">
                                                                                                         LAMPIRAN</pre>
                 <pre style="text-align:left;padding-left:400px; font-family:'Times New Roman', Times, serif;">
                                                                                                         PERJANJIAN KERJA
                                                                                                         BADAN PUSAT STATISTIK KABUPATEN JOMBANG
-                                                                                                        NOMOR: 35171.{{$mitrabaru->id}}/SPK/ALL/(bulan angka)/2022</pre>
-                <!-- <p style="text-align:right;padding-right:20px;line-height:10px;">BADAN PUSAT STATISTIK KABUPATEN JOMBANG</p>
-                <p style="text-align:right;padding-right:56px;line-height:10px;">NOMOR: 35171.{{$mitrabaru->id}}/SPK/ALL/(bulan angka)/2022</p> -->
-                <br><br>
+                                                                                                        NOMOR: 35171.{{$kd_spk->mitrabaru_id}}/{{$kd_spk->kode_kegiatan}}/{{bulan($kd_spk->bulan)}}/2022</pre>
                 
+                                                                                                        @endforeach
+                <br><br>
                 <p style="font-weight:bold ; text-align:center;">
                     DAFTAR URAIAN TUGAS, JANGKA WAKTU, NILAI PERJANJIAN, DAN BEBAN ANGGARAN
                 </p>
@@ -105,7 +98,7 @@
                 </thead>
                 <tbody>
                     <?php $no = 1; ?>
-                    @foreach($data_kegiatan as $data_kegiatan )
+                    @foreach($spk as $data_kegiatan )
                     <tr>
                         <td>{{$no}}</td>
                         <td>{{$data_kegiatan->nama_kegiatan}}</td>
@@ -118,34 +111,22 @@
                         <td>{{$data_kegiatan->beban_anggaran}}</td>
                     </tr>
                     <?php $no++; ?>
-                    @endforeach
-                    {{-- @foreach($data_kegiatan as $data_kegiatan )
-                    <tr>
                     
-                        <th scope="row">  {{$no}}</th>
-                    <td>{{$data_kegiatan->nama_kegiatan}}</td>
-                    <td>{{$data_kegiatan->bulan}}</td>
-                    <td>{{$data_kegiatan->tanggal_mulai}} - {{$data_kegiatan->tanggal_akhir}}</td>
-                    <td>{{$data_kegiatan->volume_total}}</td>
-                    <td>{{$data_kegiatan->satuan}}</td>
-                    <td>{{$data_kegiatan->harga_satuan}}</td>
-                    <td>{{$data_kegiatan->target}}</td>
-                    <td>{{$data_kegiatan->nilai_perjanjian}}</td>
-                    <td>{{$data_kegiatan->beban_anggaran}}</td>
-
-                    </tr>
+                    @endforeach
                     <?php $no++; ?>
-                    @endforeach --}}
+                    
                 </tbody>
 
                 <tfoot>
+                @foreach ($spk as $data_kegiatan)
+                    
                 
                     <tr>
                         <th colspan="6" class="text-center" style="font-weight:normal; font-style:italic;">Terbilang: ({{terbilang($data_kegiatan->nilai_perjanjian)."Rupiah "}}) </th>
                         <td id="renderCurrency"></td>
                         <th></th>
                     </tr>
-                
+                    @endforeach    
                 </tfoot>
             </table>
         </div>

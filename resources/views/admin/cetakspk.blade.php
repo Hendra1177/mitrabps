@@ -4299,76 +4299,26 @@ class=SpellE><span lang=EN-US style='font-family:"Bookman Old Style",serif'>tahu
 lang=EN-US style='font-family:"Bookman Old Style",serif'> <span class=SpellE>{{terbilang($data->tahun)}}</span>, <span class=SpellE>bertempat</span>
 di Kantor BPS <span class=SpellE>Kabupaten</span> <span class=SpellE>Jombang</span>,
 yang <span class=SpellE>bertanda</span> <span class=SpellE>tangan</span> di <span
-class=SpellE>bawah</span> <span class=SpellE>ini</span>:<o:p></o:p></span></p>
+class=SpellE>bawah</span> <span class=SpellE>ini</span>:</span></p>
 
+<table  >
+<tr>
+	<td><font size="2">1.</font></td>
+	<td style="width: 200px; text-align: justify;"><font size="2">{{$data->ppk}}</font></td>
+	<td><br><br>:<font size="2"> Pejabat Pembuat Komitmen Badan Pusat Statistik Kabupaten Jombang untuk kode kegiatan {{$data->beban_anggaran}}, berkedudukan
+	di Jalan Airlangga No.46A Jombang, bertindak untuk dan atas nama Badan Pusat Statistik Kabupaten  Jombang, selanjutnya disebut sebagai <b>PIHAK PERTAMA</b>.
+	</font></td>
+</tr>
+</table>
 
-<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:6.0cm;text-indent:-6.0cm;line-height:125%;mso-list:l5 level1 lfo2;
-tab-stops:21.3pt 155.95pt'><![if !supportLists]><span lang=IN style='font-family:
-"Bookman Old Style",serif;mso-fareast-font-family:"Bookman Old Style";
-mso-bidi-font-family:"Bookman Old Style"'><span style='mso-list:Ignore'>1.<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
-class=SpellE><span lang=EN-US style='font-family:"Bookman Old Style",serif;
-mso-ansi-language:EN-US'>{{$data->ppk}}</span><span lang=IN style='font-family:"Bookman Old Style",serif'><span
-style='mso-tab-count:1'> </span>:<span style='mso-tab-count:1'></span>Pejabat
-Pembuat Komitmen Badan Pusat <span class=GramE>Statistik <span
-style='mso-ansi-language:ZH-CN'><span style='mso-spacerun:yes'></span></span><span
-class=SpellE><span lang=EN-US style='mso-ansi-language:EN-US'>Kabupaten</span></span></span></span><span
-lang=EN-US style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'>
-<span class=SpellE>Jombang untuk kode kegiatan {{$data->beban_anggaran}}</span></span><span lang=IN style='font-family:"Bookman Old Style",serif'>,
-berkedudukan di </span><span lang=EN-US style='font-family:"Bookman Old Style",serif;
-mso-ansi-language:EN-US'>Jalan <span class=SpellE>Airlangga</span> No. 46A <span
-class=SpellE>Jombang</span></span><span lang=IN style='font-family:"Bookman Old Style",serif'>,
-bertindak untuk dan atas nama Badan Pusat Statistik</span><span lang=EN-US
-style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'> <span
-class=SpellE>Kabupaten</span> <span class=SpellE>Jombang</span></span><span
-lang=IN style='font-family:"Bookman Old Style",serif'>, selanjutnya disebut
-sebagai <b style='mso-bidi-font-weight:normal'>PIHAK PERTAMA</b>. <o:p></o:p></span></p>
-
-<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:6.0cm;text-indent:-6.0cm;line-height:1%;tab-stops:21.3pt 1.0cm 155.95pt'><span
-lang=IN style='font-family:"Bookman Old Style",serif'><o:p>&nbsp;</o:p></span></p>
-<p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
-0cm;margin-left:6.0cm;text-indent:-6.0cm;line-height:125%;mso-list:l5 level1 lfo2;
-tab-stops:21.3pt 155.95pt'><![if !supportLists]><span lang=IN style='font-family:
-"Bookman Old Style",serif;mso-fareast-font-family:"Bookman Old Style";
-mso-bidi-font-family:"Bookman Old Style"'><span style='mso-list:Ignore'>2.<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><!--[if supportFields]><span
-lang=IN style='font-family:"Bookman Old Style",serif'><span style='mso-element:
-field-begin'></span><span style='mso-spacerun:yes'></span>MERGEFIELD NAMA <span
-style='mso-element:field-separator'></span></span><![endif]--><span lang=IN
-style='font-family:"Bookman Old Style",serif'><span style='mso-no-proof:yes'>{{$data->nama_mitra}}</span></span><!--[if supportFields]><span lang=IN
-style='font-family:"Bookman Old Style",serif'><span style='mso-element:field-end'></span></span><![endif]--><span
-lang=IN style='font-family:"Bookman Old Style",serif'><span style='mso-tab-count:
-1'> </span>:<span style='mso-tab-count:1'></span></span><!--[if supportFields]><span
-lang=IN style='font-family:"Bookman Old Style",serif'><span style='mso-element:
-field-begin'></span> MERGEFIELD kerja <span style='mso-element:field-separator'></span></span><![endif]--><span
-lang=IN style='font-family:"Bookman Old Style",serif'><span style='mso-no-proof:
-yes'>{{$data->pekerjaan}}</span></span><!--[if supportFields]><span lang=IN
-style='font-family:"Bookman Old Style",serif'><span style='mso-element:field-end'></span></span><![endif]--><span
-lang=IN style='font-family:"Bookman Old Style",serif'>, berkedudukan di</span><span
-lang=IN style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'> </span><!--[if supportFields]><span
-lang=EN-US style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'><span
-style='mso-element:field-begin'></span><span
-style='mso-spacerun:yes'></span>MERGEFIELD AlamatDetail <span
-style='mso-element:field-separator'></span></span><![endif]--><span lang=IN
-style='font-family:"Bookman Old Style",serif;mso-no-proof:yes'>{{$data->alamat}}</span><!--[if supportFields]><span lang=EN-US
-style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'><span
-style='mso-element:field-end'></span></span><![endif]--><span lang=EN-US
-style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'> <span
-class=SpellE>Kec</span>. </span><!--[if supportFields]><span lang=EN-US
-style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'><span
-style='mso-element:field-begin'></span><span
-style='mso-spacerun:yes'>�</span>MERGEFIELD ASAL_KECAMATAN <span
-style='mso-element:field-separator'></span></span><![endif]--><span lang=IN
-style='font-family:"Bookman Old Style",serif;mso-no-proof:yes'>{{$data->nama_kecamatan}}</span><!--[if supportFields]><span
-lang=EN-US style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'><span
-style='mso-element:field-end'></span></span><![endif]--><span lang=EN-US
-style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-US'> <span
-class=SpellE>Kab</span>. <span class=SpellE>Jombang</span></span><span lang=IN
-style='font-family:"Bookman Old Style",serif'>, bertindak untuk dan atas nama
-diri sendiri, selanjutnya disebut <b style='mso-bidi-font-weight:normal'>PIHAK
-KEDUA</b>.<o:p></o:p></span></p>
+<table  >
+<tr>
+	<td><font size="2">2.</font></td>
+	<td style="width: 200px; text-align: justify;"><font size="2">{{$data->nama_mitra}}</font></td>
+	<td><br>:<font size="2"> {{$data->pekerjaan}}, berkedudukan di {{$data->alamat}} Kec.{{$data->nama_kecamatan}} Kab.Jombang, bertindak untuk dan atas nama diri sendiri, selanjutnya disebut <b>PIHAK KEDUA</b>. </font></td>
+</tr>
+</table>
+<br><br>
 
 
 <p class=MsoNormal style='margin-bottom:0cm;text-align:justify;text-justify:

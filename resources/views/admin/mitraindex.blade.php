@@ -45,7 +45,7 @@
                     <div class="col-6">
                         <!-- Button trigger modal -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="/admin/mitra/formmitra" class="btn btn-primary" role="button">Tambah Mitra</a>
+                            <a href="/admin/mitra/formmitra" class="btn btn-primary bi bi-plus-lg" role="button"> Tambah Mitra</a>
                         </div>
                     </div>
                     <div id="over">
@@ -82,9 +82,9 @@
                                     <td>{{$mitra->pekerjaan}}</td>
                                     <td>{{$mitra->rekening_bri}}</td>
                                     <td>
-                                        <a href="/admin/mitra/{{$mitra->id}}/detail" class="btn btn-info btn-sm">View</a>
-                                        <a href="/admin/mitra/{{$mitra->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="/admin/mitra/{{$mitra->id}}/delete" class="btn btn-danger btn-sm" onclick="return confirm('Apakah yakin mau dihapus?')">Hapus</a>
+                                        <a href="/admin/mitra/{{$mitra->id}}/detail" class="btn btn-info btn-sm bi bi-sticky" title="Detail"></a>
+                                        <a href="/admin/mitra/{{$mitra->id}}/edit" class="btn btn-warning btn-sm bi bi-pencil-square" title="Edit"></a>
+                                        <a href="/admin/mitra/{{$mitra->id}}/delete" class="btn btn-danger btn-sm bi bi-trash3-fill" title="Hapus" onclick="return confirm('Apakah yakin mau dihapus?')"></a>
                                         <!-- <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#ModalDelete">
                                             Delete
                                         </button>
