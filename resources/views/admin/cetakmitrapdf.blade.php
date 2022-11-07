@@ -54,17 +54,14 @@
                     LAMPIRAN
                 </p> --}}
                 <br>
-               @foreach ($kd_spk as $kd_spk)
-                   
-               
+            @foreach ($kd_spk as $kd_spk)
                 <pre style="text-align:left;padding-left:400px; font-family:'Times New Roman', Times, serif;">
                                                                                                         LAMPIRAN</pre>
                 <pre style="text-align:left;padding-left:400px; font-family:'Times New Roman', Times, serif;">
                                                                                                         PERJANJIAN KERJA
                                                                                                         BADAN PUSAT STATISTIK KABUPATEN JOMBANG
                                                                                                         NOMOR: 35171.{{$kd_spk->mitrabaru_id}}/{{$kd_spk->kode_kegiatan}}/{{bulan($kd_spk->bulan)}}/2022</pre>
-                
-                                                                                                        @endforeach
+            @endforeach
                 <br><br>
                 <p style="font-weight:bold ; text-align:center;">
                     DAFTAR URAIAN TUGAS, JANGKA WAKTU, NILAI PERJANJIAN, DAN BEBAN ANGGARAN

@@ -81,7 +81,7 @@ class SpkController extends Controller
     public function edit($id)
     {
         $spk = \App\Models\Spk::find($id);
-        $data_kegiatan = DB::table('spk')
+        $spk1 = DB::table('spk')
         ->select('kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
                 'kegiatan.beban_anggaran', 'mitrabaru.nama_mitra', 'spk.kecamatan_id', 'spk.desa_id', 'kecamatan.nama_kecamatan', 'desa.nama_desa')
         ->join('kegiatan', 'kegiatan.id', '=', 'spk.kegiatan_id')
@@ -99,7 +99,7 @@ class SpkController extends Controller
 
         // $spk = Spk::all();
         // $kegiatan_mitra = KegiatanMitra::all();
-        return view('admin.spkedit', ['spk' => $spk, 'data_kegiatan' => $data_kegiatan, 'kegiatan' => $kegiatan, 'mitra' => $mitra]);
+        return view('admin.spkedit', ['spk' => $spk,'spk1' => $spk1, 'kegiatan' => $kegiatan, 'mitra' => $mitra]);
     }
 
     public function update(Request $request, $id)
@@ -147,6 +147,8 @@ class SpkController extends Controller
         ->join('kecamatan', 'kecamatan.id', '=', 'spk.kecamatan_id')
         ->join('desa', 'desa.id', '=', 'spk.desa_id')
         ->get();
+
+        
 
         $data_kegiatan = Spk::join('kegiatan', 'kegiatan.id', '=', 'spk.kegiatan_id')
             ->join('mitrabaru', 'mitrabaru.id', '=', 'spk.mitrabaru_id')
@@ -196,9 +198,9 @@ class SpkController extends Controller
 
         $spk = \App\Models\Spk::find($id);
         $data = DB::table('spk')
-            ->select('spk.bulan','spk.tahun','spk.id','spk.kegiatanmitra_id','spk.hari', 'spk.ppk','spk.mitrabaru_id','spk.tanggal',
+            ->select('spk.bulan','spk.tahun','spk.id','spk.kegiatanmitra_id','spk.hari', 'spk.ppk','spk.mitrabaru_id','spk.tanggal','spk.kode_kegiatan',
                     'mitrabaru.nama_mitra', 'mitrabaru.pekerjaan', 'mitrabaru.alamat','mitrabaru.id','kecamatan.nama_kecamatan',
-                    'kegiatan.harga_satuan','kegiatan.tanggal_mulai','kegiatan.tanggal_akhir',
+                    'kegiatan.harga_satuan','kegiatan.tanggal_mulai','kegiatan.tanggal_akhir', 'kegiatan.nilai_perjanjian',
                     'desa.nama_desa', 'kegiatan.beban_anggaran')
             ->join('mitrabaru','mitrabaru.id', '=','spk.mitrabaru_id' )
             ->join('kecamatan','kecamatan.id','=','spk.kecamatan_id')
@@ -207,16 +209,20 @@ class SpkController extends Controller
             ->where('spk.id', '=', $spk->id)
             ->get();
 
-        $pdf =PDF::loadview('admin.cetakspk',['spk'=>$spk , 'data'=>$data, 'kegiatan'=>$kegiatan])->setOptions(['defaultFont' => 'sans-serif']);
+            $kd_spk1 = Spk::find($id);
+        $kd_spk = DB::table('spk')
+        ->select('spk.kode_kegiatan', 'spk.mitrabaru_id', 'spk.bulan')
+        ->where('spk.id', '=', $kd_spk1 -> id)
+        ->get();
+
+        $pdf =PDF::loadview('admin.cetakspk',['spk'=>$spk , 'data'=>$data, 'kegiatan'=>$kegiatan, 'kd_spk'=>$kd_spk])->setOptions(['defaultFont' => 'sans-serif']);
         return $pdf->stream();
         
     }
 
     public function cetakLampiran($id)
     {
-        $mitra_baru = \App\Models\MitraBaru::find($id);
         $spkid = Spk::find($id);
-
         $spk = DB::table('spk')
         ->select('spk.kegiatan_id', 'spk.mitrabaru_id', 'kegiatan.nama_kegiatan', 'mitrabaru.nama_mitra', 'kegiatan.tanggal_mulai', 'spk.kode_kegiatan', 
                 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.nilai_perjanjian', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
@@ -232,9 +238,6 @@ class SpkController extends Controller
         ->where('spk.id', '=', $kd_spk1 -> id)
         ->get();
 
-
-
-        
         return view('admin.cetakmitrapdf', ['spk' => $spk, 'kd_spk'=>$kd_spk]);
     }
 }

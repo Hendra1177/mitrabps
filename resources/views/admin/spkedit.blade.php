@@ -78,23 +78,23 @@
           <span class="help-block text-danger fs-9">*The mitra field is required.</span>
           @endif
         </div>
-
+        @foreach($spk1 as $spk1)
         <div class="row">
           <div class="col-6">
             <label for="text">Kecamatan</label>
-            <input class="form-control" id="kec_id" name="kecamatan_id" value="{{$spk->kecamatan_id}}" type="text"
+            <input class="form-control" id="kec_id" name="kecamatan_id" value="{{$spk1->nama_kecamatan}}" type="text"
               placeholder="" aria-label="Disabled input example">
 
           </div>
           <div class="col-6">
             <div class="mb-3">
               <label for="text">Desa</label>
-              <input class="form-control" id="des_id" name="desa_id" value="{{$spk->desa_id}}" type="text"
+              <input class="form-control" id="des_id" name="desa_id" value="{{$spk1->nama_desa}}" type="text"
                 placeholder="" aria-label="Disabled input example">
 
             </div>
           </div>
-
+          @endforeach
           <div class="form-group {{$errors->has('hari') ? ' has-error' : ''}}">
             <label for="exampleFormControlSelect1">Hari</label>
             <select name="hari" class="form-select" aria-label="Default select example">
@@ -163,39 +163,7 @@
             @endif
           </div>
 
-          {{-- <div class="form-group {{$errors->has('kegiatan_id') ? ' has-error' : ''}}">
-            <label for="exampleDataList" class="form-label">Pilih Kegiatan</label>
-            @foreach ($data_kegiatan as $dk)
-            <input class="form-control" value="{{$dk->nama_kegiatan}}" list="datalistOptions" id="exampleDataList"
-              placeholder="Enter kegiatan" name="kegiatan_id">
-            @endforeach
-            <datalist id="datalistOptions">
-              <option value="">
-                @foreach ($kegiatan as $km)
-              <option value="{{$km->kegiatan_id}}">{{$km->kegiatan_id}}</option>
-              @endforeach
-            </datalist>
-            @if ($errors->has('kegiatan_id'))
-            <span class="help-block text-danger fs-9">*The kegiatan field is required.</span>
-            @endif
-          </div>
-
-          <div class="form-group {{$errors->has('mitrabaru_id') ? ' has-error' : ''}}">
-            <label for="exampleDataList1" class="form-label">Pilih Mitra</label>
-            @foreach ($data_kegiatan as $dk)yy
-            <input class="form-control" value="{{$dk->nama_mitra}}" list="datalistOptions1" id="exampleDataList1"
-              placeholder="Enter mitra.." name="mitrabaru_id">
-            @endforeach
-            <datalist id="datalistOptions1">
-              <option value="">
-                @foreach ($mitra as $mt)
-              <option value="{{$mt->mitrabaru_id}}">{{$mt->mitrabaru_id}}</option>
-              @endforeach
-            </datalist>
-            @if ($errors->has('mitrabaru_id'))
-            <span class="help-block text-danger fs-9">*The mitra field is required.</span>
-            @endif
-          </div> --}}
+          
 
           <div class="row">
             <div class="col">

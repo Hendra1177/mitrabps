@@ -130,7 +130,7 @@
 <div class="card cardspk" style="margin-right:30px; margin-left:30px;">
     <div class="card-body card-body-spk" style="margin-right:15px; margin-left:15px;">
         
-        <a href="/admin/mitra/{{$mitra_baru->id}}/cetak-pdf" class="btn btn-danger btn-md" style="padding-left:16px; padding-right:16px; padding-top:9px; padding-bottom:9px">Cetak</a>
+        
       
         <!-- {{-- <div class="row">
             <div class="col-10">

@@ -54,7 +54,7 @@
                     <div class="col-6">
                         <!-- Button trigger modal -->
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="/kegiatan/formkegiatan " class="btn btn-primary" role="button">Tambah Kegiatan</a>
+                            <a href="/kegiatan/formkegiatan " class="btn btn-primary bi bi-plus-lg" role="button">Tambah Kegiatan</a>
                         </div>
                     </div>
                     <div id="over">
@@ -89,8 +89,8 @@
                                     <td class="text-center">{{$kegiatan->satuan}}</td>
                                     <td class="text-center">{{$kegiatan->harga_satuan}}</td>
                                     <td>
-                                        <a href="/kegiatan/{{$kegiatan->id}}/detail" class="btn btn-info btn-sm">View</a>
-                                        <a href="/kegiatan/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="/kegiatan/{{$kegiatan->id}}/detail" class="btn btn-info btn-sm bi bi-sticky" title="Detail"></a>
+                                        <a href="/kegiatan/{{$kegiatan->id}}/edit" class="btn btn-warning btn-sm bi bi-pencil-square" title="Edit"></a>
                                     </td>
                                 </tr>
                                 @endforeach

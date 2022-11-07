@@ -56,12 +56,12 @@
           @endif
         </div>
 
-        <div class="form-group {{$errors->has('tanggal') ? ' has-error' : ''}}">
+        <div class="form-group {{$errors->has('kode_kegiatan') ? ' has-error' : ''}}">
           <label for="text">Kode Kegiatan</label>
-          <input name="tanggal" value="{{old('tanggal')}}" type="text" class="form-control" id="tanggal"
+          <input name="kode_kegiatan" value="{{old('kode_kegiatan')}}" type="text" class="form-control" id="kode_kegiatan"
             placeholder="Enter kode kegiatan">
-          @if ($errors->has('tanggal'))
-          <span class="help-block text-danger">*{{$errors->first('tanggal')}}</span>
+          @if ($errors->has('kode_kegiatan'))
+          <span class="help-block text-danger">*{{$errors->first('kode_kegiatan')}}</span>
           @endif
         </div>
 

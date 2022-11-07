@@ -730,7 +730,7 @@ href="PERJANJIAN%20KERJA_files/colorschememapping.xml">
 	mso-style-parent:"";
 	margin-top:0cm;
 	margin-right:0cm;
-	margin-bottom:8.0pt;
+	margin-bottom:200px;
 	margin-left:0cm;
 	line-height:107%;
 	mso-pagination:widow-orphan;
@@ -4285,7 +4285,7 @@ style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-family:"Bookman
 style='mso-element:field-end'></span></span></b><![endif]--><b
 @endforeach
 
-style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-family:"Bookman Old Style",serif'>/SPK/SAK/{{bulan($data->bulan)}}/2022<o:p></o:p></span></b></p>
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-family:"Bookman Old Style",serif'>/SPK/{{$data -> kode_kegiatan }}/{{bulan($data->bulan)}}/2022<o:p></o:p></span></b></p>
 
 
 <p class=MsoNormal style='margin-bottom:0cm;text-align:justify;text-justify:
@@ -4301,11 +4301,13 @@ di Kantor BPS <span class=SpellE>Kabupaten</span> <span class=SpellE>Jombang</sp
 yang <span class=SpellE>bertanda</span> <span class=SpellE>tangan</span> di <span
 class=SpellE>bawah</span> <span class=SpellE>ini</span>:</span></p>
 
+
 <table  >
 <tr>
 	<td><font size="2">1.</font></td>
 	<td style="width: 200px; text-align: justify;"><font size="2">{{$data->ppk}}</font></td>
-	<td><br><br>:<font size="2"> Pejabat Pembuat Komitmen Badan Pusat Statistik Kabupaten Jombang untuk kode kegiatan {{$data->beban_anggaran}}, berkedudukan
+	<td>:</td>
+	<td class="vertical-align-bottom" style="text-align:justify ;"><br><br><font size="2"> Pejabat Pembuat Komitmen Badan Pusat Statistik Kabupaten Jombang untuk kode kegiatan {{$data->beban_anggaran}}, berkedudukan
 	di Jalan Airlangga No.46A Jombang, bertindak untuk dan atas nama Badan Pusat Statistik Kabupaten  Jombang, selanjutnya disebut sebagai <b>PIHAK PERTAMA</b>.
 	</font></td>
 </tr>
@@ -4315,7 +4317,8 @@ class=SpellE>bawah</span> <span class=SpellE>ini</span>:</span></p>
 <tr>
 	<td><font size="2">2.</font></td>
 	<td style="width: 200px; text-align: justify;"><font size="2">{{$data->nama_mitra}}</font></td>
-	<td><br>:<font size="2"> {{$data->pekerjaan}}, berkedudukan di {{$data->alamat}} Kec.{{$data->nama_kecamatan}} Kab.Jombang, bertindak untuk dan atas nama diri sendiri, selanjutnya disebut <b>PIHAK KEDUA</b>. </font></td>
+	<td>:</td>
+	<td style="text-align:justify;"><br><font size="2"> {{$data->pekerjaan}}, berkedudukan di {{$data->alamat}} Kec.{{$data->nama_kecamatan}} Kab.Jombang, bertindak untuk dan atas nama diri sendiri, selanjutnya disebut <b>PIHAK KEDUA</b>. </font></td>
 </tr>
 </table>
 <br><br>
@@ -4416,6 +4419,7 @@ lang=EN-US style='font-family:"Bookman Old Style",serif'>Pasal</span></b></span>
 style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-family:"Bookman Old Style",serif'>
 4<o:p></o:p></span></b></p>
 
+
 <p class=MsoNormal style='margin-bottom:0cm;text-align:justify;text-justify:
 inter-ideograph;line-height:125%'><b style='mso-bidi-font-weight:normal'><span
 lang=EN-US style='font-family:"Bookman Old Style",serif'>PIHAK KEDUA</span></b><span
@@ -4442,7 +4446,13 @@ lang=IN style='font-family:"Bookman Old Style",serif;mso-ansi-language:IN'><o:p>
 
 <p class=MsoNormal style='margin-bottom:0cm;text-align:justify;text-justify:
 inter-ideograph;line-height:125%'><span lang=EN-US style='font-family:"Bookman Old Style",serif'><o:p>&nbsp;</o:p></span></p>
+
 <br>
+<p style="text-align:center ; page-break-after: always;">-1-</p>
+
+<br><br>
+
+
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
 line-height:125%'><span class=SpellE><b style='mso-bidi-font-weight:normal'><span
 lang=EN-US style='font-family:"Bookman Old Style",serif'>Pasal</span></b></span><b
@@ -4459,7 +4469,7 @@ style='mso-bidi-font-weight:normal'><span lang=IN style='font-family:"Bookman Ol
 KEDUA</span></b><span lang=IN style='font-family:"Bookman Old Style",serif'>
 berhak untuk mendapatkan honorarium Petugas dari <b style='mso-bidi-font-weight:
 normal'>PIHAK PERTAMA </b>sebesar </span><span lang=EN-SG style='font-family:
-"Bookman Old Style",serif;mso-ansi-language:EN-SG'>{{"Rp. ".format_uang($data->harga_satuan)}} ({{terbilang($data->harga_satuan)."rupiah "}}) </span><span
+"Bookman Old Style",serif;mso-ansi-language:EN-SG'>{{"Rp. ".format_uang($data->nilai_perjanjian)}} ({{terbilang($data->nilai_perjanjian)."rupiah "}}) </span><span
 lang=IN style='font-family:"Bookman Old Style",serif'>untuk pekerjaan
 sebagaimana dimaksud dalam Pasal 2, <span style='color:black;mso-themecolor:
 text1'>termasuk biaya pajak, bea materai, </span></span><span class=SpellE><span
@@ -4605,7 +4615,7 @@ mso-ansi-language:EN-US'>pengolahan</span></span><span lang=IN
 style='font-family:"Bookman Old Style",serif'> dengan tidak menyelesaikan
 pekerjaan yang menjadi tanggung jawabnya, maka wajib membayar ganti rugi kepada
 <b style='mso-bidi-font-weight:normal'>PIHAK PERTAMA</b> sebesar </span><span
-lang=EN-SG style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-SG'>{{"Rp. ".format_uang($data->harga_satuan)}} ({{terbilang($data->harga_satuan)."Rupiah "}})</span><span
+lang=EN-SG style='font-family:"Bookman Old Style",serif;mso-ansi-language:EN-SG'>{{"Rp. ".format_uang($data->nilai_perjanjian)}} ({{terbilang($data->nilai_perjanjian)."Rupiah "}})</span><span
 lang=EN-US style='font-family:"Bookman Old Style",serif;color:black;mso-themecolor:
 text1;mso-ansi-language:EN-US'>. </span><span lang=IN style='font-family:"Bookman Old Style",serif'><o:p></o:p></span></p>
 
@@ -4621,7 +4631,9 @@ style='mso-bidi-font-weight:normal'>PIHAK KEDUA</b> meninggal dunia,
 mengundurkan diri karena sakit dengan keterangan rawat inap, terindikasi
 terinfeksi virus <i style='mso-bidi-font-style:normal'>Covid-19</i>, kecelakaan
 dengan keterangan kepolisian, dan/atau telah diberikan Surat Pemutusan
-Perjanjian Kerja dari <b style='mso-bidi-font-weight:normal'>PIHAK PERTAMA</b>.<o:p></o:p></span></p>
+Perjanjian Kerja dari <b style='mso-bidi-font-weight:normal'>PIHAK PERTAMA</b></span></p>
+
+<p style="text-align:center ; page-break-after: always;">-2-</p>
 
 <p class=MsoListParagraph style='margin-top:0cm;margin-right:0cm;margin-bottom:
 0cm;margin-left:27.0pt;text-indent:-27.0pt;line-height:125%;mso-list:l7 level1 lfo6;
@@ -4632,7 +4644,10 @@ style='mso-list:Ignore'>(3)<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbs
 hal terjadi peristiwa sebagaimana dimaksud pada ayat (2), <b style='mso-bidi-font-weight:
 normal'>PIHAK PERTAMA</b> membayarkan honorarium kepada <b style='mso-bidi-font-weight:
 normal'>PIHAK KEDUA</b> secara proporsional sesuai pekerjaan yang telah
-dilaksanakan.<o:p></o:p></span></p>
+dilaksanakan.</span></p>
+
+
+
 
 <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
 line-height:125%'><b style='mso-bidi-font-weight:normal'><span lang=EN-US
@@ -4815,6 +4830,8 @@ mso-ansi-language:IN'><o:p></o:p></span></p>
 </table>
 
 </div>
+
+<p style="text-align:center ; page-break-after: always;">-3-</p>
 
 <span style='mso-bookmark:_Hlk95394945'></span></div>
 
