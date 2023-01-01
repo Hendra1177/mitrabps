@@ -14,15 +14,20 @@ use Illuminate\Http\Request;
 
 class KegiatanMitraController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request )
     {
-        // $data = Kegiatan::join('mitra','mitra.id', '=', 'kegiatan.id')
-        //     ->join('kegiatan_mitra', 'kegiatan_mitra.kegiatan_id', '=', '')
-        if ($request->has('cari')) {
-            $data_kegiatan = \App\Models\Kegiatan::where('nama_kegiatan', 'LIKE', '%' . $request->cari . '%')->get();
-        } else {
-            $data_kegiatan = \App\Models\Kegiatan::all();
-        }
+        
+        
+        $data_kegiatan = DB::table('kegiatan_mitra')
+            ->select('kegiatan.id','kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
+                    'kegiatan_mitra.id', 'kegiatan.beban_anggaran', 'kegiatan.nilai_perjanjian', 'kegiatan_mitra.target',
+                    'mitrabaru.id','mitrabaru.nama_mitra', 'mitrabaru.email', 'mitrabaru.kecamatan_id', 'mitrabaru.desa_id', 'mitrabaru.alamat', 'mitrabaru.tanggal_lahir',
+                    'mitrabaru.jeniskelamin_id', 'mitrabaru.no_hp', 'mitrabaru.pekerjaan', 'mitrabaru.rekening_bri', 
+                    'kegiatan_mitra.bertugas_sebagai', 'kegiatan_mitra.kegiatan_id', 'kegiatan_mitra.mitrabaru_id')
+                    ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
+                    ->join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
+                    
+                    ->get();
 
         return view('admin.kegiatanmitraindex', ['data_kegiatan' => $data_kegiatan]);
     }
@@ -68,8 +73,8 @@ class KegiatanMitraController extends Controller
         $kegiatan_nama = Kegiatan::where('nama_kegiatan', $request->kegiatan_id)->value('id');
         $mitra_nama = MitraBaru::where('nama_mitra', $request->mitrabaru_id)->value('id');
 
-        $kegiatanmitra->kegiatan_id = $kegiatan_nama;
-        $kegiatanmitra->mitrabaru_id = $mitra_nama;
+        $kegiatanmitra->kegiatan_id = $request->kegiatan_id;
+        $kegiatanmitra->mitrabaru_id = $request->mitrabaru_id;
         $kegiatanmitra->bertugas_sebagai= $request->bertugas_sebagai;
         $kegiatanmitra->target = $request->target;
         $kegiatanmitra->save();
@@ -135,20 +140,6 @@ class KegiatanMitraController extends Controller
     {
         \App\Models\KegiatanMitra::create($request->all());
         return redirect('/mitra')->with('sukses', 'Data berhasil ditambahkan');
-    }
-
-
-
-    public function joinKegiatan(Request $request)
-    {
-        $data_kegiatan = KegiatanMitra::join('kegiatan', 'kegiatan.id', '=', 'kegiatan_mitra.kegiatan_id')
-            ->join('mitrabaru', 'mitrabaru.id', '=', 'kegiatan_mitra.mitrabaru_id')
-            ->get(['kegiatan.nama_kegiatan', 'kegiatan.bulan', 'kegiatan.tanggal_mulai', 'kegiatan.tanggal_akhir', 'kegiatan.volume_total', 'kegiatan.satuan', 'kegiatan.harga_satuan', 
-                'kegiatan_mitra.id', 'kegiatan.beban_anggaran']);
-
-
-        return view('admin.kegiatanmitraindex', ['data_kegiatan' => $data_kegiatan]);
-        // dd($data_kegiatan);
     }
 
     public function datalistPelaksana()

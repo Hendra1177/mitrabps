@@ -49,6 +49,7 @@
                             <thead>
                                 <tr class="text-center">
                                 <th scope="col">No</th>
+                                <th>Nama Mitra</th>
                                     <th>Uraian Kegiatan</th>
                                     <th>Bulan</th>
                                     <th>Jangka Waktu</th>
@@ -65,6 +66,7 @@
                             @foreach ($data_kegiatan as $kegiatan)
                                 <tr>
                                 <th scope="row">  {{$no}}</th>
+                                <td>{{$kegiatan-> nama_mitra}}</td>
                                     <td>{{$kegiatan->nama_kegiatan}}</td>
                                     <td>{{$kegiatan->bulan}}</td>
                                     <td class="text-center">{{$kegiatan->tanggal_mulai}} - {{$kegiatan->tanggal_akhir}}</td>

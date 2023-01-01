@@ -77,10 +77,11 @@ Route::get('/admin/mitra/{id}/detail', 'App\Http\Controllers\MitraController@det
 
 Route::get('/admin/mitra/{id}/cetakpdfmitra', 'App\Http\Controllers\MitraController@cetakPdfMitra');
 Route::get('/admin/mitra/{id}/cetak-pdf', 'App\Http\Controllers\MitraController@cetakPdf');
-
+//import excel
+Route::post('/admin/mitra/import', 'App\Http\Controllers\MitraController@importexcel');
 
 //CRUD Admin Perjanjian
-Route::get('/admin/perjanjian', 'App\Http\Controllers\KegiatanMitraController@joinKegiatan');
+Route::get('/admin/perjanjian', 'App\Http\Controllers\KegiatanMitraController@index');
 
 Route::get('/admin/perjanjian/formperjanjian', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksanaAdmin');
 Route::get('/admin/perjanjian/formperjanjian/create', 'App\Http\Controllers\KegiatanMitraController@datalistPelaksanaAdmin')->name('kegiatanmitracreate.datalistPelaksanaAdmin');

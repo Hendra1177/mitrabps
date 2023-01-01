@@ -12,9 +12,14 @@ use App\Models\MitraBaru;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use PDF;
+use App\Imports\MitraImport;
+use Maatwebsite\Excel\Facades\Excel;
 
+use Session;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Svg\Tag\Rect;
+use App\Http\Controllers\Storage;
 
 class MitraController extends Controller
 {
@@ -260,6 +265,34 @@ class MitraController extends Controller
             ->sum('kegiatan.nilai_perjanjian');
         return view('admin.cetakmitrapdf', ['mitrabaru' => $mitra_baru, 'kegiatanmitra' => $kegiatanmitra, 'data_kegiatan' => $data_kegiatan,'kegiatan' => $kegiatan, 'total' => $total]);
     }
+
+    public function importexcel(Request $request)
+    {
+        // validasi
+		$this->validate($request, [
+			'file' => 'required|mimes:csv,xls,xlsx'
+		]);
+
+        // menangkap file excel
+		$file = $request->file('file');
+
+        // membuat nama file unik
+		$nama_file = rand().$file->getClientOriginalName();
+
+        // upload ke folder file_siswa di dalam folder public
+		$file->move('file_mitra',$nama_file);
+
+        // import data
+		Excel::import(new MitraImport, public_path('/file_mitra/'.$nama_file));
+ 
+		// notifikasi dengan session
+		// Session::flash('sukses','Data Mitra Berhasil Diimport!');
+ 
+		// alihkan halaman kembali
+		return redirect('/admin/mitra')->with('sukses', 'Data berhasil diImport');
+
+    }
+
 
     
     //User
