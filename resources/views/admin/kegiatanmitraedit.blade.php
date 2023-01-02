@@ -29,7 +29,6 @@
                       <option value="">-Pilih Kegiatan-</option>
                         @foreach ($kegiatan as $km)
                             <option value="{{$km->id}}">{{$km->nama_kegiatan}}</option>
-
                         @endforeach
                     </select>
                     @if ($errors->has('kegiatan_id'))

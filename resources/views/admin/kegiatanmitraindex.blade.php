@@ -63,10 +63,10 @@
                             </thead>
                             <tbody>
                             <?php $no=1;?>
-                            @foreach ($data_kegiatan as $kegiatan)
+                            @foreach ($kegiatanmitra as $kegiatan)
                                 <tr>
                                 <th scope="row">  {{$no}}</th>
-                                <td>{{$kegiatan-> nama_mitra}}</td>
+                                <td>{{$kegiatan->nama_mitra}}</td>
                                     <td>{{$kegiatan->nama_kegiatan}}</td>
                                     <td>{{$kegiatan->bulan}}</td>
                                     <td class="text-center">{{$kegiatan->tanggal_mulai}} - {{$kegiatan->tanggal_akhir}}</td>
